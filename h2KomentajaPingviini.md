@@ -69,7 +69,7 @@ Seuraavaksi kokeilut:
       
 valmista oli muutamassa minuutissa, mutta kaiken lisätiedon hankinta ja kokeilut ennen ja jälkeen kesti 22.00 saakka.
 
-## 3. Listaa rauta - aloitus 22.10
+## 3. Listaa rauta - aloitus 22.10 
 
 kuva_lshw-not
 Ensimmäiseksi lshw asennus komennolla
@@ -83,48 +83,82 @@ tulee listaus:
 
 kuva_lshw
 
-H/W path sarake kuvaa laiteistopolkua eli kyseisen laitteiston fyysistä sijaintia 
+1. H/W path sarake kuvaa laiteistopolkua eli kyseisen laitteiston fyysistä sijaintia ja hierarkiaa
+- 0/ - 6/ kuvaa raudan pääkomponentteja, 0/ kuvaa emolevyä
+- /0/0 - 0/100/ kuvaa esitetyn pääkomponentin esitettyä alikomponenttia 
+- 0/100/1 - 0/100/6 viittaa 0/100/ sillan alaisiin komponentteihin
+- seuraavat numerot viittaavat aina hierarkkisesti uuteen alikomponenttiin 
 
-Device sarake näyttää laitteita, esim USB, kovalevyt...
+2. Device sarake näyttää laitteita, esim USB, kovalevyt...
 
-Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
+3. Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
 
-decription kuvaa kyseistä laitetta.
+4. Decription kuvaa kyseistä laitetta.
 
-Alle listaukseen olen lisännyt lisää analyysiä kustakin laitteesta.
-VirtualBox  -- /0 kuvaa raudan emolevyä eli ensimmäistä pääkomponenttia. tässä tapauksessa virtualBox 
-/0/0                            memory      128KiB BIOS -- /0/0 kuvaa ekan pääkomponentin ekaa alikomponenttia. Kyseessä BIOS-muisti kooltaan                                                128 KiB
-/0/1                            memory      4GiB System memory kuvaa virtuaalikoneelle allokoitua RAMia
-/0/2                            processor   Intel(R) Core(TM) i5-7Y54 CPU @ 1.20GHz - Tämä on virtuaalikoneelleni suotu prosessorimäärä ja koko
-/0/100                          bridge      440FX - 82441FX PMC [Natoma] - piirisarjan silta joka mahdollistaa komponenttien välisen                                                         kommunikaation
-/0/100/1                        bridge      82371SB PIIX3 ISA [Natoma/Triton II]
-/0/100/1/0                      input       PnP device PNP0303
-/0/100/1/1                      input       PnP device PNP0f03
-/0/100/1.1          scsi2       storage     82371AB/EB/MB PIIX4 IDE
-/0/100/1.1/0.0.0    /dev/cdrom  disk        CD-ROM
-/0/100/1.1/0.0.0/0  /dev/cdrom  disk        
-/0/100/2            /dev/fb0    display     SVGA II Adapter
-/0/100/3            enp0s3      network     82540EM Gigabit Ethernet Controller
-/0/100/4            input9      input       VirtualBox mouse integration
-/0/100/5            card0       multimedia  82801AA AC'97 Audio Controller
-/0/100/6                        bus         KeyLargo/Intrepid USB
-/0/100/6/1          usb2        bus         OHCI PCI host controller
-/0/100/6/1/1        input6      input       VirtualBox USB Tablet
-/0/100/7                        bridge      82371AB/EB/MB PIIX4 ACPI
-/0/100/b                        bus         82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller
-/0/100/b/1          usb1        bus         EHCI Host Controller
-/0/100/d            scsi0       storage     82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode]
-/0/100/d/0.0.0      /dev/sda    disk        64GB VBOX HARDDISK
-/0/100/d/0.0.0/1    /dev/sda1   volume      51GiB EXT4 volume
-/0/100/d/0.0.0/2    /dev/sda2   volume      8402MiB Linux swap volume
-/1                  input0      input       AT Translated Set 2 keyboard
-/2                  input2      input       Power Button
-/3                  input3      input       Video Bus
-/4                  input4      input       Sleep Button
-/5                  input5      input       ImExPS/2 Generic Explorer Mouse
-/6                  input8      input       PC Speaker
+Alle listaukseen olen lisännyt lisää analyysiä kustakin laitteesta niiltä osin kuin on ollut mahdollista päätellä.
+- system      VirtualBox kertoo että kyseessä on vVirtuaBox virtuaalikone
+- 0/        VirtualBox  -- /0 kuvaa raudan emolevyä eli ensimmäistä pääkomponenttia. tässä tapauksessa virtualBox
 
+Seuraavat ovat omalta koneeltani allokoituja fyysysä komponentteja:
+- 0/0/      memory 128KiB BIOS -- . Kyseessä BIOS-muisti kooltaan 128 KiB
+- 0/1/      memory 4GiB System memory - kuvaa virtuaalikoneelle allokoitua RAM-muistia
+- 0/2/      processorIntel(R) Core(TM) i5-7Y54 CPU @ 1.20GHz - kuvaa allokoitua prosessorikapasiteettia
 
+Ja nämä taas virtuaalikoneen osia
+- 0/100/    bridge 440FX - 82441FX PMC [Natoma] - piirisarjan silta joka mahdollistaa komponenttien välisen kommunikaation
+- /0/100/1  bridge 82371SB PIIX3 ISA [Natoma/Triton II] - sama kuin yllä
+
+- /0/100/1/0 input PnP device PNP0303 - input kertoo että kyseessä syöttölaite esim. näppäimistö
+- /0/100/1/1 input PnP device PNP0f03 - sama kuin yllä
+Näiden luulen liittyvän virtualboxin emuloimaan CD-ROM asemaan jolla ladattu ISO-tiedosto on voitu lukea
+- /0/100/1.1 scsi2 storage 82371AB/EB/MB PIIX4 IDE
+- /0/100/1.1/0.0.0    /dev/cdrom  disk 
+- /0/100/1.1/0.0.0/0  /dev/cdrom  disk
+  
+Ja seuraavat taas virtuaalikoneen "rautaa"
+-/0/100/2 /dev/fb0 display SVGA II Adapter - Näytönohjain
+- /0/100/3 enp0s3 network 82540EM Gigabit Ethernet Controller - verkkokortti
+- /0/100/4 input9 input VirtualBox mouse integration - virtuaalikoneen hiiren integraatio
+- /0/100/5 card0 multimedia  82801AA AC'97 Audio Controller - äänikortti
+- /0/100/6 bus KeyLargo/Intrepid USB 
+- /0/100/6/1 usb2 bus OHCI PCI host controller
+- /0/100/6/1/1 input6 input VirtualBox USB Tablet
+- /0/100/7 bridge 82371AB/EB/MB PIIX4 ACPI
+- /0/100/bbus 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller
+- /0/100/b/1 usb1  bus EHCI Host Controller
+- /0/100/d scsi0 storage 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode]
+- /0/100/d/0.0.0 /dev/sda disk 64GB VBOX HARDDISK - Virtuaalinen kiintolevy
+- /0/100/d/0.0.0/1 /dev/sda1 volume 51GiB EXT4 volume
+- /0/100/d/0.0.0/2 /dev/sda2  volume 8402MiB Linux swap volume
+Seuraavien lähdekonetta en onnistunut arvioimaan.
+- /1  input0 input AT Translated Set 2 keyboard
+- /2                  input2      input Power Button
+- /3                  input3      input Video Bus
+- /4                  input4      input Sleep Button
+- /5                  input5      input ImExPS/2 Generic Explorer Mouse
+- /6                  input8      input PC Speaker
+
+## 3. Apt. asenna klome uutta komentoriviohjelmaa
+Tämän taisin jo "vahingossa tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin kokeillaan uudelleen
+
+Aluksi googlailin hyviä/mielenkiintoisia vaihtoehtoja ja päädyin seuraaviin:
+
+1. [tre](https://github.com/dduan/tre) joka listaa hakemiston suoraan puunäkymään
+2. [khal](https://github.com/pimutils/khal) eli cli kalenteri
+3. [Lolcat](https://github.com/busyloop/lolcat) eli väriä ruutuun
+
+asensin komennoilla:
+
+    sudo apt-get -y install tre-command khal
+    sudo snap install lolcat
+   
+   
+Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa
+
+   kuva_tre_khal_lolcat
+    
+
+   
 
 
 
