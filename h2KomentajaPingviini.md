@@ -9,6 +9,8 @@ Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä] (https://teroka
   6. Antaa esimerkki putkista
   7. Esitellä ja analysoida kaksi erilaista lokitapahtumaa.
 
+https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/system_journal.png
+
 
 
 
