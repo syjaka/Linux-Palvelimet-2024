@@ -1,4 +1,6 @@
-# h2 Komentaja pingviini## Keskeneräinen 
+# h2 Komentaja pingviini
+
+## Keskeneräinen 
 
 Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä] (https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini) oli:
   1. Tiivistää Karvisen [Command line basics revisited] (https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli
@@ -9,7 +11,7 @@ Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä] (https://teroka
   6. Antaa esimerkki putkista
   7. Esitellä ja analysoida kaksi erilaista lokitapahtumaa.
 
-!(https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/system_journal.png)
+![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/system_journal.png)
 
 
 
