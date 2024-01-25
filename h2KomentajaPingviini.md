@@ -34,8 +34,8 @@ Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä](https://terokar
     [python3-py](https://packages.debian.org/stable/python3-py) (1.11.0-1) - Advanced Python development support library (Python 3)
     [tmux](https://packages.debian.org/stable/tmux) (3.3a-3)terminal multiplexer
 
-## a). Asenna micro-editori
-Tehtävän aloitus klo 20.45
+## a). Asenna micro-editori - ke klo 20.45
+
 
 Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
     
@@ -71,7 +71,7 @@ Yo. komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlat
       
 valmista oli muutamassa minuutissa, mutta kaiken lisätiedon hankinta ja kokeilut ennen ja jälkeen kesti 22.00 saakka.
 
-## b). Listaa rauta - aloitus 22.10 
+## b). Listaa rauta - ke klo 22.10 
 
   ![kuva_lshw-not](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_lshv-not.png)
 Ensimmäiseksi lshw asennus komennolla
@@ -95,7 +95,7 @@ tulee listaus:
   
   3. Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
   
-  4. Decription kuvaa kyseistä laitetta.
+  4. Decription kuvaa kyseistä laitetta. (linux.com, Geeksforgeeks)
 
 Alle listaukseen olen lisännyt lisää analyysiä kustakin laitteesta niiltä osin kuin on ollut mahdollista päätellä.
   - system      VirtualBox kertoo että kyseessä on vVirtuaBox virtuaalikone
@@ -139,9 +139,9 @@ Ja viiemisten lähdekonetta en onnistunut arvioimaan.
   - /5                  input5      input ImExPS/2 Generic Explorer Mouse
   - /6                  input8      input PC Speaker
 
-Itse raudan listaus sujui nopeasti mutta anamyysiin upposi useampi tunti.
+ 
 
-## c) Apt. asenna kolme uutta komentoriviohjelmaa
+## c) Apt. asenna kolme uutta komentoriviohjelmaa ke klo 23.00
 
 Tämän taisin jo "vahingossa tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin harjoitellaan lisää.
 
@@ -149,7 +149,7 @@ Aluksi googlailin hyviä/mielenkiintoisia vaihtoehtoja ja päädyin seuraaviin:
 
 1. [tre](https://github.com/dduan/tre) joka listaa hakemiston suoraan puunäkymään
 2. [khal](https://github.com/pimutils/khal) eli cli kalenteri
-3. [Lolcat](https://github.com/busyloop/lolcat) eli väriä ruutuun
+3. [Lolcat](https://github.com/busyloop/lolcat) eli väriä ruutuun (Dev)
 
 Ensimmäiset kaksi asensin komennoilla:
 
@@ -160,8 +160,10 @@ Ensimmäiset kaksi asensin komennoilla:
 Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat, jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa
 
    ![kuva_tre_khal_lolcat](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_tre_khal_lolcat.png)
+
+Valmista keskiviikon osalta tuli to noin klo 01.50, eli keskiviikon työajaksi tuli pyöreästi 5h. Itsen toimenpiteet olivat suoraviivaisia, mutta tutkiminen, lisätietojen hakeminen ja aiheen ympäriltä opiskelu vei valtaosan ajasta.
     
-d) FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories". Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit.
+## d) FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories". Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit. to klo 11.01
 
   1. / : Juurihakemisto/pääkäyttäjän kotihakemisto. Tiedostostohierarkian ylin kansio joka sisältää kaikki tiedot
 
@@ -180,11 +182,11 @@ d) FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kapp
   
   ![d.5_kuva_media]()
   6. /var/log/ - /var hakemistossa on järjestelmän ja sovellusten muuttuvien tietojen tallenteet. /var/log/ sisältää järjestelmän     
-  lokitiedostot
+  lokitiedostot (linux.fi)
 
   ![d.6_kuva_varlog]()
 
-e) The friendly M. kuvaavie esimerkkejä grep-komennon käytöstä
+## e) The friendly M. kuvaavie esimerkkejä grep-komennon käytöstä - to klo 12.00
 grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten loin kotihakemistooni kansiotA-C joihin kopioin tiedostoon komentajaPingviini kaiken nyt kirjoittamani tekstin tekstin.
   1. Ensimmäinen haku oli
 
@@ -202,25 +204,66 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
   ![e.2_error]()
      
-  3. Tähän kohtaan koitan yhdistää myös viimeisen thetävän, joten palataan siellä
+  3. Viimeisen haun tein putkitettuna | less komennon kanssa, samalla tuli suoritettua f) tehtävä
+     
+    less /home/kadi/kansioC/komentajaPingviini.md | grep -i "luettavissa"
+  ![e.2.f_luettavissa_putki]()
 
-   f) putket
+## g) Tukki, aiheuta lokiin kaksi eri tapahtumaa, analysoi loki - to klo 13.30
 
-   g) Tukki, aiheuta lokiin kaksi eri tapahtumaa, analysoi loki
+   1. Loin epäonnistuneen tapahtumalokin anatamalla väärän sudo-salasanan komennolle klo 13.35
 
+    sudo journalctl
 
-         $sudo service ssh status
+  Seuraavaksi annoin oikean salasanan jolloin komento toi koko lokitiedoston esiin. Käänsin komennon tulostamaan uusimman ensin
+    
+    sudo journalctl -r
+
+  Tuloksena poimin lokista seuraavan rivin:
+
+  ![g-2_journalctl_error]()
+
+  1. Heti ensimmäiseksi on komennon aikaleima
+  2. **pam_unix(sudo:auth): authentication failure;** - kertoo että autentikointi epäonnistui
+  3. **logname= uid=1000 euid=0** kertoo käyttäjän idksi 1000 nikä viittaa ensimmäiseen käyttäjään; kadi (Hass)
+  4. **euid=0** viittaa effective user id:hen ja luulen että arvo olisi 1000 jos kirjautuminen olisi autentikoitu
+  5. **TTY=/dev/pts/1** viittaa terminaaliin jossa komento tehtiin ja pts virtuaaliterminaaliin
+  6. ja loput viittaavat käyttäjätietoihin
+
+  Seuraavaksi onnistunut tapahtuma, eli oikealla salasanalla sudo-komennon toteuttaminen
+
+  ![g.2_success]()
+
+  1. Heti ensimmäiseksi on komennon aikaleima
+  2. **TTY=pts/5** ks yllä
+  3. **PWD** hakemistoon jossa komento suoritettiin
+  4. **USER=root** kertoo komennon suorittaneen käyttäjän käyttöoikeustasosta
+  5. **COMMAND...** kertoo taas suorityetun komennon
 
 
 
 ### Lähteet:
 Tero Karvinen, Linux palvelimet alkukevät 2024 tehtävät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini, luettu 24.01.2024
-Tero Karvinen, Command line basics revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited, luettu 24.01.2024
-Github/EeroSav LinuxPalvelimet Tehtävä 2. Luettavissa: https://github.com/EeroSav/LinuxPalvelimet/blob/main/T2.md, luettu 24.01.2024
-Debian packages. Luettavissa: https://packages.debian.org/stable/allpackages, luettu 24.01.2024
-GitHub GitGuides. Luettavissa distributed version control software, luettu 24.01.2024
-Geeks for Geeks lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/. Luettu 24.01.2024
-linux.com lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/. Luettu 24.01.2024
+
+Tero Karvinen, Command line basics revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited, luettu: 24.01.2024
+
+Github/EeroSav LinuxPalvelimet Tehtävä 2. Luettavissa: https://github.com/EeroSav/LinuxPalvelimet/blob/main/T2.md, luettu: 24.01.2024
+
+Debian packages. Luettavissa: https://packages.debian.org/stable/allpackages, luettu: 24.01.2024
+
+Dev, CLI tools you won't be able to live without. Luettavissa: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6, luettu: 24.01.2024
+
+GitHub GitGuides. Luettavissa distributed version control software, luettu: 24.01.2024
+
+Geeks for Geeks lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
+
+linux.com lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
+
+linux.fi hakemistorakenne, luettavissa: https://www.linux.fi/wiki/Hakemistorakenne, luettu: 25.01.2024
+
+Ken Hess, Linux sysadmin basics 2019. Luettavissa https://www.redhat.com/sysadmin/user-account-gid-uid, luettu: 25.01.2024 
+
+
 
 ## ei tyhmiä kysymyksiä olekaan vai?
 1. Ymmärsinkö oikein, että syslog on jos on raudalla ja journal koska virtuaali?
