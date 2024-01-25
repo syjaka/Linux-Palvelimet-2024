@@ -31,6 +31,9 @@
 
 ## 2. Asenna micro-editori - ke klo 20.45
 
+edit 25.01.2024 Työskentely-ympäristö lisätty
+Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
+
 Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
     
     $ sudo apt-get update
