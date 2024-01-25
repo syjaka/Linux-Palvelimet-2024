@@ -2,17 +2,17 @@
 
 ## Keskeneräinen 
 
-Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä] (https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini) oli:
-  1. Tiivistää Karvisen [Command line basics revisited] (https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli
-  2. Asenna micro editori
-  3. Listata testaamani koneen rauta
-  4. Asentaa kolme uutta komentoriviohjelmaa
-  5. Esitellä kansiot jotka on listattu kohdan 1. artikkelissa
-  6. Esitellä 3 kuvaavaa esimerkkiä grip-komennosta
-  7. Antaa esimerkki putkista
-  8. Esitellä ja analysoida kaksi erilaista lokitapahtumaa.
+Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini) oli:
+  x)  Tiivistää Karvisen [Command line basics revisited](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli
+  a) Asenna micro editori
+  b) Listata testaamani koneen rauta
+  c) Asentaa kolme uutta komentoriviohjelmaa
+  d) Esitellä kansiot jotka on listattu kohdan 1. artikkelissa
+  e) Esitellä 3 kuvaavaa esimerkkiä grip-komennosta
+  f) Antaa esimerkki putkista
+  g) Esitellä ja analysoida kaksi erilaista lokitapahtumaa.
 
-## 1 Command line basics revisited muutamalla sanalla
+## x) Command line basics revisited muutamalla sanalla
 
 - pwd (print working directory) näyttää nykyisen hakemiston 
 - ls listaa nykyisen hakemiston tiedot
@@ -27,51 +27,53 @@ Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä] (https://teroka
 - man ls näyttää ls komennon ohjeet
 - sudo komennon edessä antaa sudo-oikeudet niitä vaativille komennoille tai hakemistoille, esim softan asennus/poisto, käyttäjien hallinta...
   
-    kuva sudo
+   ![kuva_sudo](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_sudo.png)
   
 - sudo apt-get update päivittää ja näyttää saatavilla olevat softwarepaketit
 - Materiaalisssa mainittu muutamien ohjelmien asennus joista tmux ja python3-py vaikutti kiinnostavalta myöhempää käyttöä varten.
     [python3-py](https://packages.debian.org/stable/python3-py) (1.11.0-1) - Advanced Python development support library (Python 3)
     [tmux](https://packages.debian.org/stable/tmux) (3.3a-3)terminal multiplexer
 
-## 2. Asenna micro-editori
+## a). Asenna micro-editori
 Tehtävän aloitus klo 20.45
-Aloitin komennolla
+
+Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
     
     $ sudo apt-get update
-joka haki päivitti ja näytti saatavilla olevat paketit. Seuraavaksi komennolla:
+ Seuraavaksi asennus komennolla:
     
     $ sudo apt-get -y install micro fzf pythonpy git exuberant-ctags
 Koska olin jo eilen harjoitellessa asentanut micron sain seuraavan vastauksen:
-    micro is already the newest version (2.0.11-2+b1)
-mutta koska kn opettajan komento jossa samalla asennettiin muutakin jatkui asennus seuraavanlaisesti:
+   - micro is already the newest version (2.0.11-2+b1)
+mutta koska kopioin kokonaisuudessaan opettajan esimerkin komennon, tuli samalla asennettua muutakin. Eli asennus jatkui asennus seuraavanlaisesti:
 
-  kuva micro asennus
+  ![kuva micro asennus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_micro_asennus.png)
 
-eli ao lisäpaketit tuli asennettua
-[fzf](https://packages.debian.org/stable/fzf) (0.38.0-1+b1), general-purpose command-line fuzzy finder
-[pythonpy](https://packages.debian.org/stable/pythonpy) (0.4.11b-3.1) - 'python -c', with tab completion and shorthand (debian packages website)
-[git](https://github.com/git-guides/install-git) (2.39.2) - distributed version control software (github, git guides)
-[exuberant-ctags](https://packages.debian.org/stable/exuberant-ctags) (1:5.9~svn20110310-18) build tag file indexes of source code definitions
-Jatkoin vielä opettajan suosittelemilla plugineilla:
+Ao. lisäpaketit tuli asennettua
+  - [fzf](https://packages.debian.org/stable/fzf) (0.38.0-1+b1), general-purpose command-line fuzzy finder
+  - [pythonpy](https://packages.debian.org/stable/pythonpy) (0.4.11b-3.1) - 'python -c', with tab completion and shorthand (debian packages website)
+  - [git](https://github.com/git-guides/install-git) (2.39.2) - distributed version control software (github, git guides)
+  - [exuberant-ctags](https://packages.debian.org/stable/exuberant-ctags) (1:5.9~svn20110310-18) build tag file indexes of source code definitions
+  - Jatkoin vielä opettajan suosittelemilla plugineilla:
 
-   kuva pluginit
+   ![kuva_pluginit](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_pluginit.png)
 
-Seuraavaksi kokeilut:
+Seuraavaksi kokeilut että asennukset toimii:
     
     $ micro kadi.py 
-  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlata olisiko jokin muu näppäin macillä osuva, tuloksetta
+Yo. komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlata olisiko jokin muu näppäin macillä osuva, tuloksetta
+ 
   Run toimi odotetusti:
-    kuva_hello_kadi
+    ![kuva_hello_kadi](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_hello_kadi.png)
 
   Palettero toimi ja vaikuttaa hyödylliseltä
-    kuva_palettero
+    ![kuva_palettero](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_palettero.png)
       
 valmista oli muutamassa minuutissa, mutta kaiken lisätiedon hankinta ja kokeilut ennen ja jälkeen kesti 22.00 saakka.
 
-## 3. Listaa rauta - aloitus 22.10 
+## b). Listaa rauta - aloitus 22.10 
 
-kuva_lshw-not
+  ![kuva_lshw-not](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_lshv-not.png)
 Ensimmäiseksi lshw asennus komennolla
 
     $ sudo apt-get install lshw
@@ -81,65 +83,67 @@ Komennolla (sudo lshw = ls hardware -short = tulostaa yhteenvedon joka noudattaa
   
 tulee listaus:
 
-kuva_lshw
+  ![kuva_lshw](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_lshw.png)
 
-1. H/W path sarake kuvaa laiteistopolkua eli kyseisen laitteiston fyysistä sijaintia ja hierarkiaa
-- 0/ - 6/ kuvaa raudan pääkomponentteja, 0/ kuvaa emolevyä
-- /0/0 - 0/100/ kuvaa esitetyn pääkomponentin esitettyä alikomponenttia 
-- 0/100/1 - 0/100/6 viittaa 0/100/ sillan alaisiin komponentteihin
-- seuraavat numerot viittaavat aina hierarkkisesti uuteen alikomponenttiin 
-
-2. Device sarake näyttää laitteita, esim USB, kovalevyt...
-
-3. Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
-
-4. Decription kuvaa kyseistä laitetta.
+  1. H/W path sarake kuvaa laiteistopolkua eli kyseisen laitteiston fyysistä sijaintia ja hierarkiaa
+      - 0/ - 6/ kuvaa raudan pääkomponentteja, 0/ kuvaa emolevyä
+      - /0/0 - 0/100/ kuvaa esitetyn pääkomponentin esitettyä alikomponenttia 
+      - 0/100/1 - 0/100/6 viittaa 0/100/ sillan alaisiin komponentteihin
+      - seuraavat numerot viittaavat aina hierarkkisesti uuteen alikomponenttiin 
+    
+  2. Device sarake näyttää laitteita, esim USB, kovalevyt...
+  
+  3. Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
+  
+  4. Decription kuvaa kyseistä laitetta.
 
 Alle listaukseen olen lisännyt lisää analyysiä kustakin laitteesta niiltä osin kuin on ollut mahdollista päätellä.
-- system      VirtualBox kertoo että kyseessä on vVirtuaBox virtuaalikone
-- 0/        VirtualBox  -- /0 kuvaa raudan emolevyä eli ensimmäistä pääkomponenttia. tässä tapauksessa virtualBox
+  - system      VirtualBox kertoo että kyseessä on vVirtuaBox virtuaalikone
+  - 0/        VirtualBox  -- /0 kuvaa raudan emolevyä eli ensimmäistä pääkomponenttia. tässä tapauksessa virtualBox
 
 Seuraavat ovat omalta koneeltani allokoituja fyysysä komponentteja:
-- 0/0/      memory 128KiB BIOS -- . Kyseessä BIOS-muisti kooltaan 128 KiB
-- 0/1/      memory 4GiB System memory - kuvaa virtuaalikoneelle allokoitua RAM-muistia
-- 0/2/      processorIntel(R) Core(TM) i5-7Y54 CPU @ 1.20GHz - kuvaa allokoitua prosessorikapasiteettia
+  - 0/0/      memory 128KiB BIOS -- . Kyseessä BIOS-muisti kooltaan 128 KiB
+  - 0/1/      memory 4GiB System memory - kuvaa virtuaalikoneelle allokoitua RAM-muistia
+  - 0/2/      processorIntel(R) Core(TM) i5-7Y54 CPU @ 1.20GHz - kuvaa allokoitua prosessorikapasiteettia
 
 Ja nämä taas virtuaalikoneen osia
-- 0/100/    bridge 440FX - 82441FX PMC [Natoma] - piirisarjan silta joka mahdollistaa komponenttien välisen kommunikaation
-- /0/100/1  bridge 82371SB PIIX3 ISA [Natoma/Triton II] - sama kuin yllä
-
-- /0/100/1/0 input PnP device PNP0303 - input kertoo että kyseessä syöttölaite esim. näppäimistö
-- /0/100/1/1 input PnP device PNP0f03 - sama kuin yllä
-Näiden luulen liittyvän virtualboxin emuloimaan CD-ROM asemaan jolla ladattu ISO-tiedosto on voitu lukea
-- /0/100/1.1 scsi2 storage 82371AB/EB/MB PIIX4 IDE
-- /0/100/1.1/0.0.0    /dev/cdrom  disk 
-- /0/100/1.1/0.0.0/0  /dev/cdrom  disk
-  
+  - 0/100/    bridge 440FX - 82441FX PMC [Natoma] - piirisarjan silta joka mahdollistaa komponenttien välisen kommunikaation
+  - /0/100/1  bridge 82371SB PIIX3 ISA [Natoma/Triton II] - sama kuin yllä
+Näiden syöttölaitteiden todellista entiteettiä en osannut päätellä:
+  - /0/100/1/0 input PnP device PNP0303 - input kertoo että kyseessä syöttölaite esim. näppäimistö
+  - /0/100/1/1 input PnP device PNP0f03 - sama kuin yllä
+Seuraavien taas oletan liittyvän virtualboxin emuloimaan CD-ROM asemaan jolla ladattu ISO-tiedosto on voitu lukea
+  - /0/100/1.1 scsi2 storage 82371AB/EB/MB PIIX4 IDE
+  - /0/100/1.1/0.0.0    /dev/cdrom  disk 
+  - /0/100/1.1/0.0.0/0  /dev/cdrom  disk
 Ja seuraavat taas virtuaalikoneen "rautaa"
--/0/100/2 /dev/fb0 display SVGA II Adapter - Näytönohjain
-- /0/100/3 enp0s3 network 82540EM Gigabit Ethernet Controller - verkkokortti
-- /0/100/4 input9 input VirtualBox mouse integration - virtuaalikoneen hiiren integraatio
-- /0/100/5 card0 multimedia  82801AA AC'97 Audio Controller - äänikortti
-- /0/100/6 bus KeyLargo/Intrepid USB 
-- /0/100/6/1 usb2 bus OHCI PCI host controller
-- /0/100/6/1/1 input6 input VirtualBox USB Tablet
-- /0/100/7 bridge 82371AB/EB/MB PIIX4 ACPI
-- /0/100/bbus 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller
-- /0/100/b/1 usb1  bus EHCI Host Controller
-- /0/100/d scsi0 storage 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode]
-- /0/100/d/0.0.0 /dev/sda disk 64GB VBOX HARDDISK - Virtuaalinen kiintolevy
-- /0/100/d/0.0.0/1 /dev/sda1 volume 51GiB EXT4 volume
-- /0/100/d/0.0.0/2 /dev/sda2  volume 8402MiB Linux swap volume
-Seuraavien lähdekonetta en onnistunut arvioimaan.
-- /1  input0 input AT Translated Set 2 keyboard
-- /2                  input2      input Power Button
-- /3                  input3      input Video Bus
-- /4                  input4      input Sleep Button
-- /5                  input5      input ImExPS/2 Generic Explorer Mouse
-- /6                  input8      input PC Speaker
+  -/0/100/2 /dev/fb0 display SVGA II Adapter - Näytönohjain
+  - /0/100/3 enp0s3 network 82540EM Gigabit Ethernet Controller - verkkokortti
+  - /0/100/4 input9 input VirtualBox mouse integration - virtuaalikoneen hiiren integraatio
+  - /0/100/5 card0 multimedia  82801AA AC'97 Audio Controller - äänikortti
+  - /0/100/6 bus KeyLargo/Intrepid USB 
+  - /0/100/6/1 usb2 bus OHCI PCI host controller
+  - /0/100/6/1/1 input6 input VirtualBox USB Tablet
+  - /0/100/7 bridge 82371AB/EB/MB PIIX4 ACPI
+  - /0/100/bbus 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller
+  - /0/100/b/1 usb1  bus EHCI Host Controller
+  - /0/100/d scsi0 storage 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode]
+  - /0/100/d/0.0.0 /dev/sda disk 64GB VBOX HARDDISK - Virtuaalinen kiintolevy
+  - /0/100/d/0.0.0/1 /dev/sda1 volume 51GiB EXT4 volume
+  - /0/100/d/0.0.0/2 /dev/sda2  volume 8402MiB Linux swap volume
+Ja viiemisten lähdekonetta en onnistunut arvioimaan.
+  - /1  input0 input AT Translated Set 2 keyboard
+  - /2                  input2      input Power Button
+  - /3                  input3      input Video Bus
+  - /4                  input4      input Sleep Button
+  - /5                  input5      input ImExPS/2 Generic Explorer Mouse
+  - /6                  input8      input PC Speaker
 
-## 3. Apt. asenna klome uutta komentoriviohjelmaa
-Tämän taisin jo "vahingossa tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin kokeillaan uudelleen
+Itse raudan listaus sujui nopeasti mutta anamyysiin upposi useampi tunti.
+
+## c) Apt. asenna kolme uutta komentoriviohjelmaa
+
+Tämän taisin jo "vahingossa tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin harjoitellaan lisää.
 
 Aluksi googlailin hyviä/mielenkiintoisia vaihtoehtoja ja päädyin seuraaviin:
 
@@ -147,19 +151,65 @@ Aluksi googlailin hyviä/mielenkiintoisia vaihtoehtoja ja päädyin seuraaviin:
 2. [khal](https://github.com/pimutils/khal) eli cli kalenteri
 3. [Lolcat](https://github.com/busyloop/lolcat) eli väriä ruutuun
 
-asensin komennoilla:
+Ensimmäiset kaksi asensin komennoilla:
 
     sudo apt-get -y install tre-command khal
     sudo snap install lolcat
    
    
-Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa
+Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat, jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa
 
-   kuva_tre_khal_lolcat
+   ![kuva_tre_khal_lolcat](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_tre_khal_lolcat.png)
     
+d) FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories". Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit.
 
-   
+  1. / : Juurihakemisto/pääkäyttäjän kotihakemisto. Tiedostostohierarkian ylin kansio joka sisältää kaikki tiedot
 
+   ![d.1_kuva_juuri]()
+  2.  /home/ - Juurihakemistossa sijaitsevat kotihakemistot, sisältää kaikki käyttäjät. Käyttäjä voi viitata omaan kotihakemistoonsa ~
+     merkillä ja muiden kotihakemistoon ~käyttäjä viittauksella.
+
+  ![d.2_kuva_home]()
+  3. /home/kadi/ - /home hakemistossa sijaitseva käyttäjän oma kotihakemisto jossa kaikki käyttäjäkohtaiset määritykset ja data
+     
+  ![d.3_kuva_user_home]()
+  4. /etc/ - Juurihakemistossa sijaitseva /etc sisältää järjestelmän ja eri taustaprosessien asetukset.
+      
+  ![d.4_kuva_etc]()
+  5. /media/ - Juurihakemistossa sijaitseva /media sisältää kaiken irroitettavan median, mm. usb-tikku cdrom...
+  
+  ![d.5_kuva_media]()
+  6. /var/log/ - /var hakemistossa on järjestelmän ja sovellusten muuttuvien tietojen tallenteet. /var/log/ sisältää järjestelmän     
+  lokitiedostot
+
+  ![d.6_kuva_varlog]()
+
+e) The friendly M. kuvaavie esimerkkejä grep-komennon käytöstä
+grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten loin kotihakemistooni kansiotA-C joihin kopioin tiedostoon komentajaPingviini kaiken nyt kirjoittamani tekstin tekstin.
+  1. Ensimmäinen haku oli
+
+    grep -r "lähteet"
+
+  joka ei tuottanut mitään tulosta. Kun lisäsin -i joka ignooraa kirjainkoon, sain tulokseksi juuri kuten piti. Lisäksi haussa ei ole hakemistopolkua, sillä tein haun siinä halkemistossa jinka halusin hakuun sisällyttää.
+  
+  ![e.1_lahteet]()
+
+  2. Toinen haku oli "error" lokitiedostoihin.
+
+    grep -r "error" //var/log
+
+  Tämä antoi paljon "permission denied" -tuloksia joten lisäsin sudo-komennon, jolloin pääsy oli laajemmin eri tiedostoihin
+
+  ![e.2_error]()
+     
+  3. Tähän kohtaan koitan yhdistää myös viimeisen thetävän, joten palataan siellä
+
+   f) putket
+
+   g) Tukki, aiheuta lokiin kaksi eri tapahtumaa, analysoi loki
+
+
+         $sudo service ssh status
 
 
 
