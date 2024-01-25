@@ -1,18 +1,16 @@
 # h2 Komentaja pingviini
 
-## Keskeneräinen 
+### Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini) oli:
+  1. Tiivistää Karvisen [Command line basics revisited](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli
+  2. Asenna micro editori
+  3. Listata testaamani koneen rauta
+  4. Asentaa kolme uutta komentoriviohjelmaa
+  5. Esitellä kansiot jotka on listattu kohdan 1. artikkelissa
+  6. Esitellä 3 kuvaavaa esimerkkiä grip-komennosta
+  7. Antaa esimerkki putkista
+  8. Esitellä ja analysoida kaksi erilaista lokitapahtumaa.
 
-Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini) oli:
-  x)  Tiivistää Karvisen [Command line basics revisited](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli
-  a) Asenna micro editori
-  b) Listata testaamani koneen rauta
-  c) Asentaa kolme uutta komentoriviohjelmaa
-  d) Esitellä kansiot jotka on listattu kohdan 1. artikkelissa
-  e) Esitellä 3 kuvaavaa esimerkkiä grip-komennosta
-  f) Antaa esimerkki putkista
-  g) Esitellä ja analysoida kaksi erilaista lokitapahtumaa.
-
-## x) Command line basics revisited muutamalla sanalla
+## 1. Command line basics revisited muutamalla sanalla
 
 - pwd (print working directory) näyttää nykyisen hakemiston 
 - ls listaa nykyisen hakemiston tiedot
@@ -30,12 +28,8 @@ Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä](https://terokar
    ![kuva_sudo](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_sudo.png)
   
 - sudo apt-get update päivittää ja näyttää saatavilla olevat softwarepaketit
-- Materiaalisssa mainittu muutamien ohjelmien asennus joista tmux ja python3-py vaikutti kiinnostavalta myöhempää käyttöä varten.
-    [python3-py](https://packages.debian.org/stable/python3-py) (1.11.0-1) - Advanced Python development support library (Python 3)
-    [tmux](https://packages.debian.org/stable/tmux) (3.3a-3)terminal multiplexer
 
-## a). Asenna micro-editori - ke klo 20.45
-
+## 2. Asenna micro-editori - ke klo 20.45
 
 Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
     
@@ -44,7 +38,9 @@ Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
     
     $ sudo apt-get -y install micro fzf pythonpy git exuberant-ctags
 Koska olin jo eilen harjoitellessa asentanut micron sain seuraavan vastauksen:
+
    - micro is already the newest version (2.0.11-2+b1)
+   - 
 mutta koska kopioin kokonaisuudessaan opettajan esimerkin komennon, tuli samalla asennettua muutakin. Eli asennus jatkui asennus seuraavanlaisesti:
 
   ![kuva micro asennus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_micro_asennus.png)
@@ -71,7 +67,7 @@ Yo. komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlat
       
 valmista oli muutamassa minuutissa, mutta kaiken lisätiedon hankinta ja kokeilut ennen ja jälkeen kesti 22.00 saakka.
 
-## b). Listaa rauta - ke klo 22.10 
+## 2. Listaa rauta - ke klo 22.10 
 
   ![kuva_lshw-not](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_lshv-not.png)
 Ensimmäiseksi lshw asennus komennolla
@@ -109,13 +105,16 @@ Seuraavat ovat omalta koneeltani allokoituja fyysysä komponentteja:
 Ja nämä taas virtuaalikoneen osia
   - 0/100/    bridge 440FX - 82441FX PMC [Natoma] - piirisarjan silta joka mahdollistaa komponenttien välisen kommunikaation
   - /0/100/1  bridge 82371SB PIIX3 ISA [Natoma/Triton II] - sama kuin yllä
+    
 Näiden syöttölaitteiden todellista entiteettiä en osannut päätellä:
   - /0/100/1/0 input PnP device PNP0303 - input kertoo että kyseessä syöttölaite esim. näppäimistö
   - /0/100/1/1 input PnP device PNP0f03 - sama kuin yllä
+    
 Seuraavien taas oletan liittyvän virtualboxin emuloimaan CD-ROM asemaan jolla ladattu ISO-tiedosto on voitu lukea
   - /0/100/1.1 scsi2 storage 82371AB/EB/MB PIIX4 IDE
   - /0/100/1.1/0.0.0    /dev/cdrom  disk 
   - /0/100/1.1/0.0.0/0  /dev/cdrom  disk
+    
 Ja seuraavat taas virtuaalikoneen "rautaa"
   -/0/100/2 /dev/fb0 display SVGA II Adapter - Näytönohjain
   - /0/100/3 enp0s3 network 82540EM Gigabit Ethernet Controller - verkkokortti
@@ -131,6 +130,7 @@ Ja seuraavat taas virtuaalikoneen "rautaa"
   - /0/100/d/0.0.0 /dev/sda disk 64GB VBOX HARDDISK - Virtuaalinen kiintolevy
   - /0/100/d/0.0.0/1 /dev/sda1 volume 51GiB EXT4 volume
   - /0/100/d/0.0.0/2 /dev/sda2  volume 8402MiB Linux swap volume
+    
 Ja viiemisten lähdekonetta en onnistunut arvioimaan.
   - /1  input0 input AT Translated Set 2 keyboard
   - /2                  input2      input Power Button
@@ -141,9 +141,9 @@ Ja viiemisten lähdekonetta en onnistunut arvioimaan.
 
  
 
-## c) Apt. asenna kolme uutta komentoriviohjelmaa ke klo 23.00
+## 3. Apt. asenna kolme uutta komentoriviohjelmaa ke klo 23.00
 
-Tämän taisin jo "vahingossa tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin harjoitellaan lisää.
+Tämän taisin jo "vahingossa" tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin harjoitellaan lisää.
 
 Aluksi googlailin hyviä/mielenkiintoisia vaihtoehtoja ja päädyin seuraaviin:
 
@@ -156,37 +156,36 @@ Ensimmäiset kaksi asensin komennoilla:
     sudo apt-get -y install tre-command khal
     sudo snap install lolcat
    
-   
 Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat, jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa
 
    ![kuva_tre_khal_lolcat](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_tre_khal_lolcat.png)
 
 Valmista keskiviikon osalta tuli to noin klo 01.50, eli keskiviikon työajaksi tuli pyöreästi 5h. Itsen toimenpiteet olivat suoraviivaisia, mutta tutkiminen, lisätietojen hakeminen ja aiheen ympäriltä opiskelu vei valtaosan ajasta.
     
-## d) FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories". Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit. to klo 11.01
+## 4. FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories". Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit. to klo 11.01
 
   1. / : Juurihakemisto/pääkäyttäjän kotihakemisto. Tiedostostohierarkian ylin kansio joka sisältää kaikki tiedot
 
-   ![d.1_kuva_juuri]()
+   ![d.1_kuva_juuri](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.1_kuva_juuri.png)
   2.  /home/ - Juurihakemistossa sijaitsevat kotihakemistot, sisältää kaikki käyttäjät. Käyttäjä voi viitata omaan kotihakemistoonsa ~
      merkillä ja muiden kotihakemistoon ~käyttäjä viittauksella.
 
-  ![d.2_kuva_home]()
+  ![d.2_kuva_home](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.2_kuva_home.png)
   3. /home/kadi/ - /home hakemistossa sijaitseva käyttäjän oma kotihakemisto jossa kaikki käyttäjäkohtaiset määritykset ja data
      
-  ![d.3_kuva_user_home]()
+  ![d.3_kuva_user_home](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.3_kuva_user_home.png)
   4. /etc/ - Juurihakemistossa sijaitseva /etc sisältää järjestelmän ja eri taustaprosessien asetukset.
       
-  ![d.4_kuva_etc]()
+  ![d.4_kuva_etc](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.4_kuva_etc.png)
   5. /media/ - Juurihakemistossa sijaitseva /media sisältää kaiken irroitettavan median, mm. usb-tikku cdrom...
   
-  ![d.5_kuva_media]()
+  ![d.5_kuva_media](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.5_kuva_media.png)
   6. /var/log/ - /var hakemistossa on järjestelmän ja sovellusten muuttuvien tietojen tallenteet. /var/log/ sisältää järjestelmän     
   lokitiedostot (linux.fi)
 
-  ![d.6_kuva_varlog]()
+  ![d.6_kuva_varlog](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.6_kuva_varlog.png)
 
-## e) The friendly M. kuvaavie esimerkkejä grep-komennon käytöstä - to klo 12.00
+## 5. The friendly M. kuvaavie esimerkkejä grep-komennon käytöstä - to klo 12.00
 grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten loin kotihakemistooni kansiotA-C joihin kopioin tiedostoon komentajaPingviini kaiken nyt kirjoittamani tekstin tekstin.
   1. Ensimmäinen haku oli
 
@@ -194,7 +193,7 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
   joka ei tuottanut mitään tulosta. Kun lisäsin -i joka ignooraa kirjainkoon, sain tulokseksi juuri kuten piti. Lisäksi haussa ei ole hakemistopolkua, sillä tein haun siinä halkemistossa jinka halusin hakuun sisällyttää.
   
-  ![e.1_lahteet]()
+  ![e.1_lahteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/e.1_lahteet.png)
 
   2. Toinen haku oli "error" lokitiedostoihin.
 
@@ -202,12 +201,12 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
   Tämä antoi paljon "permission denied" -tuloksia joten lisäsin sudo-komennon, jolloin pääsy oli laajemmin eri tiedostoihin
 
-  ![e.2_error]()
+  ![e.2_error](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/e.2_error.png)
      
   3. Viimeisen haun tein putkitettuna | less komennon kanssa, samalla tuli suoritettua f) tehtävä
      
     less /home/kadi/kansioC/komentajaPingviini.md | grep -i "luettavissa"
-  ![e.2.f_luettavissa_putki]()
+  ![e.2.f_luettavissa_putki](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/e.2.f_luettavissa_putki.png)
 
 ## g) Tukki, aiheuta lokiin kaksi eri tapahtumaa, analysoi loki - to klo 13.30
 
@@ -221,7 +220,7 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
   Tuloksena poimin lokista seuraavan rivin:
 
-  ![g-2_journalctl_error]()
+  ![g-2_journalctl_error](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/g-2_journalctl_error.png)
 
   1. Heti ensimmäiseksi on komennon aikaleima
   2. **pam_unix(sudo:auth): authentication failure;** - kertoo että autentikointi epäonnistui
@@ -232,7 +231,7 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
   Seuraavaksi onnistunut tapahtuma, eli oikealla salasanalla sudo-komennon toteuttaminen
 
-  ![g.2_success]()
+  ![g.2_success](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/g.2_success.png)
 
   1. Heti ensimmäiseksi on komennon aikaleima
   2. **TTY=pts/5** ks yllä
