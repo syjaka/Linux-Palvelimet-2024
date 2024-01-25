@@ -174,7 +174,6 @@ linux.com lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-
 
 ## ei tyhmiä kysymyksiä olekaan vai?
 1. Ymmärsinkö oikein, että syslog on jos on raudalla ja journal koska virtuaali?
-   kuva Q1
-   ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/system_journal.png)
+![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/Q1.png)
 2. Näyttökuvien lisääminen työlästä (napata, nimetä, ladata, linkittää)vai laitanko vain liikaa, pystytkö näyttää miten sen teit?
 3. Micro cheatsheet ???
