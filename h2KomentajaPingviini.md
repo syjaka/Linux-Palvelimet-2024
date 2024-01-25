@@ -40,24 +40,25 @@ Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
 Koska olin jo eilen harjoitellessa asentanut micron sain seuraavan vastauksen:
 
    - micro is already the newest version (2.0.11-2+b1)
-   - 
-mutta koska kopioin kokonaisuudessaan opettajan esimerkin komennon, tuli samalla asennettua muutakin. Eli asennus jatkui asennus seuraavanlaisesti:
+     
+Microa asentaessa olin kopioinut kokonaisuudessaan opettajan esimerkin komennon, tuli samalla asennettua muutakin. Eli asennus jatkui asennus seuraavanlaisesti:
 
   ![kuva micro asennus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_micro_asennus.png)
 
-Ao. lisäpaketit tuli asennettua
+Eli ao. lisäpaketit tuli asennettua
   - [fzf](https://packages.debian.org/stable/fzf) (0.38.0-1+b1), general-purpose command-line fuzzy finder
   - [pythonpy](https://packages.debian.org/stable/pythonpy) (0.4.11b-3.1) - 'python -c', with tab completion and shorthand (debian packages website)
   - [git](https://github.com/git-guides/install-git) (2.39.2) - distributed version control software (github, git guides)
   - [exuberant-ctags](https://packages.debian.org/stable/exuberant-ctags) (1:5.9~svn20110310-18) build tag file indexes of source code definitions
-  - Jatkoin vielä opettajan suosittelemilla plugineilla:
+
+    Jatkoin vielä opettajan suosittelemilla plugineilla:
 
    ![kuva_pluginit](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_pluginit.png)
 
 Seuraavaksi kokeilut että asennukset toimii:
     
     $ micro kadi.py 
-Yo. komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlata olisiko jokin muu näppäin macillä osuva, tuloksetta
+Yllä oleva komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlata olisiko jokin muu näppäin macillä osuva, tuloksetta.
  
   Run toimi odotetusti:
     ![kuva_hello_kadi](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_hello_kadi.png)
@@ -77,21 +78,19 @@ Komennolla (sudo lshw = ls hardware -short = tulostaa yhteenvedon joka noudattaa
 
     $ sudo lshw - short - sanitize
   
-tulee listaus:
-
   ![kuva_lshw](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_lshw.png)
 
-  1. H/W path sarake kuvaa laiteistopolkua eli kyseisen laitteiston fyysistä sijaintia ja hierarkiaa
+ 1. H/W path sarake kuvaa laiteistopolkua eli kyseisen laitteiston fyysistä sijaintia ja hierarkiaa
       - 0/ - 6/ kuvaa raudan pääkomponentteja, 0/ kuvaa emolevyä
       - /0/0 - 0/100/ kuvaa esitetyn pääkomponentin esitettyä alikomponenttia 
       - 0/100/1 - 0/100/6 viittaa 0/100/ sillan alaisiin komponentteihin
       - seuraavat numerot viittaavat aina hierarkkisesti uuteen alikomponenttiin 
     
-  2. Device sarake näyttää laitteita, esim USB, kovalevyt...
+2. Device sarake näyttää laitteita, esim USB, kovalevyt...
   
-  3. Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
+3. Class sarake kuvaa laitteiden luokat esim tallennuslaitteet, syöttölaitteet, väylät.
   
-  4. Decription kuvaa kyseistä laitetta. (linux.com, Geeksforgeeks)
+4. Decription kuvaa kyseistä laitetta. (linux.com, Geeksforgeeks)
 
 Alle listaukseen olen lisännyt lisää analyysiä kustakin laitteesta niiltä osin kuin on ollut mahdollista päätellä.
   - system      VirtualBox kertoo että kyseessä on vVirtuaBox virtuaalikone
@@ -131,7 +130,7 @@ Ja seuraavat taas virtuaalikoneen "rautaa"
   - /0/100/d/0.0.0/1 /dev/sda1 volume 51GiB EXT4 volume
   - /0/100/d/0.0.0/2 /dev/sda2  volume 8402MiB Linux swap volume
     
-Ja viiemisten lähdekonetta en onnistunut arvioimaan.
+Ja viimemisten lähdekonetta en onnistunut arvioimaan.
   - /1  input0 input AT Translated Set 2 keyboard
   - /2                  input2      input Power Button
   - /3                  input3      input Video Bus
@@ -162,24 +161,29 @@ Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt 
 
 Valmista keskiviikon osalta tuli to noin klo 01.50, eli keskiviikon työajaksi tuli pyöreästi 5h. Itsen toimenpiteet olivat suoraviivaisia, mutta tutkiminen, lisätietojen hakeminen ja aiheen ympäriltä opiskelu vei valtaosan ajasta.
     
-## 4. FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories". Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit. to klo 11.01
+## 4. FHS. Esittele kansiot, jotka on listattu "Command line basics revisited" kappaleessa "imprtant directories" to klo 11.01
 
   1. / : Juurihakemisto/pääkäyttäjän kotihakemisto. Tiedostostohierarkian ylin kansio joka sisältää kaikki tiedot
 
    ![d.1_kuva_juuri](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.1_kuva_juuri.png)
+   
   2.  /home/ - Juurihakemistossa sijaitsevat kotihakemistot, sisältää kaikki käyttäjät. Käyttäjä voi viitata omaan kotihakemistoonsa ~
      merkillä ja muiden kotihakemistoon ~käyttäjä viittauksella.
 
   ![d.2_kuva_home](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.2_kuva_home.png)
+  
   3. /home/kadi/ - /home hakemistossa sijaitseva käyttäjän oma kotihakemisto jossa kaikki käyttäjäkohtaiset määritykset ja data
      
   ![d.3_kuva_user_home](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.3_kuva_user_home.png)
+  
   4. /etc/ - Juurihakemistossa sijaitseva /etc sisältää järjestelmän ja eri taustaprosessien asetukset.
       
   ![d.4_kuva_etc](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.4_kuva_etc.png)
+  
   5. /media/ - Juurihakemistossa sijaitseva /media sisältää kaiken irroitettavan median, mm. usb-tikku cdrom...
   
   ![d.5_kuva_media](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.5_kuva_media.png)
+  
   6. /var/log/ - /var hakemistossa on järjestelmän ja sovellusten muuttuvien tietojen tallenteet. /var/log/ sisältää järjestelmän     
   lokitiedostot (linux.fi)
 
@@ -218,54 +222,55 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
     
     sudo journalctl -r
 
-  Tuloksena poimin lokista seuraavan rivin:
+  Tuloksena poimin lokista seuraavan rivin joka kuvaa epäonnistunuttta kirjautumisyritystä:
 
   ![g-2_journalctl_error](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/g-2_journalctl_error.png)
 
-  1. Heti ensimmäiseksi on komennon aikaleima
+  1. Komennon aikaleima
   2. **pam_unix(sudo:auth): authentication failure;** - kertoo että autentikointi epäonnistui
   3. **logname= uid=1000 euid=0** kertoo käyttäjän idksi 1000 nikä viittaa ensimmäiseen käyttäjään; kadi (Hass)
   4. **euid=0** viittaa effective user id:hen ja luulen että arvo olisi 1000 jos kirjautuminen olisi autentikoitu
   5. **TTY=/dev/pts/1** viittaa terminaaliin jossa komento tehtiin ja pts virtuaaliterminaaliin
   6. ja loput viittaavat käyttäjätietoihin
 
-  Seuraavaksi onnistunut tapahtuma, eli oikealla salasanalla sudo-komennon toteuttaminen
+  Seuraavaksi onnistunut tapahtuma, eli oikealla salasanalla sudo-komennon toteuttaminen:
 
   ![g.2_success](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/g.2_success.png)
 
-  1. Heti ensimmäiseksi on komennon aikaleima
+  1. Komennon aikaleima
   2. **TTY=pts/5** ks yllä
-  3. **PWD** hakemistoon jossa komento suoritettiin
+  3. **PWD** viittaa hakemistoon jossa komento suoritettiin
   4. **USER=root** kertoo komennon suorittaneen käyttäjän käyttöoikeustasosta
   5. **COMMAND...** kertoo taas suorityetun komennon
 
 
 
 ### Lähteet:
-Tero Karvinen, Linux palvelimet alkukevät 2024 tehtävät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini, luettu 24.01.2024
-
-Tero Karvinen, Command line basics revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited, luettu: 24.01.2024
-
-Github/EeroSav LinuxPalvelimet Tehtävä 2. Luettavissa: https://github.com/EeroSav/LinuxPalvelimet/blob/main/T2.md, luettu: 24.01.2024
 
 Debian packages. Luettavissa: https://packages.debian.org/stable/allpackages, luettu: 24.01.2024
 
 Dev, CLI tools you won't be able to live without. Luettavissa: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6, luettu: 24.01.2024
 
+Geeks for Geeks lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
+
 GitHub GitGuides. Luettavissa distributed version control software, luettu: 24.01.2024
 
-Geeks for Geeks lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
+Ken Hess, Linux sysadmin basics 2019. Luettavissa https://www.redhat.com/sysadmin/user-account-gid-uid, luettu: 25.01.2024 
 
 linux.com lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
 
 linux.fi hakemistorakenne, luettavissa: https://www.linux.fi/wiki/Hakemistorakenne, luettu: 25.01.2024
 
-Ken Hess, Linux sysadmin basics 2019. Luettavissa https://www.redhat.com/sysadmin/user-account-gid-uid, luettu: 25.01.2024 
+Tero Karvinen, Linux palvelimet alkukevät 2024 tehtävät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini, luettu 24.01.2024
+
+Tero Karvinen, Command line basics revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited, luettu: 24.01.2024
 
 
 
-## ei tyhmiä kysymyksiä olekaan vai?
+
+
+## ei tyhmiä kysymyksiä olekaan vai (muistiinpanot seuraavaa luentoa varten)
 1. Ymmärsinkö oikein, että syslog on jos on raudalla ja journal koska virtuaali?
 ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/Q1.png)
 2. Näyttökuvien lisääminen työlästä (napata, nimetä, ladata, linkittää)vai laitanko vain liikaa, pystytkö näyttää miten sen teit?
-3. Micro cheatsheet ???
+3. Micro cheatsheet ei toiminut
