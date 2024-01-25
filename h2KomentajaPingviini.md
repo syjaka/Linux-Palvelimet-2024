@@ -243,7 +243,7 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
   4. **USER=root** kertoo komennon suorittaneen käyttäjän käyttöoikeustasosta
   5. **COMMAND...** kertoo taas suorityetun komennon
 
-
+Valmista tuli klo 15.00, eli torstaina aikaa kului noin 4 tuntia. Kokonaisuudessaan 9 tuntia.
 
 ### Lähteet:
 
