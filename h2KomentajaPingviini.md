@@ -210,7 +210,7 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
     $ mkdir kansioA    # Loin kotihakemistoon  kansioA:n johon siirryin komennolla $ cd kansioA
     $ micro komentajaIngviini.md # Loin kansioA:han tiedoston komentajaPingviini.md, johon kopioin ja liitin yo tekstin. Poistuin: ctrl+q ja tallensin muutokset: Y
     $ cd # siirryin takaisin kotihakemistoom
-    $ cp - kansioA kansioB # kopioin kansioA sisältöineen samalla luotavaan kansioB:hen, samoin tein kansioC:n
+    $ cp -r kansioA kansioB # kopioin kansioA sisältöineen samalla luotavaan kansioB:hen, samoin tein kansioC:n
     
     
 
