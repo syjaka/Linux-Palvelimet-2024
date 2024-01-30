@@ -120,23 +120,8 @@ hain uudestaan lokeja komennoilla:
 mutta yhä jää lokit löytymättä. Seuraavaksi koitan vaihtaa lokien talletuspaikkaa
 
 
-    
-
-
-
-
-
-
-
-   
-
- ## 4. 
-
-    
   
 
-
-  
 
 ### Lähteet:
 
