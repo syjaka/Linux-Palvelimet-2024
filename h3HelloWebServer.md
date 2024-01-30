@@ -46,8 +46,8 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
    Uuden nimipohjaisen virtuaalipalvelimen asennus
 
-    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf # Avaa mainitun tiedoston muokattavaksi pääkäyttäjän oikeuksilla ja määritä VirtualHost annetuilla konfiguraatioilla
-    $ cat /etc/apache2/sites-available/pyora.example.com.conf # lukee ja näyttää mainitun tiedoston sisällön
+    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf 
+    $ cat /etc/apache2/sites-available/pyora.example.com.conf 
     $ sudo a2ensite pyora.example.com # tämä aktivoi virtuaalipalvelimen konfiguraatiot
     $ sudo systemctl restart apache2 # tätä käynnistää apachen uudelleen muutoksien voimaansaattamiseksi
 
