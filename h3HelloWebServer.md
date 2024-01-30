@@ -1,5 +1,6 @@
-# **KESKENERÄINEN**
 # H3 Hello Web Server
+
+# **'KESKENERÄINEN'**
 
 ### Tero Karvisen Linux palvelimet kurssin [kolmantena tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h3-hello-web-server) oli:
 1. Tiivistää Artikkeli: [The Apache Software Foundation 2023: Apache HTTP Server Version 2.4 Documentation: Name-based Virtual Host Support](https://httpd.apache.org/docs/2.4/vhosts/name-based.html)
@@ -35,10 +36,35 @@
   - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain mahdollisesti ristiriitaisia määrityksiä. (Apache.org, 2023)
  
 ## 2. Tiivistelmä artikkelista - Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address
-- Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
-- Web serverin asennus ja default-sivun korvaaminen:
 
-  $ sudo apt-get - y install apache2
+Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
+
+   Web serverin asennus ja default-sivun korvaaminen:
+    
+    $ sudo apt-get -y install apache2  # Apache-web serverin asennus
+    $ echo "Default"|sudo tee /var/www/html/index.html #oletustiedoston korvaaminen index.html nimisellä tiedostolla jossa "Default"-teksti hakemistossa /var/www/html
+
+   Uuden nimipohjaisen virtuaalipalvelimen asennus
+
+    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf # Avaa mainitun tiedoston muokattavaksi pääkäyttäjän oikeuksilla
+    $ cat /etc/apache2/sites-available/pyora.example.com.conf # lukee ja näyttää mainitun tiedoston sisällön, määritä VirtualHost annetuilla konfiguraatioilla
+    $ sudo a2ensite pyora.example.com
+    $ sudo systemctl restart apache2
+
+   Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä)
+
+    $ mkdir -p /home/xubuntu/publicsites/pyora.example.com/
+    $ echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html
+
+   Testaa lopputulos
+
+    $ curl -H 'Host: pyora.example.com' localhost
+    $ curl localhost
+
+ Tai Firefoxissa 'http:/localhost tai http://pyora.example.com
+
+    
+  
 
 
   
