@@ -79,7 +79,7 @@ Haen aluksi Apachen lokitiedot. Koska kyseessä oli onnistunut haku haen access-
 
 - Eli pitää selvittää miksi lokit ei näy täällä. Lähtökohtana lokin viimeinen tapahtuma näkyy kuvassa, eli lokit ovat tallentuneet tänne. jokin muutos on siis tapahtunut.
 
-- Klo 20.37 Parhaan kykyni mukaan yritin etsiä googlesta syitä, mutta mitään olosuhteisiin sopivaa ei löytynyt.
+- Klo 20.37 Parhaan kykyni mukaan yritin etsiä googlesta syitä, mutta mitään olosuhteisiin sopivaa ei löytynyt. Tarkistin myös error.login ja journalctl.
 Päivällä apachea ensi kerran asentaessa minulla oli jonkin verran ongelmia ja mahdollista on että asiaa korjatessa jokin on mennyt pieleen. Sen vuoksi aloitan alusta ja samalla tulee harjoiteltua vapaaehtoista bonusta...
 
 Apachen poisto autoremove komennolla:
