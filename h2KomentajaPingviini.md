@@ -21,9 +21,9 @@
     d) cd .. siirty aina yhden hakemiston ylös
 - mkdir uusi kansio
 - rmdir poista tyhjä kansio tai rm -r tyhjennä kansio jossa tavaraa tai rm xx poista xx-niminen kansio
-- tabulaattori täydentää ja jos on monta vaihtoehtoa kaksi kertaa antaa vaihtoehdot mitä voisi täydentää.
+- tabulaattori täydentää ja jos on monta vaihtoehtoa; kaksi kertaa painettuna antaa vaihtoehdot mitä voisi täydentää.
 - man ls näyttää ls komennon ohjeet
-- sudo komennon edessä antaa sudo-oikeudet niitä vaativille komennoille tai hakemistoille, esim softan asennus/poisto, käyttäjien hallinta...
+- sudo komennon edessä, antaa sudo-oikeudet niitä vaativille komennoille tai hakemistoille, esim softan asennus/poisto, käyttäjien hallinta...
   
    ![kuva_sudo](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_sudo.png)
   
@@ -31,7 +31,7 @@
 
 ## 2. Asenna micro-editori - ke klo 20.45
 
-edit 25.01.2024 Työskentely-ympäristö lisätty
+(EDIT 25.01.2024 Työskentely-ympäristö lisätty)
 Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
 
 Aloitin ao. komennolla joka haki päivitti ja näytti saatavilla olevat paketit.
@@ -46,34 +46,42 @@ Koska olin jo eilen harjoitellessa asentanut micron sain seuraavan vastauksen:
      
 Microa asentaessa olin kopioinut kokonaisuudessaan opettajan esimerkin komennon, tuli samalla asennettua muutakin. Eli asennus jatkui asennus seuraavanlaisesti:
 
+(EDIT 30.01-2024; lähde lisätty Asennuksessa käytetty komento ja pluginit Tero Karvisen ohjeesta [Command Palette, Cheatsheet, Run and Make - New Micro Editor Plugins](https://terokarvinen.com/2022/command-palette-cheatsheet-run-and-make-micro/)
+
   ![kuva micro asennus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_micro_asennus.png)
 
-Eli ao. lisäpaketit tuli asennettua
-  - [fzf](https://packages.debian.org/stable/fzf) (0.38.0-1+b1), general-purpose command-line fuzzy finder
+Alla luetellut lisäpaketit tuli asennetuksi samalla:
+  - [fzf](https://packages.debian.org/stable/fzf) (0.38.0-1+b1), general-purpose command-line fuzzy finder 
   - [pythonpy](https://packages.debian.org/stable/pythonpy) (0.4.11b-3.1) - 'python -c', with tab completion and shorthand (debian packages website)
   - [git](https://github.com/git-guides/install-git) (2.39.2) - distributed version control software (github, git guides)
-  - [exuberant-ctags](https://packages.debian.org/stable/exuberant-ctags) (1:5.9~svn20110310-18) build tag file indexes of source code definitions
+  - [exuberant-ctags](https://packages.debian.org/stable/exuberant-ctags) (1:5.9~svn20110310-18) build tag file indexes of source code definitions (debian packages website)
 
-    Jatkoin vielä opettajan suosittelemilla plugineilla:
+
+    Jatkoin vielä opettajan ohjeessa suosittelemilla plugineilla:
 
    ![kuva_pluginit](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_pluginit.png)
 
-Seuraavaksi kokeilut että asennukset toimii:
+Seuraavaksi testit että Micron laajennukset toimii:
     
     $ micro kadi.py 
-Yllä oleva komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlata olisiko jokin muu näppäin macillä osuva, tuloksetta.
- 
+  Yllä oleva komento  ja F1 - ei tuonut cheatsheettiä näkyviin. Koikeilin myös googlata olisiko jokin muu näppäin macillä osuva, tuloksetta.
+
+    
   Run toimi odotetusti:
     ![kuva_hello_kadi](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_hello_kadi.png)
+   
 
-  Palettero toimi ja vaikuttaa hyödylliseltä
+  Palettero toimi ja vaikuttaa hyödylliseltä (EDIT 30.01.2024, laaajennus saadaan esiin micro-editorissa ctrl + optio + space näppäinyhdistelmällä.)
     ![kuva_palettero](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_palettero.png)
       
-valmista oli muutamassa minuutissa, mutta kaiken lisätiedon hankinta ja kokeilut ennen ja jälkeen kesti 22.00 saakka.
+Asennukset olivat valmiina muutamassa minuutissa, mutta kaiken lisätiedon hankinta ja kokeilut ennen ja jälkeen kestivät 22.00 saakka.
 
 ## 2. Listaa rauta - ke klo 22.10 
 
   ![kuva_lshw-not](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_lshv-not.png)
+
+  (EDIT 30.01.2024 - Selvennys yo kuvalle: Koska slhw ei ollut asennettu, ensin sen asennus)
+
 Ensimmäiseksi lshw asennus komennolla
 
     $ sudo apt-get install lshw
@@ -97,7 +105,7 @@ Komennolla (sudo lshw = ls hardware -short = tulostaa yhteenvedon joka noudattaa
 
 Alle listaukseen olen lisännyt lisää analyysiä kustakin laitteesta niiltä osin kuin on ollut mahdollista päätellä.
   - system      VirtualBox kertoo että kyseessä on vVirtuaBox virtuaalikone
-  - 0/        VirtualBox  -- /0 kuvaa raudan emolevyä eli ensimmäistä pääkomponenttia. tässä tapauksessa virtualBox
+  - 0/          VirtualBox  -- /0 kuvaa raudan emolevyä eli ensimmäistä pääkomponenttia. tässä tapauksessa virtualBox
 
 Seuraavat ovat omalta koneeltani allokoituja fyysysä komponentteja:
   - 0/0/      memory 128KiB BIOS -- . Kyseessä BIOS-muisti kooltaan 128 KiB
@@ -133,7 +141,7 @@ Ja seuraavat taas virtuaalikoneen "rautaa"
   - /0/100/d/0.0.0/1 /dev/sda1 volume 51GiB EXT4 volume
   - /0/100/d/0.0.0/2 /dev/sda2  volume 8402MiB Linux swap volume
     
-Ja viimemisten lähdekonetta en onnistunut arvioimaan.
+Ja viimeisten lähdekonetta en onnistunut arvioimaan.
   - /1  input0 input AT Translated Set 2 keyboard
   - /2                  input2      input Power Button
   - /3                  input3      input Video Bus
@@ -145,20 +153,22 @@ Ja viimemisten lähdekonetta en onnistunut arvioimaan.
 
 ## 3. Apt. asenna kolme uutta komentoriviohjelmaa ke klo 23.00
 
-Tämän taisin jo "vahingossa" tehdä kohdassa 2, mutta koska kertaus on opintojen äiti niin harjoitellaan lisää.
+Tämän tuli jo tehtyä kohdassa 2, mutta seuraavaksi paremman dokumentoinnin kanssa.
 
 Aluksi googlailin hyviä/mielenkiintoisia vaihtoehtoja ja päädyin seuraaviin:
 
 1. [tre](https://github.com/dduan/tre) joka listaa hakemiston suoraan puunäkymään
 2. [khal](https://github.com/pimutils/khal) eli cli kalenteri
-3. [Lolcat](https://github.com/busyloop/lolcat) eli väriä ruutuun (Dev)
+3. [Lolcat](https://github.com/busyloop/lolcat) eli väriä ruutuun (Dev 2023)
 
-Ensimmäiset kaksi asensin komennoilla:
+Asentaessa käytin seuraavia komentoja:
 
     sudo apt-get -y install tre-command khal
     sudo snap install lolcat
    
-Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat, jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa
+Lolcatia asentaessa tuli herja että snap komento on unknown joten kokeilin apt install lolcat, jolla asennus onnistui. Näin ollen senkin olisi voinut asentaa samanaikaisesti muiden ohjelmien kanssa.
+
+(EDIT 30.01.2024 Lolcatin omassa asennusvihjeessä mainittiin snap-komennolla asentaminen, joten testasin asennusta ensin sillä).
 
    ![kuva_tre_khal_lolcat](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/kuva_tre_khal_lolcat.png)
 
@@ -183,7 +193,7 @@ Valmista keskiviikon osalta tuli to noin klo 01.50, eli keskiviikon työajaksi t
       
   ![d.4_kuva_etc](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.4_kuva_etc.png)
   
-  5. /media/ - Juurihakemistossa sijaitseva /media sisältää kaiken irroitettavan median, mm. usb-tikku cdrom...
+  5. /media/ - Juurihakemistossa sijaitseva /media sisältää kaiken irroitettavan median, mm. usb-tikku, cdrom...
   
   ![d.5_kuva_media](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.5_kuva_media.png)
   
@@ -193,12 +203,24 @@ Valmista keskiviikon osalta tuli to noin klo 01.50, eli keskiviikon työajaksi t
   ![d.6_kuva_varlog](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/d.6_kuva_varlog.png)
 
 ## 5. The friendly M. kuvaavie esimerkkejä grep-komennon käytöstä - to klo 12.00
-grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten loin kotihakemistooni kansiotA-C joihin kopioin tiedostoon komentajaPingviini kaiken nyt kirjoittamani tekstin tekstin.
+grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten loin kotihakemistooni kansiot A-C, joihin lisäsin tiedoston komentajaPingviini.md.
+
+(EDIT 30.01.2024. Kansioiden ja tiedostojen luonnin tein kotihakemistossani seuraavilla komennoilla:
+
+    $ mkdir kansioA    # Loin kotihakemistoon  kansioA:n johon siirryin komennolla $ cd kansioA
+    $ micro komentajaIngviini.md # Loin kansioA:han tiedoston komentajaPingviini.md, johon kopioin ja liitin yo tekstin. Poistuin: ctrl+q ja tallensin muutokset: Y
+    $ cd # siirryin takaisin kotihakemistoom
+    $ cp - kansioA kansioB # kopioin kansioA sisältöineen samalla luotavaan kansioB:hen, samoin tein kansioC:n
+    
+    
+
+komentajaPingviini.md-tiedosto sisälsi kaiken yllä kirjoityetun tekstin.
+
   1. Ensimmäinen haku oli
 
     grep -r "lähteet"
 
-  joka ei tuottanut mitään tulosta. Kun lisäsin -i joka ignooraa kirjainkoon, sain tulokseksi juuri kuten piti. Lisäksi haussa ei ole hakemistopolkua, sillä tein haun siinä halkemistossa jinka halusin hakuun sisällyttää.
+  joka ei tuottanut mitään tulosta. Kun lisäsin -i joka jättää kirjainkkoon huomiotta, sain tulokseksi juuri kuten piti. Lisäksi haussa ei ole hakemistopolkua, sillä tein haun siinä halkemistossa jonka halusin hakuun sisällyttää.
   
   ![e.1_lahteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/e.1_lahteet.png)
 
@@ -206,7 +228,7 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
     grep -r "error" //var/log
 
-  Tämä antoi paljon "permission denied" -tuloksia joten lisäsin sudo-komennon, jolloin pääsy oli laajemmin eri tiedostoihin
+  Tämä antoi paljon "permission denied" -tuloksia joten lisäsin sudo-komennon, jolloin pääsy oli laajempi
 
   ![e.2_error](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/e.2_error.png)
      
@@ -231,10 +253,10 @@ grep- komennto on erinomainen etsintä/analysointityökalu. Tehtävää varten l
 
   1. Komennon aikaleima
   2. **pam_unix(sudo:auth): authentication failure;** - kertoo että autentikointi epäonnistui
-  3. **logname= uid=1000 euid=0** kertoo käyttäjän idksi 1000 nikä viittaa ensimmäiseen käyttäjään; kadi (Hass)
+  3. **logname= uid=1000 euid=0** kertoo käyttäjän idksi 1000 nikä viittaa ensimmäiseen käyttäjään; kadi 
   4. **euid=0** viittaa effective user id:hen ja luulen että arvo olisi 1000 jos kirjautuminen olisi autentikoitu
   5. **TTY=/dev/pts/1** viittaa terminaaliin jossa komento tehtiin ja pts virtuaaliterminaaliin
-  6. ja loput viittaavat käyttäjätietoihin
+  6. ja loput viittaavat käyttäjätietoihin (Hess 2019)
 
   Seuraavaksi onnistunut tapahtuma, eli oikealla salasanalla sudo-komennon toteuttaminen:
 
@@ -252,28 +274,22 @@ Valmista tuli klo 15.00, eli torstaina aikaa kului noin 4 tuntia. Kokonaisuudess
 
 Debian packages. Luettavissa: https://packages.debian.org/stable/allpackages, luettu: 24.01.2024
 
-Dev, CLI tools you won't be able to live without. Luettavissa: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6, luettu: 24.01.2024
+Dev, CLI tools you won't be able to live without, 2023. Luettavissa: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6, luettu: 24.01.2024
 
-Geeks for Geeks lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
+Geeks for Geeks lshw, 2019. Luettavissa: https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
 
-GitHub GitGuides. Luettavissa distributed version control software, luettu: 24.01.2024
+Ken Hess, Linux sysadmin basics 2019. Luettavissa: https://www.redhat.com/sysadmin/user-account-gid-uid, luettu: 25.01.2024 
 
-Ken Hess, Linux sysadmin basics 2019. Luettavissa https://www.redhat.com/sysadmin/user-account-gid-uid, luettu: 25.01.2024 
+linux.com lshw 2017. Luettavissa: https://www.linux.com/training-tutorials/deep-hardware-discovery-lshw-and-lsusb-linux/, luettu: 24.01.2024
 
-linux.com lshw, luettavissa https://www.geeksforgeeks.org/lshw-command-in-linux-with-examples/, luettu: 24.01.2024
+linux.fi, hakemistorakenne, 2021. Luettavissa: https://www.linux.fi/wiki/Hakemistorakenne, luettu: 25.01.2024
 
-linux.fi hakemistorakenne, luettavissa: https://www.linux.fi/wiki/Hakemistorakenne, luettu: 25.01.2024
+Tero Karvinen, Command Palette, Cheatsheet, Run and Make - New Micro Editor Plugins, 2022. Luettavissa: https://terokarvinen.com/2022/command-palette-cheatsheet-run-and-make-micro/, luettu 25.01.2024 (EDIT 30.01.2024; lähde lisätty)
 
 Tero Karvinen, Linux palvelimet alkukevät 2024 tehtävät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini, luettu 24.01.2024
 
 Tero Karvinen, Command line basics revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited, luettu: 24.01.2024
 
+(EDIT 30.01.2024: Lähteiden muotoja korjattu)
 
 
-
-
-## ei tyhmiä kysymyksiä olekaan vai (muistiinpanot seuraavaa luentoa varten)
-1. Ymmärsinkö oikein, että syslog on jos on raudalla ja journal koska virtuaali?
-![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/Q1.png)
-2. Näyttökuvien lisääminen työlästä (napata, nimetä, ladata, linkittää)vai laitanko vain liikaa, pystytkö näyttää miten sen teit?
-3. Micro cheatsheet ei toiminut
