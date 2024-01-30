@@ -117,7 +117,10 @@ hain uudestaan lokeja komennoilla:
 
     $ sudo tail /var/log/apache2/access.log
     $ sudo tail /var/log/apache2/error.log
-mutta yhä jää lokit löytymättä. Seuraavaksi koitan vaihtaa lokien talletuspaikkaa
+
+mutta yhä jää lokit löytymättä. 
+
+   ![4.5_log_MIA](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5_log_MIA.png)
 
 
   
