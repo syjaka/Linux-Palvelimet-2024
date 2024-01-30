@@ -28,10 +28,10 @@
   - Jokaiselle halutulle verkkosivulle tulee luoda ensin oma VirtualHost-osio jonka tulee minimissään sisältää ServertName - joka kertoo mikä sivu kyseessä ja DocumentRoot - joka kertoo missä hakemistossa kyseisen Hostin sisältö on.
   - Mikäli pyyntö ei vastaa olemasaaolevaa VirtuaHostia käsitellään se globaalin palvelimen määritysten mukaan.
   - Tätä kohtaa en ymmärrä
-      ![1.1_Main_host_goes_away]()
+      ![1.1_Main_host_goes_away](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/1.1_Main_host_goes_away.png)
   - Sekaannuksien välttämiseksi jokaiselle nimipohjaiselle virtuaalipalvelimelle olisi parasta aina määrittää Server Name yksilöllisesti.
   - Allas kuva esimerkistä:
-    ![1.2_eri_virtuaHostit]()
+    ![1.2_eri_virtuaHostit](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/1.2_eri_virtuaHostit.png)
   - Jos haluaa että palvelin on saavutettavissa useamman nimen avulla voidaan luoda ServerAlias. Tämän voi tehdä joko tarkasti kuten www.esim.com tai jokerin avulla *.esim.com jolloin kaikki mahdolliset yhdistelmät ennen postettä johtavat samaan tulokseen
   - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain mahdollisesti ristiriitaisia määrityksiä. 
  
@@ -65,7 +65,7 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
  ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta klo 
 
-   ![3.1_localHost_terminaali]()
+   ![3.1_localHost_terminaali](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/3.1_localHost_terminaali_.png)
 
 ## 4. Etsi lokista rivit jotka syntyivät äskeisestä
 
@@ -75,7 +75,7 @@ Haen aluksi Apachen lokitiedot. Koska kyseessä oli onnistunut haku haen access-
 
 - Tulokseksi saan lokitiedostot, mutta viimeinen kellottuu tälle päivälle klo 13.20, haun tein noin 18...
 
-   ![4.1_loki_1]()
+   ![4.1_loki_1](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1_loki_1.png)
 
 - Eli pitää selvittää miksi lokit ei näy täällä. Lähtökohtana lokin viimeinen tapahtuma näkyy kuvassa, eli lokit ovat tallentuneet tänne. jokin muutos on siis tapahtunut.
 
@@ -88,7 +88,7 @@ Apachen poisto autoremove komennolla:
 
 poisti apachen kaikkine asetuksineen (linuxhint 2023). Yksi hakemisto jäi:
 
-![4.2_apche_var_lib_rmv]()
+![4.2_apche_var_lib_rmv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2_apache_var_lib_not_rmv.png)
 
 tarkistin ensin sisälsikö se mitään, tyhjä oli joten poistin sen komennolla:
 
@@ -104,14 +104,14 @@ Sitten uusi nimi ja virtuaalihost:
 
     $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf #tänne määritän virtuaalipalvelimen konfiguraatiot
     $ cat /etc/apache2/sites-available/pyora.example.com.conf # Tällä komennolla avaan ne tarkasteltaviksi:
-![4.3_vs_conf]()
+![4.3_vs_conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3vs_conf.png)
 
     $ sudo a2ensite pyora.example.com # komennolla aktivoin virtuaalipalvelimen konfiguratiot
     $ sudo systemctl restart apache2 # uudelleenkäynnistys saattaa voimaan uudet configuraatiot
 
 Koska minulla oli jo kotihakemistossa sivu.example.com tuotti localhost testi toivotun tuloksen:
 
-   ![4.4_localHost]()
+   ![4.4_localHost](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4_localHost.png)
 
 hain uudestaan lokeja komennoilla:
 
