@@ -46,10 +46,10 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
    Uuden nimipohjaisen virtuaalipalvelimen asennus
 
-    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf # Avaa mainitun tiedoston muokattavaksi pääkäyttäjän oikeuksilla
-    $ cat /etc/apache2/sites-available/pyora.example.com.conf # lukee ja näyttää mainitun tiedoston sisällön, määritä VirtualHost annetuilla konfiguraatioilla
-    $ sudo a2ensite pyora.example.com
-    $ sudo systemctl restart apache2
+    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf # Avaa mainitun tiedoston muokattavaksi pääkäyttäjän oikeuksilla ja määritä VirtualHost annetuilla konfiguraatioilla
+    $ cat /etc/apache2/sites-available/pyora.example.com.conf # lukee ja näyttää mainitun tiedoston sisällön
+    $ sudo a2ensite pyora.example.com # tämä aktivoi virtuaalipalvelimen konfiguraatiot
+    $ sudo systemctl restart apache2 # tätä käynnistää apachen uudelleen muutoksien voimaansaattamiseksi
 
    Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä)
 
@@ -63,10 +63,74 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
  Tai Firefoxissa 'http:/localhost tai http://pyora.example.com
 
- ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta.
- 1. Ensin terminaalista:
-    ![3.1_localHost_terminaali
- 3. 
+ ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta klo 
+
+   ![3.1_localHost_terminaali]()
+
+## 4. Etsi lokista rivit jotka syntyivät äskeisestä
+
+Haen aluksi Apachen lokitiedot. Koska kyseessä oli onnistunut haku haen access-lokeja.
+
+    $ sudo cat /var/log/apache2/access.log
+
+- Tulokseksi saan lokitiedostot, mutta viimeinen kellottuu tälle päivälle klo 13.20, haun tein noin 18...
+
+   ![4.1_loki_1]()
+
+- Eli pitää selvittää miksi lokit ei näy täällä. Lähtökohtana lokin viimeinen tapahtuma näkyy kuvassa, eli lokit ovat tallentuneet tänne. jokin muutos on siis tapahtunut.
+
+- Klo 20.37 Parhaan kykyni mukaan yritin etsiä googlesta syitä, mutta mitään olosuhteisiin sopivaa ei löytynyt.
+Päivällä apachea ensi kerran asentaessa minulla oli jonkin verran ongelmia ja mahdollista on että asiaa korjatessa jokin on mennyt pieleen. Sen vuoksi aloitan alusta ja samalla tulee harjoiteltua vapaaehtoista bonusta...
+
+Apachen poisto autoremove komennolla:
+
+    $ sudo apt autoremove apache2 apache2-utils  
+
+poisti apachen kaikkine asetuksineen (linuxhint 2023). Yksi hakemisto jäi:
+
+![4.2_apche_var_lib_rmv]()
+
+tarkistin ensin sisälsikö se mitään, tyhjä oli joten poistin sen komennolla:
+
+    sudo rm -r /var/lib/apache2/
+
+Seuraavaksi asensin apachen uudelleen:
+
+    $ sudo apt-get update
+    $ sudo apt-get -y install apache2
+    $ echo "Default"|sudo tee /var/www/html/index.html
+
+Sitten uusi nimi ja virtuaalihost:
+
+    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf #tänne määritän virtuaalipalvelimen konfiguraatiot
+    $ cat /etc/apache2/sites-available/pyora.example.com.conf # Tällä komennolla avaan ne tarkasteltaviksi:
+![4.3_vs_conf]()
+
+    $ sudo a2ensite pyora.example.com # komennolla aktivoin virtuaalipalvelimen konfiguratiot
+    $ sudo systemctl restart apache2 # uudelleenkäynnistys saattaa voimaan uudet configuraatiot
+
+Koska minulla oli jo kotihakemistossa sivu.example.com tuotti localhost testi toivotun tuloksen:
+
+   ![4.4_localHost]()
+
+hain uudestaan lokeja komennoilla:
+
+    $ sudo tail /var/log/apache2/access.log
+    $ sudo tail /var/log/apache2/error.log
+mutta yhä jää lokit löytymättä. Seuraavaksi koitan vaihtaa lokien talletuspaikkaa
+
+
+    
+
+
+
+
+
+
+
+   
+
+ ## 4. 
 
     
   
@@ -77,6 +141,10 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 ### Lähteet:
 
 Apache.org, 2023. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html, luettu: 30.01.2024
+
+Betterstack.com, How to Wiew and configure apache access and error logs. 2023. Luettavissa: https://betterstack.com/community/guides/logging/how-to-view-and-configure-apache-access-and-error-logs/, luettu 30.01.2024
+
+Linuxhint.com, How to uninstall and remove Apache2 on Debian, 2023. Luettavissa: https://linuxhint.com/uninstall-and-remove-apache2-on-debian/, luettu 30.01.2024
 
 Tero Karvinen, Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address, 2018. Luettavissa: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/, luettu 30.01.2014
 
