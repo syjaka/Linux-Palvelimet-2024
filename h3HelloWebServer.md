@@ -33,7 +33,7 @@
   - Allas kuva esimerkistä:
     ![1.2_eri_virtuaHostit]()
   - Jos haluaa että palvelin on saavutettavissa useamman nimen avulla voidaan luoda ServerAlias. Tämän voi tehdä joko tarkasti kuten www.esim.com tai jokerin avulla *.esim.com jolloin kaikki mahdolliset yhdistelmät ennen postettä johtavat samaan tulokseen
-  - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain mahdollisesti ristiriitaisia määrityksiä. (Apache.org, 2023)
+  - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain mahdollisesti ristiriitaisia määrityksiä. 
  
 ## 2. Tiivistelmä artikkelista - Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address
 
@@ -63,6 +63,11 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
  Tai Firefoxissa 'http:/localhost tai http://pyora.example.com
 
+ ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta.
+ 1. Ensin terminaalista:
+    ![3.1_localHost_terminaali
+ 3. 
+
     
   
 
@@ -72,3 +77,6 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 ### Lähteet:
 
 Apache.org, 2023. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html, luettu: 30.01.2024
+
+Tero Karvinen, Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address, 2018. Luettavissa: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/, luettu 30.01.2014
+
