@@ -7,7 +7,7 @@
 2. Tiivistä Tero karvisen artikkeli [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
 3. Testaa että tunnilla asennettu weppipalvelin vastaa localhost osoitteesta
 4. Etsi ja analysoi rivit jotka muodostuvat lokiin, kun omalta palvelimelta ladataan yksi sivu
-5. Tee uusi name based virtual host
+5. Tee uusi name based virtual host 
 6. Tee validi HTML5 sivu.
 7. Anna esimerkit curl -I ja curl -komennoista
 
@@ -122,6 +122,47 @@ mutta yhä jää lokit löytymättä.
 
    ![4.5_log_MIA](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5_log_MIA.png)
 
+Tässä vaiheessa klo 22.15 luovutan ja kyselen opettajalta/ muilta opiskelijoilta neuvoa. 
+
+ke klo 18.30 Opettajalta sain vinkin katsoa kaikki apache lokit komennolla
+
+    $ sudo ls /var/log/apache2/ # josta avasin vhost access lokin komennolla
+    $ $ sudo tail /var/log/apache2/other_vhosts_access.log # tail komennossa tuo viimeisen ensin esiin
+
+Tämä onnistui ja sain viimein etsimäni lokit esiin ja tästä alla analyysiä
+
+   ![4.6_loki_success](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6_loki_success.png)
+
+1. **sivu.example.com** kertoo haetun sivun urlin
+2. **80 ja 127.0.0.1** 80 on porttinumero ja 127.0.0.1 in haun tehneen clientin IP-osoite, tässä tapauksessa omani.
+3. **ensimmäinen -** mikäli käytössä olisi jokin remote log, niin sen nimi. Koska vain viiva ei ollut/edustaa placeholderia
+4. **toinen -** mikäli käytössä etäkäyttäjä tämän username. Koska vain viiva ei ollut/edustaa placeholderia
+5. **[31/Jan/2024:18:14:50 +0200]** pyynnön aikaleima
+6. **GET / HTTP/1.1** Get - pyynnön metodi, / - polku, HTTP/1.1 käytetty protokolla ja sen versio 1.1
+7. **200** vastauskoodi 200 tarkoittaa OK
+8. **238** Vastauksen määrä tavuina (Ayooluwa 2023)
+9. **curl/7.88.1** curl on ohjelma jolla haku tehtiin ja 7.88.1 on sen versio (googlehaku curl 7.88.1)
+
+## 5. Etusivu uusiksi 
+
+Aluksi tein uuden name based virtual hostin:
+
+      $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf #Komennolla aukesi nano jolla konfasin ao. asetukset uusiks.example.com virtuaalipalvelimeen
+
+![5.1_uusiks_nano](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.1_uusiks_nano.png)
+
+    $ sudo a2ensite pyora.example.com # aktivoin uuden palvelimen
+    $ systemctl reload apache2 # käynnistin apachen uudelleen, tämä komento avasi autentikointipyyntöikkunan jonka kuittasin
+
+Tein uuden kansion uusiks.example.com
+   
+   ![5.2_mkdir_uusiks](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.2_mkdir_uusiks.png)
+
+ja tein sinne uuden tiedoston
+ 
+   ![5.3_echo_uusiks](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.3_echo_uusiks.png)
+
+Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu
 
   
 
@@ -130,7 +171,7 @@ mutta yhä jää lokit löytymättä.
 
 Apache.org, 2023. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html, luettu: 30.01.2024
 
-Betterstack.com, How to Wiew and configure apache access and error logs. 2023. Luettavissa: https://betterstack.com/community/guides/logging/how-to-view-and-configure-apache-access-and-error-logs/, luettu 30.01.2024
+Ayooluwa Isaiah/Betterstack.com, How to Wiew and configure apache access and error logs. 2023. Luettavissa: https://betterstack.com/community/guides/logging/how-to-view-and-configure-apache-access-and-error-logs/, luettu 30.01.2024
 
 Linuxhint.com, How to uninstall and remove Apache2 on Debian, 2023. Luettavissa: https://linuxhint.com/uninstall-and-remove-apache2-on-debian/, luettu 30.01.2024
 
