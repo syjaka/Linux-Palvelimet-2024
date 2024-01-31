@@ -166,18 +166,18 @@ ja tein sinne uuden tiedoston
 
 Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu
 
-![4.4_sites_enabled]()
+![5.4_sites_enabled]()
 
 Täällä on vielä edellisen harjoituksen sivu.example. Kansio järjestyy akkosjärjestyksessä ja koska localhost komennolla ei ole määritelty haluttua virtualhostia valitsee apache ensimäisen listatun täältä, muutin uusiks.example sivun nimeä lisäämällä aa alkuun, jolloin se vastaa ensimmäisenä. (apache.org)
 
 Muutoksen tein kuten alla:
 
-   ![4.5_mv_aauusiks]()
+   ![5.5_mv_aauusiks]()
 
 
 Muutoksen jälkeen Sites enabled kansio ei enää tunnista tiedostoa koska nimi uudistui, joten se tulee uudelleen enabloida, vanhan toimimattoman    tiedostonimen disabloin ja sitten testasin ja nyt kaikki toimi.
 
-![4.6_localhost_toimii]()
+![5.6_localhost_toimii]()
 
 Tässä vaiheessa huomasin, että uusi tiedosto piti olla nimeltään hattu.example.com joten seuraavaksi harjoittelen tehtävänannon perusteellista lukemista. Mutta nyt tein kaiken edelläkerrotun uusiks, tällä kertaa jo sujuvammin
    1. Määritän virtuaalipalvelimen hattu.example.com konfiguraatiot samalla kun luon tiedoston sites-available hakemistoon
@@ -186,7 +186,7 @@ Tässä vaiheessa huomasin, että uusi tiedosto piti olla nimeltään hattu.exam
    4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla
    5. testaan että se toimii
 
-      ![4.7_hattu_toimii]()
+      ![5.7_hattu_toimii]()
 
    6. Jos olisin ekalla tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks... tiedoston menee se määrittelemättömällä haulla ensisijaiseksi. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
    7. Seuraavaksi haku curl localhost joka tuottaa toivotun tuloksen
@@ -218,6 +218,9 @@ Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HE
    5. **Content-Type: text/html; charset=iso-8859-1** Tämä kertoo että vastaus on HTML-muodossa ja käyttää ISO-8859-1 merkkikoodausta
 
 ## 8. Hanki GitHub education paketti
+
+Tämä oli jo olemassa
+![8.1_GitHub_edu]()
   
 ## 9. Nimipohjainen virtuaalipalvelin ja 10. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
 
@@ -232,13 +235,13 @@ Komennolla muokkasin hosts tiedostoa jonne lisäsin domain-nimet ja ohjauksen lo
 
 Lisäyksen jälkeen hosts-tiedosto näytää tältä
 
-![7.1_hosts]()
+![9.1_hosts]()
 
 Ja selaimella haut onnistuvat
 
-![7.2_hattu.com]() ![7.3_sivu.com]() ![7.4_uusiks.com]()
+![9.2_hattu.com]() ![9.3_sivu.com]() ![9.4_uusiks.com]()
 
-## 10. 
+Valmista tuli to 1.2 klo 1.00
     
 ### Lähteet:
 
