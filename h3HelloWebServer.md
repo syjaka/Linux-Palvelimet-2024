@@ -42,17 +42,13 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
    Web serverin asennus ja default-sivun korvaaminen:
     
     $ sudo apt-get -y install apache2  # Apache-web serverin asennus
-    
     $ echo "Default"|sudo tee /var/www/html/index.html #oletustiedoston korvaaminen index.html nimisellä tiedostolla jossa "Default"-teksti hakemistossa /var/www/html
 
    Uuden nimipohjaisen virtuaalipalvelimen asennus
 
     $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf 
-    
     $ cat /etc/apache2/sites-available/pyora.example.com.conf 
-    
     $ sudo a2ensite pyora.example.com # tämä aktivoi virtuaalipalvelimen konfiguraatiot
-    
     $ sudo systemctl restart apache2 # tätä käynnistää apachen uudelleen muutoksien voimaansaattamiseksi
 
    Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä)
@@ -103,21 +99,16 @@ tarkistin ensin sisälsikö se mitään, tyhjä oli joten poistin sen komennolla
 Seuraavaksi asensin apachen uudelleen:
 
     $ sudo apt-get update
-    
     $ sudo apt-get -y install apache2
-    
     $ echo "Default"|sudo tee /var/www/html/index.html
 
 Sitten uusi nimi ja virtuaalihost:
 
     $ sudoedit /etc/apache2/sites-available/sivu.example.com.conf #tänne määritän virtuaalipalvelimen konfiguraatiot
-    
     $ cat /etc/apache2/sites-available/sivu.example.com.conf # Tällä komennolla avaan ne tarkasteltaviksi:
 ![4.3_vs_conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3_vs_conf.png)
 
     $ sudo a2ensite sivu.example.com # komennolla aktivoin virtuaalipalvelimen konfiguratiot
-
-   
     $ sudo systemctl restart apache2 # uudelleenkäynnistys saattaa voimaan uudet configuraatiot
 
 Koska minulla oli jo kotihakemistossa sivu.example.com tuotti localhost testi toivotun tuloksen:
@@ -162,7 +153,7 @@ Aluksi tein uuden name based virtual hostin:
 
 ![5.1_uusiks_nano](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.1_uusiks_nano.png)
 
-    $ sudo a2ensite pyora.example.com # aktivoin uuden palvelimen
+    $ sudo a2ensite uusiks.example.com # aktivoin uuden palvelimen
     $ systemctl reload apache2 # käynnistin apachen uudelleen, tämä komento avasi autentikointipyyntöikkunan jonka kuittasin
 
 Tein uuden kansion uusiks.example.com
