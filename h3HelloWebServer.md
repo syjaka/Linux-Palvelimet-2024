@@ -12,9 +12,9 @@
 7. Anna esimerkit curl -I ja curl -komennoista
 
    Lisäksi vapaaehtoiset:
-9. Vapaaehtoinen: Hanki GitHub Education -paketti
-10. Tee apachelle nimipohjainen virtuaalipaketti
-11. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
+8. Vapaaehtoinen: Hanki GitHub Education -paketti
+9. Tee apachelle nimipohjainen virtuaalipaketti
+10. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
 
 ## 1. Tiivistelmä artikkelista Name-based vs. Virtual Hosts
 - IP- vai nimipohjainen virtuaalipalvelin
@@ -167,9 +167,79 @@ ja tein sinne uuden tiedoston
 Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu
 
 ![4.4_sites_enabled]()
+
+Täällä on vielä edellisen harjoituksen sivu.example. Kansio järjestyy akkosjärjestyksessä ja koska localhost komennolla ei ole määritelty haluttua virtualhostia valitsee apache ensimäisen listatun täältä, muutin uusiks.example sivun nimeä lisäämällä aa alkuun, jolloin se vastaa ensimmäisenä. (apache.org)
+
+Muutoksen tein kuten alla:
+
+   ![4.5_mv_aauusiks]()
+
+
+Muutoksen jälkeen Sites enabled kansio ei enää tunnista tiedostoa koska nimi uudistui, joten se tulee uudelleen enabloida, vanhan toimimattoman    tiedostonimen disabloin ja sitten testasin ja nyt kaikki toimi.
+
+![4.6_localhost_toimii]()
+
+Tässä vaiheessa huomasin, että uusi tiedosto piti olla nimeltään hattu.example.com joten seuraavaksi harjoittelen tehtävänannon perusteellista lukemista. Mutta nyt tein kaiken edelläkerrotun uusiks, tällä kertaa jo sujuvammin
+   1. Määritän virtuaalipalvelimen hattu.example.com konfiguraatiot samalla kun luon tiedoston sites-available hakemistoon
+   2. enabloin hattu.example.com sites-enabled hakemistoon
+   3. Luon hattu.example.com hakemiston publicsites hakemistoon
+   4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla
+   5. testaan että se toimii
+
+      ![4.7_hattu_toimii]()
+
+   6. Jos olisin ekalla tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks... tiedoston menee se määrittelemättömällä haulla ensisijaiseksi. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
+   7. Seuraavaksi haku curl localhost joka tuottaa toivotun tuloksen
+
+      ![4.8_localhost_hattu_toimii]()
+   8. Selaimella testatessa näytti vain vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea
+
+      ![4.9_hattu_firefox])
+
+## 5. Tee validi HTML5 sivu
+
+Tämä tuli tehtyä jo edellisessä mutta testasin koodin vielä validatorissa:
+
+   ![5.1_validator]()
+
+## 7. Esimerkit curl komennoista
+
+Curl on komentorivityökalu. Sitä käytetään tietojen lähettämiseen tai hakemiseen eri protokollia käyttäen.
+Curl komennosta on oiva esimerkki edellisen tehtävän kohdan 7 kuvassa jossa olen suorittanut komennon. vastauksena komentoon saan kyseisen verkkosivun sisällön.
+
+    $ curl localhost
+Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HEAD- pyynnön ts. komento pyytää ainoastaan vastauksen otsakkeita koko sisällön sijaan. 
+
+   ![5.1_curl_-I]()
+   1. **HTTP/1.1 301 Moved Permanently** Kertoo että pyydetty sivu on siirretty pysyvästi uuteen sijaintiin
+   2. **Date: Wed, 31 Jan 2024 22:04:19 GMT** Tämä kertoo vastauksen lähetysajan GMT-ajassa
+   3. **Server: Apache/2.2.14 (Ubuntu)** Tämä kertoo että vastaus tulee Apache verkkopalvelinohjelmistolta versiossa 2.2.14 joka on asennettu Ubuntu käyttöjärjestelmälle
+   4. **Location: https://terokarvinen.com/** Tämä kertoo että sijainti on siirretty sivustolle jossa HTTPS-yhteys
+   5. **Content-Type: text/html; charset=iso-8859-1** Tämä kertoo että vastaus on HTML-muodossa ja käyttää ISO-8859-1 merkkikoodausta
+
+## 8. Hanki GitHub education paketti
   
+## 9. Nimipohjainen virtuaalipalvelin ja 10. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
 
+   Seuraavaksi tein kaksi viimeistä bonusta. Minulla on jo sivut sivu.examole.com ja hattu.example.com. Yllä oli myös käytetty aauusiks.example.com jonka nimen muokkasin. Muokkaan tämän takaisin alkuperäiseen muotoonsa ja käytän niitä tehtävään.
 
+       $ sudoedit /etc/hosts
+
+Komennolla muokkasin hosts tiedostoa jonne lisäsin domain-nimet ja ohjauksen localhostiin:
+127.0.0.1 hattu.example.com
+127.0.0.1 sivu.example.com
+127.0.0.1 uusiks.example.com
+
+Lisäyksen jälkeen hosts-tiedosto näytää tältä
+
+![7.1_hosts]()
+
+Ja selaimella haut onnistuvat
+
+![7.2_hattu.com]() ![7.3_sivu.com]() ![7.4_uusiks.com]()
+
+## 10. 
+    
 ### Lähteet:
 
 Apache.org, 2023. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html, luettu: 30.01.2024
