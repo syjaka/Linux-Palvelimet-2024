@@ -62,7 +62,7 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
  Tai Firefoxissa 'http:/localhost tai http://pyora.example.com
 
- ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta - klo 30.01 klo 17.50
+ ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta - 30.01 klo 17.50
 
    ![3.1_localHost_terminaali](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/3.1_localHost_terminaali_.png)
 
@@ -193,9 +193,8 @@ Tässä vaiheessa huomasin, että tehtävänannossa uusi tiedosto piti olla nime
 
 ## 6. Tee validi HTML5 sivu
 
-Tämä tuli tehtyä jo edellisessä mutta testasin koodin vielä validatorissa:
-
-   ![5.10_validator](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.10_validator.png)
+Tämä tuli tehtyä jo edellisessä tehtävässä mutta testasin koodin vielä validatorissa:
+![5.10_validator](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.10_validator.png)
 
 ## 7. Esimerkit curl komennoista
 
@@ -203,9 +202,9 @@ Curl on komentorivityökalu. Sitä käytetään tietojen lähettämiseen tai hak
 Curl komennosta on oiva esimerkki edellisen tehtävän kohdan 7 kuvassa jossa olen suorittanut komennon. vastauksena komentoon saan kyseisen verkkosivun sisällön.
 
     $ curl localhost
-Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HEAD- pyynnön ts. komento pyytää ainoastaan vastauksen otsakkeita koko sisällön sijaan. 
 
-   ![6.1_curl_-I](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.1_curl_-I.png)
+Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HEAD- pyynnön ts. komento pyytää ainoastaan vastauksen otsakkeita koko sisällön sijaan. 
+![6.1_curl_-I](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.1_curl_-I.png)
    1. **HTTP/1.1 301 Moved Permanently** Kertoo että pyydetty sivu on siirretty pysyvästi uuteen sijaintiin
    2. **Date: Wed, 31 Jan 2024 22:04:19 GMT** Tämä kertoo vastauksen lähetysajan GMT-ajassa
    3. **Server: Apache/2.2.14 (Ubuntu)** Tämä kertoo että vastaus tulee Apache verkkopalvelinohjelmistolta versiossa 2.2.14 joka on asennettu Ubuntu käyttöjärjestelmälle
@@ -230,13 +229,13 @@ Komennolla muokkasin hosts tiedostoa jonne lisäsin domain-nimet ja ohjauksen lo
 
 Lisäyksen jälkeen hosts-tiedosto näytää tältä
 
-![9.1_hosts]()
+![9.1_hosts](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/9.1_hosts.png)
 
 Ja selaimella haut onnistuvat
 
-![9.2_hattu.com]() ![9.3_sivu.com]() ![9.4_uusiks.com]()
+![9.2_hattu.com](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/9.2_hattu.com.png) ![9.3_sivu.com](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/9.3_sivu.com.png) ![9.4_uusiks.com](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/9.4_uusiks.png)
 
-Valmista tuli to 1.2 klo 1.00
+Valmista tuli to 1.2 klo 1.00. Keskiviikon työajaksi tuli noin 6,5 tuntia, eli kokonaisuudessaan tehtävän komentoriviosion parissa kului noin 10,5 tuntia.
     
 ### Lähteet:
 
