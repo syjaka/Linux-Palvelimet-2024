@@ -155,40 +155,40 @@ Aluksi tein uuden name based virtual hostin:
     $ sudo a2ensite uusiks.example.com # aktivoin uuden palvelimen
     $ systemctl reload apache2 # käynnistin apachen uudelleen, tämä komento avasi autentikointipyyntöikkunan jonka kuittasin
 
-Tein uuden kansion uusiks.example.com
+Tein uuden kansion uusiks.example.com:
    
    ![5.2_mkdir_uusiks](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.2_mkdir_uusiks.png)
 
-ja tein sinne uuden tiedoston
+ja tein sinne uuden tiedoston:
  
    ![5.3_echo_uusiks](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.3_echo_uusiks.png)
 
-Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu
+Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu:
 
 ![5.4_sites_enabled](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.4_sites_enabled.png)
 
-Täällä on vielä edellisen harjoituksen sivu.example. Kansio järjestyy akkosjärjestyksessä ja koska localhost komennolla ei ole määritelty haluttua virtualhostia valitsee apache ensimäisen listatun täältä, muutin uusiks.example sivun nimeä lisäämällä aa alkuun, jolloin se vastaa ensimmäisenä. (apache.org)
+Täällä oli vielä edellisen harjoituksen sivu.example. Kansio järjestyy akkosjärjestyksessä ja koska "curl localhost" haulla ei ole määritelty haluttua virtualhostia valitsee apache ensimäisen listatun täältä (defaultsivu). Muutin uusiks.example sivun nimeä lisäämällä aa alkuun, jolloin se vastaa hakuun ensimmäisenä. (apache.org)
 
 Muutoksen tein kuten alla:
 
    ![5.5_mv_aauusiks](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/455_mv_aauusiks.png)
 
 
-Muutoksen jälkeen Sites enabled kansio ei enää tunnista tiedostoa koska nimi uudistui, joten se tulee uudelleen enabloida, vanhan toimimattoman    tiedostonimen disabloin ja sitten testasin ja nyt kaikki toimi.
+Muutoksen jälkeen Sites enabled kansio ei enää tunnista tiedostoa koska nimi uudistui. Uusi tiedostonimi tulee uudelleen enabloida, vanhan toimimattoman    tiedostonimen disabloin ja sitten testasin ja nyt kaikki toimi:
 
 ![5.6_localhost_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.6_localhost_toimii.png)
 
-Tässä vaiheessa huomasin, että tehtävänannossa uusi tiedosto piti olla nimeltään hattu.example.com joten seuraavaksi harjoittelen tehtävänannon perusteellista lukemista. Mutta nyt tein kaiken edelläkerrotun uudelleen, tällä kertaa jo sujuvammin.
-   1. Määritän virtuaalipalvelimen hattu.example.com konfiguraatiot samalla kun luon tiedoston sites-available hakemistoon
-   2. Enabloin hattu.example.com sites-enabled hakemistoon
-   3. Luon hattu.example.com hakemiston publicsites hakemistoon
-   4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla
-   5. testaan että se toimii
+Tässä vaiheessa huomasin, että tehtävänannossa uusi tiedosto piti olla nimeltään hattu.example.com, joten seuraavaksi harjoittelen tehtävänannon perusteellista lukemista. Mutta, nyt tein kaiken edelläkerrotun uudelleen, tällä kertaa jo sujuvammin.
+   1. Määritän virtuaalipalvelimen hattu.example.com konfiguraatiot samalla kun luon tiedoston sites-available hakemistoon.
+   2. Enabloin hattu.example.com sites-enabled hakemistoon.
+   3. Luon hattu.example.com hakemiston publicsites hakemistoon.
+   4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla.
+   5. Testaan että sivu toimii:
 ![5.7_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.7_hattu_toimii.png)
-   6. Jos olisin ensimmäisella tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks.example.com tiedoston menee se määrittelemättömällä haulla ensisijaiseksi aakkosjärjestyksen mukaan. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
+   6. Jos olisin ensimmäisella kerralla tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks.example.com tiedoston menee se määrittelemättömällä haulla ensisijaiseksi aakkosjärjestyksen mukaan. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
    7. Seuraavaksi haku "curl localhost" joka tuottaa toivotun tuloksen
 ![4.8_localhost_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.8_localhost_hattu_toimii.png)
-   8. Selaimella testatessa näytti ensin vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea
+   8. Selaimella testatessa näytti ensin vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea:
 ![4.9_hattu_firefox](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.9_hattu_firefox.png)
 
 ## 6. Tee validi HTML5 sivu
@@ -199,11 +199,11 @@ Tämä tuli tehtyä jo edellisessä tehtävässä mutta testasin koodin vielä v
 ## 7. Esimerkit curl komennoista
 
 Curl on komentorivityökalu. Sitä käytetään tietojen lähettämiseen tai hakemiseen eri protokollia käyttäen.
-Curl komennosta on oiva esimerkki edellisen tehtävän kohdan 7 kuvassa jossa olen suorittanut komennon. vastauksena komentoon saan kyseisen verkkosivun sisällön.
+Curl komennosta on oiva esimerkki tehtävän 5. kohdan 7. kuvassa, jossa olen suorittanut komennon. vastauksena komentoon saan kyseisen verkkosivun sisällön.
 
     $ curl localhost
 
-Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HEAD- pyynnön ts. komento pyytää ainoastaan vastauksen otsakkeita koko sisällön sijaan. 
+Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä, joka lähettää HTTP HEAD- pyynnön. Ts. komento pyytää ainoastaan vastauksen otsakkeita koko sisällön sijaan. 
 ![6.1_curl_-I](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.1_curl_-I.png)
    1. **HTTP/1.1 301 Moved Permanently** Kertoo että pyydetty sivu on siirretty pysyvästi uuteen sijaintiin
    2. **Date: Wed, 31 Jan 2024 22:04:19 GMT** Tämä kertoo vastauksen lähetysajan GMT-ajassa
@@ -214,9 +214,10 @@ Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HE
 ## 8. Hanki GitHub education paketti
 
 Tämä oli jo olemassa
+
 ![8.1_GitHub_edu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/8.1_GitHub_edu.png)
   
-## 9. Nimipohjainen virtuaalipalvelin ja 10. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
+## 9. & 10. Nimipohjainen virtuaalipalvelin. & Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
 
    Seuraavaksi tein kaksi viimeistä bonusta. Minulla on jo sivut sivu.examole.com ja hattu.example.com. Yllä oli myös käytetty aauusiks.example.com jonka nimen muokkasin. Muokkaan tämän takaisin alkuperäiseen muotoonsa ja käytän niitä tehtävään.
 
