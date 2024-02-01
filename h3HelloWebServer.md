@@ -3,18 +3,18 @@
 # **'KESKENERÄINEN'**
 
 ### Tero Karvisen Linux palvelimet kurssin [kolmantena tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h3-hello-web-server) oli:
-1. Tiivistää Artikkeli: [The Apache Software Foundation 2023: Apache HTTP Server Version 2.4 Documentation: Name-based Virtual Host Support](https://httpd.apache.org/docs/2.4/vhosts/name-based.html)
-2. Tiivistä Tero karvisen artikkeli [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
-3. Testaa että tunnilla asennettu weppipalvelin vastaa localhost osoitteesta
-4. Etsi ja analysoi rivit jotka muodostuvat lokiin, kun omalta palvelimelta ladataan yksi sivu
-5. Tee uusi name based virtual host 
-6. Tee validi HTML5 sivu.
-7. Anna esimerkit curl -I ja curl -komennoista
+   1. Tiivistää Artikkeli: [The Apache Software Foundation 2023: Apache HTTP Server Version 2.4 Documentation: Name-based Virtual Host Support](https://httpd.apache.org/docs/2.4/vhosts/name-based.html)
+   2. Tiivistä Tero karvisen artikkeli [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
+   3. Testata että tunnilla asennettu weppipalvelin vastaa localhost osoitteesta
+   4. Etsiä ja analysoida rivit jotka muodostuvat lokiin, kun omalta palvelimelta ladataan yksi sivu
+   5. Tehdä uusi name based virtual host
+   6. Tehdä validi HTML5 sivu.
+   7. Antaa esimerkit curl -I ja curl -komennoista
 
-   Lisäksi vapaaehtoiset:
-8. Vapaaehtoinen: Hanki GitHub Education -paketti
-9. Tee apachelle nimipohjainen virtuaalipaketti
-10. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
+   Lisäksi vapaaehtoiset tehtävät oli:
+   8. Vapaaehtoinen: Hankkia GitHub Education -paketti
+   9.Tee apachelle nimipohjainen virtuaalipaketti
+   10. Laittaa sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
 
 ## 1. Tiivistelmä artikkelista Name-based vs. Virtual Hosts
 - IP- vai nimipohjainen virtuaalipalvelin
