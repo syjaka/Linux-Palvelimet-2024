@@ -132,7 +132,7 @@ Jatkoin työskentelyäke ke 31.01 klo 18.30. Opettajalta saadun vinkin perusteel
 
  Other_vhosts_access-lokista tapahtumat löytyivät ja alla analyysiä edellisen päivän hausta:
 
-   ![4.6_loki_success](hhttps://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6_loki_success.png)
+   ![4.6_loki_success](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6_loki_success.png)
 
 1. **sivu.example.com**kertoo haetun sivun url:in
 2. **80 ja 127.0.0.1** 80 ovat porttinumero ja 127.0.0.1 in haun tehneen clientin IP-osoite, tässä tapauksessa omani.
