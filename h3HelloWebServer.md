@@ -138,7 +138,7 @@ Jatkoin työskentelyäke ke 31.01 klo 18.30. Opettajalta saadun vinkin perusteel
 2. **80 ja 127.0.0.1** 80 ovat porttinumero ja 127.0.0.1 in haun tehneen clientin IP-osoite, tässä tapauksessa omani.
 3. **ensimmäinen -** mikäli käytössä olisi jokin remote log, niin sen nimi olisi tässä. Viiva edustaa placeholderia
 4. **toinen -**  mikäli käytössä etäkäyttäjä, olisi tässä tämän username. Viiva edustaa placeholderia.
-5. **[31/Jan/2024:18:14:50 +0200]** pyynnön aikaleima
+5. **[30/Jan/2024:21:47:10 +0200]** pyynnön aikaleima
 6. **GET / HTTP/1.1** Get - pyynnön metodi, / - polku, HTTP/1.1 käytetty protokolla ja sen versio 1.1
 7. **200** vastauskoodi 200 tarkoittaa OK
 8. **238** Vastauksen määrä tavuina (Ayooluwa 2023)
@@ -165,41 +165,37 @@ ja tein sinne uuden tiedoston
 
 Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu
 
-![5.4_sites_enabled]()
+![5.4_sites_enabled](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.4_sites_enabled.png)
 
 Täällä on vielä edellisen harjoituksen sivu.example. Kansio järjestyy akkosjärjestyksessä ja koska localhost komennolla ei ole määritelty haluttua virtualhostia valitsee apache ensimäisen listatun täältä, muutin uusiks.example sivun nimeä lisäämällä aa alkuun, jolloin se vastaa ensimmäisenä. (apache.org)
 
 Muutoksen tein kuten alla:
 
-   ![5.5_mv_aauusiks]()
+   ![5.5_mv_aauusiks](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/455_mv_aauusiks.png)
 
 
 Muutoksen jälkeen Sites enabled kansio ei enää tunnista tiedostoa koska nimi uudistui, joten se tulee uudelleen enabloida, vanhan toimimattoman    tiedostonimen disabloin ja sitten testasin ja nyt kaikki toimi.
 
-![5.6_localhost_toimii]()
+![5.6_localhost_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.6_localhost_toimii.png)
 
-Tässä vaiheessa huomasin, että uusi tiedosto piti olla nimeltään hattu.example.com joten seuraavaksi harjoittelen tehtävänannon perusteellista lukemista. Mutta nyt tein kaiken edelläkerrotun uusiks, tällä kertaa jo sujuvammin
-   1. Määritän virtuaalipalvelimen hattu.example.com konfiguraatiot samalla kun luon tiedoston sites-available hakemistoon
-   2. enabloin hattu.example.com sites-enabled hakemistoon
-   3. Luon hattu.example.com hakemiston publicsites hakemistoon
-   4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla
-   5. testaan että se toimii
+Tässä vaiheessa huomasin, että tehtävänannossa uusi tiedosto piti olla nimeltään hattu.example.com joten seuraavaksi harjoittelen tehtävänannon perusteellista lukemista. Mutta nyt tein kaiken edelläkerrotun uudelleen, tällä kertaa jo sujuvammin.
+      1. Määritän virtuaalipalvelimen hattu.example.com konfiguraatiot samalla kun luon tiedoston sites-available hakemistoon
+      2. Enabloin hattu.example.com sites-enabled hakemistoon
+      3. Luon hattu.example.com hakemiston publicsites hakemistoon
+      4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla
+      5. testaan että se toimii
+   ![5.7_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.7_hattu_toimii.png)
+      6. Jos olisin ensimmäisella tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks.example.com tiedoston menee se määrittelemättömällä haulla ensisijaiseksi aakkosjärjestyksen mukaan. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
+      7. Seuraavaksi haku "curl localhost" joka tuottaa toivotun tuloksen
+   ![4.8_localhost_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.8_localhost_hattu_toimii.png)
+      8. Selaimella testatessa näytti ensin vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea
+      ![4.9_hattu_firefox](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.9_hattu_firefox.png)
 
-      ![5.7_hattu_toimii]()
-
-   6. Jos olisin ekalla tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks... tiedoston menee se määrittelemättömällä haulla ensisijaiseksi. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
-   7. Seuraavaksi haku curl localhost joka tuottaa toivotun tuloksen
-
-      ![4.8_localhost_hattu_toimii]()
-   8. Selaimella testatessa näytti vain vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea
-
-      ![4.9_hattu_firefox])
-
-## 5. Tee validi HTML5 sivu
+## 6. Tee validi HTML5 sivu
 
 Tämä tuli tehtyä jo edellisessä mutta testasin koodin vielä validatorissa:
 
-   ![5.1_validator]()
+   ![5.10_validator](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.10_validator.png)
 
 ## 7. Esimerkit curl komennoista
 
@@ -209,17 +205,17 @@ Curl komennosta on oiva esimerkki edellisen tehtävän kohdan 7 kuvassa jossa ol
     $ curl localhost
 Seuraavaksi kokeilen curl -I terokarvinen.com pyyntöä joka lähettää HTTP HEAD- pyynnön ts. komento pyytää ainoastaan vastauksen otsakkeita koko sisällön sijaan. 
 
-   ![5.1_curl_-I]()
+   ![6.1_curl_-I](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.1_curl_-I.png)
    1. **HTTP/1.1 301 Moved Permanently** Kertoo että pyydetty sivu on siirretty pysyvästi uuteen sijaintiin
    2. **Date: Wed, 31 Jan 2024 22:04:19 GMT** Tämä kertoo vastauksen lähetysajan GMT-ajassa
    3. **Server: Apache/2.2.14 (Ubuntu)** Tämä kertoo että vastaus tulee Apache verkkopalvelinohjelmistolta versiossa 2.2.14 joka on asennettu Ubuntu käyttöjärjestelmälle
-   4. **Location: https://terokarvinen.com/** Tämä kertoo että sijainti on siirretty sivustolle jossa HTTPS-yhteys
+   4. **Location: https://terokarvinen.com/** Tämä location kertoo että sijainti on siirretty sivustolle jossa HTTPS-yhteys
    5. **Content-Type: text/html; charset=iso-8859-1** Tämä kertoo että vastaus on HTML-muodossa ja käyttää ISO-8859-1 merkkikoodausta
 
 ## 8. Hanki GitHub education paketti
 
 Tämä oli jo olemassa
-![8.1_GitHub_edu]()
+![8.1_GitHub_edu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/8.1_GitHub_edu.png)
   
 ## 9. Nimipohjainen virtuaalipalvelin ja 10. Laita sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
 
