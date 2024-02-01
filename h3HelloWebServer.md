@@ -1,38 +1,36 @@
 # H3 Hello Web Server
 
-# **'KESKENERÄINEN'**
-
 ### Tero Karvisen Linux palvelimet kurssin [kolmantena tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h3-hello-web-server) oli:
-   1. Tiivistää Artikkeli: [The Apache Software Foundation 2023: Apache HTTP Server Version 2.4 Documentation: Name-based Virtual Host Support](https://httpd.apache.org/docs/2.4/vhosts/name-based.html)
-   2. Tiivistä Tero karvisen artikkeli [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
-   3. Testata että tunnilla asennettu weppipalvelin vastaa localhost osoitteesta
-   4. Etsiä ja analysoida rivit jotka muodostuvat lokiin, kun omalta palvelimelta ladataan yksi sivu
-   5. Tehdä uusi name based virtual host
+   1. Tiivistää Artikkeli: [The Apache Software Foundation 2023: Apache HTTP Server Version 2.4 Documentation: Name-based Virtual Host Support](https://httpd.apache.org/docs/2.4/vhosts/name-based.html).
+   2. Tiivistä Tero karvisen artikkeli [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/).
+   3. Testata, että tunnilla asennettu weppipalvelin vastaa localhost osoitteesta.
+   4. Etsiä ja analysoida rivit, jotka muodostuvat lokiin, kun omalta palvelimelta ladataan yksi sivu.
+   5. Tehdä uusi name based virtual host.
    6. Tehdä validi HTML5 sivu.
-   7. Antaa esimerkit curl -I ja curl -komennoista
+   7. Antaa esimerkit curl -I ja curl -komennoista.
 
 Lisäksi vapaaehtoiset tehtävät olivat:
 
-   8. Vapaaehtoinen: Hankkia GitHub Education -paketti
-   9. Tee apachelle nimipohjainen virtuaalipaketti
-   10. Laittaa sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
+   8. Vapaaehtoinen: Hankkia GitHub Education -paketti.
+   9. Tee apachelle nimipohjainen virtuaalipalvelu.
+   10. Laittaa sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä.
 
 ## 1. Tiivistelmä artikkelista Name-based vs. Virtual Hosts
 - IP- vai nimipohjainen virtuaalipalvelin
   - IP-pohjaisessa virtuaalipalvelimessa jokaisella nettisivulla on oma IP-osoite jonka perusteella client navigoi palvelimelle.
   - Nimipohjaisessa virtuaalipalvelimessa usea verkkosivu jakaa saman IP-osoitteen ja sivun nimi (osa HTTP headeria) kertoo mikä sivu näytetään.
-  - Nimipohjaisella virtuaalipalvelimen etuja on yksinkertaisempi set-up ja vähissä olevien IP-osoitteiden säästeliäs käyttö
-- Palvelin valitsee ensisijaisesti IP-osoitteen perusteella mitkä virtuaalipalvelimet ovat oikeita. Tämän ensiusijaisen valinnan voi ohittaa käyttämällä jokerimerkkiä (*) IP-osoitteen tilalla jolloin ensisijainen valinta "ohitetaan" ja palvelin tarkastelee ServerName- ja ServerAlias määrityksiä oikean virtuaalipalvelimen löytymiseen.
+  - Nimipohjaisella virtuaalipalvelimen etuja on yksinkertaisempi set-up ja vähissä olevien IP-osoitteiden säästeliäs käyttö.
+- Palvelin valitsee ensisijaisesti IP-osoitteen perusteella mitkä virtuaalipalvelimet ovat oikeita. Tämän ensisijaisen valinnan voi ohittaa käyttämällä jokerimerkkiä (*) IP-osoitteen tilalla jolloin ensisijainen valinta "ohitetaan" ja palvelin tarkastelee ServerName- ja ServerAlias määrityksiä oikean virtuaalipalvelimen löytymiseen.
 - ServerName nimitiedon poisjättäminen nimipohjaiselta virtuaalipalvelimelta on omiaan aiheuttamaan sekaannuksia sillä tällöin palvelin käyttää (FQDN) toimialueen nimeä.
 - Jos palvelimella on useita verkkosivuja jotka vastaavat IP-osoitetta ja porttia ja ServerName tai ServerAlias vastaavuutta ei löydy, hakuun vastataan ensimmäisen hakua vastaavan IP-osoite/portti-yhdistelmän sisällöllä.
 - Nimipohjaisten virtuaalipalvelimien käyttö
-  - Jokaiselle halutulle verkkosivulle tulee luoda ensin oma VirtualHost-osio jonka tulee minimissään sisältää ServertName - joka kertoo mikä sivu kyseessä ja DocumentRoot - joka kertoo missä hakemistossa kyseisen Hostin sisältö on.
+  - Jokaiselle halutulle verkkosivulle tulee luoda ensin oma VirtualHost-osio, jonka tulee minimissään sisältää ServertName - joka kertoo mikä sivu kyseessä ja DocumentRoot - joka kertoo missä hakemistossa kyseisen Hostin sisältö on.
   - Mikäli pyyntö ei vastaa olemasaaolevaa VirtuaHostia käsitellään se globaalin palvelimenmääritysten mukaan.
   - Sekaannuksien välttämiseksi jokaiselle nimipohjaiselle virtuaalipalvelimelle olisi parasta aina määrittää Server Name yksilöllisesti. 
   - Allas kuva esimerkistä jossa kaksi virtualhostia. Ylempi toimii myös defaultHostina:
     ![1.2_eri_virtuaHostit](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/1.2_eri_virtuaHostit.png)
-  - Jos haluaa että tietty palvelin on saavutettavissa useamman nimen avulla voidaan luoda ServerAlias. Tämän voi tehdä joko tarkasti kuten www.esim.com tai jokerin avulla *.esim.com jolloin kaikki mahdolliset yhdistelmät ennen pistettä johtavat samaan tulokseen
-  - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain, mahdollisesti ristiriitaisia määrityksiä. 
+  - Jos haluaa että tietty palvelin on saavutettavissa useamman nimen avulla voidaan luoda ServerAlias. Tämän voi tehdä joko tarkasti kuten www.esim.com tai jokerin avulla *.esim.com jolloin kaikki mahdolliset yhdistelmät ennen pistettä johtavat samaan tulokseen.
+  - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin, siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain, mahdollisesti ristiriitaisia määrityksiä. 
  
 ## 2. Tiivistelmä artikkelista - Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address
 
@@ -41,7 +39,7 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
    Apache-web serverin asennus ja default-sivun korvaaminen:
     
     $ sudo apt-get -y install apache2  # Apache-web serverin asennus
-    $ echo "Default"|sudo tee /var/www/html/index.html #oletustiedoston korvaaminen index.html nimisellä tiedostolla jossa "Default"-teksti hakemistossa /var/www/html
+    $ echo "Default"|sudo tee /var/www/html/index.html #oletustiedoston korvaaminen index.html nimisellä tiedostolla, jossa "Default"-teksti, sijaitsee hakemistossa /var/www/html
 
    Uuden nimipohjaisen virtuaalipalvelimen asennus:
 
@@ -50,12 +48,12 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
     $ sudo a2ensite pyora.example.com # tämä aktivoi luodun virtuaalipalvelimen konfiguraatiot
     $ sudo systemctl restart apache2 # tätä käynnistää apachen uudelleen muutoksien voimaansaattamiseksi
 
-   Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä)
+   Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä):
 
     $ mkdir -p /home/xubuntu/publicsites/pyora.example.com/ # tämä luo hakemiston seuraavaksi luotavalle tiedostolle
     $ echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html # tämä luo tiedoston jonne sivun sisältö tallennetaan
 
-   Testaa lopputulos
+   Testaa lopputulos:
 
     $ curl -H 'Host: pyora.example.com' localhost # tähän vastaa nimenomaisesti pyora.example.com   
     $ curl localhost # tähän vastaa virtuaalipalvelimen defaultsivu
@@ -66,7 +64,7 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
    ![3.1_localHost_terminaali](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/3.1_localHost_terminaali_.png)
 
-   onnistui
+   onnistui.
 
 ## 4. Etsi lokista rivit jotka syntyivät äskeisestä
 
@@ -74,7 +72,7 @@ Haen aluksi Apachen lokitiedot. Koska kyseessä oli onnistunut haku haen access-
 
     $ sudo cat /var/log/apache2/access.log
 
-- Tulokseksi saan lokitiedostot, mutta viimeinen kellottuu tälle päivälle klo 13.20, ensimmäisen haun tein noin klo 18.00
+- Tulokseksi saan lokitiedostot, mutta viimeinen kellottuu tälle päivälle klo 13.20, haun tein noin klo 18.00
 
    ![4.1_loki_1](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1_loki_1.png)
 
@@ -108,7 +106,7 @@ Sitten uusi nimi- ja virtuaalihost:
 ![4.3_vs_conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3_vs_conf.png)
 
     $ sudo a2ensite sivu.example.com # komennolla aktivoin virtuaalipalvelimen konfiguratiot
-    $ sudo systemctl restart apache2 # uudelleenkäynnistys saattoi voimaan uudet configuraatiot
+    $ sudo systemctl restart apache2 # uudelleenkäynnistys saattoi voimaan uudet konfiguraatiot
 
 Koska minulla oli jo kotihakemistossa sivu.example.com tuotti localhost testi toivotun tuloksen:
 
@@ -119,11 +117,11 @@ hain uudestaan lokeja komennoilla:
     $ sudo tail /var/log/apache2/access.log
     $ sudo tail /var/log/apache2/error.log
 
-mutta yhä jäi viimeiset lokit löytymättä. 
+mutta yhä jäi viimeiset lokit onnistuneesta hausta löytymättä. 
 
    ![4.5_log_MIA](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5_log_MIA.png)
 
-Tässä vaiheessa klo 22.15 luovutin ja kyselin opettajalta/ muilta opiskelijoilta neuvoa. Tiistain työajaksi tuli noin neljä tuntia + artikkeleiden tiivistelmät
+Etsin vielä mahdollisia syitä tiedon puuttumiseen jonka jälkeen kyselin opettajalta/ muilta opiskelijoilta neuvoa. Noin kello Tässä 22.15 luovutin, jolloin tiistain työajaksi tuli noin neljä tuntia + artikkeleiden tiivistelmät
 
 Jatkoin työskentelyäke ke 31.01 klo 18.30. Opettajalta saadun vinkin perusteella tarkistin kaikki apachen lokit.
 
