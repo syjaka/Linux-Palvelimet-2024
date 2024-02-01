@@ -52,7 +52,7 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
    Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä)
 
-    $ mkdir -p /home/xubuntu/publicsites/pyora.example.com/ # tämä luo hakemiston sivun sisältämälle tiedostolle
+    $ mkdir -p /home/xubuntu/publicsites/pyora.example.com/ # tämä luo hakemiston seuraavaksi luotavalle tiedostolle
     $ echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html # tämä luo tiedoston jonne sivun sisältö tallennetaan
 
    Testaa lopputulos
@@ -62,7 +62,7 @@ Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
  Tai Firefoxissa 'http:/localhost tai http://pyora.example.com
 
- ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta klo 
+ ## 3. Testi että weppipalvelin vastaa localhost-osoitteesta - klo 30.01 klo 17.50
 
    ![3.1_localHost_terminaali](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/3.1_localHost_terminaali_.png)
 
@@ -74,14 +74,14 @@ Haen aluksi Apachen lokitiedot. Koska kyseessä oli onnistunut haku haen access-
 
     $ sudo cat /var/log/apache2/access.log
 
-- Tulokseksi saan lokitiedostot, mutta viimeinen kellottuu tälle päivälle klo 13.20, haun tein noin 18...
+- Tulokseksi saan lokitiedostot, mutta viimeinen kellottuu tälle päivälle klo 13.20, ensimmäisen haun tein noin klo 18.00
 
    ![4.1_loki_1](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1_loki_1.png)
 
-- Eli pitää selvittää miksi lokit ei näy täällä. Lähtökohtana lokin viimeinen tapahtuma näkyy kuvassa, eli lokit ovat tallentuneet tänne. jokin muutos on siis tapahtunut.
+- Ryhdyin selvittämään miksi lokit eivät näy täällä. Lähtökohtana lokin viimeinen tapahtuma näkyy kuvassa, eli lokit ovat tallentuneet tänne alussa. jokin muutos on siis tapahtunut.
 
 - Klo 20.37 Parhaan kykyni mukaan yritin etsiä googlesta syitä, mutta mitään olosuhteisiin sopivaa ei löytynyt. Tarkistin myös error.login ja journalctl.
-Päivällä apachea ensi kerran asentaessa minulla oli jonkin verran ongelmia ja mahdollista on että asiaa korjatessa jokin on mennyt pieleen. Sen vuoksi aloitan alusta ja samalla tulee harjoiteltua vapaaehtoista bonusta...
+Päivällä apachea ensi kerran asentaessa minulla oli jonkin verran ongelmia ja mahdollista on että asiaa korjatessa jokin on mennyt pieleen. Sen vuoksi aloitan alusta ja samalla tulee harjoiteltua sähköpostitse annettua vapaaehtoista bonusta...
 
 Apachen poisto autoremove komennolla:
 
@@ -91,7 +91,7 @@ poisti apachen kaikkine asetuksineen (linuxhint 2023). Yksi hakemisto jäi:
 
 ![4.2_apche_var_lib_rmv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2_apache_var_lib_not_rmv.png)
 
-tarkistin ensin sisälsikö se mitään, tyhjä oli joten poistin sen komennolla:
+Tarkistin ensin sisälsikö se mitään, tyhjä oli, joten poistin sen komennolla:
 
     sudo rm -r /var/lib/apache2/
 
@@ -101,14 +101,14 @@ Seuraavaksi asensin apachen uudelleen:
     $ sudo apt-get -y install apache2
     $ echo "Default"|sudo tee /var/www/html/index.html
 
-Sitten uusi nimi ja virtuaalihost:
+Sitten uusi nimi- ja virtuaalihost:
 
     $ sudoedit /etc/apache2/sites-available/sivu.example.com.conf #tänne määritän virtuaalipalvelimen konfiguraatiot
     $ cat /etc/apache2/sites-available/sivu.example.com.conf # Tällä komennolla avaan ne tarkasteltaviksi:
 ![4.3_vs_conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3_vs_conf.png)
 
     $ sudo a2ensite sivu.example.com # komennolla aktivoin virtuaalipalvelimen konfiguratiot
-    $ sudo systemctl restart apache2 # uudelleenkäynnistys saattaa voimaan uudet configuraatiot
+    $ sudo systemctl restart apache2 # uudelleenkäynnistys saattoi voimaan uudet configuraatiot
 
 Koska minulla oli jo kotihakemistossa sivu.example.com tuotti localhost testi toivotun tuloksen:
 
@@ -119,25 +119,25 @@ hain uudestaan lokeja komennoilla:
     $ sudo tail /var/log/apache2/access.log
     $ sudo tail /var/log/apache2/error.log
 
-mutta yhä jää lokit löytymättä. 
+mutta yhä jäi viimeiset lokit löytymättä. 
 
    ![4.5_log_MIA](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5_log_MIA.png)
 
-Tässä vaiheessa klo 22.15 luovutan ja kyselen opettajalta/ muilta opiskelijoilta neuvoa. 
+Tässä vaiheessa klo 22.15 luovutin ja kyselin opettajalta/ muilta opiskelijoilta neuvoa. Tiistain työajaksi tuli noin neljä tuntia + artikkeleiden tiivistelmät
 
-ke klo 18.30 Opettajalta sain vinkin katsoa kaikki apache lokit komennolla
+Jatkoin työskentelyäke ke 31.01 klo 18.30. Opettajalta saadun vinkin perusteella tarkistin kaikki apachen lokit.
 
     $ sudo ls /var/log/apache2/ # josta avasin vhost access lokin komennolla
     $ $ sudo tail /var/log/apache2/other_vhosts_access.log # tail komennossa tuo viimeisen ensin esiin
 
-Tämä onnistui ja sain viimein etsimäni lokit esiin ja tästä alla analyysiä
+ Other_vhosts_access-lokista tapahtumat löytyivät ja alla analyysiä edellisen päivän hausta:
 
-   ![4.6_loki_success](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6_loki_success.png)
+   ![4.6_loki_success](hhttps://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6_loki_success.png)
 
-1. **sivu.example.com** kertoo haetun sivun urlin
-2. **80 ja 127.0.0.1** 80 on porttinumero ja 127.0.0.1 in haun tehneen clientin IP-osoite, tässä tapauksessa omani.
-3. **ensimmäinen -** mikäli käytössä olisi jokin remote log, niin sen nimi. Koska vain viiva ei ollut/edustaa placeholderia
-4. **toinen -** mikäli käytössä etäkäyttäjä tämän username. Koska vain viiva ei ollut/edustaa placeholderia
+1. **sivu.example.com**kertoo haetun sivun url:in
+2. **80 ja 127.0.0.1** 80 ovat porttinumero ja 127.0.0.1 in haun tehneen clientin IP-osoite, tässä tapauksessa omani.
+3. **ensimmäinen -** mikäli käytössä olisi jokin remote log, niin sen nimi olisi tässä. Viiva edustaa placeholderia
+4. **toinen -**  mikäli käytössä etäkäyttäjä, olisi tässä tämän username. Viiva edustaa placeholderia.
 5. **[31/Jan/2024:18:14:50 +0200]** pyynnön aikaleima
 6. **GET / HTTP/1.1** Get - pyynnön metodi, / - polku, HTTP/1.1 käytetty protokolla ja sen versio 1.1
 7. **200** vastauskoodi 200 tarkoittaa OK
