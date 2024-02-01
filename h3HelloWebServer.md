@@ -22,45 +22,43 @@ Lisäksi vapaaehtoiset tehtävät olivat:
   - IP-pohjaisessa virtuaalipalvelimessa jokaisella nettisivulla on oma IP-osoite jonka perusteella client navigoi palvelimelle.
   - Nimipohjaisessa virtuaalipalvelimessa usea verkkosivu jakaa saman IP-osoitteen ja sivun nimi (osa HTTP headeria) kertoo mikä sivu näytetään.
   - Nimipohjaisella virtuaalipalvelimen etuja on yksinkertaisempi set-up ja vähissä olevien IP-osoitteiden säästeliäs käyttö
-- Palvelin valitsee ensisijaisesti IP-osoitteen perusteella mitkä virtuaalipalvelimet ovat oikeita. Tämän enbsiusijaisen valinnan voi ohittaa käyttämällä jokerimerkkiä (*) IP-osoitteessa jolloin ensisijainen valinta "ohitetaan" ja palvelin tarkastelee ServerName- ja ServerAlias määrityksiä oikean virtuaalipalvelimen löytymiseen.
+- Palvelin valitsee ensisijaisesti IP-osoitteen perusteella mitkä virtuaalipalvelimet ovat oikeita. Tämän ensiusijaisen valinnan voi ohittaa käyttämällä jokerimerkkiä (*) IP-osoitteen tilalla jolloin ensisijainen valinta "ohitetaan" ja palvelin tarkastelee ServerName- ja ServerAlias määrityksiä oikean virtuaalipalvelimen löytymiseen.
 - ServerName nimitiedon poisjättäminen nimipohjaiselta virtuaalipalvelimelta on omiaan aiheuttamaan sekaannuksia sillä tällöin palvelin käyttää (FQDN) toimialueen nimeä.
 - Jos palvelimella on useita verkkosivuja jotka vastaavat IP-osoitetta ja porttia ja ServerName tai ServerAlias vastaavuutta ei löydy, hakuun vastataan ensimmäisen hakua vastaavan IP-osoite/portti-yhdistelmän sisällöllä.
 - Nimipohjaisten virtuaalipalvelimien käyttö
   - Jokaiselle halutulle verkkosivulle tulee luoda ensin oma VirtualHost-osio jonka tulee minimissään sisältää ServertName - joka kertoo mikä sivu kyseessä ja DocumentRoot - joka kertoo missä hakemistossa kyseisen Hostin sisältö on.
-  - Mikäli pyyntö ei vastaa olemasaaolevaa VirtuaHostia käsitellään se globaalin palvelimen määritysten mukaan.
-  - Tätä kohtaa en ymmärrä
-      ![1.1_Main_host_goes_away](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/1.1_Main_host_goes_away.png)
-  - Sekaannuksien välttämiseksi jokaiselle nimipohjaiselle virtuaalipalvelimelle olisi parasta aina määrittää Server Name yksilöllisesti.
-  - Allas kuva esimerkistä:
+  - Mikäli pyyntö ei vastaa olemasaaolevaa VirtuaHostia käsitellään se globaalin palvelimenmääritysten mukaan.
+  - Sekaannuksien välttämiseksi jokaiselle nimipohjaiselle virtuaalipalvelimelle olisi parasta aina määrittää Server Name yksilöllisesti. 
+  - Allas kuva esimerkistä jossa kaksi virtualhostia. Ylempi toimii myös defaultHostina:
     ![1.2_eri_virtuaHostit](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/1.2_eri_virtuaHostit.png)
-  - Jos haluaa että palvelin on saavutettavissa useamman nimen avulla voidaan luoda ServerAlias. Tämän voi tehdä joko tarkasti kuten www.esim.com tai jokerin avulla *.esim.com jolloin kaikki mahdolliset yhdistelmät ennen postettä johtavat samaan tulokseen
-  - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain mahdollisesti ristiriitaisia määrityksiä. 
+  - Jos haluaa että tietty palvelin on saavutettavissa useamman nimen avulla voidaan luoda ServerAlias. Tämän voi tehdä joko tarkasti kuten www.esim.com tai jokerin avulla *.esim.com jolloin kaikki mahdolliset yhdistelmät ennen pistettä johtavat samaan tulokseen
+  - VirtualHostien asetuksia voi myös hienosäätää lisäämällä määrityksiä VirtualHost-lohkoihin siten että ne vaikuttavat vain lohkonsa VirtualHostiin. Näitä määrityksiä käsitellään ensisijaisina omassa lohkossaan, vaikka myös pääpalvelimella olisi asetettu jotain, mahdollisesti ristiriitaisia määrityksiä. 
  
 ## 2. Tiivistelmä artikkelista - Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address
 
 Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
-   Web serverin asennus ja default-sivun korvaaminen:
+   Apache-web serverin asennus ja default-sivun korvaaminen:
     
     $ sudo apt-get -y install apache2  # Apache-web serverin asennus
     $ echo "Default"|sudo tee /var/www/html/index.html #oletustiedoston korvaaminen index.html nimisellä tiedostolla jossa "Default"-teksti hakemistossa /var/www/html
 
-   Uuden nimipohjaisen virtuaalipalvelimen asennus
+   Uuden nimipohjaisen virtuaalipalvelimen asennus:
 
-    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf 
-    $ cat /etc/apache2/sites-available/pyora.example.com.conf 
-    $ sudo a2ensite pyora.example.com # tämä aktivoi virtuaalipalvelimen konfiguraatiot
+    $ sudoedit /etc/apache2/sites-available/pyora.example.com.conf # Tämä luo konfiguraatiotiedoston jonne conffit asetetaan
+    $ cat /etc/apache2/sites-available/pyora.example.com.conf # Tämä näyttää edellä luodun tiedoston
+    $ sudo a2ensite pyora.example.com # tämä aktivoi luodun virtuaalipalvelimen konfiguraatiot
     $ sudo systemctl restart apache2 # tätä käynnistää apachen uudelleen muutoksien voimaansaattamiseksi
 
    Luo verkkosivu tavallisena käyttäjänä (ei pääkäyttäjä)
 
-    $ mkdir -p /home/xubuntu/publicsites/pyora.example.com/
-    $ echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html
+    $ mkdir -p /home/xubuntu/publicsites/pyora.example.com/ # tämä luo hakemiston sivun sisältämälle tiedostolle
+    $ echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html # tämä luo tiedoston jonne sivun sisältö tallennetaan
 
    Testaa lopputulos
 
-    $ curl -H 'Host: pyora.example.com' localhost
-    $ curl localhost
+    $ curl -H 'Host: pyora.example.com' localhost # tähän vastaa nimenomaisesti pyora.example.com   
+    $ curl localhost # tähän vastaa virtuaalipalvelimen defaultsivu
 
  Tai Firefoxissa 'http:/localhost tai http://pyora.example.com
 
