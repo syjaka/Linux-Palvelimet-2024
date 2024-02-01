@@ -34,6 +34,8 @@ Lisäksi vapaaehtoiset tehtävät olivat:
  
 ## 2. Tiivistelmä artikkelista - Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address
 
+   Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
+
 Apachen avulla voit pitää monta domainia yhdellä IP-osoitteella
 
    Apache-web serverin asennus ja default-sivun korvaaminen:
@@ -121,7 +123,7 @@ mutta yhä jäi viimeiset lokit onnistuneesta hausta löytymättä.
 
    ![4.5_log_MIA](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5_log_MIA.png)
 
-Etsin vielä mahdollisia syitä tiedon puuttumiseen jonka jälkeen kyselin opettajalta/ muilta opiskelijoilta neuvoa. Noin kello Tässä 22.15 luovutin, jolloin tiistain työajaksi tuli noin neljä tuntia + artikkeleiden tiivistelmät
+Etsin vielä mahdollisia syitä tiedon puuttumiseen, jonka jälkeen kyselin opettajalta/ muilta opiskelijoilta neuvoa. Noin kello Tässä 22.15 luovutin, jolloin tiistain työajaksi tuli noin neljä tuntia + artikkeleiden tiivistelmät
 
 Jatkoin työskentelyäke ke 31.01 klo 18.30. Opettajalta saadun vinkin perusteella tarkistin kaikki apachen lokit.
 
@@ -134,13 +136,13 @@ Jatkoin työskentelyäke ke 31.01 klo 18.30. Opettajalta saadun vinkin perusteel
 
 1. **sivu.example.com**kertoo haetun sivun url:in
 2. **80 ja 127.0.0.1** 80 ovat porttinumero ja 127.0.0.1 in haun tehneen clientin IP-osoite, tässä tapauksessa omani.
-3. **ensimmäinen -** mikäli käytössä olisi jokin remote log, niin sen nimi olisi tässä. Viiva edustaa placeholderia
+3. **ensimmäinen -** mikäli käytössä olisi jokin remote log, niin sen nimi olisi tässä. Viiva edustaa placeholderia.
 4. **toinen -**  mikäli käytössä etäkäyttäjä, olisi tässä tämän username. Viiva edustaa placeholderia.
-5. **[30/Jan/2024:21:47:10 +0200]** pyynnön aikaleima
-6. **GET / HTTP/1.1** Get - pyynnön metodi, / - polku, HTTP/1.1 käytetty protokolla ja sen versio 1.1
-7. **200** vastauskoodi 200 tarkoittaa OK
-8. **238** Vastauksen määrä tavuina (Ayooluwa 2023)
-9. **curl/7.88.1** curl on ohjelma jolla haku tehtiin ja 7.88.1 on sen versio (googlehaku curl 7.88.1)
+5. **[30/Jan/2024:21:47:10 +0200]** pyynnön aikaleima.
+6. **GET / HTTP/1.1** Get - pyynnön metodi, / - polku, HTTP/1.1 käytetty protokolla ja sen versio 1.1.
+7. **200** vastauskoodi 200 tarkoittaa OK.
+8. **238** Vastauksen määrä tavuina (Ayooluwa 2023).
+9. **curl/7.88.1** curl on ohjelma jolla haku tehtiin ja 7.88.1 on sen versio (googlehaku curl 7.88.1).
 
 ## 5. Etusivu uusiksi 
 
