@@ -184,12 +184,12 @@ Tässä vaiheessa huomasin, että tehtävänannossa uusi tiedosto piti olla nime
    3. Luon hattu.example.com hakemiston publicsites hakemistoon
    4. Luon hattu.example.com tiedoston hattu.example.com hakemistoon ja muokkaan sen sisältöä micro editorilla
    5. testaan että se toimii
-   ![5.7_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.7_hattu_toimii.png)
-      6. Jos olisin ensimmäisella tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks.example.com tiedoston menee se määrittelemättömällä haulla ensisijaiseksi aakkosjärjestyksen mukaan. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
-      7. Seuraavaksi haku "curl localhost" joka tuottaa toivotun tuloksen
-   ![4.8_localhost_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.8_localhost_hattu_toimii.png)
-      8. Selaimella testatessa näytti ensin vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea
-      ![4.9_hattu_firefox](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.9_hattu_firefox.png)
+![5.7_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.7_hattu_toimii.png)
+   6. Jos olisin ensimmäisella tehnyt tämän oikein, toimisi hattu-sivu myös defaulttina. Koska sisällytin sites-enabled hakemistoon kuitenkin aaauusiks.example.com tiedoston menee se määrittelemättömällä haulla ensisijaiseksi aakkosjärjestyksen mukaan. Sen vuoksi poistan vielä sen sites-enabled hakemistosta.
+   7. Seuraavaksi haku "curl localhost" joka tuottaa toivotun tuloksen
+![4.8_localhost_hattu_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.8_localhost_hattu_toimii.png)
+   8. Selaimella testatessa näytti ensin vielä edellisen sivun sisältöä. Historian ja välimuistin tyhjennyksen jälkeen sisältö oli oikea
+![4.9_hattu_firefox](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.9_hattu_firefox.png)
 
 ## 6. Tee validi HTML5 sivu
 
