@@ -1,4 +1,4 @@
-# h4
+# ht
 
 - x)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/ht.md#x-tiivistelmä)
 - a)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/ht.md#a-)
