@@ -1,7 +1,7 @@
 # h2 Komentaja pingviini
 
 ### Tero Karvisen Linux palvelimet kurssin toisena [h2 tehtävänä](https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h2-komentaja-pingviini) oli:
-  1. [Tiivistää Karvisen [Command line basics revisited](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h2KomentajaPingviini.md#1-Command-line-basics-revisited-muutamalla-sanalla)
+  1. Tiivistää Karvisen [Command line basics revisited](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) artikkeli
   2. Asenna micro editori
   3. Listata testaamani koneen rauta
   4. Asentaa kolme uutta komentoriviohjelmaa
