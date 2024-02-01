@@ -168,6 +168,7 @@ Tarkistan vielä että default-sivu on oikea uusi uusiks-sivu:
 ![5.4_sites_enabled](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.4_sites_enabled.png)
 
 Täällä oli vielä edellisen harjoituksen sivu.example. Kansio järjestyy akkosjärjestyksessä ja koska "curl localhost" haulla ei ole määritelty haluttua virtualhostia valitsee apache ensimäisen listatun täältä (defaultsivu). Muutin uusiks.example sivun nimeä lisäämällä aa alkuun, jolloin se vastaa hakuun ensimmäisenä. (apache.org)
+(EDIT 1.2.2024 -Olisin voinut myös poistaa sivu.example.com:in mutta halusin mielummin löytää keinon pitää sites-enabled hakemistossa useamman nimen (tämä muodostuikin tarpeelliseksi myöhemmissä tehtävissä))
 
 Muutoksen tein kuten alla:
 
