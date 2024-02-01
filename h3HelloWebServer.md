@@ -10,8 +10,7 @@
    5. Tehdä uusi name based virtual host
    6. Tehdä validi HTML5 sivu.
    7. Antaa esimerkit curl -I ja curl -komennoista
-
-   Lisäksi vapaaehtoiset tehtävät oli:
+   Lisäksi vapaaehtoiset tehtävät oli
    8. Vapaaehtoinen: Hankkia GitHub Education -paketti
    9.Tee apachelle nimipohjainen virtuaalipaketti
    10. Laittaa sama tietokone vastaamaan kahdella eri sivulla kahdesta eri nimestä
