@@ -129,12 +129,18 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 7. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
 8. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
 9. Muokkasin sivu tiedostoa 'micro index.html' lisäämällä sinne html5 -pätkän
-10. Testasin että sivu vastaa 'curl -H 'Host: pyora.example.com' localhost' sain erroria vastaukseksi !  
+10. Testasin että sivu vastaa 'curl -H 'Host: sivu.example.com' localhost' sain erroria vastaukseksi !  
     [4.5.6_403_forbidden]()
-      - muokkaan pääsyoikeuksia 'chmod ugo+x $HOME $HOME/public_html/', 'ls -ld $HOME $HOME/public_html/' (Karvinen 2024)
+      - muokkaan pääsyoikeuksia 'chmod ugo+x $HOME $HOME/publicsites/', 'ls -ld $HOME $HOME/publicsites/' (Karvinen 2024)
       - testaan uudelleen curl -H 'Host: pyora.example.com' localhost
-      - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa ![4.5.7_ufw_status]()
-   
+      - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
+        ![4.5.7_ufw_status]()
+      - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
+       ![(4.5.8_conf_tammari]()
+      - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
+      - Testasin ja yhä jää kellottamaan.
+      
+        päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja 'journalctl' lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin.
       - 
 17. 
 11. 
