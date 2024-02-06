@@ -72,10 +72,11 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
        ![4.1.11_tammari_done]()
  
 ---
-  ## c) SSH-yhteys virtuaalipalvelimeen ja palomuurin asennus
+  ## b) Virtuaalipalvelin käyttökuntoon
 
-  Tee alkutoimet omalla virtuaalipalvelimellasi: tulimuuri päälle, root-tunnus kiinni, ohjelmien päivitys. (Karvinen 2024)
+ Tässä osiossa tein Tee alkutoimet omalla virtuaalipalvelimellani.
 
+ ###Palomuuri käyttöön
   1. Aloitan tehtävän ottamalla SHH-yhteyden luotuun tammari-virtuaalipalvelimeen
      - Annan terminaalissa komennon 'ssh root@104.248.205.0' ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
        ![4.2.1_sisään]()
@@ -84,9 +85,8 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
   4. 'sudo ufw enable' käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
     ![4.2.2_palomuuriUp]()
 
-## c) Käyttäjä virtuaalipalvelimelle
-
-Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on kokoajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
+### Root-tunnuksen lukitseminen sekä oman käyttäjän lisäys
+Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
 
   1. Loin käyttäjän komennolla ' $ sudo adduser syrja` ja keksin hyvän salasanan
   2. Käyttäjätietoihin annoin nimeni, mutta muut kohdat ohitin 'return'
@@ -95,6 +95,7 @@ Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina.
     ![4.3.1_syrjaToimii]()
   5. Seuraavaksi lukitsen root-käyttäjän, estääkseni salasanakirjautumisen, muut tavat ovat yhä mahdollisia. Lukitsemiseen käytän komentoa 'sudo usermod -- lock root. Testaan lukitusta yrittämällä kirjautua uudelleen root-käyttäjänä(kuten yllä kohdassa b) 1.), mutta Järjestelmä ei päästä sisään
 
+### Ohjelmien päivitys
 Seuraavaksi ryhdyin päivittämään paketteja komennoilla 'sudo apt-get update' ja 'sudo apt-get upgrade'. Lopputuloksena sain ao viestin:
 
 ![4.3.2HerjaVersiosta]
@@ -103,9 +104,44 @@ Valitsin tarkistaa erot tiedostojen välillä:
 ![4.3.3Erot]()
 Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautuminen on estetty root-tunnuksella sekä ClientAliveInterval 120 rivi on poistettu. Root-kirjautumisen itse muutin, mutta en keksi syytä miksi ClientAliveInterval on poistettu. Koska muita muutoksia ei näy päätän pitää nykyisen (uuden) version, jossa root on lukittu.
 
-## d) Apachen asennus ja nimipohjaisen virtuaalipalvelimen käyttöönotto
+## c) Asenna oma webbipalvelin
 
 Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten tehtävässä [h3_HelloWebServer](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md) toimia.
+
+1. Apachen asennus seuraavin komennoin 'sudo apt-get update'  ja 'sudo apt-get -y install apache2'
+2. Default sivun korvaaminen index.html tiedostolla 'echo "Default"|sudo tee /var/www/html/index.html'
+3. Virtuaalipalvelimen conf sivun luonti 'sudoedit /etc/apache2/sites-available/sivu.example.com.conf'
+    ![4.5.1_sivu_conf[()
+4. aktivoin juuri luodut conffit 'sudo a2ensite sivu.example.com'
+  - Saan erroria koska sivu.example.com ei ole vielä olemassa
+    ![4.5.2_error_not_exist]()
+    
+  - Tarkistan onko kyseinen conf tiedosto olemassa
+    ![4.5.4_cat_not Found]()
+  -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
+    ![4.5.5_sites_available]()
+  - Täältä selviää, että tiedostonimessä on virhe, korjaan sen 'mv etusivu.example.com.con sivu.example.com.conf'
+  - testaan uudelleen 'sudo a2ensite sivu.example.com' ja tällä kertaa se toimii
+5. muutos astuu voimaan uudelleenkäynnistyksellä 'sudo systemctl restart apache2'
+
+6.
+7. SeTein kotihakemistooni uuden kansiopolun 'mkdir /home/syrja/publicsites/sivu.example.com'
+   Sain virheen
+   ![4.5.3_No_such_file]()
+8. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
+9. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/'
+10. Aktivoin uudelleen 'sudo a2ensite sivu.example.com' ja saan saman herjan. 
+
+
+ 
+
+12. 
+13. ipjo
+14. 
+15. hip
+
+
+
 
  ---
  ## d) Oman verkkotunnuksen rekisteröinti
