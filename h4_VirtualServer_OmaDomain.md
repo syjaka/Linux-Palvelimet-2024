@@ -113,15 +113,15 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 3. Virtuaalipalvelimen conf sivun luonti 'sudoedit /etc/apache2/sites-available/sivu.example.com.conf'
     ![4.5.1_sivu_conf[()
 4. aktivoin juuri luodut conffit 'sudo a2ensite sivu.example.com'
-  - Saan erroria koska sivu.example.com ei ole vielä olemassa
+    - Saan erroria koska sivu.example.com ei ole vielä olemassa
     ![4.5.2_error_not_exist]()
     
-  - Tarkistan onko kyseinen conf tiedosto olemassa
+    - Tarkistan onko kyseinen conf tiedosto olemassa
     ![4.5.4_cat_not Found]()
-  -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
+    -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
     ![4.5.5_sites_available]()
-  - Täältä selviää, että tiedostonimessä on virhe, korjaan sen 'mv etusivu.example.com.con sivu.example.com.conf'
-  - testaan uudelleen 'sudo a2ensite sivu.example.com' ja tällä kertaa se toimii
+    - Täältä selviää, että tiedostonimessä on virhe, korjaan sen 'mv etusivu.example.com.con sivu.example.com.conf'
+    - testaan uudelleen 'sudo a2ensite sivu.example.com' ja tällä kertaa se toimii
 5. muutos astuu voimaan uudelleenkäynnistyksellä 'sudo systemctl restart apache2'
 
 6.
