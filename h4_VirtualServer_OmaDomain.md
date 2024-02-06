@@ -123,22 +123,36 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
     - Täältä selviää, että tiedostonimessä on virhe, korjaan sen 'mv etusivu.example.com.con sivu.example.com.conf'
     - testaan uudelleen 'sudo a2ensite sivu.example.com' ja tällä kertaa se toimii
 5. muutos astuu voimaan uudelleenkäynnistyksellä 'sudo systemctl restart apache2'
-
-6.
-7. SeTein kotihakemistooni uuden kansiopolun 'mkdir /home/syrja/publicsites/sivu.example.com'
+6. Tein kotihakemistooni uuden kansiopolun 'mkdir /home/syrja/publicsites/sivu.example.com'
    Sain virheen
    ![4.5.3_No_such_file]()
-8. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
-9. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/'
-10. Aktivoin uudelleen 'sudo a2ensite sivu.example.com' ja saan saman herjan. 
+7. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
+8. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
+9. Muokkasin sivu tiedostoa 'micro index.html' lisäämällä sinne html5 -pätkän
+10. Testasin että sivu vastaa 'curl -H 'Host: pyora.example.com' localhost' sain erroria vastaukseksi !  
+    [4.5.6_403_forbidden]()
+      - muokkaan pääsyoikeuksia 'chmod ugo+x $HOME $HOME/public_html/', 'ls -ld $HOME $HOME/public_html/' (Karvinen 2024)
+      - testaan uudelleen curl -H 'Host: pyora.example.com' localhost
+      - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa ![4.5.7_ufw_status]()
+   
+      - 
+17. 
+11. 
+12. 
+13. 
+14. Se
+
+15. 
+16. 
+17. 
 
 
  
 
-12. 
-13. ipjo
-14. 
-15. hip
+18. 
+19. ipjo
+20. 
+21. hip
 
 
 
