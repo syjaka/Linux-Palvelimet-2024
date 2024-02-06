@@ -30,8 +30,6 @@ Aloitin tämän tehtävän jo ennen varsinaista tehtävänantoa, sillä oma aika
 
 ##) Tehtävä Aloitus - 2024.02.06 klo 14.30 UCT +3
 
-Tavoitteena on vuokrata ja asentaa oma pilvipalvelin Internettiin siten, että vuokrattu domainnimi osoittaa palvelimeen. Kävimme jo oppitunnilla vauhdilla läpi Tero Karvosen johdolla, miten tämä tapahtuu käytännössä, mutta kotitehtäväksi jäi hankkia ihan oma pilvipalvelin ja domainnimi.
-
 Tämän tehtävän tarkoituksena on vuokrata ja konfiguroida oma palvelin pilveen ja hankkia oma domainnimi. Tämä domainnimi tulee osattaa ohjaamaan tehtävässä luotuun virtuaaliserveriin.
 
 ### Oman pilvipalvelimen vuoraus ja asennus
@@ -65,12 +63,12 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
          ![4.1.8_Server_type]()
     4.  Seuraavissa kohdissa tarjottiin lisätallennustilaa ja automaattisia varmuuskopioita joita en valinnut koska en niitä tarvitse
     5.  Seuraavassa kohdassa oli autentikointimetodin valinta. Vaihtoehtoja olivat SSH-avain (joka olisi turvallisin) ja salasana, jonka valitsin koska tämä on tuttu. Salasana kannattaa valita huolellisesti turvalliseksi, sillä on hyvin todennäköistä, että vuokrattuja pilviservereitä yritetään kaapata.
+        ![4.1.9_salasana]()
     6.  Seuraavassa kohdassa valitsin kulutuksen seurannan ja mahdolliset hälytykset. Tämä oli veloitukseton ominaisuus joten otin sen mukaan.
     7.  Viimeisessä kohdassa valitaan montako kappaletta määritelytjä servereitä haluan ja määritin tälle serverille jonkin neutraalin ja mahdollisimman persoonattoman nimen.
-       ![4.1.9_Hostname]()
-    9.  Viimeiseksi valitsen create Droplet klo 15.45 UCT +3
-       
-       
+       ![4.1.10_Hostname]()
+    9.  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi noin minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
+       ![4.1.11_tammari_done]()
 
 
 
