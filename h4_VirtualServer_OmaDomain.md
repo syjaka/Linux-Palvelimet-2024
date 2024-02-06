@@ -1,9 +1,9 @@
 # ht
 
-- x)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md.md#x-tiivistelmä)
-- a)[ Ensimmäinen teht](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md.md#a-)
-- y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md.md#y-työskentely-ympäristö)
-- z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md.md#z-alkutoimenpiteet)
+- x)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#x-tiivistelmä)
+- a)[ Ensimmäinen teht](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#a-)
+- y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#y-työskentely-ympäristö)
+- z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#z-alkutoimenpiteet)
 
 ---
   ## x) tiivistelmä
@@ -11,7 +11,7 @@
 ---
   ## a) 
 
- - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md.md#h4)
+ - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#h4)
 ---
 
 ---
