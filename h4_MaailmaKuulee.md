@@ -2,13 +2,13 @@
 
 # Keskeneräinen
 
-- x)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#x-tiivistelmä)
-- a)[Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#a-Oma-virtuaalipalvelin)
-- b)[Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#b-Virtuaalipalvelin-käyttökuntoon)
-- c)[Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#c-Asenna-oma-webbipalvelin)
-- d)[Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#d-Oma-domain-käyttöön)
-- y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#y-työskentely-ympäristö)
-- z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#z-alkutoimenpiteet)
+- x)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#x-tiivistelmä)
+- a)[Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#a-Oma-virtuaalipalvelin)
+- b)[Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
+- c)[Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md.md#c-Asenna-oma-webbipalvelin)
+- d)[Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
+- y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
+- z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
 - 
 
 ---
@@ -189,7 +189,7 @@ Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta he
 (nämä tehtävät on tehty luennon muistiinpanojen ja Tero Karvisen -First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS, 2017 pohjalta, ellei lähdettä ole erikseen merkitty)
 ---
 
- - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_VirtualServer_OmaDomain.md#h4)
+ - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
 
 
 ---
