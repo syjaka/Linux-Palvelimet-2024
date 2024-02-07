@@ -141,7 +141,7 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
   2. Seuraavaksi asensin palomuurin, `sudo apt-get update` & `sudo apt-get install ufw`
   3. Tämän jälkeen tein aukot palomuuriin komennoilla `sudo ufw allow 22/tcp` ja `sudo ufw allow 80/tcp` jossa allow sallii, 22 & 80 on portti ja tcp käytettävä on protokolla. 
   4. `sudo ufw enable` käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
-    ![4.2.2_palomuuriUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuriUp.png)
+    ![4.2.2_palomuuri_Up](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuri_Up.png)
 
 ### Root-tunnuksen lukitseminen sekä oman käyttäjän lisäys
 Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
