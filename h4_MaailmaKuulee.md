@@ -90,7 +90,7 @@ Hyödynsin tehtävässä GitHub educationin etua Digital Ocean hostauspalvelun k
 
   ![4.1.1DigitOcean_GitHub](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.1DigitOcean_GitHub.png)
 
-1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp]([)](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.2_SignUp.png) joka ohjasi minut kirjautumaan palveluun github-tunniksillani
+1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.2_SignUp.png) joka ohjasi minut kirjautumaan palveluun github-tunniksillani
 2.  Seuraavaksi etenin palvelun käyttöönottoon vastaamalla esitettyihin kyselyihin. Tämän jälkeen minulta pyydettiin luottokorttitiedot henkilöllisyyteni vahvistamiseen. 
 Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi, mutta tämä häviää veloituksista hetken kuluttua.
 3.  Luottokorttitietojen vahvistuksen jälkeen aukesi aloitussivu, josta haluttu palvelu tuli valita. Tässä tapauksessa valitsin `Deploy a virtual machine`
@@ -161,41 +161,12 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 
 1. Apachen asennus seuraavin komennoin `sudo apt-get update`  ja `sudo apt-get -y install apache2`
 2. Default sivun korvaaminen index.html tiedostolla `echo "Default"|sudo tee /var/www/html/index.html`
-3. Virtuaalipalvelimen conf sivun luonti `sudoedit /etc/apache2/sites-available/sivu.example.com.conf`
-    ![4.5.1_sivu_conf[(https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.1_sivu_conf.png)
-4. aktivoin juuri luodut conffit `sudo a2ensite sivu.example.com`
-    - Saan erroria koska sivu.example.com ei ole vielä olemassa
-    ![4.5.2_error_not_exist](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.2_error_not_exist.png)
+3. 
+13. 
+
     
-    - Tarkistan onko kyseinen conf tiedosto olemassa
-    ![4.5.4_cat_not Found](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.4_cat_not%20Found.png)
-    -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
-    ![4.5.5_sites_available](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.5_sites_available.png)
-    - Täältä selviää, että tiedostonimessä on virhe, korjaan sen `mv etusivu.example.com.con sivu.example.com.conf`
-    - testaan uudelleen `sudo a2ensite sivu.example.com` ja tällä kertaa se toimii
-5. muutos astuu voimaan uudelleenkäynnistyksellä `sudo systemctl restart apache2`
-6. Tein kotihakemistooni uuden kansiopolun `mkdir /home/syrja/publicsites/sivu.example.com`
-   Sain virheen
-   ![4.5.3_No_such_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.3_No_such_file.png)
-7. Loin saman kansion porras portaalta. Ensin kotihakemistoon `publicsites` kansion ja seuraavaksi `sivu.example.com
-8. Loin tekemääni kansioon uuden tiedoston `echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
-9. Muokkasin index.html tiedostoa `micro index.html` lisäämällä sinne html5 -pätkän
-10. Testasin että sivu vastaa `curl -H `Host: sivu.example.com` localhost` sain erroria vastaukseksi !  
-    [4.5.6_403_forbidden](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.6_403_forbidden.png)
-      - muokkaan pääsyoikeuksia `chmod ugo+x $HOME $HOME/publicsites/`, `ls -ld $HOME $HOME/publicsites/` (Karvinen 2024)
-      - testaan uudelleen curl -H `Host: sivu.example.com` localhost
-      - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
-        ![4.5.7_ufw_status](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.7_ufw_status.png)
-      - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
-       ![(4.5.8_conf_tammari](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.8_conf_tammari.png)
-      - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
-      - Testasin ja yhä jää kellottamaan.
-      - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja `journalctl` lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
-      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn käynnistämällä virtuaalikoneeni ja ottamalla yhteyden vuokrattuun virtuaalikoneeseeni komennolla `ssh syrja@104.248.205.0`
-      - Tureilla silmillä tutkittuani eilistä vianselvitystäni löysin, että olin anatnut väärän komennon `curl -H `Host: sivu.example.com` eli `localhost puuttui lopusta. Tämän korjattuani sain uudelleen 403 forbidden sivun.
-      - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla `sudo systemctl reboot`. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
-        ![4.5.9_success]()
-      - Muokkasin vielä testisivulle html5 pätkän ja varmistin että yhä toimii.
+14. 
+
 17. 
 11. 
 12. 
@@ -258,3 +229,40 @@ Karvinen, T. 2024. Linux Palvelimet 2024 alkukevät. Luettavissa: https://teroka
   
 Lehto S. 2022 Teoriasta käytäntöön pilvipalvelimen avulla (h4). Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu 2024.02.07
 
+Virtuaalipalvelimen oman conf sivun luonti `sudoedit /etc/apache2/sites-available/sivu.example.com.conf`
+    ![4.5.1_sivu_conf[(https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.1_sivu_conf.png)
+4. Aktivoin juuri luodut conffit `sudo a2ensite sivu.example.com`
+    - Saan erroria koska sivu.example.com ei ole vielä olemassa
+    ![4.5.2_error_not_exist](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.2_error_not_exist.png)
+    
+   - Tarkistan onko kyseinen conf tiedosto olemassa
+    ![4.5.4_cat_not Found](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.4_cat_not%20Found.png)
+   -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
+    ![4.5.5_sites_available](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.5_sites_available.png)
+   - Täältä selviää, että tiedostonimessä on virhe, korjaan sen `mv etusivu.example.com.con sivu.example.com.conf`
+   - testaan uudelleen `sudo a2ensite sivu.example.com` ja tällä kertaa se toimii
+5. muutos astuu voimaan uudelleenkäynnistyksellä `sudo systemctl restart apache2`
+6. Tein kotihakemistooni uuden kansiopolun `mkdir /home/syrja/publicsites/sivu.example.com`
+   Sain virheen
+   ![4.5.3_No_such_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.3_No_such_file.png)
+7. Loin saman kansion porras portaalta. Ensin kotihakemistoon `publicsites` kansion ja seuraavaksi `sivu.example.com
+8. Loin tekemääni kansioon uuden tiedoston `echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
+9. Muokkasin index.html tiedostoa `micro index.html` lisäämällä sinne html5 -pätkän
+10. Testasin että sivu vastaa `curl -H `Host: sivu.example.com` localhost` sain erroria vastaukseksi ![4.5.6_403_forbidden](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.6_403_forbidden.png)
+      - muokkaan pääsyoikeuksia `chmod ugo+x $HOME $HOME/publicsites/`, `ls -ld $HOME $HOME/publicsites/` (Karvinen 2024)
+      - testaan uudelleen curl -H `Host: sivu.example.com` localhost
+      - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
+        ![4.5.7_ufw_status](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.7_ufw_status.png)
+      - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
+       ![(4.5.8_conf_tammari](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.8_conf_tammari.png)
+      - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
+      - Testasin ja yhä jää kellottamaan.
+      - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja `journalctl` lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
+      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn käynnistämällä virtuaalikoneeni ja ottamalla yhteyden vuokrattuun virtuaalikoneeseeni komennolla `ssh syrja@104.248.205.0`
+      - Tuoreilla silmillä tutkittuani eilistä vianselvitystäni löysin, että olin anatnut väärän komennon `curl -H `Host: sivu.example.com` eli `localhost puuttui lopusta. Tämän korjattuani sain uudelleen 403 forbidden sivun.
+      - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla `sudo systemctl reboot`. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
+        ![4.5.9_success]()
+      - Muokkasin vielä testisivulle html5 pätkän ja varmistin että yhä toimii.
+11. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimella, joka osoitti että yhteys/julkisuus on mutta tässä vaiheessa vasta defaultsivulle
+  ![4.5.10_tammari_public_default]()
+12. Seuraavaksi muokkasin hosts tiedostoa komennolla `sudoedit /etc/hosts`. Lisässin tänne sivu.example.comin jonne lisäsin domain-nimet ja ohjauksen localhostiin: 127.0.0.1 sivu.example.com. Tätä testatessa firefoxilla päädyn toiseen sivu.example.comiin. Muutan omani nimeä sivusyrja.example.com
