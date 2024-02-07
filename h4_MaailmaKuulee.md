@@ -37,39 +37,39 @@ Tässä tehtävässä vuokrasin oman virtuaalipalvelimen.palveluntarjoajalta. Al
 
 Hyödynsin tehtävässä GitHub educationin etua Digital Ocean hostauspalvelun käyttöön, koulutuspaketti tarjoaa $200 arvosta credittiä palveluun ensimmäisen vuoden ajalle.
 
-  ![4.1.1DigitOcean_GitHub]()
+  ![4.1.1DigitOcean_GitHub](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.1DigitOcean_GitHub.png)
 
-1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp]() joka ohjasi minut kirjautumaan palveluun github-tunniksillani
+1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp]([)](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.2_SignUp.png) joka ohjasi minut kirjautumaan palveluun github-tunniksillani
 2.  Seuraavaksi etenin palvelun käyttöönottoon vastaamalla esitettyihin kyselyihin. Tämän jälkeen minulta pyydettiin luottokorttitiedot henkilöllisyyteni vahvistamiseen. 
 Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi, mutta tämä häviää veloituksista hetken kuluttua.
 3.  Luottokorttitietojen vahvistuksen jälkeen aukesi aloitussivu, josta haluttu palvelu tuli valita. Tässä tapauksessa valitsin 'Deploy a virtual machine'
 
-    ![4.1.3_DeployVM]()
+    ![4.1.3_DeployVM](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.3_Deploy_VM.png)
   
 4. Tässä vaiheessa tarkistelin oman tilini tilaa ja huomasin että yhteys GitHub Educationin ja Digital oceanin välillä ei ollut kirjautunut. Tutkin asiaa lisää ja klikkasin uudelleen GitHubin linkkiä (sama joka ensimmäisessä kuvassa yllä).
 5. Tämä ohjasi minut uudelle autentikointisivulle, josta autorisoin Digital Oceanin. Tämän jälkeen aukesi kuittaus jossa käyttäjätunnukselleni ilmoitettiin lisätyksi $200 credit.
 
-    ![4.1.4_AuthorizeDO]() ![4.1.5_CreditOK]()
+    ![4.1.4_AuthorizeDO](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.4_AuthorizeDO.png) ![4.1.5_CreditOK](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.5_CreditOK.png)
 
 6. Tämän autentikoinnin jälkeen avautuva ikkuna oli hieman erilainen kuin tunnilla, mutta yläreunan Create- valikon kautta löytyi tunnilta tuttu Droplets maininta, joten valitsin sen.
 
-  ![4.1.6_Create_Droplet]()
+  ![4.1.6_Create_Droplet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.6_Create_Droplet.png)
 
 7. Seuraavaksi avautui tunnilta tuttu sivu jossa valitaan luotavalle virtuaaliserverille määritykset:
     - Alue ja datacenterin sijainti 
-       ![4.1.6_alue]()
+       ![4.1.6_alue](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.6_Alue.png)
     - Haluttu OS ja versio (Valitsin uusimman saatavilla olevan Debianin: 12 on versio ja x64 kuvaa moniko bittinen prosessori)
-        ![4.1.7_OS]()
+        ![4.1.7_OS](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.7_OS.png)
     -  Seuraavassa kohdassa valitsin serverin ominaisuuksia. Tein valinnat opettajan antaman suosituksen mukaan.
-         ![4.1.8_Server_type]()
+         ![4.1.8_Server_type](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.8_Server_type.png)
     -  Seuraavissa kohdissa tarjottiin lisätallennustilaa ja automaattisia varmuuskopioita joita en valinnut koska en niitä tarvitse
-    -  Seuraavassa kohdassa oli autentikointimetodin valinta. Vaihtoehtoja olivat SSH-avain (joka olisi turvallisin) ja salasana, jonka valitsin koska tämä on tuttu. Salasana kannattaa valita huolellisesti turvalliseksi, sillä on hyvin todennäköistä, että vuokrattuja pilviservereitä yritetään kaapata.
-        ![4.1.9_salasana]()
+    -  Seuraavaksi oli oli vuorossa autentikointimetodin valinta. Vaihtoehtoja olivat SSH-avain (joka olisi turvallisin) ja salasana, jonka valitsin koska tämä on tuttu. Salasana kannattaa valita huolellisesti turvalliseksi, sillä on hyvin todennäköistä, että vuokrattuja pilviservereitä yritetään kaapata.
+        ![4.1.9_salasana](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.9_salasana.png)
     -  Seuraavassa kohdassa valitsin kulutuksen seurannan ja mahdolliset hälytykset. Tämä oli veloitukseton ominaisuus joten otin sen mukaan.
     -  Viimeisessä kohdassa valitaan montako kappaletta määritelytjä servereitä haluan ja määritin tälle serverille jonkin neutraalin ja mahdollisimman persoonattoman nimen.
-       ![4.1.10_Hostname]()
+       ![4.1.10_Hostname](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.10_Hostname.png)
     -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi noin minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
-       ![4.1.11_tammari_done]()
+       ![4.1.11_tammari_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.11_tammari_done.png)
  
 ---
   ## b) Virtuaalipalvelin käyttökuntoon
@@ -79,11 +79,11 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
  ###Palomuuri käyttöön
   1. Aloitan tehtävän ottamalla SHH-yhteyden luotuun tammari-virtuaalipalvelimeen
      - Annan terminaalissa komennon 'ssh root@104.248.205.0' ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
-       ![4.2.1_sisään]()
+       ![4.2.1_sisään](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.1_sisa%CC%88a%CC%88n.png)
   2. Seuraavaksi asensin palomuurin, 'sudo apt-get update' & 'sudo apt-get install ufw'
   3. Seuraavaksi tein aukon palomuuriin komennolla 'sudo ufw allow 22/tcp' jossa allow sallii, 22 on portti ja tcp käytettävä on protokolla. 
   4. 'sudo ufw enable' käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
-    ![4.2.2_palomuuriUp]()
+    ![4.2.2_palomuuriUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuriUp.png)
 
 ### Root-tunnuksen lukitseminen sekä oman käyttäjän lisäys
 Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
@@ -92,7 +92,7 @@ Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina.
   2. Käyttäjätietoihin annoin nimeni, mutta muut kohdat ohitin 'return'
   3. 'sudo adduser syrja sudo' lisää luodun käyttäjän sudo-ryhmään eli tekee käyttäjästä sudo-userin
   4. Testaan että pääsen kirjautumaan palvelimelle luotuna käyttäjänä ja että salasana toimii.
-    ![4.3.1_syrjaToimii]()
+    ![4.3.1_syrjaToimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.1_syrjaToimii.png)
   5. Seuraavaksi lukitsen root-käyttäjän, estääkseni salasanakirjautumisen, muut tavat ovat yhä mahdollisia. Lukitsemiseen käytän komentoa 'sudo usermod -- lock root. Testaan lukitusta yrittämällä kirjautua uudelleen root-käyttäjänä(kuten yllä kohdassa b) 1.), mutta Järjestelmä ei päästä sisään
 
 ### Ohjelmien päivitys
@@ -111,36 +111,36 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 1. Apachen asennus seuraavin komennoin 'sudo apt-get update'  ja 'sudo apt-get -y install apache2'
 2. Default sivun korvaaminen index.html tiedostolla 'echo "Default"|sudo tee /var/www/html/index.html'
 3. Virtuaalipalvelimen conf sivun luonti 'sudoedit /etc/apache2/sites-available/sivu.example.com.conf'
-    ![4.5.1_sivu_conf[()
+    ![4.5.1_sivu_conf[(https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.1_sivu_conf.png)
 4. aktivoin juuri luodut conffit 'sudo a2ensite sivu.example.com'
     - Saan erroria koska sivu.example.com ei ole vielä olemassa
-    ![4.5.2_error_not_exist]()
+    ![4.5.2_error_not_exist](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.2_error_not_exist.png)
     
     - Tarkistan onko kyseinen conf tiedosto olemassa
-    ![4.5.4_cat_not Found]()
+    ![4.5.4_cat_not Found](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.4_cat_not%20Found.png)
     -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
-    ![4.5.5_sites_available]()
+    ![4.5.5_sites_available](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.5_sites_available.png)
     - Täältä selviää, että tiedostonimessä on virhe, korjaan sen 'mv etusivu.example.com.con sivu.example.com.conf'
     - testaan uudelleen 'sudo a2ensite sivu.example.com' ja tällä kertaa se toimii
 5. muutos astuu voimaan uudelleenkäynnistyksellä 'sudo systemctl restart apache2'
 6. Tein kotihakemistooni uuden kansiopolun 'mkdir /home/syrja/publicsites/sivu.example.com'
    Sain virheen
-   ![4.5.3_No_such_file]()
+   ![4.5.3_No_such_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.3_No_such_file.png)
 7. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
 8. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
 9. Muokkasin sivu tiedostoa 'micro index.html' lisäämällä sinne html5 -pätkän
 10. Testasin että sivu vastaa 'curl -H 'Host: sivu.example.com' localhost' sain erroria vastaukseksi !  
-    [4.5.6_403_forbidden]()
+    [4.5.6_403_forbidden](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.6_403_forbidden.png)
       - muokkaan pääsyoikeuksia 'chmod ugo+x $HOME $HOME/publicsites/', 'ls -ld $HOME $HOME/publicsites/' (Karvinen 2024)
       - testaan uudelleen curl -H 'Host: pyora.example.com' localhost
       - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
-        ![4.5.7_ufw_status]()
+        ![4.5.7_ufw_status](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.7_ufw_status.png)
       - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
-       ![(4.5.8_conf_tammari]()
+       ![(4.5.8_conf_tammari](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.8_conf_tammari.png)
       - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
       - Testasin ja yhä jää kellottamaan.
-      
-        päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja 'journalctl' lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin.
+      - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja 'journalctl' lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
+      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn
       - 
 17. 
 11. 
