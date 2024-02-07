@@ -18,23 +18,23 @@
   
 #### a) Pilvipalvelimen vuokraus ja asennus
 - Ensimmäisessä Osiossa kerrotaan kuinka pilvipalvelun vuokraus onnistuu Digital Ocean plavelun (DO) kautta ja miten se asennetaan. Lehto vuokrasi oman pilvipalvelunsa DO-palvelusta käyttäen GitHub Educationin tarjoamaa Promokoodia. Vuokraus alkoi palveluun kirjautumisella, jonka jälkeen Leino päivitti nimitiedot ja syötti promokoodin. Seuraavaksi hän valitsi palvelun, eli loi itsellensä "Dropletin" (virtuaalikoneen).
-- Seuraavissa vaiheissa Lehto valitsi virtuaalikoneen määritykset joiden jälkeen hän valitsi 'Create Droplet'. Hetken kuluttua luotu virtuaalikone oli valmis- IP-osoitteineen.
+- Seuraavissa vaiheissa Lehto valitsi virtuaalikoneen määritykset joiden jälkeen hän valitsi ´Create Droplet´. Hetken kuluttua luotu virtuaalikone oli valmis- IP-osoitteineen.
 - Seuraavassa osiossa Lehto vuokrasi domainnimen. Lehto hyödynsi GitHub educationin alekoodia .me päätteiselle domainnimelle Namecheap -palvelussa. Lehto etsi käyettävissä olevaa domainnimeä sivuston search-toiminnolla ja päätyi susannalehto.me nimeen jonka rekisteröi itselleen. Tämä vaati myös Namecheap -palveluun rekisteröitymistä. Kaiken valmistuttua Lehto tarkasti kaiken olevan kunnossa Namecheapin hallintapaneelista.
 - Lopuksi Lehto ohjasi domainnimen susannalehto.me osoittamaan DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä tapahtui hallintasivun Advanced DNS-välilehden kautta. Täällä Lehto poisti kaikki turhat Host recordsit ja loi uuden. Tähän uuteen Host recordiin ehto asetti DO virtuaalipalvelimen IP-osoitteen ja TTL- sarakkeen arvoksi 5 minuuttia.
   
 #### b) Palvelin suojaan palomuurilla
 Tässä Lehto kertoo palomuurin käyttöönotosta
-  1. Yhteys virtuaalikoneelle 'ssh root@188.166.4.6'
-  2. Päivitysten haku 'sudo apt-get update' ja palomuurin asennus 'sudo apt-get install ufw'
-  3. Reikä palomuuriin 'sudo ufw allow 22/tpc'
-  4. ja palomuurin käynnistys 'sudo ufw enable'
+  1. Yhteys virtuaalikoneelle ´ssh root@188.166.4.6´
+  2. Päivitysten haku ´sudo apt-get update´ ja palomuurin asennus ´sudo apt-get install ufw´
+  3. Reikä palomuuriin ´sudo ufw allow 22/tpc´
+  4. ja palomuurin käynnistys ´sudo ufw enable´
 #### c) Kotisivut palvelimelle
 Seuraavaksi Lehto asensi DO virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivut
-  1. Käyttäjän luonti 'sudo adduser suska' ja muutos pääkäyttäjäksi 'sudo adduser suska sudo'
-  2. Testi toisen koneen terminaalissa toimiiko käyttäjän oikeudet. Ensin yhteys 'ssh suska@188.166.4.6' ja sitten sudo testikomento 'sudo apt-get update'
-  3. root käyttäjän lukinta 'sudo usermod –lock root'
+  1. Käyttäjän luonti ´sudo adduser suska´ ja muutos pääkäyttäjäksi ´sudo adduser suska sudo´
+  2. Testi toisen koneen terminaalissa toimiiko käyttäjän oikeudet. Ensin yhteys ´ssh suska@188.166.4.6´ ja sitten sudo testikomento ´sudo apt-get update´
+  3. root käyttäjän lukinta ´sudo usermod –lock root´
   4. Domainnimen pingaus ping susannalehto.me joka piti päättymättömänä keskeyttää sulkemalla terminaali
-  5. Uudelleenkirjautuminen ssh kautta ja saatavilla olevien päivitysten ja tietoturvapäivitysten asennus 'sudo apt-get update' 'sudo apt-get upgrade' ja sudo apt-get dist-upgrade
+  5. Uudelleenkirjautuminen ssh kautta ja saatavilla olevien päivitysten ja tietoturvapäivitysten asennus ´sudo apt-get update´ ´sudo apt-get upgrade´ ja ´sudo apt-get dist-upgrade´
   6. Apache-webbipalvelimen asennus 'sudo apt-get install apache2' ja testaus 'sudo systemctl status apache2'
   7. Palomuuriin toinen reikä portille 80 'sudo ufw allow 80/tcp'
   8. Apachen testisivun korvaaminen 'echo Hello world! |sudo tee /var/www/html/index.html'
