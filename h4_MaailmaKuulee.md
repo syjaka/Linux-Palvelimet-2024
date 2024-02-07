@@ -2,11 +2,11 @@
 
 # Keskeneräinen
 
-- x)[ tiivistelmä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#x-tiivistelmä)
-- a)[Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#a-Oma-virtuaalipalvelin)
-- b)[Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
-- c)[Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md.md#c-Asenna-oma-webbipalvelin)
-- d)[Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
+- x)[ Tiivistelmät](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#x-tiivistelmät)
+- a)[ Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#a-Oma-virtuaalipalvelin)
+- b)[ Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
+- c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md.md#c-Asenna-oma-webbipalvelin)
+- d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
 - 
@@ -18,38 +18,50 @@
   
 #### a) Pilvipalvelimen vuokraus ja asennus
 - Ensimmäisessä Osiossa kerrotaan kuinka pilvipalvelun vuokraus onnistuu Digital Ocean plavelun (DO) kautta ja miten se asennetaan. Lehto vuokrasi oman pilvipalvelunsa DO-palvelusta käyttäen GitHub Educationin tarjoamaa Promokoodia. Vuokraus alkoi palveluun kirjautumisella, jonka jälkeen Leino päivitti nimitiedot ja syötti promokoodin. Seuraavaksi hän valitsi palvelun, eli loi itsellensä "Dropletin" (virtuaalikoneen).
-- Seuraavissa vaiheissa Lehto valitsi virtuaalikoneen määritykset joiden jälkeen hän valitsi ´Create Droplet´. Hetken kuluttua luotu virtuaalikone oli valmis- IP-osoitteineen.
+- Seuraavissa vaiheissa Lehto valitsi virtuaalikoneen määritykset joiden jälkeen hän valitsi `Create Droplet`. Hetken kuluttua luotu virtuaalikone oli valmis- IP-osoitteineen.
 - Seuraavassa osiossa Lehto vuokrasi domainnimen. Lehto hyödynsi GitHub educationin alekoodia .me päätteiselle domainnimelle Namecheap -palvelussa. Lehto etsi käyettävissä olevaa domainnimeä sivuston search-toiminnolla ja päätyi susannalehto.me nimeen jonka rekisteröi itselleen. Tämä vaati myös Namecheap -palveluun rekisteröitymistä. Kaiken valmistuttua Lehto tarkasti kaiken olevan kunnossa Namecheapin hallintapaneelista.
 - Lopuksi Lehto ohjasi domainnimen susannalehto.me osoittamaan DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä tapahtui hallintasivun Advanced DNS-välilehden kautta. Täällä Lehto poisti kaikki turhat Host recordsit ja loi uuden. Tähän uuteen Host recordiin ehto asetti DO virtuaalipalvelimen IP-osoitteen ja TTL- sarakkeen arvoksi 5 minuuttia.
   
 #### b) Palvelin suojaan palomuurilla
 Tässä Lehto kertoo palomuurin käyttöönotosta
-  1. Yhteys virtuaalikoneelle ´ssh root@188.166.4.6´
-  2. Päivitysten haku ´sudo apt-get update´ ja palomuurin asennus ´sudo apt-get install ufw´
-  3. Reikä palomuuriin ´sudo ufw allow 22/tpc´
-  4. ja palomuurin käynnistys ´sudo ufw enable´
+  1. Yhteys virtuaalikoneelle `ssh root@188.166.4.6` ´
+  2. Päivitysten haku `sudo apt-get update` ja palomuurin asennus `sudo apt-get install ufw`
+  3. Reikä palomuuriin `sudo ufw allow 22/tpc`
+  4. ja palomuurin käynnistys `sudo ufw enable`
 #### c) Kotisivut palvelimelle
 Seuraavaksi Lehto asensi DO virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivut
-  1. Käyttäjän luonti ´sudo adduser suska´ ja muutos pääkäyttäjäksi ´sudo adduser suska sudo´
-  2. Testi toisen koneen terminaalissa toimiiko käyttäjän oikeudet. Ensin yhteys ´ssh suska@188.166.4.6´ ja sitten sudo testikomento ´sudo apt-get update´
-  3. root käyttäjän lukinta ´sudo usermod –lock root´
+  1. Käyttäjän luonti `sudo adduser suska` ja muutos pääkäyttäjäksi `sudo adduser suska sudo`
+  2. Testi toisen koneen terminaalissa toimiiko käyttäjän oikeudet. Ensin yhteys `ssh suska@188.166.4.6` ja sitten sudo testikomento `sudo apt-get update`
+  3. root käyttäjän lukinta `sudo usermod –lock root`
   4. Domainnimen pingaus ping susannalehto.me joka piti päättymättömänä keskeyttää sulkemalla terminaali
-  5. Uudelleenkirjautuminen ssh kautta ja saatavilla olevien päivitysten ja tietoturvapäivitysten asennus ´sudo apt-get update´ ´sudo apt-get upgrade´ ja ´sudo apt-get dist-upgrade´
-  6. Apache-webbipalvelimen asennus 'sudo apt-get install apache2' ja testaus 'sudo systemctl status apache2'
-  7. Palomuuriin toinen reikä portille 80 'sudo ufw allow 80/tcp'
-  8. Apachen testisivun korvaaminen 'echo Hello world! |sudo tee /var/www/html/index.html'
-  9. Userdir-moduulin käyttöönotto 'sudo a2enmod userdir' ja uudelleen käynnistys 'sudo service apache2 restart'
+  5. Uudelleenkirjautuminen ssh kautta ja saatavilla olevien päivitysten ja tietoturvapäivitysten asennus `sudo apt-get update` `sudo apt-get upgrade` ja `sudo apt-get dist-upgrade`
+  6. Apache-webbipalvelimen asennus `sudo apt-get install apache2` ja testaus `sudo systemctl status apache2`
+  7. Palomuuriin toinen reikä portille 80 `sudo ufw allow 80/tcp`
+  8. Apachen testisivun korvaaminen `echo Hello world! |sudo tee /var/www/html/index.html`
+  9. Userdir-moduulin käyttöönotto `sudo a2enmod userdir` ja uudelleen käynnistys `sudo service apache2 restart`
   10. Julkisen public_html kansion luonti ja näkyvyyden tarkistus firefoxissa
-  11. Ssh-yhteyden avaus 'sudo systemctl start ssh' ja micro editorin asennus 'sudo apt-get install micro'
-  12. Tekstitiedoston luonti public_html kansioon 'cd public_html' ja 'micro index.html' jonne Lehto loi lyhyen nettisivun rungon.
-  13. Viimeiseksi testaus toisen koneen selaimella 
+  11. Ssh-yhteyden avaus `sudo systemctl start ssh` ja micro editorin asennus `sudo apt-get install micro`
+  12. Tekstitiedoston luonti public_html kansioon `cd public_html` ja `micro index.html` jonne Lehto loi lyhyen nettisivun rungon.
+  13. Viimeiseksi varmistus kaiken toimivuudesta toisen koneen selaimella.
 #### d)Palvelimen ohjelmien päivitys
+  Tapahtui kirjautumalla virtuaalipalvelimelle ssh-yhteydellä, jonka jälkeen seuraavien päivitysten asennus komennoilla `sudo apt-get update`, `sudo apt-get upgrade` ja `sudo apt-get dist-upgrade`
 
-      2. 
-e) 
-f) Palvelimen ohjelmien päivitys
 (Lehto 2022)
+
   ### First Steps on a New Virtual Private Server
+Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yksityinen serveri Digital Ocean palveluun ja määritetään DNS Namecheapin kautta. 
+  - Luo uusi virtuaalipalvelin Digital Ocean
+     - Luo palveluun tili, lisää maksutiedot ja luo Ubuntu 16.04 LTS virtuaalipalvelin
+  - Ensimmäisellä kerralla loggaudu luodulle palvelimelle roottina (tämä on myös ainut kerta)`ssh root@10.0.0.1`
+  -  Tee reikä `sudo ufw allow 22/tcp` ja käynnistä palomuuri `sudo ufw enable`
+  -  Luo Sudo user `sudo adduser tero` ja anna sille tarvittavat oikeuset `sudo`, `adm` tai `admin`
+  -  Ennen sulkemista testaa `ssh tero@tero.example.com`
+  -  Lukitse juuren salasanakirjautuminen `sudo usermod --lock root`
+  -  Ja disable rootin SHH login
+  -  Päivitä ohjelmistot `sudo apt-get update`ja `sudo apt-get upgrade`
+  -  Aloita käyttö, muista myös tehdä palomuuriin reikä 80-portille `sudo ufw allow 80/tcp`
+  -  Käyttö on mukavampaa tero.karvinen.con nimellä kuin ip-osoitteella joten rekisteröi verkkotunnus esim Namecheapin kautta. Ohjeet nimipalvelimen osoittamiseen hostille löytyy linkistä [point NameCheap nameservers to your host](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain)
+  -  Lisää A-recordi ja testaa Firefoxilla jottei vanha tai väärä nimi jää selaimen välimuistiin.
 
   (Karvinen 2012)
 ---
@@ -81,7 +93,7 @@ Hyödynsin tehtävässä GitHub educationin etua Digital Ocean hostauspalvelun k
 1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp]([)](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.2_SignUp.png) joka ohjasi minut kirjautumaan palveluun github-tunniksillani
 2.  Seuraavaksi etenin palvelun käyttöönottoon vastaamalla esitettyihin kyselyihin. Tämän jälkeen minulta pyydettiin luottokorttitiedot henkilöllisyyteni vahvistamiseen. 
 Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi, mutta tämä häviää veloituksista hetken kuluttua.
-3.  Luottokorttitietojen vahvistuksen jälkeen aukesi aloitussivu, josta haluttu palvelu tuli valita. Tässä tapauksessa valitsin 'Deploy a virtual machine'
+3.  Luottokorttitietojen vahvistuksen jälkeen aukesi aloitussivu, josta haluttu palvelu tuli valita. Tässä tapauksessa valitsin `Deploy a virtual machine`
 
     ![4.1.3_DeployVM](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.3_Deploy_VM.png)
   
@@ -117,25 +129,25 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
 
  ### Palomuuri käyttöön
   1. Aloitan tehtävän ottamalla SHH-yhteyden luotuun tammari-virtuaalipalvelimeen
-     - Annan terminaalissa komennon 'ssh root@104.248.205.0' ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
+     - Annan terminaalissa komennon `ssh root@104.248.205.0` ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
        ![4.2.1_sisään](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.1_sisa%CC%88a%CC%88n.png)
-  2. Seuraavaksi asensin palomuurin, 'sudo apt-get update' & 'sudo apt-get install ufw'
-  3. Seuraavaksi tein aukon palomuuriin komennolla 'sudo ufw allow 22/tcp' jossa allow sallii, 22 on portti ja tcp käytettävä on protokolla. 
-  4. 'sudo ufw enable' käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
+  2. Seuraavaksi asensin palomuurin, `sudo apt-get update` & `sudo apt-get install ufw`
+  3. Seuraavaksi tein aukon palomuuriin komennolla `sudo ufw allow 22/tcp` jossa allow sallii, 22 on portti ja tcp käytettävä on protokolla. 
+  4. `sudo ufw enable` käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
     ![4.2.2_palomuuriUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuriUp.png)
 
 ### Root-tunnuksen lukitseminen sekä oman käyttäjän lisäys
 Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
 
-  1. Loin käyttäjän komennolla ' $ sudo adduser syrja` ja keksin hyvän salasanan
-  2. Käyttäjätietoihin annoin nimeni, mutta muut kohdat ohitin 'return'
-  3. 'sudo adduser syrja sudo' lisää luodun käyttäjän sudo-ryhmään eli tekee käyttäjästä sudo-userin
+  1. Loin käyttäjän komennolla ` $ sudo adduser syrja` ja keksin hyvän salasanan
+  2. Käyttäjätietoihin annoin nimeni, mutta muut kohdat ohitin `return`
+  3. `sudo adduser syrja sudo` lisää luodun käyttäjän sudo-ryhmään eli tekee käyttäjästä sudo-userin
   4. Testaan että pääsen kirjautumaan palvelimelle luotuna käyttäjänä ja että salasana toimii.
     ![4.3.1_syrjaToimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.1_syrjaToimii.png)
-  5. Seuraavaksi lukitsen root-käyttäjän, estääkseni salasanakirjautumisen, muut tavat ovat yhä mahdollisia. Lukitsemiseen käytän komentoa 'sudo usermod -- lock root. Testaan lukitusta yrittämällä kirjautua uudelleen root-käyttäjänä(kuten yllä kohdassa b) 1.), mutta Järjestelmä ei päästä sisään
+  5. Seuraavaksi lukitsen root-käyttäjän, estääkseni salasanakirjautumisen, muut tavat ovat yhä mahdollisia. Lukitsemiseen käytän komentoa `sudo usermod -- lock root. Testaan lukitusta yrittämällä kirjautua uudelleen root-käyttäjänä(kuten yllä kohdassa b) 1.), mutta Järjestelmä ei päästä sisään
 
 ### Ohjelmien päivitys
-Seuraavaksi ryhdyin päivittämään paketteja komennoilla 'sudo apt-get update' ja 'sudo apt-get upgrade'. Lopputuloksena sain ao viestin:
+Seuraavaksi ryhdyin päivittämään paketteja komennoilla `sudo apt-get update` ja `sudo apt-get upgrade`. Lopputuloksena sain ao viestin:
 
 ![4.3.2HerjaVersiosta]
 Valitsin tarkistaa erot tiedostojen välillä:
@@ -147,11 +159,11 @@ Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautumin
 
 Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten tehtävässä [h3_HelloWebServer](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md) toimia.
 
-1. Apachen asennus seuraavin komennoin 'sudo apt-get update'  ja 'sudo apt-get -y install apache2'
-2. Default sivun korvaaminen index.html tiedostolla 'echo "Default"|sudo tee /var/www/html/index.html'
-3. Virtuaalipalvelimen conf sivun luonti 'sudoedit /etc/apache2/sites-available/sivu.example.com.conf'
+1. Apachen asennus seuraavin komennoin `sudo apt-get update`  ja `sudo apt-get -y install apache2`
+2. Default sivun korvaaminen index.html tiedostolla `echo "Default"|sudo tee /var/www/html/index.html`
+3. Virtuaalipalvelimen conf sivun luonti `sudoedit /etc/apache2/sites-available/sivu.example.com.conf`
     ![4.5.1_sivu_conf[(https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.1_sivu_conf.png)
-4. aktivoin juuri luodut conffit 'sudo a2ensite sivu.example.com'
+4. aktivoin juuri luodut conffit `sudo a2ensite sivu.example.com`
     - Saan erroria koska sivu.example.com ei ole vielä olemassa
     ![4.5.2_error_not_exist](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.2_error_not_exist.png)
     
@@ -159,29 +171,29 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
     ![4.5.4_cat_not Found](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.4_cat_not%20Found.png)
     -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
     ![4.5.5_sites_available](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.5_sites_available.png)
-    - Täältä selviää, että tiedostonimessä on virhe, korjaan sen 'mv etusivu.example.com.con sivu.example.com.conf'
-    - testaan uudelleen 'sudo a2ensite sivu.example.com' ja tällä kertaa se toimii
-5. muutos astuu voimaan uudelleenkäynnistyksellä 'sudo systemctl restart apache2'
-6. Tein kotihakemistooni uuden kansiopolun 'mkdir /home/syrja/publicsites/sivu.example.com'
+    - Täältä selviää, että tiedostonimessä on virhe, korjaan sen `mv etusivu.example.com.con sivu.example.com.conf`
+    - testaan uudelleen `sudo a2ensite sivu.example.com` ja tällä kertaa se toimii
+5. muutos astuu voimaan uudelleenkäynnistyksellä `sudo systemctl restart apache2`
+6. Tein kotihakemistooni uuden kansiopolun `mkdir /home/syrja/publicsites/sivu.example.com`
    Sain virheen
    ![4.5.3_No_such_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.3_No_such_file.png)
-7. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
-8. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
-9. Muokkasin index.html tiedostoa 'micro index.html' lisäämällä sinne html5 -pätkän
-10. Testasin että sivu vastaa 'curl -H 'Host: sivu.example.com' localhost' sain erroria vastaukseksi !  
+7. Loin saman kansion porras portaalta. Ensin kotihakemistoon `publicsites` kansion ja seuraavaksi `sivu.example.com
+8. Loin tekemääni kansioon uuden tiedoston `echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
+9. Muokkasin index.html tiedostoa `micro index.html` lisäämällä sinne html5 -pätkän
+10. Testasin että sivu vastaa `curl -H `Host: sivu.example.com` localhost` sain erroria vastaukseksi !  
     [4.5.6_403_forbidden](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.6_403_forbidden.png)
-      - muokkaan pääsyoikeuksia 'chmod ugo+x $HOME $HOME/publicsites/', 'ls -ld $HOME $HOME/publicsites/' (Karvinen 2024)
-      - testaan uudelleen curl -H 'Host: sivu.example.com' localhost
+      - muokkaan pääsyoikeuksia `chmod ugo+x $HOME $HOME/publicsites/`, `ls -ld $HOME $HOME/publicsites/` (Karvinen 2024)
+      - testaan uudelleen curl -H `Host: sivu.example.com` localhost
       - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
         ![4.5.7_ufw_status](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.7_ufw_status.png)
       - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
        ![(4.5.8_conf_tammari](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.8_conf_tammari.png)
       - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
       - Testasin ja yhä jää kellottamaan.
-      - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja 'journalctl' lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
-      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn käynnistämällä virtuaalikoneeni ja ottamalla yhteyden vuokrattuun virtuaalikoneeseeni komennolla 'ssh syrja@104.248.205.0'
-      - Tureilla silmillä tutkittuani eilistä vianselvitystäni löysin, että olin anatnut väärän komennon 'curl -H 'Host: sivu.example.com' eli 'localhost puuttui lopusta. Tämän korjattuani sain uudelleen 403 forbidden sivun.
-      - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla 'sudo systemctl reboot'. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
+      - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja `journalctl` lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
+      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn käynnistämällä virtuaalikoneeni ja ottamalla yhteyden vuokrattuun virtuaalikoneeseeni komennolla `ssh syrja@104.248.205.0`
+      - Tureilla silmillä tutkittuani eilistä vianselvitystäni löysin, että olin anatnut väärän komennon `curl -H `Host: sivu.example.com` eli `localhost puuttui lopusta. Tämän korjattuani sain uudelleen 403 forbidden sivun.
+      - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla `sudo systemctl reboot`. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
         ![4.5.9_success]()
       - Muokkasin vielä testisivulle html5 pätkän ja varmistin että yhä toimii.
 17. 
