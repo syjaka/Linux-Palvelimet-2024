@@ -17,39 +17,43 @@
   ### Teoriasta käytäntöön pilvipalvelimen avulla
   
 #### a) Pilvipalvelimen vuokraus ja asennus
-- Ensimmäisessä Osiossa kerrotaan kuinka pilvipalvelun vuokraus onnistuu Digital Ocean plavelun (DO) kautta ja miten se asennetaan. Lehto vuokrasi oman pilvipalvelunsa DO-palvelusta käyttäen GitHub Educationin tarjoamaa Promokoodia. Vuokraus alkoi palveluun kirjautumisella, jonka jälkeen Leino päivitti nimitiedot ja syötti promokoodin. Seuraavaksi hän valitsi palvelun, eli loi itsellensä "Dropletin" (virtuaalikoneen).
+- Ensimmäisessä Osiossa kerrotaan kuinka pilvipalvelun vuokraus onnistuu Digital Ocean palvelun kautta ja miten se asennetaan. Lehto vuokrasi oman pilvipalvelunsa DigitalOocean-palvelusta käyttäen GitHub Educationin tarjoamaa promokoodia. Vuokraus alkoi palveluun kirjautumisella, jonka jälkeen Lehto päivitti nimitiedot ja syötti promokoodin. Seuraavaksi hän valitsi palvelun, eli loi itsellensä "Dropletin" (virtuaalikoneen).
 - Seuraavissa vaiheissa Lehto valitsi virtuaalikoneen määritykset joiden jälkeen hän valitsi `Create Droplet`. Hetken kuluttua luotu virtuaalikone oli valmis- IP-osoitteineen.
-- Seuraavassa osiossa Lehto vuokrasi domainnimen. Lehto hyödynsi GitHub educationin alekoodia .me päätteiselle domainnimelle Namecheap -palvelussa. Lehto etsi käyettävissä olevaa domainnimeä sivuston search-toiminnolla ja päätyi susannalehto.me nimeen jonka rekisteröi itselleen. Tämä vaati myös Namecheap -palveluun rekisteröitymistä. Kaiken valmistuttua Lehto tarkasti kaiken olevan kunnossa Namecheapin hallintapaneelista.
-- Lopuksi Lehto ohjasi domainnimen susannalehto.me osoittamaan DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä tapahtui hallintasivun Advanced DNS-välilehden kautta. Täällä Lehto poisti kaikki turhat Host recordsit ja loi uuden. Tähän uuteen Host recordiin ehto asetti DO virtuaalipalvelimen IP-osoitteen ja TTL- sarakkeen arvoksi 5 minuuttia.
+- Seuraavassa osiossa Lehto vuokrasi domain-nimen. Lehto hyödynsi GitHub educationin etukoodia .me päätteiselle domainnimelle Namecheap -palvelussa. Lehto etsi käyettävissä olevaa domain-nimeä sivuston search-toiminnolla ja päätyi susannalehto.me nimeen, jonka rekisteröi itselleen. Domain-nimen rekisteröinti ja vuokraaminen vaati myös Namecheap -palveluun rekisteröitymistä. Toimien valmistuttua Lehto tarkasti kaiken olevan kunnossa, Namecheapin hallintapaneelista.
+- Viimeiseksi Lehto ohjasi domain-nimen susannalehto.me osoittamaan DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä tapahtui hallintasivun Advanced DNS-välilehden kautta. Täällä Lehto poisti kaikki turhat host recordsit ja loi uudet. Näihin uusiin Host recordseihin Lehto asetti Digital Ocean-virtuaalipalvelimen IP-osoitteen ja TTL- sarakkeen arvoksi 5 minuuttia.
   
 #### b) Palvelin suojaan palomuurilla
-Tässä Lehto kertoo palomuurin käyttöönotosta
-  1. Yhteys virtuaalikoneelle `ssh root@188.166.4.6` ´
+Tässä Lehto kertoo palomuurin käyttöönotosta.
+  1. Yhteys Lehdon omalle virtuaalikoneelle `ssh root@188.166.4.6` 
   2. Päivitysten haku `sudo apt-get update` ja palomuurin asennus `sudo apt-get install ufw`
   3. Reikä palomuuriin `sudo ufw allow 22/tpc`
   4. ja palomuurin käynnistys `sudo ufw enable`
+     
 #### c) Kotisivut palvelimelle
-Seuraavaksi Lehto asensi DO virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivut
+
+Seuraavaksi Lehto asensi Digital Ocean virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivu
   1. Käyttäjän luonti `sudo adduser suska` ja muutos pääkäyttäjäksi `sudo adduser suska sudo`
-  2. Testi toisen koneen terminaalissa toimiiko käyttäjän oikeudet. Ensin yhteys `ssh suska@188.166.4.6` ja sitten sudo testikomento `sudo apt-get update`
-  3. root käyttäjän lukinta `sudo usermod –lock root`
-  4. Domainnimen pingaus ping susannalehto.me joka piti päättymättömänä keskeyttää sulkemalla terminaali
+  2. Testi toisen koneen terminaalissa, toimiiko käyttäjän oikeudet. Ensin yhteys `ssh suska@188.166.4.6` ja sitten sudo testikomento `sudo apt-get update`
+  3. Root käyttäjän lukinta `sudo usermod –lock root`
+  4. Domain-nimen pingaus `ping susannalehto.me` joka piti päättymättömänä keskeyttää sulkemalla terminaali.
   5. Uudelleenkirjautuminen ssh kautta ja saatavilla olevien päivitysten ja tietoturvapäivitysten asennus `sudo apt-get update` `sudo apt-get upgrade` ja `sudo apt-get dist-upgrade`
   6. Apache-webbipalvelimen asennus `sudo apt-get install apache2` ja testaus `sudo systemctl status apache2`
   7. Palomuuriin toinen reikä portille 80 `sudo ufw allow 80/tcp`
   8. Apachen testisivun korvaaminen `echo Hello world! |sudo tee /var/www/html/index.html`
   9. Userdir-moduulin käyttöönotto `sudo a2enmod userdir` ja uudelleen käynnistys `sudo service apache2 restart`
-  10. Julkisen public_html kansion luonti ja näkyvyyden tarkistus firefoxissa
+  10. Julkisen public_html kansion luonti ja näkyvyyden tarkistus firefoxissa.
   11. Ssh-yhteyden avaus `sudo systemctl start ssh` ja micro editorin asennus `sudo apt-get install micro`
   12. Tekstitiedoston luonti public_html kansioon `cd public_html` ja `micro index.html` jonne Lehto loi lyhyen nettisivun rungon.
-  13. Viimeiseksi varmistus kaiken toimivuudesta toisen koneen selaimella.
-#### d)Palvelimen ohjelmien päivitys
-  Tapahtui kirjautumalla virtuaalipalvelimelle ssh-yhteydellä, jonka jälkeen seuraavien päivitysten asennus komennoilla `sudo apt-get update`, `sudo apt-get upgrade` ja `sudo apt-get dist-upgrade`
+  13. Viimeiseksi varmistus kaiken toimivuudesta testaamalla toisen koneen selaimella.
+  14. 
+#### d) Palvelimen ohjelmien päivitys
 
-(Lehto 2022)
+Päivitys tapahtui kirjautumalla virtuaalipalvelimelle ssh-yhteydellä, jonka jälkeen seuraavien päivitysten asennus komennoilla `sudo apt-get update`, `sudo apt-get upgrade` ja `sudo apt-get dist-upgrade`
+
+(Lehto, 2022)
 
   ### First Steps on a New Virtual Private Server
-Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yksityinen serveri Digital Ocean palveluun ja määritetään DNS Namecheapin kautta. 
+Muistiinpanoissa Karvinen listaa toimet, joilla manuaalisesti määritetään yksityinen serveri Digital Ocean palveluun ja määritetään DNS Namecheapin kautta. 
   - Luo uusi virtuaalipalvelin Digital Ocean
      - Luo palveluun tili, lisää maksutiedot ja luo Ubuntu 16.04 LTS virtuaalipalvelin
   - Ensimmäisellä kerralla loggaudu luodulle palvelimelle roottina (tämä on myös ainut kerta)`ssh root@10.0.0.1`
@@ -61,7 +65,7 @@ Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yks
   -  Päivitä ohjelmistot `sudo apt-get update`ja `sudo apt-get upgrade`
   -  Aloita käyttö, muista myös tehdä palomuuriin reikä 80-portille `sudo ufw allow 80/tcp`
   -  Käyttö on mukavampaa tero.karvinen.con nimellä kuin ip-osoitteella joten rekisteröi verkkotunnus esim Namecheapin kautta. Ohjeet nimipalvelimen osoittamiseen hostille löytyy linkistä [point NameCheap nameservers to your host](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain)
-  -  Lisää A-recordi ja testaa Firefoxilla jottei vanha tai väärä nimi jää selaimen välimuistiin.
+  -  Lisää A-record ja testaa Firefoxilla jottei vanha tai väärä nimi jää selaimen välimuistiin.
 
   (Karvinen 2012)
 
@@ -81,26 +85,25 @@ Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yks
 
 ---
 
-Tehtäviä tehdessäni käytän tietolähteenäni omia luentomuistiinpanojani sekä Karvisen artikkelia First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Muut mahdolliset lähteet ovat merkitty erikseen.
-
-
 ## a) Oma virtuaalipalvelin
 
-Tässä tehtävässä vuokrasin oman virtuaalipalvelimen.palveluntarjoajalta. Aloitan tehtävän 2024.02.06 klo 14.30 ja saan sen valmiiksi noin 15.05 UCT +3
+Kaikkia tästä seuraavia tehtäviä tehdessäni käytin tietolähteenäni omia luentomuistiinpanojani sekä Karvisen artikkelia First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Muut mahdolliset lähteet ovat merkitty tekstiviitteinä erikseen.
+
+Tässä tehtävässä vuokrasin oman virtuaalipalvelimen.palveluntarjoajalta. Aloitan tehtävän 2024.02.06 klo 14.30 +3 UCT ja saan sen valmiiksi noin 15.05 UCT +3
 
 Hyödynsin tehtävässä GitHub educationin etua Digital Ocean hostauspalvelun käyttöön, koulutuspaketti tarjoaa $200 arvosta credittiä palveluun ensimmäisen vuoden ajalle.
 
   ![4.1.1DigitOcean_GitHub](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.1DigitOcean_GitHub.png)
 
-1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.2_SignUp.png) joka ohjasi minut kirjautumaan palveluun github-tunniksillani
-2.  Seuraavaksi etenin palvelun käyttöönottoon vastaamalla esitettyihin kyselyihin. Tämän jälkeen minulta pyydettiin luottokorttitiedot henkilöllisyyteni vahvistamiseen. 
+1.  Aloitin klikkaamalla kuvassa olevaa linkkiä "Get access...", joka avasi uuden välilehden Digital Oceanin sivulle. Täällä valitsen ![4.1.2_SignUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.2_SignUp.png), joka ohjasi minut kirjautumaan palveluun github-tunniksillani.
+2.  Seuraavaksi etenin palvelun käyttöönottoon vastaamalla esitettyihin kyselyihin. Tämän jälkeen minulta pyydettiin luottokorttitiedot henkilöllisyyteni vahvistamiseksi. 
 Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi, mutta tämä häviää veloituksista hetken kuluttua.
 3.  Luottokorttitietojen vahvistuksen jälkeen aukesi aloitussivu, josta haluttu palvelu tuli valita. Tässä tapauksessa valitsin `Deploy a virtual machine`
 
     ![4.1.3_DeployVM](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.3_Deploy_VM.png)
   
-4. Tässä vaiheessa tarkistelin oman tilini tilaa ja huomasin että yhteys GitHub Educationin ja Digital oceanin välillä ei ollut kirjautunut. Tutkin asiaa lisää ja klikkasin uudelleen GitHubin linkkiä (sama joka ensimmäisessä kuvassa yllä).
-5. Tämä ohjasi minut uudelle autentikointisivulle, josta autorisoin Digital Oceanin. Tämän jälkeen aukesi kuittaus jossa käyttäjätunnukselleni ilmoitettiin lisätyksi $200 credit.
+4. Seuraavalla sivulla tarkistelin oman tilini tilaa ja huomasin että yhteys GitHub Educationin ja Digital oceanin välillä ei ollut kirjautunut. Tutkin asiaa lisää ja klikkasin uudelleen GitHubin linkkiä (sama joka tämän tehtävän ensimmäisessä kuvassa yllä).
+5. Linkki ohjasi minut uudelle autentikointisivulle, josta autorisoin Digital Oceanin. Tämän jälkeen aukesi kuittaus, jossa käyttäjätunnukselleni ilmoitettiin lisätyksi $200 credit.
 
     ![4.1.4_AuthorizeDO](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.4_AuthorizeDO.png) ![4.1.5_CreditOK](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.5_CreditOK.png)
 
@@ -108,20 +111,20 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
 
   ![4.1.6_Create_Droplet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.6_Create_Droplet.png)
 
-7. Seuraavaksi avautui tunnilta tuttu sivu jossa valitaan luotavalle virtuaaliserverille määritykset:
+7. Seuraavaksi avautui jo tunnilta tuttu sivu, jossa valitaan luotavalle virtuaaliserverille määritykset:
     - Alue ja datacenterin sijainti 
        ![4.1.6_alue](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.6_Alue.png)
     - Haluttu OS ja versio (Valitsin uusimman saatavilla olevan Debianin: 12 on versio ja x64 kuvaa moniko bittinen prosessori)
         ![4.1.7_OS](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.7_OS.png)
     -  Seuraavassa kohdassa valitsin serverin ominaisuuksia. Tein valinnat opettajan antaman suosituksen mukaan.
          ![4.1.8_Server_type](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.8_Server_type.png)
-    -  Seuraavissa kohdissa tarjottiin lisätallennustilaa ja automaattisia varmuuskopioita joita en valinnut koska en niitä tarvitse
-    -  Seuraavaksi oli oli vuorossa autentikointimetodin valinta. Vaihtoehtoja olivat SSH-avain (joka olisi turvallisin) ja salasana, jonka valitsin koska tämä on tuttu. Salasana kannattaa valita huolellisesti turvalliseksi, sillä on hyvin todennäköistä, että vuokrattuja pilviservereitä yritetään kaapata.
+    -  Seuraavissa kohdissa tarjottiin lisätallennustilaa ja automaattisia varmuuskopioita joita en valinnut koska en niitä tarvitse.
+    -  Tämän jälkeen oli oli vuorossa autentikointimetodin valinta. Vaihtoehtoja olivat SSH-avain (joka olisi turvallisin) ja salasana, jonka valitsin koska tämä on tuttu. Salasana kannattaa valita huolellisesti turvalliseksi, sillä on hyvin todennäköistä, että vuokrattuja pilviservereitä yritetään kaapata.
         ![4.1.9_salasana](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.9_salasana.png)
     -  Seuraavassa kohdassa valitsin kulutuksen seurannan ja mahdolliset hälytykset. Tämä oli veloitukseton ominaisuus joten otin sen mukaan.
     -  Viimeisessä kohdassa valitaan montako kappaletta määritelytjä servereitä haluan ja määritin tälle serverille jonkin neutraalin ja mahdollisimman persoonattoman nimen.
        ![4.1.10_Hostname](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.10_Hostname.png)
-    -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi noin minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
+    -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi alle minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
        ![4.1.11_tammari_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.11_tammari_done.png)
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
@@ -129,14 +132,14 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
 ---
   ## b) Virtuaalipalvelin käyttökuntoon
 
- Tässä osiossa tein Tee alkutoimet omalla virtuaalipalvelimellani.
+ Tässä osiossa tein alkutoimet omalle virtuaalipalvelimelleni.
 
  ### Palomuuri käyttöön
   1. Aloitan tehtävän ottamalla SHH-yhteyden luotuun tammari-virtuaalipalvelimeen
-     - Annan terminaalissa komennon `ssh root@104.248.205.0` ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
+     - Annan terminaalissa komennon `ssh root@104.248.205.0`. Ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
        ![4.2.1_sisään](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.1_sisa%CC%88a%CC%88n.png)
   2. Seuraavaksi asensin palomuurin, `sudo apt-get update` & `sudo apt-get install ufw`
-  3. Seuraavaksi tein aukot palomuuriin komennoilla `sudo ufw allow 22/tcp` ja `sudo ufw allow 80/tcp` jossa allow sallii, 22& 80 on portti ja tcp käytettävä on protokolla. 
+  3. Tämän jälkeen tein aukot palomuuriin komennoilla `sudo ufw allow 22/tcp` ja `sudo ufw allow 80/tcp` jossa allow sallii, 22 & 80 on portti ja tcp käytettävä on protokolla. 
   4. `sudo ufw enable` käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
     ![4.2.2_palomuuriUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuriUp.png)
 
