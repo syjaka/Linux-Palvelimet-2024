@@ -12,7 +12,23 @@
 - 
 
 ---
-  ## x) tiivistelmä
+  ## x) tiivistelmät
+
+  ### Teoriasta käytäntöön pilvipalvelimen avulla
+a) Pilvipalvelimen vuokraus ja asennus
+    - Ensimmäisessä Osiossa kerrotaan kuinka pilvipalvelun vuokraus onnistuu Digital Ocean plavelun (DO) kautta ja miten se asennetaan. Lehto vuokrasi oman pilvipalvelunsa DO-palvelusta käyttäen GitHub Educationin tarjoamaa Promokoodia. Vuokraus alkoi palveluun kirjautumisella, jonka jälkeen Leino päivitti nimitiedot ja syötti promokoodin. Seuraavaksi hän valitsi palvelun, eli loi itsellensä "Dropletin" (virtuaalikoneen). Seuraavissa vaiheissa Lehto valitsi virtuaalikoneen määritykset joiden jälkeen hän valitsi 'Create Droplet'. Hetken kuluttua luotu virtuaalikone oli valmis- IP-osoitteineen.
+    - Seuraavassa osiossa Lehto vuokrasi domainnimen. Lehto hyödynsi GitHub educationin alekoodia .me päätteiselle domainnimelle Namecheap -palvelussa. Lehto etsi käyettävissä olevaa domainnimeä sivuston search-toiminnolla ja päätyi susannalehto.me nimeen jonka rekisteröi itselleen. Tämä vaati myös Namecheap -palveluun rekisteröitymistä. Kaiken valmistuttua Lehto tarkasti kaiken olevan kunnossa Namecheapin hallintapaneelista.
+    - Lopuksi Lehto ohjasi domainnimen susannalehto.me osoittamaan DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä tapahtui hallintasivun Advanced DNS-välilehden kautta. Täällä Lehto poisti kaikki turhat Host recordsit ja loi uuden. Tähän uuteen Host recordiin ehto asetti DO virtuaalipalvelimen IP-osoitteen ja TTL- sarakkeen arvoksi 5 minuuttia.
+d) Palvelin suojaan palomuurilla
+    - Täss Lehto kertoo palomuurin käyttöönotosta
+      1. Yhteys virtuaalikoneelle 'ssh root@188.166.4.6'
+      2. 
+e) Kotisivut palvelimelle
+f) Palvelimen ohjelmien päivitys
+(Lehto 2022)
+  ### First Steps on a New Virtual Private Server
+
+  (Karvinen 2012)
 ---
 
 ---
@@ -76,7 +92,7 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
 
  Tässä osiossa tein Tee alkutoimet omalla virtuaalipalvelimellani.
 
- ###Palomuuri käyttöön
+ ### Palomuuri käyttöön
   1. Aloitan tehtävän ottamalla SHH-yhteyden luotuun tammari-virtuaalipalvelimeen
      - Annan terminaalissa komennon 'ssh root@104.248.205.0' ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
        ![4.2.1_sisään](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.1_sisa%CC%88a%CC%88n.png)
@@ -128,11 +144,11 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
    ![4.5.3_No_such_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.3_No_such_file.png)
 7. Loin saman kansion porras portaalta. Ensin kotihakemistoon 'publicsites' kansion ja seuraavaksi 'sivu.example.com
 8. Loin tekemääni kansioon uuden tiedoston 'echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
-9. Muokkasin sivu tiedostoa 'micro index.html' lisäämällä sinne html5 -pätkän
+9. Muokkasin index.html tiedostoa 'micro index.html' lisäämällä sinne html5 -pätkän
 10. Testasin että sivu vastaa 'curl -H 'Host: sivu.example.com' localhost' sain erroria vastaukseksi !  
     [4.5.6_403_forbidden](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.6_403_forbidden.png)
       - muokkaan pääsyoikeuksia 'chmod ugo+x $HOME $HOME/publicsites/', 'ls -ld $HOME $HOME/publicsites/' (Karvinen 2024)
-      - testaan uudelleen curl -H 'Host: pyora.example.com' localhost
+      - testaan uudelleen curl -H 'Host: sivu.example.com' localhost
       - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
         ![4.5.7_ufw_status](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.7_ufw_status.png)
       - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
@@ -140,8 +156,11 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
       - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
       - Testasin ja yhä jää kellottamaan.
       - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja 'journalctl' lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
-      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn
-      - 
+      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn käynnistämällä virtuaalikoneeni ja ottamalla yhteyden vuokrattuun virtuaalikoneeseeni komennolla 'ssh syrja@104.248.205.0'
+      - Tureilla silmillä tutkittuani eilistä vianselvitystäni löysin, että olin anatnut väärän komennon 'curl -H 'Host: sivu.example.com' eli 'localhost puuttui lopusta. Tämän korjattuani sain uudelleen 403 forbidden sivun.
+      - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla 'sudo systemctl reboot'. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
+        ![4.5.9_success]()
+      - Muokkasin vielä testisivulle html5 pätkän ja varmistin että yhä toimii.
 17. 
 11. 
 12. 
@@ -200,8 +219,7 @@ Cyber Duck 2022. Understanding the difference between Sudo and Root in Linux. Lu
 
 Karvinen T. 2017. First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Luettavissa: https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/. Luettu 2024.02.06
 
-Karvinen, T. 2024. Linux Palvelimet 2024 alkukevät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/. Luettu: 2024.062.06
+Karvinen, T. 2024. Linux Palvelimet 2024 alkukevät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/. Luettu: 2024.02.06
   
-
-
+Lehto S. 2022 Teoriasta käytäntöön pilvipalvelimen avulla (h4). Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu 2024.02.07
 
