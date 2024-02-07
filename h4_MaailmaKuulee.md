@@ -168,7 +168,7 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 1. Apachen asennus seuraavin komennoin `sudo apt-get update`  ja `sudo apt-get -y install apache2`
 2. Default sivun korvaaminen index.html tiedostolla `echo "Default"|sudo tee /var/www/html/index.html`
 3. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimilla. Testi osoitti että sivu toimii
-  ![4.5.10_tammari_public_default]() ![4.5.10_tammari_iphone.jpeg]()
+  ![4.5.10_tammari_iphone.jpeg](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.10_tammari_iphone.jpeg)
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
@@ -197,7 +197,7 @@ Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni.
 3. Host Records kohdassa luon kaksi uutta "osoitusta" @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com `add new record` TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
 ![4.6.2_DNS_advanced](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.2_DNS_advanced.png)
 4. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
-5. ![4.6.3_syrja.com_testisivu](4.6.3_syrja.com_testisivu.png)
+5. ![4.6.3_syrja.com_testisivu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.3_syrja.com_testisivu.png)
    (namecheap.com 2021)
    
 
