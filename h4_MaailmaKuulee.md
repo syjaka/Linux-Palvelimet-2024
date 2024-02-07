@@ -65,7 +65,7 @@ Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yks
 
   (Karvinen 2012)
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
 ---
 
@@ -124,7 +124,7 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
     -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi noin minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
        ![4.1.11_tammari_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.11_tammari_done.png)
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
  
 ---
   ## b) Virtuaalipalvelin käyttökuntoon
@@ -159,7 +159,7 @@ Valitsin tarkistaa erot tiedostojen välillä:
 ![4.3.3Erot]()
 Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautuminen on estetty root-tunnuksella sekä ClientAliveInterval 120 rivi on poistettu. Root-kirjautumisen itse muutin, mutta en keksi syytä miksi ClientAliveInterval on poistettu. Koska muita muutoksia ei näy päätän pitää nykyisen (uuden) version, jossa root on lukittu.
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
 ## c) Asenna oma webbipalvelin
 
@@ -170,7 +170,7 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 3. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimilla. Testi osoitti että sivu toimii
   ![4.5.10_tammari_public_default]() ![4.5.10_tammari_iphone.jpeg]()
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
  ---
  ## d) Oma domain käyttöön
@@ -179,32 +179,31 @@ Tässä tehtävässä tuli vuokrata oma domain-nimi ja asettaa se osoittamaan yl
 
 Ensimmäiseksi domain-nimen vuokraus
 
-1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni::![4.4.1_DomainSyrja]()
+1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni::![4.4.1_DomainSyrja](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.1_DomainSyrja.png)
 Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksullinen ajattelen että tämä saattaa olla hyödyllinen tulevaisuudessa.
 2. Verkkotunnuksen rekisteröinti namecheap palvelun kautta tapahtui lisäämällä haluttu domainnimi ostoskoriin. Checkoutin yhteydessä tarjottiin erilaisia lisäpalveluita joista valitsin Domain privacyn.
-4.4.2_[lisapalvelut]()
+4.4.2_[lisapalvelut](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.2_lisapalvelut.png)
 3. Tilauksen vahvistamisen yhteydessä piti rekisteröityä palvelun käyttäjäksi.
 4. Rekisteröitymisen jälkeen tuli vielä valita verkkotunnuksen IDN-kieli, tässä tapauksessa suomi. Englanti ei olisi edes vaihtoehto ä-kirjaimen sisältävässä domain nimessä.
-![4.4.3_IDN]()
+![4.4.3_IDN](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.3_IDN.png)
 5. Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta hetken kuluttua sain vahvistuksen sähköpostiini. Sähköpostissa oli myös mandaatti että WHOIS tiedot tulee vahvistaa 14 vrk kuluessa tai rekisteröinti raukeaa. Lopputuloksena sain vahvistuksen, että syrjä.com on nyt rekisteröity nimiini.
-![4.4.4_Verify]()
+![4.4.4_Verify](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.4_Verify.png)
 
 Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni.
 
 1. Avaan Namecheap-palvelusta oman dashboardini joss rekisteröity domain-nimi näkyy. Manage-napista siirryn nimen hallintasivulle
-![4.6.1_namecheap_Manage]()
+![4.6.1_namecheap_Manage](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.1_namecheap_Manage.png)
 2. Hallintasivulta siirryn advanced DNS-välilehdelle
 3. Host Records kohdassa luon kaksi uutta "osoitusta" @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com `add new record` TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
-![4.6.2_DNS_advanced]()
+![4.6.2_DNS_advanced](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.2_DNS_advanced.png)
 4. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
 5. ![4.6.3_syrja.com_testisivu]()
+   (namecheap.com 2021)
    
 
 (nämä tehtävät on tehty luennon muistiinpanojen ja Tero Karvisen -First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS, 2017 pohjalta, ellei lähdettä ole erikseen merkitty)
----
 
- - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
-
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
 ---
 
@@ -217,3 +216,5 @@ Karvinen T. 2017. First Steps on a New Virtual Private Server – an Example on 
 Karvinen, T. 2024. Linux Palvelimet 2024 alkukevät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/. Luettu: 2024.02.06
   
 Lehto S. 2022 Teoriasta käytäntöön pilvipalvelimen avulla (h4). Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu 2024.02.07
+
+Namecheap.com 2021. How can I set up an A (address) record for my domain? Luettavissa https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain/. Luettu 2024.02.07
