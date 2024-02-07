@@ -146,9 +146,9 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
 ### Root-tunnuksen lukitseminen sekä oman käyttäjän lisäys
 Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
 
-  1. Loin käyttäjän komennolla ` $ sudo adduser syrja` ja keksin hyvän salasanan
+  1. Loin käyttäjän komennolla ` $ sudo adduser syrja` ja keksin hyvän salasanan.
   2. Käyttäjätietoihin annoin nimeni, mutta muut kohdat ohitin `return`
-  3. `sudo adduser syrja sudo` lisää luodun käyttäjän sudo-ryhmään eli tekee käyttäjästä sudo-userin
+  3. `sudo adduser syrja sudo` lisää luodun käyttäjän sudo-ryhmään eli tekee käyttäjästä sudo-userin.
   4. Testaan että pääsen kirjautumaan palvelimelle luotuna käyttäjänä ja että salasana toimii.
     ![4.3.1_syrjaToimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.1_syrjaToimii.png)
   5. Seuraavaksi lukitsen root-käyttäjän, estääkseni salasanakirjautumisen, muut tavat ovat yhä mahdollisia. Lukitsemiseen käytän komentoa `sudo usermod -- lock root. Testaan lukitusta yrittämällä kirjautua uudelleen root-käyttäjänä(kuten yllä kohdassa b) 1.), mutta Järjestelmä ei päästä sisään
@@ -156,21 +156,22 @@ Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina.
 ### Ohjelmien päivitys
 Seuraavaksi ryhdyin päivittämään paketteja komennoilla `sudo apt-get update` ja `sudo apt-get upgrade`. Lopputuloksena sain ao viestin:
 
-![4.3.2HerjaVersiosta]
+![4.3.2HerjaVersiosta](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.2HerjaVersiosta.png)
 Valitsin tarkistaa erot tiedostojen välillä:
 
 ![4.3.3Erot](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.3Erot.png)
+
 Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautuminen on estetty root-tunnuksella sekä ClientAliveInterval 120 rivi on poistettu. Root-kirjautumisen itse muutin, mutta en keksi syytä miksi ClientAliveInterval on poistettu. Koska muita muutoksia ei näy päätän pitää nykyisen (uuden) version, jossa root on lukittu.
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
 ## c) Asenna oma webbipalvelin
 
-Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten tehtävässä [h3_HelloWebServer](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md) toimia.
+Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen mukaillen tehtävässä [h3_HelloWebServer](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md) toimia.
 
 1. Apachen asennus seuraavin komennoin `sudo apt-get update`  ja `sudo apt-get -y install apache2`
 2. Default sivun korvaaminen index.html tiedostolla `echo "Default"|sudo tee /var/www/html/index.html`
-3. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimilla. Testi osoitti että sivu toimii
+3. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimilla. Testi osoitti että sivu toimii.
   ![4.5.10_tammari_iphone.jpeg](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.10_tammari_iphone.jpeg)
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
@@ -178,13 +179,13 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
  ---
  ## d) Oma domain käyttöön
 
-Tässä tehtävässä tuli vuokrata oma domain-nimi ja asettaa se osoittamaan yllä luotuun virtuaalipalvelimeen
+Tässä tehtävässä tuli vuokrata oma domain-nimi ja asettaa se osoittamaan yllä luotuun virtuaalipalvelimeen.
 
-Ensimmäiseksi domain-nimen vuokraus
+Ensimmäiseksi domain-nimen vuokraus:
 
-1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni::![4.4.1_DomainSyrja](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.1_DomainSyrja.png)
+1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni:![4.4.1_DomainSyrja](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.1_DomainSyrja.png)
 Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksullinen ajattelen että tämä saattaa olla hyödyllinen tulevaisuudessa.
-2. Verkkotunnuksen rekisteröinti namecheap palvelun kautta tapahtui lisäämällä haluttu domainnimi ostoskoriin. Checkoutin yhteydessä tarjottiin erilaisia lisäpalveluita joista valitsin Domain privacyn.
+2. Verkkotunnuksen rekisteröinti namecheap palvelun kautta tapahtui lisäämällä haluttu domain-nimi ostoskoriin. Checkoutin yhteydessä tarjottiin erilaisia lisäpalveluita joista valitsin Domain privacyn.
 4.4.2_[lisapalvelut](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.2_lisapalvelut.png)
 3. Tilauksen vahvistamisen yhteydessä piti rekisteröityä palvelun käyttäjäksi.
 4. Rekisteröitymisen jälkeen tuli vielä valita verkkotunnuksen IDN-kieli, tässä tapauksessa suomi. Englanti ei olisi edes vaihtoehto ä-kirjaimen sisältävässä domain nimessä.
@@ -192,15 +193,16 @@ Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksulline
 5. Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta hetken kuluttua sain vahvistuksen sähköpostiini. Sähköpostissa oli myös mandaatti että WHOIS tiedot tulee vahvistaa 14 vrk kuluessa tai rekisteröinti raukeaa. Lopputuloksena sain vahvistuksen, että syrjä.com on nyt rekisteröity nimiini.
 ![4.4.4_Verify](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.4_Verify.png)
 
-Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni.
+Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni:
 
-1. Avaan Namecheap-palvelusta oman dashboardini joss rekisteröity domain-nimi näkyy. Manage-napista siirryn nimen hallintasivulle
+1. Avaan Namecheap-palvelusta oman dashboardini jossa rekisteröity domain-nimi näkyy. Manage -napista siirryn nimen hallintasivulle.
+   
 ![4.6.1_namecheap_Manage](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.1_namecheap_Manage.png)
-2. Hallintasivulta siirryn advanced DNS-välilehdelle
-3. Host Records kohdassa luon kaksi uutta "osoitusta" @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com `add new record` TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
+3. Hallintasivulla siirryn advanced DNS-välilehdelle.
+4. Host Records kohdassa luon kaksi uutta "osoitusta" `add new record`. @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com  TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
 ![4.6.2_DNS_advanced](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.2_DNS_advanced.png)
-4. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
-5. ![4.6.3_syrja.com_testisivu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.3_syrja.com_testisivu.png)
+5. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
+![4.6.3_syrja.com_testisivu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.3_syrja.com_testisivu.png)
    (namecheap.com 2021)
    
 
