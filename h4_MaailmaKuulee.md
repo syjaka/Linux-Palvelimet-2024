@@ -5,7 +5,7 @@
 - x)[ Tiivistelmät](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#x-tiivistelmät)
 - a)[ Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#a-Oma-virtuaalipalvelin)
 - b)[ Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
-- c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md.md#c-Asenna-oma-webbipalvelin)
+- c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md.#c-Asenna-oma-webbipalvelin)
 - d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
@@ -173,7 +173,7 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
 
  ---
- ## d) Oman verkkotunnuksen rekisteröinti
+ ## d) Oma domain käyttöön
 
 Tässä tehtävässä tuli vuokrata oma domain-nimi ja asettaa se osoittamaan yllä luotuun virtuaalipalvelimeen
 
@@ -200,19 +200,6 @@ Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni.
 5. ![4.6.3_syrja.com_testisivu]()
    
 
-
-
-
-
-
-
-
-
-
-
-
-
-     
 (nämä tehtävät on tehty luennon muistiinpanojen ja Tero Karvisen -First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS, 2017 pohjalta, ellei lähdettä ole erikseen merkitty)
 ---
 
@@ -230,40 +217,3 @@ Karvinen T. 2017. First Steps on a New Virtual Private Server – an Example on 
 Karvinen, T. 2024. Linux Palvelimet 2024 alkukevät. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/. Luettu: 2024.02.06
   
 Lehto S. 2022 Teoriasta käytäntöön pilvipalvelimen avulla (h4). Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu 2024.02.07
-
-Virtuaalipalvelimen oman conf sivun luonti `sudoedit /etc/apache2/sites-available/sivu.example.com.conf`
-    ![4.5.1_sivu_conf[(https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.1_sivu_conf.png)
-4. Aktivoin juuri luodut conffit `sudo a2ensite sivu.example.com`
-    - Saan erroria koska sivu.example.com ei ole vielä olemassa
-    ![4.5.2_error_not_exist](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.2_error_not_exist.png)
-    
-   - Tarkistan onko kyseinen conf tiedosto olemassa
-    ![4.5.4_cat_not Found](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.4_cat_not%20Found.png)
-   -  Ei löytynyt, joten palaan takaisin tutkimaan mitä löytyy sites-available kansiosta
-    ![4.5.5_sites_available](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.5_sites_available.png)
-   - Täältä selviää, että tiedostonimessä on virhe, korjaan sen `mv etusivu.example.com.con sivu.example.com.conf`
-   - testaan uudelleen `sudo a2ensite sivu.example.com` ja tällä kertaa se toimii
-5. muutos astuu voimaan uudelleenkäynnistyksellä `sudo systemctl restart apache2`
-6. Tein kotihakemistooni uuden kansiopolun `mkdir /home/syrja/publicsites/sivu.example.com`
-   Sain virheen
-   ![4.5.3_No_such_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.3_No_such_file.png)
-7. Loin saman kansion porras portaalta. Ensin kotihakemistoon `publicsites` kansion ja seuraavaksi `sivu.example.com
-8. Loin tekemääni kansioon uuden tiedoston `echo sivu > /home/syrja/publicsites/sivu.example.com/index.html
-9. Muokkasin index.html tiedostoa `micro index.html` lisäämällä sinne html5 -pätkän
-10. Testasin että sivu vastaa `curl -H `Host: sivu.example.com` localhost` sain erroria vastaukseksi ![4.5.6_403_forbidden](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.6_403_forbidden.png)
-      - muokkaan pääsyoikeuksia `chmod ugo+x $HOME $HOME/publicsites/`, `ls -ld $HOME $HOME/publicsites/` (Karvinen 2024)
-      - testaan uudelleen curl -H `Host: sivu.example.com` localhost
-      - Sama 403 error, tarkistan palomuurin tilan joka näyttää olevan kunnossa 
-        ![4.5.7_ufw_status](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.7_ufw_status.png)
-      - tarkistan conf-sivun määritykset, josta löytyy virhe; korjaan sen 
-       ![(4.5.8_conf_tammari](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.8_conf_tammari.png)
-      - Testasin uudelleen, tällä kertaa haku jäi auki eli sivu ei vastannut. Tässä vaiheessa heräsi epäilys että koodissa on jokin virhe, tarkistin index.html tiedoston ja sieltä löytyi ylimääräistä ennen varsinaista html-koodia. Korvasin koko html-pätkän "testisivu" tekstillä
-      - Testasin ja yhä jää kellottamaan.
-      - päätin testata curl komentoani varsinaisella virtuaalikoneellani ja sama vika. Testaan samalla koneella haettua sivua Firefox selaimella ja se toimii. Tarkistin apache.logit ja `journalctl` lokit, niistä ei löytynyt mitään merkintää siitä että systeemi jää jumiin. 2024.02.07 klo 00.12 UCT + 3 lopetan työskentelyn. Tiistain aktiiviseksi työajaksi kertyi noin 10h.
-      - 2024.02.07 klo 10.30 UCT +3 alotan työskentelyn käynnistämällä virtuaalikoneeni ja ottamalla yhteyden vuokrattuun virtuaalikoneeseeni komennolla `ssh syrja@104.248.205.0`
-      - Tuoreilla silmillä tutkittuani eilistä vianselvitystäni löysin, että olin anatnut väärän komennon `curl -H `Host: sivu.example.com` eli `localhost puuttui lopusta. Tämän korjattuani sain uudelleen 403 forbidden sivun.
-      - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla `sudo systemctl reboot`. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
-        ![4.5.9_success]()
-      - Muokkasin vielä testisivulle html5 pätkän ja varmistin että yhä toimii.
-11. 
-12. Seuraavaksi muokkasin hosts tiedostoa komennolla `sudoedit /etc/hosts`. Lisässin tänne sivu.example.comin jonne lisäsin domain-nimet ja ohjauksen localhostiin: 127.0.0.1 sivu.example.com. Tätä testatessa firefoxilla päädyn toiseen sivu.example.comiin. Muutan omani nimeä sivusyrja.example.com
