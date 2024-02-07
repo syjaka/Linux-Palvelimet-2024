@@ -151,7 +151,7 @@ Tavallisesti virtuaalipalvelimelle kirjaudutaan käyttäjänä, eikä roottina. 
   4. Testaan että pääsen kirjautumaan palvelimelle luotuna käyttäjänä ja että salasana toimii.
     ![4.3.1_syrjaToimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.1_syrjaToimii.png)
   5. Seuraavaksi lukitsen root-käyttäjän, estääkseni salasanakirjautumisen, muut tavat ovat yhä mahdollisia. Lukitsemiseen käytän komentoa `sudo usermod -- lock root. Testaan lukitusta yrittämällä kirjautua uudelleen root-käyttäjänä(kuten yllä kohdassa b) 1.), mutta Järjestelmä ei päästä sisään
-  6. Viimeisessä vaiheessa poistin ssh root loginin käytöstä komennolla`sudoedit /etc/ssh/sshd_config`jolla avautui config-tiedosto. Muutin tiedostossa kohda `permitRootLogin`tilaan `no`, tallensin muutoksen ja uudelleenkäynnistin apachen.
+  6. Viimeisessä vaiheessa poistin SSH root loginin käytöstä komennolla`sudoedit /etc/ssh/sshd_config`jolla avautui config-tiedosto. Muutin tiedostossa kohda `permitRootLogin`tilaan `no`, tallensin muutoksen ja uudelleenkäynnistin SSH-servicen.
 
 ### Ohjelmien päivitys
 Seuraavaksi ryhdyin päivittämään paketteja komennoilla `sudo apt-get update` ja `sudo apt-get upgrade`. Lopputuloksena sain ao viestin:
