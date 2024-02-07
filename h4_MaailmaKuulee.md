@@ -31,7 +31,7 @@ Tässä Lehto kertoo palomuurin käyttöönotosta.
      
 #### c) Kotisivut palvelimelle
 
-Seuraavaksi Lehto asensi Digital Ocean virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivu
+Seuraavaksi Lehto asensi Digital Ocean virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivut
   1. Käyttäjän luonti `sudo adduser suska` ja muutos pääkäyttäjäksi `sudo adduser suska sudo`
   2. Testi toisen koneen terminaalissa, toimiiko käyttäjän oikeudet. Ensin yhteys `ssh suska@188.166.4.6` ja sitten sudo testikomento `sudo apt-get update`
   3. Root käyttäjän lukinta `sudo usermod –lock root`
