@@ -1,6 +1,5 @@
 # h4_Virtual Server & Oma nimipalvelin
 
-# Keskeneräinen
 
 - x)[ Tiivistelmät](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#x-tiivistelmät)
 - a)[ Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#a-Oma-virtuaalipalvelin)
@@ -31,7 +30,7 @@ Tässä Lehto kertoo palomuurin käyttöönotosta.
      
 #### c) Kotisivut palvelimelle
 
-Seuraavaksi Lehto asensi Digital Ocean virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivut
+Seuraavaksi Lehto asensi Digital Ocean virtuaalikoneelle Apache-webbipalvelimen ja teki käyttäjälle toimivat kotisivut.
   1. Käyttäjän luonti `sudo adduser suska` ja muutos pääkäyttäjäksi `sudo adduser suska sudo`
   2. Testi toisen koneen terminaalissa, toimiiko käyttäjän oikeudet. Ensin yhteys `ssh suska@188.166.4.6` ja sitten sudo testikomento `sudo apt-get update`
   3. Root käyttäjän lukinta `sudo usermod –lock root`
@@ -45,31 +44,29 @@ Seuraavaksi Lehto asensi Digital Ocean virtuaalikoneelle Apache-webbipalvelimen 
   11. Ssh-yhteyden avaus `sudo systemctl start ssh` ja micro editorin asennus `sudo apt-get install micro`
   12. Tekstitiedoston luonti public_html kansioon `cd public_html` ja `micro index.html` jonne Lehto loi lyhyen nettisivun rungon.
   13. Viimeiseksi varmistus kaiken toimivuudesta testaamalla toisen koneen selaimella.
-  14. 
+      
 #### d) Palvelimen ohjelmien päivitys
 
 Päivitys tapahtui kirjautumalla virtuaalipalvelimelle ssh-yhteydellä, jonka jälkeen seuraavien päivitysten asennus komennoilla `sudo apt-get update`, `sudo apt-get upgrade` ja `sudo apt-get dist-upgrade`
 
-(Lehto, 2022)
+(Lehto 2022)
 
   ### First Steps on a New Virtual Private Server
 Muistiinpanoissa Karvinen listaa toimet, joilla manuaalisesti määritetään yksityinen serveri Digital Ocean palveluun ja määritetään DNS Namecheapin kautta. 
   - Luo uusi virtuaalipalvelin Digital Ocean
-     - Luo palveluun tili, lisää maksutiedot ja luo Ubuntu 16.04 LTS virtuaalipalvelin
+     - Luo palveluun tili, lisää maksutiedot ja luo Ubuntu 16.04 LTS virtuaalipalvelin.
   - Ensimmäisellä kerralla loggaudu luodulle palvelimelle roottina (tämä on myös ainut kerta)`ssh root@10.0.0.1`
   -  Tee reikä `sudo ufw allow 22/tcp` ja käynnistä palomuuri `sudo ufw enable`
   -  Luo Sudo user `sudo adduser tero` ja anna sille tarvittavat oikeuset `sudo`, `adm` tai `admin`
   -  Ennen sulkemista testaa `ssh tero@tero.example.com`
   -  Lukitse juuren salasanakirjautuminen `sudo usermod --lock root`
-  -  Ja disable rootin SHH login
+  -  Ja disable rootin SHH login.
   -  Päivitä ohjelmistot `sudo apt-get update`ja `sudo apt-get upgrade`
   -  Aloita käyttö, muista myös tehdä palomuuriin reikä 80-portille `sudo ufw allow 80/tcp`
-  -  Käyttö on mukavampaa tero.karvinen.con nimellä kuin ip-osoitteella joten rekisteröi verkkotunnus esim Namecheapin kautta. Ohjeet nimipalvelimen osoittamiseen hostille löytyy linkistä [point NameCheap nameservers to your host](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain)
-  -  Lisää A-record ja testaa Firefoxilla jottei vanha tai väärä nimi jää selaimen välimuistiin.
+  -  Käyttö on mukavampaa tero.karvinen.com nimellä, kuin ip-osoitteella, joten rekisteröi verkkotunnus esim Namecheapin kautta. Ohjeet nimipalvelimen osoittamiseen hostille löytyy linkistä [point NameCheap nameservers to your host](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain).
+  -  Lisää A-record ja testaa Firefoxilla, jottei vanha tai väärä nimi jää selaimen välimuistiin.
 
   (Karvinen 2012)
-
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
 ---
 
@@ -87,7 +84,7 @@ Muistiinpanoissa Karvinen listaa toimet, joilla manuaalisesti määritetään yk
 
 ## a) Oma virtuaalipalvelin
 
-Kaikkia tästä seuraavia tehtäviä tehdessäni käytin tietolähteenäni omia luentomuistiinpanojani sekä Karvisen artikkelia First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Muut mahdolliset lähteet ovat merkitty tekstiviitteinä erikseen.
+Kaikkia tästä seuraavia tehtäviä tehdessäni käytin tietolähteenäni omia luentomuistiinpanojani, sekä Karvisen artikkelia First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Muut mahdolliset lähteet ovat merkitty tekstiviitteinä erikseen.
 
 Tässä tehtävässä vuokrasin oman virtuaalipalvelimen.palveluntarjoajalta. Aloitan tehtävän 2024.02.06 klo 14.30 +3 UCT ja saan sen valmiiksi noin 15.05 UCT +3
 
@@ -102,19 +99,19 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
 
     ![4.1.3_DeployVM](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.3_Deploy_VM.png)
   
-4. Seuraavalla sivulla tarkistelin oman tilini tilaa ja huomasin että yhteys GitHub Educationin ja Digital oceanin välillä ei ollut kirjautunut. Tutkin asiaa lisää ja klikkasin uudelleen GitHubin linkkiä (sama joka tämän tehtävän ensimmäisessä kuvassa yllä).
-5. Linkki ohjasi minut uudelle autentikointisivulle, josta autorisoin Digital Oceanin. Tämän jälkeen aukesi kuittaus, jossa käyttäjätunnukselleni ilmoitettiin lisätyksi $200 credit.
+5. Seuraavalla sivulla tarkistelin oman tilini tilaa ja huomasin että yhteys GitHub Educationin ja Digital oceanin välillä ei ollut kirjautunut. Tutkin asiaa lisää ja klikkasin uudelleen GitHubin linkkiä (sama joka tämän tehtävän ensimmäisessä kuvassa yllä).
+6. Linkki ohjasi minut uudelle autentikointisivulle, josta autorisoin Digital Oceanin. Tämän jälkeen aukesi kuittaus, jossa käyttäjätunnukselleni ilmoitettiin lisätyksi $200 credit.
 
     ![4.1.4_AuthorizeDO](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.4_AuthorizeDO.png) ![4.1.5_CreditOK](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.5_CreditOK.png)
 
-6. Tämän autentikoinnin jälkeen avautuva ikkuna oli hieman erilainen kuin tunnilla, mutta yläreunan Create- valikon kautta löytyi tunnilta tuttu Droplets maininta, joten valitsin sen.
+7. Tämän autentikoinnin jälkeen avautuva ikkuna oli hieman erilainen kuin tunnilla, mutta yläreunan Create- valikon kautta löytyi tunnilta tuttu Droplets maininta, joten valitsin sen.
 
   ![4.1.6_Create_Droplet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.6_Create_Droplet.png)
 
 7. Seuraavaksi avautui jo tunnilta tuttu sivu, jossa valitaan luotavalle virtuaaliserverille määritykset:
     - Alue ja datacenterin sijainti 
        ![4.1.6_alue](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.6_Alue.png)
-    - Haluttu OS ja versio (Valitsin uusimman saatavilla olevan Debianin: 12 on versio ja x64 kuvaa moniko bittinen prosessori)
+    - Haluttu OS ja versio (Valitsin uusimman saatavilla olevan Debianin: 12 on versio ja x64 kuvaa moniko bittinen prosessori).
         ![4.1.7_OS](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.7_OS.png)
     -  Seuraavassa kohdassa valitsin serverin ominaisuuksia. Tein valinnat opettajan antaman suosituksen mukaan.
          ![4.1.8_Server_type](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.8_Server_type.png)
@@ -127,12 +124,14 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
     -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi alle minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
        ![4.1.11_tammari_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.11_tammari_done.png)
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
- 
+
 ---
+
   ## b) Virtuaalipalvelin käyttökuntoon
 
- Tässä osiossa tein alkutoimet omalle virtuaalipalvelimelleni.
+  Seuraavia tehtäviä olen tehnyt pätkissä, arvioim kokonaisuudessaan käytetyksi ajaksi noin 10 tuntia. Josta varsinaista aktiivista työaikaa serverin kanssa noin puolet ja loput erilaista selvitystyötä asian ympäriltä.
+
+ Tässä osiossa tein alkutoimet omalle virtuaalipalvelimelleni. 
 
  ### Palomuuri käyttöön
   1. Aloitan tehtävän ottamalla SHH-yhteyden luotuun tammari-virtuaalipalvelimeen
@@ -144,7 +143,7 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
     ![4.2.2_palomuuri_Up](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuri_Up.png)
 
 ### Root-tunnuksen lukitseminen sekä oman käyttäjän lisäys
-Tavallisesti virtuaalipalvelimelle kiorjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
+Tavallisesti virtuaalipalvelimelle kirjaudutaan käyttäjänä, eikä roottina. Tärkeimipiä syitä tähän on se, että root käyttäjänä on koko ajan sudo-oikeudet, jolloin voi huomaamattaan tehdä jotain perustavanlaatuisia muutoksia/vahingoittaa järjestelmää pysyvästi (Cyber Duck 2022).  Lisäksi käyttäjä on tärkeä pystyä identifioimaan, jotta mahdolliuset muutokset voidaan kohdentaa käyttäjään (Karvinen 2024).
 
   1. Loin käyttäjän komennolla ` $ sudo adduser syrja` ja keksin hyvän salasanan.
   2. Käyttäjätietoihin annoin nimeni, mutta muut kohdat ohitin `return`
@@ -163,7 +162,7 @@ Valitsin tarkistaa erot tiedostojen välillä:
 
 Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautuminen on estetty root-tunnuksella sekä ClientAliveInterval 120 rivi on poistettu. Root-kirjautumisen itse muutin, mutta en keksi syytä miksi ClientAliveInterval on poistettu. Koska muita muutoksia ei näy päätän pitää nykyisen (uuden) version, jossa root on lukittu.
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
+---
 
 ## c) Asenna oma webbipalvelin
 
@@ -174,41 +173,34 @@ Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen mukaille
 3. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimilla. Testi osoitti että sivu toimii.
   ![4.5.10_tammari_iphone.jpeg](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.5.10_tammari_iphone.jpeg)
 
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
-
  ---
  ## d) Oma domain käyttöön
 
 Tässä tehtävässä tuli vuokrata oma domain-nimi ja asettaa se osoittamaan yllä luotuun virtuaalipalvelimeen.
 
-Ensimmäiseksi domain-nimen vuokraus:
+### Ensimmäiseksi domain-nimen vuokraus:
 
-1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni:![4.4.1_DomainSyrja](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.1_DomainSyrja.png)
+1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin ensin omaa sukunimeäni:![4.4.1_DomainSyrja](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.1_DomainSyrja.png)
 Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksullinen ajattelen että tämä saattaa olla hyödyllinen tulevaisuudessa.
 2. Verkkotunnuksen rekisteröinti namecheap palvelun kautta tapahtui lisäämällä haluttu domain-nimi ostoskoriin. Checkoutin yhteydessä tarjottiin erilaisia lisäpalveluita joista valitsin Domain privacyn.
-4.4.2_[lisapalvelut](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.2_lisapalvelut.png)
+
+[4.4.2 lisapalvelut](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.2_lisapalvelut.png)
 3. Tilauksen vahvistamisen yhteydessä piti rekisteröityä palvelun käyttäjäksi.
-4. Rekisteröitymisen jälkeen tuli vielä valita verkkotunnuksen IDN-kieli, tässä tapauksessa suomi. Englanti ei olisi edes vaihtoehto ä-kirjaimen sisältävässä domain nimessä.
+4. Rekisteröitymisen jälkeen tuli vielä valita verkkotunnuksen IDN-kieli, tässä tapauksessa suomi. Englanti ei olisi edes vaihtoehto ä-kirjaimen sisältävässä domain-nimessä.
 ![4.4.3_IDN](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.3_IDN.png)
-5. Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta hetken kuluttua sain vahvistuksen sähköpostiini. Sähköpostissa oli myös mandaatti että WHOIS tiedot tulee vahvistaa 14 vrk kuluessa tai rekisteröinti raukeaa. Lopputuloksena sain vahvistuksen, että syrjä.com on nyt rekisteröity nimiini.
+5. Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta, hetken kuluttua sain vahvistuksen sähköpostiini. Sähköpostissa oli myös mandaatti, että WHOIS tiedot tulee vahvistaa 14 vrk kuluessa tai rekisteröinti raukeaa. Lopputuloksena sain vahvistuksen, että syrjä.com on nyt rekisteröity nimiini.
 ![4.4.4_Verify](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.4.4_Verify.png)
 
-Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni:
+### Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni:
 
 1. Avaan Namecheap-palvelusta oman dashboardini jossa rekisteröity domain-nimi näkyy. Manage -napista siirryn nimen hallintasivulle.
-   
 ![4.6.1_namecheap_Manage](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.1_namecheap_Manage.png)
-3. Hallintasivulla siirryn advanced DNS-välilehdelle.
-4. Host Records kohdassa luon kaksi uutta "osoitusta" `add new record`. @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com  TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
+2. Hallintasivulla siirryn advanced DNS-välilehdelle.
+3. Host Records kohdassa luon kaksi uutta "osoitusta" `add new record`. @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com  TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
 ![4.6.2_DNS_advanced](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.2_DNS_advanced.png)
-5. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
+4. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
 ![4.6.3_syrja.com_testisivu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.3_syrja.com_testisivu.png)
    (namecheap.com 2021)
-   
-
-(nämä tehtävät on tehty luennon muistiinpanojen ja Tero Karvisen -First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS, 2017 pohjalta, ellei lähdettä ole erikseen merkitty)
-
-[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
 
 ---
 
