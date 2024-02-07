@@ -64,13 +64,15 @@ Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yks
   -  Lisää A-recordi ja testaa Firefoxilla jottei vanha tai väärä nimi jää selaimen välimuistiin.
 
   (Karvinen 2012)
----
+
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
 
 ---
 
   ## y) Työskentely-ympäristö
   - Host OS on MacBook Retina 12-inch, jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
   - Guest OS minulla on Debian GNU/Linux 12 (Bookworm), 64-bit
+    
 ---
 
   ## z) alkutoimenpiteet
@@ -79,7 +81,7 @@ Muistiinpanoissa Karvinen listaa toimet joilla manuaalisesti määritetään yks
 
 ---
 
-Tehtäviä tehdessäni käytän tietolähteenäni omia luentomuistiinpanojani sekä raporttiin merkattuja lähteitä. 
+Tehtäviä tehdessäni käytän tietolähteenäni omia luentomuistiinpanojani sekä Karvisen artikkelia First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Muut mahdolliset lähteet ovat merkitty erikseen.
 
 
 ## a) Oma virtuaalipalvelin
@@ -121,6 +123,8 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
        ![4.1.10_Hostname](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.10_Hostname.png)
     -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi noin minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
        ![4.1.11_tammari_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.11_tammari_done.png)
+
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
  
 ---
   ## b) Virtuaalipalvelin käyttökuntoon
@@ -132,7 +136,7 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
      - Annan terminaalissa komennon `ssh root@104.248.205.0` ensin minulta tarkistettiin haluanhan varmasti ottaa yhteyden kyseiseen IP-osoitteeseen, jonka jälkeen minulta kysyttiin virtuaalipalvelimelleni annettua salasanaa. Salasanan antamisen jälkeen pääsin sisälle:
        ![4.2.1_sisään](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.1_sisa%CC%88a%CC%88n.png)
   2. Seuraavaksi asensin palomuurin, `sudo apt-get update` & `sudo apt-get install ufw`
-  3. Seuraavaksi tein aukon palomuuriin komennolla `sudo ufw allow 22/tcp` jossa allow sallii, 22 on portti ja tcp käytettävä on protokolla. 
+  3. Seuraavaksi tein aukot palomuuriin komennoilla `sudo ufw allow 22/tcp` ja `sudo ufw allow 80/tcp` jossa allow sallii, 22& 80 on portti ja tcp käytettävä on protokolla. 
   4. `sudo ufw enable` käynnistää palomuurin. Lopputuloksena kuvan mukainen palaute
     ![4.2.2_palomuuriUp](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.2.2_palomuuriUp.png)
 
@@ -155,60 +159,58 @@ Valitsin tarkistaa erot tiedostojen välillä:
 ![4.3.3Erot]()
 Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautuminen on estetty root-tunnuksella sekä ClientAliveInterval 120 rivi on poistettu. Root-kirjautumisen itse muutin, mutta en keksi syytä miksi ClientAliveInterval on poistettu. Koska muita muutoksia ei näy päätän pitää nykyisen (uuden) version, jossa root on lukittu.
 
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
+
 ## c) Asenna oma webbipalvelin
 
 Aloitan asentamalla vuokratulle virtuaalikoneelle apache-web palvelimen seuraten tehtävässä [h3_HelloWebServer](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md) toimia.
 
 1. Apachen asennus seuraavin komennoin `sudo apt-get update`  ja `sudo apt-get -y install apache2`
 2. Default sivun korvaaminen index.html tiedostolla `echo "Default"|sudo tee /var/www/html/index.html`
-3. 
-13. 
+3. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimilla. Testi osoitti että sivu toimii
+  ![4.5.10_tammari_public_default]() ![4.5.10_tammari_iphone.jpeg]()
 
-    
-14. 
-
-17. 
-11. 
-12. 
-13. 
-14. Se
-
-15. 
-16. 
-17. 
-
-
- 
-
-18. 
-19. ipjo
-20. 
-21. hip
-
-
-
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4)
 
  ---
  ## d) Oman verkkotunnuksen rekisteröinti
 
-Valitsin [Namecheap](https://www.namecheap.com/) palvelua verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni:
-![4.4.1_DomainSyrja]()
+Tässä tehtävässä tuli vuokrata oma domain-nimi ja asettaa se osoittamaan yllä luotuun virtuaalipalvelimeen
 
-Koska se oli käytettävissä valitsin sen. Vaikka tunnus oli maksullinen ajattelen että tämä saattaa olla hyödyllinen tulevaisuudessa.
+Ensimmäiseksi domain-nimen vuokraus
 
-Verkkotunnuksen rekisteröinti namecheap palvelun kautta tapahtui lisäämällä haluttu domainnimi ostoskoriin. Checkoutin yhteydessä tarjottiin erilaisia lisäpalveluita joista valitsin Domain privacyn. 
-
+1. Valitsin [Namecheap](https://www.namecheap.com/) palvelun verkkotunnukseni rekisteröintiin. Ensin oli valittava sopiva verkkotunnus. Tunnilla tuli puheeksi mahdollinen ääkkösten käyttö joten kokeilin heti omaa sukunimeäni::![4.4.1_DomainSyrja]()
+Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksullinen ajattelen että tämä saattaa olla hyödyllinen tulevaisuudessa.
+2. Verkkotunnuksen rekisteröinti namecheap palvelun kautta tapahtui lisäämällä haluttu domainnimi ostoskoriin. Checkoutin yhteydessä tarjottiin erilaisia lisäpalveluita joista valitsin Domain privacyn.
 4.4.2_[lisapalvelut]()
-
-Tilauksen vahvistamisen yhteydessä piti rekisteröityä palvelun käyttäjäksi.
-
-Rekisteröitymisen jälkeen tuli vielä valita verkkotunnuksen IDN-kieli, tässä tapauksessa suomi. Englanti ei olisi edes vaihtoehto ä-kirjaimen sisältävässä domain nimessä.
-
+3. Tilauksen vahvistamisen yhteydessä piti rekisteröityä palvelun käyttäjäksi.
+4. Rekisteröitymisen jälkeen tuli vielä valita verkkotunnuksen IDN-kieli, tässä tapauksessa suomi. Englanti ei olisi edes vaihtoehto ä-kirjaimen sisältävässä domain nimessä.
 ![4.4.3_IDN]()
-
-Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta hetken kuluttua sain vahvistuksen sähköpostiini. Sähköpostissa oli myös mandaatti että WHOIS tiedot tulee vahvistaa 14 vrk kuluessa tai rekisteröinti raukeaa. Lopputuloksena sain vahvistuksen, että syrjä.com on nyt rekisteröity nimiini.
-
+5. Rekisteröitymisen jälkeen lisäsin maksutiedot, ja suoritin tilauksen josta hetken kuluttua sain vahvistuksen sähköpostiini. Sähköpostissa oli myös mandaatti että WHOIS tiedot tulee vahvistaa 14 vrk kuluessa tai rekisteröinti raukeaa. Lopputuloksena sain vahvistuksen, että syrjä.com on nyt rekisteröity nimiini.
 ![4.4.4_Verify]()
+
+Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni.
+
+1. Avaan Namecheap-palvelusta oman dashboardini joss rekisteröity domain-nimi näkyy. Manage-napista siirryn nimen hallintasivulle
+![4.6.1_namecheap_Manage]()
+2. Hallintasivulta siirryn advanced DNS-välilehdelle
+3. Host Records kohdassa luon kaksi uutta "osoitusta" @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com `add new record` TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
+![4.6.2_DNS_advanced]()
+4. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
+5. ![4.6.3_syrja.com_testisivu]()
+   
+
+
+
+
+
+
+
+
+
+
+
+
 
      
 (nämä tehtävät on tehty luennon muistiinpanojen ja Tero Karvisen -First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS, 2017 pohjalta, ellei lähdettä ole erikseen merkitty)
@@ -263,6 +265,5 @@ Virtuaalipalvelimen oman conf sivun luonti `sudoedit /etc/apache2/sites-availabl
       - Huomasin myös että en ollut eilen rebootannut joten tein sen komennolla `sudo systemctl reboot`. Tämä sulki yhteyden etäkoneeseen joten avasin yhteyden uudelleen ja testasin. Tällä kertaa onnistui, joten pääsen jatkamaan:
         ![4.5.9_success]()
       - Muokkasin vielä testisivulle html5 pätkän ja varmistin että yhä toimii.
-11. Tämän jälkeen testasin sivun julkisuuden/näkyvyyden selaimella, joka osoitti että yhteys/julkisuus on mutta tässä vaiheessa vasta defaultsivulle
-  ![4.5.10_tammari_public_default]()
+11. 
 12. Seuraavaksi muokkasin hosts tiedostoa komennolla `sudoedit /etc/hosts`. Lisässin tänne sivu.example.comin jonne lisäsin domain-nimet ja ohjauksen localhostiin: 127.0.0.1 sivu.example.com. Tätä testatessa firefoxilla päädyn toiseen sivu.example.comiin. Muutan omani nimeä sivusyrja.example.com
