@@ -8,7 +8,7 @@
 - d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
-- 
+
 
 ---
   ## x) tiivistelmät
@@ -121,7 +121,7 @@ Digital Ocean teki $1 katevarauksen luottokortin oikeellisuuden tarkistamiseksi,
     -  Seuraavassa kohdassa valitsin kulutuksen seurannan ja mahdolliset hälytykset. Tämä oli veloitukseton ominaisuus joten otin sen mukaan.
     -  Viimeisessä kohdassa valitaan montako kappaletta määritelytjä servereitä haluan ja määritin tälle serverille jonkin neutraalin ja mahdollisimman persoonattoman nimen.
        ![4.1.10_Hostname](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.10_Hostname.png)
-    -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi alle minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin
+    -  Viimeiseksi valitsen create Droplet  jonka jälkeen sivu rullasi alle minuutin. Lopputuloksena minulla on vuokrattuna tammari-niminen virtuaalipalvelin.
        ![4.1.11_tammari_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.1.11_tammari_done.png)
 
 
