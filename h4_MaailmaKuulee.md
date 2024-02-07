@@ -5,7 +5,7 @@
 - x)[ Tiivistelmät](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#x-tiivistelmät)
 - a)[ Oma virtuaalipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#a-Oma-virtuaalipalvelin)
 - b)[ Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
-- c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md.#c-Asenna-oma-webbipalvelin)
+- c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#c-asenna-oma-webbipalvelin)
 - d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
@@ -156,7 +156,7 @@ Seuraavaksi ryhdyin päivittämään paketteja komennoilla `sudo apt-get update`
 ![4.3.2HerjaVersiosta]
 Valitsin tarkistaa erot tiedostojen välillä:
 
-![4.3.3Erot]()
+![4.3.3Erot](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.3.3Erot.png)
 Kuvassa reunustetut kohdat kertoivat että uudessa versiossa salasanakirjautuminen on estetty root-tunnuksella sekä ClientAliveInterval 120 rivi on poistettu. Root-kirjautumisen itse muutin, mutta en keksi syytä miksi ClientAliveInterval on poistettu. Koska muita muutoksia ei näy päätän pitää nykyisen (uuden) version, jossa root on lukittu.
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#h4_virtual-server--oma-nimipalvelin)
@@ -197,7 +197,7 @@ Seuraavaksi määritykset, jotta domain-nimi osoittaa virtuaalipalvelimelleni.
 3. Host Records kohdassa luon kaksi uutta "osoitusta" @(joka ohjaa syrja.com ja www joka ohjaa www.syrja.com `add new record` TTL kohtaan löysin vinkin Lehdon blogitekstistä (Lehto 2022)
 ![4.6.2_DNS_advanced](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.2_DNS_advanced.png)
 4. Tässä vaiheessa testaan, ja kaikki näyttää toimivan hyvin
-5. ![4.6.3_syrja.com_testisivu]()
+5. ![4.6.3_syrja.com_testisivu](4.6.3_syrja.com_testisivu.png)
    (namecheap.com 2021)
    
 
