@@ -1,11 +1,11 @@
 # Kertaus on opintojen äiti
 
 
-- a)[ Asenna Linux VirtualBoxiin]()
-- b)[ Päivitykset, alkuasetukset ja lisäosat]()
-- c)[ ]()
-- y)[ toinen tehtävä]()
-- z)[ kolmas tehtävä]()
+- a.1)[ Asenna Linux VirtualBoxiin]()
+- a.2)[ Päivitykset, alkuasetukset ja lisäosat]()
+- a.3)[ ]()
+- y)[ Työskentely-ympäristö]()
+- z)[ alkutoimenpiteet]()
 
 ---
 
@@ -14,10 +14,9 @@
 ---
 
   ## z) alkutoimenpiteet
-  1. Virtualboxin ja virtuaalikoneen käynnistäminen
-  2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
+  1. Virtualboxin käynnistäminen ja asennetun Debianin poistaminen
 
-  ## a) Asenna Linux Virtualboxiin 
+  ## a.1) Asenna Linux Virtualboxiin 
   
   Tehtävän aloitus klo 16.30 UTC +3
 
@@ -27,7 +26,7 @@
   2. Virtualboxissa valitsen `new` ja täytän uudelle koneelle annettavat tiedot
      - Nimi
     - Valitsin juuri lataamani isokuvan lähdetiedostoksi
-    - Valitsin skip unattended installation ja versioksi Debian (65-biy)
+    - Valitsin skip unattended installation ja versioksi Debian (65-bit)
     - Muistia annoin 2000 MB ja prosessoreita 2
     - Tallennustilaa 60 GB
     - Muut valinnat jätin oletuksiksi ja seuraavaksi valitsin Finish
@@ -43,7 +42,7 @@
 
 ---
 
-## b) Päivitykset, alkuasetukset ja lisäosat. 
+## a.2) Päivitykset, alkuasetukset ja lisäosat. 
 
 Tehtävän aloitus klo 18.00 UTC +3
 
@@ -55,9 +54,35 @@ Tehtävän aloitus klo 18.00 UTC +3
  -  seuraavaksi `applications`+ `File MAnager`josta valitsin Devices kohdassa valitsin VBox_Gas_7.0...
  -  Tämän jälkeen terminaalissa valitsin hakemistoksi CDROM `cd /media/*/VBox*` ja listasin siellä olevat `ls`
  -  `sudo bash VBoxLinuxAdditions.run`-komento ajaa GuestAdditions asennuskriptin joka saadaan käynnistymään antamalla sudo-oikeuksien salasana. Leikepöytä tuli käyttöön valikosta `Devices`, `Shared clipboard`ja Bidirectional. Uudelleenkäynnistys latasi uudet ominaisuudet käyttöön.
+ -  `sudo apt install bash-completion`asensi komennon täydennysapurin
 
 5. Microeditorin asennus sujui komennolla `sudo apt-get -y install micro`
 6. Ja muutama muu mahdollisesti hyödyllinen
     - Tre joka listaa hakemiston puunäkymään `sudo apt-get -y install tre-command`
-    - 
-7.   
+  
+     Tämä tehtävä oli valmis klo 18.35 UTC +3 eli tehtävään käytetty aika oli noin 35 min.
+
+---
+
+## a.3) Webbipalvelin ja oma sivu
+
+Tehtävän aloitus klo 18.50 UTC +3
+
+1. Aloitin apachen asennuksella `sudo apt-get -y install apache2`
+2. Jonka jälkeen defaultsivun korvaaminen "Default" tekstillä `echo "Default"|sudo tee /var/www/html/index.html`
+3. Testi että Apache toimii `curl localhost`joka antaa vastaukseski tekstin default (äsken syöttämämme sisältö defaultsivulle). Tarkistin vielä selaimella ja toimi.
+  ![5.1_apache_toimii]()
+4. Luodaan conf tiedosto joka ohjaa syrjä.com haut `sudoedit /etc/apache2/sites-available/syrjä.examplecom.conf`
+  ![5.2_esim.conf]()
+5. Aktivoin luodun conffin `sudo a2ensite esim.example.com`ja deaktivoin oletusconffin `sudo a2dissite 000-default.conf`jonka jälkeen muutokset astui voimaan uudelleenkäynnistyksellä `sudo systemctl restart apache2`
+6. Verkkosivulle tarvitaan sisältö jonka loin tavallisena, eli en pääkäyttäjän oikeuksin. Ensin kansio `mkdir -p /home/kadi/publicsites/esim.example.com` ja sitten tiedosto `micro index.html` jonne tallennan sisällön joka näytetään esim.example.com sivulla.
+7. Seuraavaksi testasin ja index.html tiedostoon luotu sisältö vastasi.
+  ![5.3_esim_index]()
+8. Loin vielä samalla tavoin sivut kissa.example.com ja koira.example.com  sekä niille vastaavat enabloidut conf-sivut, jotka määritin vastaamaan vastaavin nimin. `sudoedit /etc/hosts`
+  ![5.4_hosts_example]()
+9. Lopputuloksena kaikki sivut vastaavat niinkuin pitää
+  ![5.5_hostit_vastaa]()
+
+
+
+   
