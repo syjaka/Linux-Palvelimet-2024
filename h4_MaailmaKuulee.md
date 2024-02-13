@@ -6,7 +6,7 @@
 - b)[ Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
 - c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#c-asenna-oma-webbipalvelin)
 - d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
-- e) [ Bonus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#bonus)
+- e) [ Bonus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#e-bonus)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
 
@@ -208,7 +208,8 @@ Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksulline
 
 Lopuksi halusin ohjata syrjä.com'in osoittamaan omalle html5 sivulle apachen default-sivun sijaan.
 
-1. Luon aluksi conf-tiedoston, joka ohjaa syrjä.com sivun kotihakemistooni luodulle public_html kansioon `sudoedit sivusyrja.com.conf`
+1. Luon aluksi conf-tiedoston, joka ohjaa syrjä.com sivun kotihakemistooni luodulle public_html kansioon 
+`sudoedit sivusyrja.com.conf`
 2. Muokkaan syrjä.com sisältöä seuraavanlaiseksi:
 
 ![4.7.1_Syrja.conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.7.1_Syrja.conf.png)
