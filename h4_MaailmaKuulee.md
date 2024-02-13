@@ -6,7 +6,7 @@
 - b)[ Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
 - c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#c-asenna-oma-webbipalvelin)
 - d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
-- e) [ bonus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#bonus)
+- e) [ Bonus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#bonus)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
 
@@ -204,7 +204,7 @@ Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksulline
 ![4.6.3_syrja.com_testisivu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.3_syrja.com_testisivu.png)
    (namecheap.com 2021)
 
-## Bonus
+## e) Bonus
 
 Lopuksi halusin ohjata syrjä.com'in osoittamaan omalle html5 sivulle apachen default-sivun sijaan.
 
@@ -212,10 +212,12 @@ Lopuksi halusin ohjata syrjä.com'in osoittamaan omalle html5 sivulle apachen de
 2. Muokkaan syrjä.com sisältöä seuraavanlaiseksi:
 
 ![4.7.1_Syrja.conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.7.1_Syrja.conf.png)
+
 3. Komennolla `sudo a2ensite syrjä.com`aktivoin conf tiedoston vastaamaan syrjä.com hakuun
 4. komennolla `sudo a2dissite 000-default.conf`poistan defaultsivun aktivoinnin eli tämän jälkeen ainut aktivoitu sivu "syrjä.com" vastaa
 
 ![4.7.2_sites_enabled](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.7.2_sites_enabled.png)
+
 5. Uudelleenkäynnistä apachen komennolla `sudo systemctl restart apache2`
 6. Luon kotihakemistooni public_html kansion `mkdir /home/syrja/public_html`
 7. luon kyseiseen kansioon tiedoston index.html komennolla `micro /home/syrja/public/index.html`
