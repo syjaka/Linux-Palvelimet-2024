@@ -4,8 +4,15 @@
 - a.1)[ Asenna Linux VirtualBoxiin]()
 - a.2)[ Päivitykset, alkuasetukset ja lisäosat]()
 - a.3)[ ]()
+- b) [Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella]()
+- c) [Digging host]()
+- m) [Asenna Vagrant ja sillä uusi virtuaalikone]()
 - y)[ Työskentely-ympäristö]()
 - z)[ alkutoimenpiteet]()
+
+- b) Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella.
+c) Digging host. Tutki domain-nimesi nimesi tietoja 'host' ja 'dig' -komennoilla. Analysoi tulokset. Vertaa tuloksia nimen vuokraajan (namecheap.com, name.com...) weppiliittymässä näkyviin asetuksiin. (Jos sinulla ei ole omaa nimeä käytössä, voit tutkia jotain muuta nimeä).
+m) Vapaaehtoinen: Asenna vagrant, asenna sillä uusi virtuaalikone.
 
 ---
 
@@ -81,7 +88,10 @@ Tehtävän aloitus klo 18.50 UTC +3
 8. Loin vielä samalla tavoin sivut kissa.example.com ja koira.example.com  sekä niille vastaavat enabloidut conf-sivut, jotka määritin vastaamaan vastaavin nimin. `sudoedit /etc/hosts`
   ![5.4_hosts_example]()
 9. Lopputuloksena kaikki sivut vastaavat niinkuin pitää
-  ![5.5_hostit_vastaa]()
+ ![5.5_hostit_vastaa]()
+
+ 
+
 
 
 
