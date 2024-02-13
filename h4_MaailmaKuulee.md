@@ -6,6 +6,7 @@
 - b)[ Virtuaalipalvelin käyttökuntoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#b-Virtuaalipalvelin-käyttökuntoon)
 - c)[ Asenna oma webbipalvelin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#c-asenna-oma-webbipalvelin)
 - d)[ Oma domain käyttöön](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#d-Oma-domain-käyttöön)
+- bonus) [ bonus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#bonus)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#y-työskentely-ympäristö)
 - z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h4_MaailmaKuulee.md#z-alkutoimenpiteet)
 
@@ -209,15 +210,18 @@ Lopuksi halusin ohjata syrjä.com'in osoittamaan omalle html5 sivulle apachen de
 
 1. Luon aluksi conf-tiedoston, joka ohjaa syrjä.com sivun kotihakemistooni luodulle public_html kansioon `sudoedit sivusyrja.com.conf`
 2. Muokkaan syrjä.com sisältöä seuraavanlaiseksi:
+
 ![4.7.1_Syrja.conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.7.1_Syrja.conf.png)
 3. Komennolla `sudo a2ensite syrjä.com`aktivoin conf tiedoston vastaamaan syrjä.com hakuun
 4. komennolla `sudo a2dissite 000-default.conf`poistan defaultsivun aktivoinnin eli tämän jälkeen ainut aktivoitu sivu "syrjä.com" vastaa
+
 ![4.7.2_sites_enabled](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.7.2_sites_enabled.png)
 5. Uudelleenkäynnistä apachen komennolla `sudo systemctl restart apache2`
 6. Luon kotihakemistooni public_html kansion `mkdir /home/syrja/public_html`
 7. luon kyseiseen kansioon tiedoston index.html komennolla `micro /home/syrja/public/index.html`
 8. Tallennan index.html-tiedostoon yksinkertaisen html5-pätkän
 9. Testaan selaimella syrjä.com ja saan onnistuneen lopputuloksen
+
 ![4.7.3_syrjä.com_vastaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.7.3_syrja%CC%88.com_vastaa.png)
 
 
