@@ -203,6 +203,24 @@ Koska syrjä.com oli käytettävissä valitsin sen. Vaikka tunnus oli maksulline
 ![4.6.3_syrja.com_testisivu](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/4.6.3_syrja.com_testisivu.png)
    (namecheap.com 2021)
 
+## Bonus
+
+Omana lisätehtävänä halusin ohjata syrjä.com'in osoittamaan omalle html5 sivulle apachen default-sivun sijaan.
+
+1. Luon aluksi conf-tiedoston, joka ohjaa syrjä.com sivun kotihakemistooni luodulle public_html kansioon `sudoedit sivusyrja.com.conf`
+2. Muokkaan syrjä.com sisältöä seuraavanlaiseksi:
+![4.7.1_Syrja.conf]()
+3. Komennolla `sudo a2ensite syrjä.com`aktivoin conf tiedoston vastaamaan syrjä.com hakuun
+4. komennolla `sudo a2dissite 000-default.conf`poistan defaultsivun aktivoinnin eli tämän jälkeen ainut aktivoitu sivu "syrjä.com" vastaa
+![4.7.2_sites_enabled]()
+5. Uudelleenkäynnistä apachen komennolla `sudo systemctl restart apache2`
+6. Luon kotihakemistooni public_html kansion `mkdir /home/syrja/public_html`
+7. luon kyseiseen kansioon tiedoston index.html komennolla `micro /home/syrja/public/index.html`
+8. Tallennan index.html-tiedostoon yksinkertaisen html5-pätkän
+9. Testaan selaimella syrjä.com ja saan onnistuneen lopputuloksen
+![4.7.3_syrjä.com_vastaa]()
+
+
 ---
 
 ### Lähteet:
