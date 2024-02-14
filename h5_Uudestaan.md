@@ -1,9 +1,11 @@
+# Keskeneräinen
+
 # Kertaus on opintojen äiti
 
 
 - a.1)[ Asenna Linux VirtualBoxiin]()
 - a.2)[ Päivitykset, alkuasetukset ja lisäosat]()
-- a.3)[ ]()
+- a.3)[ Webbipalvelin ja oma sivu]()
 - b) [Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella]()
 - c) [Digging host]()
 - m) [Asenna Vagrant ja sillä uusi virtuaalikone]()
@@ -29,7 +31,7 @@ m) Vapaaehtoinen: Asenna vagrant, asenna sillä uusi virtuaalikone.
 
   Tässä tehtävässä on käytetty lähteinä omia muistiinpanojani h1-h5, jotka löytyvät [Linux-Palvelimet_2024](https://github.com/syjaka/Linux-Palvelimet-2024/tree/main) repositoristani
 
-  1. Aloitin lataamalla Debianin Iso-tiedoston [Debianin sivulta], ([debian-live-12.1.0-amd64-xfce.iso](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.5.0-amd64-xfce.iso). Versio oli päivittynyt 12.1 versiosta 12.5.
+  1. Aloitin lataamalla Debianin Iso-tiedoston [Debianin sivulta], [debian-live-12.1.0-amd64-xfce.iso](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.5.0-amd64-xfce.iso). Versio oli päivittynyt 12.1 versiosta 12.5.
   2. Virtualboxissa valitsen `new` ja täytän uudelle koneelle annettavat tiedot
      - Nimi
     - Valitsin juuri lataamani isokuvan lähdetiedostoksi
@@ -66,6 +68,8 @@ Tehtävän aloitus klo 18.00 UTC +3
 5. Microeditorin asennus sujui komennolla `sudo apt-get -y install micro`
 6. Ja muutama muu mahdollisesti hyödyllinen
     - Tre joka listaa hakemiston puunäkymään `sudo apt-get -y install tre-command`
+    - Bash completion joka ehdottaa mahdollisia komentoja tabilla `sudo apt install bash-completion`
+    - 
   
      Tämä tehtävä oli valmis klo 18.35 UTC +3 eli tehtävään käytetty aika oli noin 35 min.
 
@@ -89,6 +93,11 @@ Tehtävän aloitus klo 18.50 UTC +3
   ![5.4_hosts_example]()
 9. Lopputuloksena kaikki sivut vastaavat niinkuin pitää
  ![5.5_hostit_vastaa]()
+
+---
+
+## b) Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella
+
 
  
 
