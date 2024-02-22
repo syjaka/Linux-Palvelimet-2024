@@ -12,7 +12,7 @@ Viimeinen bonustehtävä oli asentaa Vagrant ja sillä uusi virtuaalikone.
 - c) [Digging host](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#c-digging-host)
 - m) [Asenna Vagrant ja sillä uusi virtuaalikone](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#y-ty%C3%B6skentely-ymp%C3%A4rist%C3%B6)
-- z)[ alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#z-alkutoimenpiteet)
+- z)[ Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#z-alkutoimenpiteet)
 
 ---
 
@@ -21,8 +21,8 @@ Viimeinen bonustehtävä oli asentaa Vagrant ja sillä uusi virtuaalikone.
     
 ---
 
-  ## z) alkutoimenpiteet
-  1. Virtualboxin käynnistäminen ja asennetun Debianin poistaminen
+  ## z) Alkutoimenpiteet
+  1. Virtualboxin käynnistäminen ja asennetun Debianin poistaminen.
 
 ---
 
