@@ -142,7 +142,7 @@ Nyt pitäisi olla valmista joten testasin sulkemalla ssh-yhteyden `exit`ja kokei
 
  ## c) Digging host
  
-Tässä tehtävässä minun tuli tutkia vuokraamani domani-nimen tietoja `host`ja `Dig`komnnoilla, ja analysoida tulokset. Lisäksi tuloksia tuli vertailla domain-nimeni vuokraajani - minun tapauksessa Namecheap - weppiliittymässä näkyviin asetuksiin. Tehtävän aloitus 22.02.2024 klo 18.05 UTC+3 ja valmista oli 22.02.2024 klo XXXX UTC+3. Käytetyt lähteet ovat merkittynä tekstiviitteisiin, sekä lähdeluetteloon. 
+Tässä tehtävässä minun tuli tutkia vuokraamani domani-nimen tietoja `host`ja `Dig`komnnoilla, ja analysoida tulokset. Lisäksi tuloksia tuli vertailla domain-nimeni vuokraajani - minun tapauksessa Namecheap - weppiliittymässä näkyviin asetuksiin. Tehtävän aloitus 22.02.2024 klo 18.05 UTC+3 ja valmista oli 22.02.2024 klo 19.20 UTC+3. Käytetyt lähteet ovat merkittynä tekstiviitteisiin, sekä lähdeluetteloon. 
 
 1. Tehtävän aloitus `host`ja `dig`komentojen asennuksella `sudo apt-get -y install bind9-dnsutils bind9-host` (Karvinen, 2024)
 2. Tämän jälkeen suoritin komennot `host syrjä.com` ja `dig syrjä.com`sekä avasin Namecheapin sivulta asetussivun.![5.11_host_dig_namecheap]()
@@ -150,20 +150,47 @@ Tässä tehtävässä minun tuli tutkia vuokraamani domani-nimen tietoja `host`j
    `host` ensimmäinen rivi kertoo IP-osoitteen josta syrjä.com vastaa. Samainen IP-osoite siis jonka määrittelin Namecheapin palvelussa ohjautumaan Digital Oceanilta vuokraamaani virtuaalikoneeseen.
    - Seuraavien rivien kohdalla, en löytänyt yksiselitteistä vastauta . Kuitenkin tekstistä voin päätellä että nämä liittyvät jotenkin sähköpostin uudelleenohjaukseen. Lisäksi Namecheapin asetussivulla Mail settings kohdassa mainitaan sähköpostin uudelleenohjauksesta:
   ![5.12_mail_forvarders]()
-   `dig`ensimmäinen rivi kertoo komennon nykyisen version sekä lähettämäni kyselyn nimen "syrjä.com"
+   `dig`ensimmäinen rivi kertoo komennon nykyisen version sekä lähettämäni kyselyn nimen "syrjä.com". (Shrestha 2023)
    - **got answer** osio avaa saadun vastauksen sisältöä. **opcode** listaa dig-komennon toiminnan, mikä tässä tapauksessa oli kysely "QUERY. **status** kertoi NOERROR, eli vastaus tuli eteettä. (Levine. 2016)
-   - **ANSWER SECTION** osassa näemme ensin palvelimen nimen jolle kysely tehtiin, eli syrjä.com, ja sen IP-osoite eli 104.248.205.0. 300 esittää TTL aikaa sekunneissa. Namecheapin asetussivulla tämä näkyy 5 min.
+   - **QUESTION SECTION** syrjä.com kertoo kyselymme kohdistuneen syrjä.com doimainiin. IN ilmaisee kyselyn olleen internet lookup ja A kertoo haun tyypin. Tämä oletuksena a-tietue, mikäli tyyppiä ei komennon yhteydessä pyydetä. (Pramatarov 2023)
+   - **ANSWER SECTION** osassa näemme ensin palvelimen nimen joka vastasi, eli syrjä.com, ja sen IP-osoite eli 104.248.205.0. 300 esittää TTL aikaa sekunneissa. Namecheapin asetussivulla tämä vastaavasti minuuteissa 5.
    - **Query time** ilmaiseen kyselyn vastausajan, 56 millisekuntia.
-   - **Server** kertoo vastanneen DNS-palvelimen IO-osoite ja 
-   - (Törmä, 2023)
-   - 
+   - **Server** kertoo vastanneen DNS-palvelimen IP-osoite 193.229.0.40 (joka tässä tapauksessa on Elisan nimipalvelin (Elisa 2024) ja portti 53 
+   - **WHEN** näyttää komennon ajohetken
+   - **MSG SIZE rcvd** näyttää vastaksen koon. (Törmä, 2023)
 
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+---
+
+## m) Vagrant
+
+Viimeinen tehtävä oli asentaa omalle koneelle Vagrant ja sillä uusi virtuaalikone. Asennuspaketti löytyi opettajan linkkaamasta sivustosta, jolta etsin mac [version](https://developer.hashicorp.com/vagrant/install). Aloitin tehtävän 22.02.2024 klo 21.00 UTC+3 ja valmista oli 22.58 UTC+3 Lähteenä tässä tehtävässä käytin opettajan tehtävänannon yhteydessä antamaa ohjeistusta, Karvinen 2024.
+![5.13_install_vagrant]()
+1. Latasin oikean version koneelleni.
+![5.14_vagrant_mac]()
+2. Asensin vagrantin asentajalla.
+3. Asennuksen jälkeen tarkistin päätteeltä että asennus ok komennolla `vagrant` joka toi listan vagrantin komentoja esiin. 
+![5.13_vagrant_ok]()
+4. Komennot `vagrant init debian/bookworm64` + `vagrant up` asensivat virtuaalikoneen vagrantilla
+![5.15_init_bookworm]() ![5.16_vagrant_up]()
+5. Käynnistin SSH yhteyden `vagrant ssh`
+![5.17_vagrant_ssh]()
+6. Vagrantin asentama VM kaikkine tiedostoineen tuhotaan koneelta komennolla 'vagrant destroy' jota ennen tuli poistua ssh-yhteydestä `exit`
+![5.18_vagrant_destroy]()
+
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 Lähteet:
+
+Elisa Tiedonsiirtoportit ja laitteiden porttiohjaukset. Luettavissa: https://elisa.fi/asiakaspalvelu/nettiliittymat/tiedonsiirtoportit-porttiohjaukset/. Luettu 22.02.2024.
 
 Karvinen T. Linux-Palvelimet Alkukevät 2024. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h5-koko-juttu. Luettu 13.02.2024
 
 Levine K. 2016 Decoding DIG Output. Luettavissa: https://ns1.com/blog/decoding-dig-output. Luettu 22.02.2024
+
+Pramatarov M. 2023. 10 Most used DIG commands. Luettavissa https://www.cloudns.net/blog/10-most-used-dig-commands/. Luettu 22.01.2024
+
+Shrestha N. 10 Linux Dig Commands to Query DNS. Luettavissa: https://www.tecmint.com/dig-command-examples/. Luettu 22.02.2023
 
 Syrjä K. Linux-Palvelimet-2024. Luettavissa: https://github.com/syjaka/Linux-Palvelimet-2024/tree/main. Luettu 13.02.2024
 
