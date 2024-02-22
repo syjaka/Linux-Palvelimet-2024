@@ -33,7 +33,7 @@ m) Vapaaehtoinen: Asenna vagrant, asenna sillä uusi virtuaalikone.
 
   ## a.1) Asenna Linux Virtualboxiin 
   
-  Tehtävän aloitus klo 16.30 UTC +3
+  a) tehtävän aloitus 13.02.2024 klo 16.30 UTC +3 ja valmista oli noin klo 19.20 UTC +3
 
   Tässä a) tehtävässä käytin lähteinä omia muistiinpanojani h1-h5, jotka löytyvät [Linux-Palvelimet_2024](https://github.com/syjaka/Linux-Palvelimet-2024/tree/main) repositoristani. Tehtävän edetessä en ole käyttänyt kuvakaappauksia niiltä osin kuin asiat etenivät ongelmitta, sillä kuvakaappaukset ovat vastaavat kuin aiemmin tehdyssä tehtävässä. Erottamisen mahdollistamiseksi nimesin kuitenkin uudelleenasennetun koneen - UusiDeb edellisen ollessa -KadinDeb. 
 
@@ -110,7 +110,7 @@ Tehtävän aloitus klo 18.50 UTC +3
 
 ## b) Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella 
 
-Aloitin tehtävän 2024.02.22 klo 14.00 
+Aloitin tehtävän 2024.02.22 klo 14.00 ja valmista tuli 16.48 UTC +3
 Tässä tehtävässä käytin lähteinä omia muistiinpanojani h1-h5, jotka löytyvät [Linux-Palvelimet_2024](https://github.com/syjaka/Linux-Palvelimet-2024/tree/main) repositoristani. Näiden lisäksi hyödynsin luentomuistiinpanojani Tero Karvisen 13.02.2024 luennolta.
 Aloitin tehtävän tarkistamalla koneeni SSH-palvelimen nykyisen tilan, joka paljasti että palvelu on aktiivinen:
 
