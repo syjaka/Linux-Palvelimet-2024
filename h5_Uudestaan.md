@@ -35,7 +35,7 @@ m) Vapaaehtoinen: Asenna vagrant, asenna sillä uusi virtuaalikone.
   
   Tehtävän aloitus klo 16.30 UTC +3
 
-  Tässä tehtävässä on käytetty lähteinä omia muistiinpanojani h1-h5, jotka löytyvät [Linux-Palvelimet_2024](https://github.com/syjaka/Linux-Palvelimet-2024/tree/main) repositoristani. Tehtävän edetessä en ole käyttänyt kuvakaappauksia niiltä osin kuin asiat etenivät ongelmitta, sillä kuvakaappaukset ovat vastaavat kuin aiemmin tehdyssä tehtävässä. Erottamisen mahdollistamiseksi nimesin kuitenkin uudelleenasennetun koneen - UusiDeb edellisen ollessa -KadinDeb. 
+  Tässä a) tehtävässä käytin lähteinä omia muistiinpanojani h1-h5, jotka löytyvät [Linux-Palvelimet_2024](https://github.com/syjaka/Linux-Palvelimet-2024/tree/main) repositoristani. Tehtävän edetessä en ole käyttänyt kuvakaappauksia niiltä osin kuin asiat etenivät ongelmitta, sillä kuvakaappaukset ovat vastaavat kuin aiemmin tehdyssä tehtävässä. Erottamisen mahdollistamiseksi nimesin kuitenkin uudelleenasennetun koneen - UusiDeb edellisen ollessa -KadinDeb. 
 
   1. Aloitin lataamalla Debianin Iso-tiedoston [Debianin sivulta], [debian-live-12.1.0-amd64-xfce.iso](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.5.0-amd64-xfce.iso). Versio oli päivittynyt 12.1 versiosta 12.5.
   2. Virtualboxissa valitsen `new` ja täytän uudelle koneelle annettavat tiedot
@@ -91,9 +91,9 @@ Tehtävän aloitus klo 18.50 UTC +3
 
 1. Aloitin apachen asennuksella `sudo apt-get -y install apache2`
 2. Jonka jälkeen defaultsivun korvaaminen "Default" tekstillä `echo "Default"|sudo tee /var/www/html/index.html`
-3. Testi että Apache toimii `curl localhost`joka antaa vastaukseski tekstin default (äsken syöttämämme sisältö defaultsivulle). Tarkistin vielä selaimella ja toimi.
+3. Testi että Apache toimii `curl localhost`joka antaa vastaukseksi tekstin default (äsken syöttämämme sisältö defaultsivulle). Tarkistin vielä selaimella ja toimi.
   ![5.1_apache_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.1_apache_toimii.png)
-4. Luodaan conf tiedosto joka ohjaa syrjä.com haut `sudoedit /etc/apache2/sites-available/syrjä.examplecom.conf`
+4. Luodaan conf tiedosto joka ohjaa esim.example haut `sudoedit /etc/apache2/sites-available/esim.example.com.conf`
   ![5.2_esim.conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.2_esim.conf.png)
 5. Aktivoin luodun conffin `sudo a2ensite esim.example.com`ja deaktivoin oletusconffin `sudo a2dissite 000-default.conf`jonka jälkeen muutokset astui voimaan uudelleenkäynnistyksellä `sudo systemctl restart apache2`
 6. Verkkosivulle tarvitaan sisältö jonka loin tavallisena, eli en pääkäyttäjän oikeuksin. Ensin kansio `mkdir -p /home/kadi/publicsites/esim.example.com` ja sitten tiedosto `micro index.html` jonne tallennan sisällön joka näytetään esim.example.com sivulla.
@@ -108,21 +108,38 @@ Tehtävän aloitus klo 18.50 UTC +3
 
 ---
 
-## b) Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella
+## b) Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella 
 
-Aloitin tehtävän tarkistamalla koneeni SSH-palvelimen nykyisen tilan:
-![5.5_SSH_active]()
-SSH-palvelu näytti olevan aktiivinen ja päällä joten siirryin suoraan SSH-avainparin luontiin
-1. Testasin SSH-yhteyden toimivuutta koneeni Localhost-palveluun ![5.6_localhost_connect]()
-2. Poistuin palvelimelta `exit`-komennolla virtuaalikoneelleni, jolla Generoin SSH-avainparin `ssh-keygen`. Minulta kysyttiin kohdetiedostoa ja jatkoin oletuksella. Samoin pyydettiin mahdollista tiedoston salausavainta, jonka jätin tyhjäksi returnilla. ![5.6_ssh_keygen]()
-3. Komennolla `ssh-copy-id  kadi@localhost`kopioin julkisen avaimen localhost palvelimelle ![5.7_copy-id]()
-4. Koneeni kehotusta noudattaen testasin SSH-yhteyden toimivuutta ![5.8_SSH_automaatio_toimii]()
+Aloitin tehtävän 2024.02.22 klo 14.00 
+Tässä tehtävässä käytin lähteinä omia muistiinpanojani h1-h5, jotka löytyvät [Linux-Palvelimet_2024](https://github.com/syjaka/Linux-Palvelimet-2024/tree/main) repositoristani. Näiden lisäksi hyödynsin luentomuistiinpanojani Tero Karvisen 13.02.2024 luennolta.
+Aloitin tehtävän tarkistamalla koneeni SSH-palvelimen nykyisen tilan, joka paljasti että palvelu on aktiivinen:
+
+![5.5_SSH_active](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.5_SSH_active.png)
+
+Komennolla `history`selvitin, että olin edellistä tehtävää/kokeiluja tehdessäni asentanut kyseisin palvelimen. Tämä onnistui komennolla `sudo apt install ssh`.
+
+1. Testasin SSH-yhteyden toimivuutta koneeni Localhost-palveluun
+![5.6_localhost_connect](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.5_SSH_active.png)
+2. Poistuin palvelimelta `exit`-komennolla virtuaalikoneelleni, jolla Generoin SSH-avainparin `ssh-keygen`. Minulta kysyttiin kohdetiedostoa ja jatkoin oletuksella. Samoin pyydettiin mahdollista tiedoston salausavainta, jonka jätin tyhjäksi returnilla.
+![5.6_ssh_keygen](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.6_ssh_keygen.png)
+3. Komennolla `ssh-copy-id  kadi@localhost`kopioin julkisen avaimen localhost palvelimelle
+![5.7_copy-id](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.7_copy-id.png)
+4. Koneeni kehotusta noudattaen testasin SSH-yhteyden toimivuutta.
+![5.8_SSH_automaatio_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.8_SSH_automaatio_toimii.png)
 5. Vielä lopuksi poistin salasanakirjautumisen käytöstä `sudoedit /etc/ssh/sshd_config`
    - Koska tämä komento avasi tiedoston nano-editorissa ja näytti pelkkää tyhjää, navigoin suoraan kyseiseen kansioon `cd /etc/ssh/sshd`ja siellä avasin tiedoston muokattavaksi microlla `sudo micro sshd_config`.
-   - `ctrl`+ `f`  ja haulla passworda löytyi oikea kohta. Täällä vaihdoin salasanaautentikointi-kohtaan No ![5.9_salasana_no]()
+   - `ctrl`+ `f`  ja haulla passworda löytyi oikea kohta. Täällä vaihdoin salasana-autentikointi-kohtaan `no`
+![5.9_salasana_no](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.9_salasana_no.png)
 
+Uudelleenkäynnistys viimeisteli asennukset `sudo systemctl restart ssh`.
 
+Nyt pitäisi olla valmista joten testasin sulkemalla ssh-yhteyden `exit`ja kokeilemalla sen avaamista uudelleen `ssh kadi@localhost`
 
+![5.10_exit_in](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.10_exit_in.png)
+
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+
+---
 
  
 
