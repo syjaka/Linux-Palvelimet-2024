@@ -1,4 +1,3 @@
-# Keskeneräinen
 
 # Kertaus on opintojen äiti
 Viidennessä tehtävässä kerrattiin kaikkea aiemmin opittua asentamalla kokonaan uusi virtuaalikone, sille apache2 web-palvelin sekä uusi etusivu. Tämän jälkeen vituaalikoneelle kirjautuminen automatisoitiinn julkisella SSH-avaimella.
@@ -49,7 +48,7 @@ Viimeinen bonustehtävä oli asentaa Vagrant ja sillä uusi virtuaalikone.
 
       Tämä osa tehtävästä oli valmis noin klo 17.20 UTC+2 Eli tehtävään meni 50 min.
       
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 ---
 
@@ -72,7 +71,7 @@ Tehtävän aloitus klo 18.00 UTC+2
       
      Tämä osuus tehtävästä oli valmis klo 18.35 UTC+2 eli tehtävään käytetty aika oli noin 35 min.
    
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 ---
 
@@ -95,7 +94,7 @@ Tehtävän aloitus klo 18.50 UTC+2
 9. Lopputuloksena kaikki sivut vastasivat odotetusti.
  ![5.5_hostit_vastaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.5_hostit_vastaa.png)
 
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 ---
 
@@ -128,7 +127,7 @@ Nyt pitäisi olla valmista joten testasin sulkemalla ssh-yhteyden `exit` ja koke
 
 ![5.10_exit_in](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.10_exit_in.png)
 
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 ---
 
@@ -153,7 +152,7 @@ Tässä tehtävässä minun tuli tutkia vuokraamani domain-nimen tietoja `host`j
    - **WHEN** näyttää `dig`komennon ajohetken.
    - **MSG SIZE rcvd** näyttää vastaksen koon. (Törmä, 2023)
 
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 ---
 
@@ -175,7 +174,7 @@ Viimeinen tehtävä oli asentaa omalle koneelle Vagrant ja sille uusi virtuaalik
 
 ![5.18_vagrant_destroy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/5.18_vagrant_destroy.png)
 
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#kertaus-on-opintojen-%C3%A4iti)
 
 ---
 
