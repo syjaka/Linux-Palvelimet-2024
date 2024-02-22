@@ -15,8 +15,7 @@ Viimeinen bonustehtävä oli asentaa Vagrant ja sillä uusi virtuaalikone.
 - y)[ Työskentely-ympäristö]()
 - z)[ alkutoimenpiteet]()
 
-- b) Pubkey. Automatisoi kirjautuminen julkisella SSH-avaimella.
-c) Digging host. Tutki domain-nimesi nimesi tietoja 'host' ja 'dig' -komennoilla. Analysoi tulokset. Vertaa tuloksia nimen vuokraajan (namecheap.com, name.com...) weppiliittymässä näkyviin asetuksiin. (Jos sinulla ei ole omaa nimeä käytössä, voit tutkia jotain muuta nimeä).
+
 m) Vapaaehtoinen: Asenna vagrant, asenna sillä uusi virtuaalikone.
 
 ---
@@ -141,9 +140,23 @@ Nyt pitäisi olla valmista joten testasin sulkemalla ssh-yhteyden `exit`ja kokei
 
 ---
 
+ ## c) Digging host
  
+Tässä tehtävässä minun tuli tutkia vuokraamani domani-nimen tietoja `host`ja `Dig`komnnoilla, ja analysoida tulokset. Lisäksi tuloksia tuli vertailla domain-nimeni vuokraajani - minun tapauksessa Namecheap - weppiliittymässä näkyviin asetuksiin. Tehtävän aloitus 22.02.2024 klo 18.05 UTC+3 ja valmista oli 22.02.2024 klo XXXX UTC+3. Käytetyt lähteet ovat merkittynä tekstiviitteisiin, sekä lähdeluetteloon. 
+
+1. Tehtävän aloitus `host`ja `dig`komentojen asennuksella `sudo apt-get -y install bind9-dnsutils bind9-host` (Karvinen, 2024)
+2. Tämän jälkeen suoritin komennot `host syrjä.com` ja `dig syrjä.com`sekä avasin Namecheapin sivulta asetussivun.![5.11_host_dig_namecheap]()
+3. Näistä voimme päätellä seuraavia seikkoja
+   - ´Host` ensimmäinen rivi kertoo IP-osoitteen josta syrjä.com vastaa. Samainen IP-osoite siis jonka määrittelin Namecheapin palvelussa ohjautumaan Digital Oceanilta vuokraamaani virtuaalikoneeseen.
+   - `host`Seuraavien rivien kohdalla, en löytänyt yksiselitteistä vastauta . Kuitenkin tekstistä voin päätellä että nämä liittyvät jotenkin sähköpostin uudelleenohjaukseen. Lisäksi Namecheapin asetussivulla Mail settings kohdassa mainitaan sähköpostin uudelleenohjauksesta:
+  ![5.12_mail_forvarders]()
+   - `dig`komennon `;; ANSWER SECTION:`osassa näemme ensin palvelin nimi jolle kysely tehtiin, eli syrjä.com, ja sen IP-osoite eli 104.248.205.0-
+   - 300 esittää TTL aikaa sekunneissa. Namecheapin asetussivulla tämä näkyy 5 min.
+   - 
 
 
+Lähteet:
 
+Karvinen T. Linux-Palvelimet Alkukevät 2024. Luettavissa https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h5-koko-juttu. Luettu 13.02.2024
 
-   
+syjaka Linux-Palvelimet-2024. Luettavissa https://github.com/syjaka/Linux-Palvelimet-2024/tree/main. Luettu 13.02.2024
