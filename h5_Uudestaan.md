@@ -147,16 +147,24 @@ Tässä tehtävässä minun tuli tutkia vuokraamani domani-nimen tietoja `host`j
 1. Tehtävän aloitus `host`ja `dig`komentojen asennuksella `sudo apt-get -y install bind9-dnsutils bind9-host` (Karvinen, 2024)
 2. Tämän jälkeen suoritin komennot `host syrjä.com` ja `dig syrjä.com`sekä avasin Namecheapin sivulta asetussivun.![5.11_host_dig_namecheap]()
 3. Näistä voimme päätellä seuraavia seikkoja
-   - ´Host` ensimmäinen rivi kertoo IP-osoitteen josta syrjä.com vastaa. Samainen IP-osoite siis jonka määrittelin Namecheapin palvelussa ohjautumaan Digital Oceanilta vuokraamaani virtuaalikoneeseen.
-   - `host`Seuraavien rivien kohdalla, en löytänyt yksiselitteistä vastauta . Kuitenkin tekstistä voin päätellä että nämä liittyvät jotenkin sähköpostin uudelleenohjaukseen. Lisäksi Namecheapin asetussivulla Mail settings kohdassa mainitaan sähköpostin uudelleenohjauksesta:
+   `host` ensimmäinen rivi kertoo IP-osoitteen josta syrjä.com vastaa. Samainen IP-osoite siis jonka määrittelin Namecheapin palvelussa ohjautumaan Digital Oceanilta vuokraamaani virtuaalikoneeseen.
+   - Seuraavien rivien kohdalla, en löytänyt yksiselitteistä vastauta . Kuitenkin tekstistä voin päätellä että nämä liittyvät jotenkin sähköpostin uudelleenohjaukseen. Lisäksi Namecheapin asetussivulla Mail settings kohdassa mainitaan sähköpostin uudelleenohjauksesta:
   ![5.12_mail_forvarders]()
-   - `dig`komennon `;; ANSWER SECTION:`osassa näemme ensin palvelin nimi jolle kysely tehtiin, eli syrjä.com, ja sen IP-osoite eli 104.248.205.0-
-   - 300 esittää TTL aikaa sekunneissa. Namecheapin asetussivulla tämä näkyy 5 min.
+   `dig`ensimmäinen rivi kertoo komennon nykyisen version sekä lähettämäni kyselyn nimen "syrjä.com"
+   - **got answer** osio avaa saadun vastauksen sisältöä. **opcode** listaa dig-komennon toiminnan, mikä tässä tapauksessa oli kysely "QUERY. **status** kertoi NOERROR, eli vastaus tuli eteettä. (Levine. 2016)
+   - **ANSWER SECTION** osassa näemme ensin palvelimen nimen jolle kysely tehtiin, eli syrjä.com, ja sen IP-osoite eli 104.248.205.0. 300 esittää TTL aikaa sekunneissa. Namecheapin asetussivulla tämä näkyy 5 min.
+   - **Query time** ilmaiseen kyselyn vastausajan, 56 millisekuntia.
+   - **Server** kertoo vastanneen DNS-palvelimen IO-osoite ja 
+   - (Törmä, 2023)
    - 
 
 
 Lähteet:
 
-Karvinen T. Linux-Palvelimet Alkukevät 2024. Luettavissa https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h5-koko-juttu. Luettu 13.02.2024
+Karvinen T. Linux-Palvelimet Alkukevät 2024. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h5-koko-juttu. Luettu 13.02.2024
 
-syjaka Linux-Palvelimet-2024. Luettavissa https://github.com/syjaka/Linux-Palvelimet-2024/tree/main. Luettu 13.02.2024
+Levine K. 2016 Decoding DIG Output. Luettavissa: https://ns1.com/blog/decoding-dig-output. Luettu 22.02.2024
+
+Syrjä K. Linux-Palvelimet-2024. Luettavissa: https://github.com/syjaka/Linux-Palvelimet-2024/tree/main. Luettu 13.02.2024
+
+Törmä L. Linux-Palvelimet-kurssi. Luettavissa: https://github.com/lauritorma/Linux-palvelimet-kurssi/blob/main/h8-Say%20My%20Name.md#b-domainnimen-tiedot. Luettu 22.02.2024
