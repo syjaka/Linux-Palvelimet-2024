@@ -5,12 +5,12 @@
 Kuudennessa tehtävässä tuli tiivistää alkuksi Karvisen artikkelit [Django 4 Instant Customer Databse Tutorial]() ja [Deploy Django 4 - Production Install](). 
 Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkiohjelma Djangolla ja toteuttaa Djangon tuotantotyypin asennus.
 
-- x)[ tiivistelmät]()
-- a)[ Yksinkertainen esimerkkiohjelma Djangolla]()
-- b)[ Djangon tuotantotyyppinen asennus]()
-- z)[ kolmas tehtävä]()
-- y)[ Työskentely-ympäristö]()
-- z)[Alkutoimenpiteet]()
+- x)[ tiivistelmät](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#x-tiivistelm%C3%A4t)
+- a)[ Yksinkertainen esimerkkiohjelma Djangolla](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#a-yksinkertainen-esimerkkiohjelma-djangolla)
+- b)[ Djangon tuotantotyyppinen asennus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#b-djangon-tuotantotyyppinen-asennus)
+- c)[ Tiivistelmien pohjalla olevat kattavammat muistiinpanot  ]()
+- y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#y-ty%C3%B6skentely-ymp%C3%A4rist%C3%B6)
+- z)[Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#z-alkutoimenpiteet)
 
 ---
 
@@ -42,20 +42,21 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 ---
   ## a) Yksinkertainen esimerkkiohjelma Djangolla
 
-[ takaisin ylös]()
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
    
 ---
 
   ## b) Djangon tuotantotyyppinen asennus
 
- - [ takaisin ylös]()
+ - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
 ---
 ---
 
 
 
 
- c) ### Tiivistelmien pohjalla olevat kattavammat muistiinpanot  
+### c) Tiivistelmien pohjalla olevat kattavammat muistiinpanot  
+
  #### Django 4 Instant Customer Database Tutorial
   - Aluksi opastetaan virtuaalisen kihitysympäristön luontia komennoilla `sudo apt-get -y install virtualenv`ja `virtualenv --system-site-packages -p python3 env/`
   - `source env/bin/activate`komennolla luotu ympäristä aktivoidaan
@@ -131,7 +132,9 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
       9. Disabled DEBUG in Django, now I get 400 error on every page. Lisää palvelinosoite ALLOW_HOSTS esim localhost
       10. set the STATIC_ROOT setting to a filesystem path. (Karvinen, 2021)
 
+[ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
 
+---
 
 #### Lähteet:
 
