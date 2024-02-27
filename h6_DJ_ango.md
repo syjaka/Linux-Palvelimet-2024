@@ -76,10 +76,21 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
   14. Admin loggauduin ulos ja sisään takaisin juuri luotuna superuserina ja muokkaus onnistuu
   15. Loin CRM tietokannan `./manage.py startapp crm` ja lisäsin app:n INSTALLED_APPS-osioon settings.py tiedostoon `micro kadico/settings.py`
     ![6.13_settings_py_crm]()
-  16. Lisäsin mallit `micro crm/models.py`
-    ![6.14_nimimalli]()
-  17. 
-  18. 
+  16. Lisäsin mallit `micro crm/models.py` ja päivitin tietokannan.
+    ![6.14_nimimalli]() ![6.15_tietokanta_uppii]()
+  17. Yritin loggautua selaimella, mutta taas sama virhe. Olin jälleen unohtanut käynnistää ympäristön `./manage.py runserver` tämä auttoi.
+  18. Tietokannan näkeminen vaatii sen rekisteröintiä `micro crm/admin.py`
+    ![6.16_rekisteröi_crm]()
+  19. Uudelleen serveri ylös `./manage.py runserver`ja testi selaimella, joka näytti, että CRM on tullut käyttöön
+    ![6.17_CRM_näkyy]()
+  20. Lisäys, muokkaus ja poisto onnistuu
+    ![6.018_kadi_lisää]() ![6.019_idak_jatkaa]()
+  22. `models.py` muokkasi lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)`tilalle
+    ![6.020_return_str]()
+  23.`./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja fakta että ainut muutos oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, jossa olikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
+    ![6.021_crm_nimet_näkyy]()
+  24. 
+
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
    
