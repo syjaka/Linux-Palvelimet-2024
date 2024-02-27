@@ -1,6 +1,6 @@
-## Keskeneräinen
+# Keskeneräinen
 
-## DJ ango
+# DJ ango
 
 Kuudennessa tehtävässä tuli tiivistää alkuksi Karvisen artikkelit [Django 4 Instant Customer Databse Tutorial]() ja [Deploy Django 4 - Production Install](). 
 Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkiohjelma Djangolla ja toteuttaa Djangon tuotantotyypin asennus.
@@ -8,14 +8,15 @@ Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkioh
 - x)[ tiivistelmät](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#x-tiivistelm%C3%A4t)
 - a)[ Yksinkertainen esimerkkiohjelma Djangolla](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#a-yksinkertainen-esimerkkiohjelma-djangolla)
 - b)[ Djangon tuotantotyyppinen asennus](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#b-djangon-tuotantotyyppinen-asennus)
-- c)[ Tiivistelmien pohjalla olevat kattavammat muistiinpanot  ]()
+- c)[ Tiivistelmien pohjalla olevat kattavammat muistiinpanot  ](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#c-tiivistelmien-pohjalla-olevat-kattavammat-muistiinpanot)
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#y-ty%C3%B6skentely-ymp%C3%A4rist%C3%B6)
 - z)[Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#z-alkutoimenpiteet)
 
 ---
 
   ## y) Työskentely-ympäristö
-  - Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
+  - Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa host OS on Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
+  - Guest OS on Debian GNU/Linux 12 (bookworm) joka pyörii Virtual Boxin 7.0 versiossa.
     
 ---
 
@@ -36,7 +37,7 @@ Aluksi asennetaan kehitysympäristö, jonne luodaan teroco-niminen projekti. Dja
 Tässä artikkelissa ohjeistetaan Python Django 4-weppisovellusten julkaisemiseen internetissä  käyttäen Apache 2.4-weppipalvelinta. Julkaisu vaatii oikeaa tuotantotason palvelinta. 
 Artikkelissa käydään vaihe vaiheelta asia läpi alkaen Apachen2 asennuksesta. Apachen asennuksen jälkeen lisätään virtualhost ja asennetaan Django VirtualEnv-ympäristöön. Sitten on vuorossa ohjeistus Django-projektin luomiseen, Pythonin yhdistäminen Apacheen mod_wsgi:n avulla sekä DEBUG-tilan poisto. Ulkonäköä muokataanstaattisten tiedostojen käsittelyosiossa ja lopussa listataan yleisimipiä vikatiloja ja mahdollisia ehdotuksia niiden korjaamiseksi. (Karvinen, 2021)
 
-Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistiinpanoista jotka koin tarpeelliseksi kirjata ylös, oman oppimiseni vahvistamiseksi. Muistiinpanot kokonaisuudessaan olen jättänyt tämän raportin [loppuun]() ennen lähteitä.
+Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistiinpanoista jotka koin tarpeelliseksi kirjata ylös, oman oppimiseni vahvistamiseksi. Muistiinpanot kokonaisuudessaan olen jättänyt tämän raportin [loppuun](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#c-tiivistelmien-pohjalla-olevat-kattavammat-muistiinpanot) ennen lähteitä.
 
 
 ---
@@ -55,9 +56,9 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 
 
 
-### c) Tiivistelmien pohjalla olevat kattavammat muistiinpanot  
+## c) Tiivistelmien pohjalla olevat kattavammat muistiinpanot  
 
- #### Django 4 Instant Customer Database Tutorial
+ ### Django 4 Instant Customer Database Tutorial
   - Aluksi opastetaan virtuaalisen kihitysympäristön luontia komennoilla `sudo apt-get -y install virtualenv`ja `virtualenv --system-site-packages -p python3 env/`
   - `source env/bin/activate`komennolla luotu ympäristä aktivoidaan
   - Kehoitus että ainoastaan virtuaalisissa ympäristöissä kannattaa käyttä pip-komentoja `which pip`(joka tarkastaa mikä pip versio on
@@ -80,7 +81,7 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
   - Seuraavaksi ohjeistetaan Customer-luokan muokkaus siten että listauksessa näkyy objektien sijaan nimet.
   - `micro crm/models.py`avaa customer-luokan "määritelmä"-tiedoston. Tänne lisätään str-metodi joka palauttaa asiakkaan nimen esitettäväksi. (Karvinen, 2021)
 
-#### Deploy Django 4 - Production Install
+### Deploy Django 4 - Production Install
   - Aluksi päivitetään ja asennetaan halutut lisäohjelmat
   - Seuraavaksi asennetaan apache ja luodaan web-sisältö käyttäjäoikeuksin
       `cd` + `mkdir -p publicwsgi/teroco/static/`+ `echo "Statically see you at TeroKarvinen.com."|tee` +  `publicwsgi/teroco/static/index.html`
