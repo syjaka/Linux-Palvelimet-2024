@@ -13,9 +13,50 @@ Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkioh
 - z)[Alkutoimenpiteet]()
 
 ---
+
+  ## y) Työskentely-ympäristö
+  - Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
+    
+---
+
+  ## z) alkutoimenpiteet
+  1. Virtualboxin ja virtuaalikoneen käynnistäminen
+  2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
+
+---
   ## x) tiivistelmät
+  
   ### Django 4 Instant Customer Database Tutorial
-  Artikkelissa opastetaan web-käyttöliittymällä toimivan asiakastietokannan rakentamisesta, johon useampi käyttäjä voi kirjautua ja muokata. Aluksi asennetaan virtuaalinen kehitysympäristö ja sitten määritellään projektin sisältö. Tässä tapauksessa luodaan CRM-app, joka sallii asiakkaiden lisäämisen tietokantaan ja sen jälkeen listaa nimet lisätyn str-metodin avulla sivulle näkyväksi. Seuraavaksi olen listannut koko artikkelin ohjeet ranskailaisin viivoin omaa ymmärtämystäni helpottamaan. Varsinainen tiivistelmnä on yllä ja kaikki allaoleva on ylimääräistä tiivistelmän "ulkopuolista" muistiinpanoa.
+Tässä artikkelissa opastetaan kuinka voi rakentaa web-käyttöliittymällä toimivan asiakastietokannan käyttäen Django-4 frameworkkia. Artikkelissa myös mainitaan miten Django on suosittu web-kehityksen framework, jota mm Intagram, National Geographic ja Discus käyttävät. 
+
+Aluksi asennetaan kehitysympäristö, jonne luodaan teroco-niminen projekti. Djangon mukana tulee ilmainen admin-käyttöliittymä. Tämä tuo mahdollisuuden hallita tietokannan sisältö web-käyttöliittymän kautta useiden eri käyttäjien toimesta, joiden luominen myös opastetaan. Sitten vuorossa on CRM-sovelluksen lounti ja käyttöönotto ja sen palautteen muokkaus käyttäjäystävällisemmäksi. (Karvinen, 2021)
+
+### Deploy Django 4 - Production Install
+
+Tässä artikkelissa ohjeistetaan Python Django 4-weppisovellusten julkaisemiseen internetissä  käyttäen Apache 2.4-weppipalvelinta. Julkaisu vaatii oikeaa tuotantotason palvelinta. 
+Artikkelissa käydään vaihe vaiheelta asia läpi alkaen Apachen2 asennuksesta. Apachen asennuksen jälkeen lisätään virtualhost ja asennetaan Django VirtualEnv-ympäristöön. Sitten on vuorossa ohjeistus Django-projektin luomiseen, Pythonin yhdistäminen Apacheen mod_wsgi:n avulla sekä DEBUG-tilan poisto. Ulkonäköä muokataanstaattisten tiedostojen käsittelyosiossa ja lopussa listataan yleisimipiä vikatiloja ja mahdollisia ehdotuksia niiden korjaamiseksi. (Karvinen, 2021)
+
+Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistiinpanoista jotka koin tarpeelliseksi kirjata ylös, oman oppimiseni vahvistamiseksi. Muistiinpanot kokonaisuudessaan olen jättänyt tämän raportin [loppuun]() ennen lähteitä.
+
+
+---
+  ## a) Yksinkertainen esimerkkiohjelma Djangolla
+
+[ takaisin ylös]()
+   
+---
+
+  ## b) Djangon tuotantotyyppinen asennus
+
+ - [ takaisin ylös]()
+---
+---
+
+
+
+
+ c) ### Tiivistelmien pohjalla olevat kattavammat muistiinpanot  
+ #### Django 4 Instant Customer Database Tutorial
   - Aluksi opastetaan virtuaalisen kihitysympäristön luontia komennoilla `sudo apt-get -y install virtualenv`ja `virtualenv --system-site-packages -p python3 env/`
   - `source env/bin/activate`komennolla luotu ympäristä aktivoidaan
   - Kehoitus että ainoastaan virtuaalisissa ympäristöissä kannattaa käyttä pip-komentoja `which pip`(joka tarkastaa mikä pip versio on
@@ -37,12 +78,8 @@ Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkioh
   - `./manage.py runserver`käynnistää taas Django kehityspalvelimen jonka jälkeen `http://127.0.0.1:8000/admin/`avaa Djangon kirjautumissivun
   - Seuraavaksi ohjeistetaan Customer-luokan muokkaus siten että listauksessa näkyy objektien sijaan nimet.
   - `micro crm/models.py`avaa customer-luokan "määritelmä"-tiedoston. Tänne lisätään str-metodi joka palauttaa asiakkaan nimen esitettäväksi. (Karvinen, 2021)
-    
-### Deploy Django 4 - Production Install
 
-Djangon avulla web-sovelluksien luominen on helppoa. Julkaiseminen internetisää vaatii oikeaa tuotantotason palvelinta. Aluksi luodaan web-sisältö ja virtuaalipalvelin. Luodaan uusi virtuaaliympäristö johon asennetaan django. Tämän jälkeen luodaan uusi Django projekti.
-Seuraava askel on määrittää apache tarjoamaan Python ohjelmia, kuten Django, tämä vaatii kolemn absoluuttisen polun infoa: 1. Projekton pääkansio `manage.py`2. Polku `wsgi.py` tiedostoon, sekä 3. Virtuaaliympäristön `site-packages`-hakemiston polku
-
+#### Deploy Django 4 - Production Install
   - Aluksi päivitetään ja asennetaan halutut lisäohjelmat
   - Seuraavaksi asennetaan apache ja luodaan web-sisältö käyttäjäoikeuksin
       `cd` + `mkdir -p publicwsgi/teroco/static/`+ `echo "Statically see you at TeroKarvinen.com."|tee` +  `publicwsgi/teroco/static/index.html`
@@ -66,32 +103,33 @@ Seuraava askel on määrittää apache tarjoamaan Python ohjelmia, kuten Django,
     2. TWSGI muuttuja-plun twsgi.py tiedostoon `/home/tero/publicwsgi/teroco/teroco/wsgi.py`
     3. TVENV muuttuja-polun virtuaaliympäristön site-packages-hakemistoon`/home/tero/publicwsgi/env/lib/python3.9/site-packages`
        Parhaiten nämä saa oikein kopioimalla ne rinnakkaisesta terminaali-ikkunasta ´ls´ja bash-completion ominaisuutta hyödyntäen, suoraan luotavaan `/etc/apache2/sites-available/teroco.conf`tiedostoon 
-  -  
-  - 
+  -  Koko VirtualHost config-tiedosto on pitkä. Sen vuoksi on suositeltua kopioida se [täältä](https://terokarvinen.com/2022/deploy-django/) ja muokata vain yläosan muuttujat vastaamaan omia tietoja-
+  - `sudo apt-get -y install libapache2-mod-wsgi-py3`asenna Apachen WSGI moduuli ja tarkista syntaksi `/sbin/apache2ctl configtest`
+  - Apachen uudelleenkäynnistys ottaa määritykset käyttöön `sudo systemctl restart apache2`
+  - Testi `curl -s localhost|grep title`jonka onnistunut palaute on `<title>The install worked successfully! Congratulations!</title>`
+  - Tarkista vielä että apache vastaa `curl -sI localhost|grep Server`
+  - Tässä vaiheessa selaimen tulisi näyttää raketti lentää sivu
+  - Seuraavaksi disabloidaan DEBUG `cd``cd publicwsgi/teroco/`ja `micro teroco/settings.py`
+  - Tiedosto on suuri, muokkaa sieltä `DEBUG = False` ja `ALLOWED_HOSTS = ["localhost", "hello.terokarvinen.com"]` Jossa localhost vastaa mikä tahansa näkyy sivustolla.
+  - Tavanomaiset muutokset ladataan `touch teroco/wsgi.py`, mutta esim uudet koodit vaatii sudon `sudo systemctl restart apache2`
+  - Tässä vaiheessa etusivu antaa 404 komennolla `curl -s localhost|grep title` testaa vielä uudelleen lisäämällä perään siansaksaa esim `http://localhost/tero123`
+  - seuraavaksi staattisien tyylitiedostojen määrittely `cd`+ `cd publicwsgi/teroco/`ja `micro teroco/settings.py`
+  - Täällä näemme että `STATIC_URL`on määritelty mutta `STATIC_ROOT` ei. Korjaa kohtaan `import os` `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')`
+  - `/manage.py collectstatic`ja yes tuo CSS tyylit Django admin-sivulle
 
----
-  ## a) Yksinkertainen esimerkkiohjelma Djangolla
-
-[ takaisin ylös]()
-   
----
-
-  ## b) Djangon tuotantotyyppinen asennus
-
- - [ takaisin ylös]()
----
----
-
-  ## y) Työskentely-ympäristö
-  - Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
----
-
-  ## z) alkutoimenpiteet
-  1. Virtualboxin ja virtuaalikoneen käynnistäminen
-  2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
-
-
-
+    Ongelmien sattuessa:
+    Vikakoodit ovat ympäripyöreitä, sillä julkisesti ei voi virheen alkuperää kertoa
+    - `sudo tail -F /var/log/apache/error.log` jonka lopetus `ctrl+C`
+    - jos virhe ei löydy lokista. Yksityisessä koneessa laita DEBUG päälle ja aja jotain `./manage.py`komentoja.
+      1. `./manage.py runserver` käynnistää
+      2. `./manage.py makemigrations` +  `./manage.py migrate` päivittää tietokannan
+      3. `/sbin/apache2ctl configtest`tsekkaa apachen syntaksin
+      4. Salasanan unohtuessa `./manage.py createsuperuser` ja harkitse pwgen-käyttöä `pwgen -s 20 1`
+      5. palaute `Invalid command 'WSGIDaemonProcess` korjaantunee `sudo apt-get -y install libapache2-mod-wsgi-py3`
+      6. palaute `AH01630: Client denied by server configuration`saattaa johtua CHOWN oikeuksien virheestä tai conf tiedoston puutteesta kohdassa `Require all granted` Tarkista kaikki tiedostopolut, paras on aina copy/paste, jolloin typoja ei tule
+      8. palaute `AH00111: Config variable ${TERODIR} is not defined` Tarkista muuttujien polut ja syntaksit
+      9. Disabled DEBUG in Django, now I get 400 error on every page. Lisää palvelinosoite ALLOW_HOSTS esim localhost
+      10. set the STATIC_ROOT setting to a filesystem path. (Karvinen, 2021)
 
 
 
