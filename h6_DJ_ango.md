@@ -188,6 +188,8 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 
 #### Lähteet:
 
+ChatGPT kyselyt 
+
 Karvinen T. Deploy Django 4 - Production Install, 2021. Luettavissa: https://terokarvinen.com/2022/deploy-django/. Luettu 27.02.2024.
 
 Karvinen T. Django 4 Instant Customer Database Tutorial, 2021. Luettavissa: https://terokarvinen.com/2022/django-instant-crm-tutorial/. Luettu 27.02.2024.
