@@ -14,6 +14,8 @@
 
 3. Muiden lisäosien asennus ja käyttöönotto
     - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `select-editor` ja valitse micro
+        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
+        - mukavammat värit `ctrl+E` ja `set colorscheme simple`
     - Bash comletion `sudo apt-get -y install bash-completion`
     - 
 4. Apache ja nimipalvelin
