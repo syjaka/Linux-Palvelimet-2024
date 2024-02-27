@@ -23,18 +23,19 @@ Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkioh
   ## z) alkutoimenpiteet
   1. Virtualboxin ja virtuaalikoneen käynnistäminen
   2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
+  3. Päivä luennolla aloitimme jo tehtävää. Harjoituksen vuoksi poistin koko asennetun Debiannin ja tein aluksi tehtävässä h5 listatut toimenpiteet.
 
 ---
   ## x) tiivistelmät
   
   ### Django 4 Instant Customer Database Tutorial
-Tässä artikkelissa opastetaan kuinka voi rakentaa web-käyttöliittymällä toimivan asiakastietokannan käyttäen Django-4 frameworkkia. Artikkelissa myös mainitaan miten Django on suosittu web-kehityksen framework, jota mm Intagram, National Geographic ja Discus käyttävät. 
+Artikkelissa opastetaan kuinka voi rakentaa web-käyttöliittymällä toimivan asiakastietokannan käyttäen Django-4 frameworkkia. Artikkelissa myös mainitaan miten Django on suosittu web-kehityksen framework, jota mm Intagram, National Geographic ja Discus käyttävät. 
 
 Aluksi asennetaan kehitysympäristö, jonne luodaan teroco-niminen projekti. Djangon mukana tulee ilmainen admin-käyttöliittymä. Tämä tuo mahdollisuuden hallita tietokannan sisältö web-käyttöliittymän kautta useiden eri käyttäjien toimesta, joiden luominen myös opastetaan. Sitten vuorossa on CRM-sovelluksen lounti ja käyttöönotto ja sen palautteen muokkaus käyttäjäystävällisemmäksi. (Karvinen, 2021)
 
 ### Deploy Django 4 - Production Install
 
-Tässä artikkelissa ohjeistetaan Python Django 4-weppisovellusten julkaisemiseen internetissä  käyttäen Apache 2.4-weppipalvelinta. Julkaisu vaatii oikeaa tuotantotason palvelinta. 
+Artikkelissa ohjeistetaan Python Django 4-weppisovellusten julkaisemiseen internetissä  käyttäen Apache 2.4-weppipalvelinta. Julkaisu vaatii oikeaa tuotantotason palvelinta. 
 Artikkelissa käydään vaihe vaiheelta asia läpi alkaen Apachen2 asennuksesta. Apachen asennuksen jälkeen lisätään virtualhost ja asennetaan Django VirtualEnv-ympäristöön. Sitten on vuorossa ohjeistus Django-projektin luomiseen, Pythonin yhdistäminen Apacheen mod_wsgi:n avulla sekä DEBUG-tilan poisto. Ulkonäköä muokataanstaattisten tiedostojen käsittelyosiossa ja lopussa listataan yleisimipiä vikatiloja ja mahdollisia ehdotuksia niiden korjaamiseksi. (Karvinen, 2021)
 
 Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistiinpanoista jotka koin tarpeelliseksi kirjata ylös, oman oppimiseni vahvistamiseksi. Muistiinpanot kokonaisuudessaan olen jättänyt tämän raportin [loppuun](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#c-tiivistelmien-pohjalla-olevat-kattavammat-muistiinpanot) ennen lähteitä.
@@ -42,6 +43,43 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 
 ---
   ## a) Yksinkertainen esimerkkiohjelma Djangolla
+
+  Tehtävänä oli tehdä esimerkkiohjelma Djangolla. Tehtävän suorittamiseen voi käytää testipalvelinta, oletuksena että se ei näy internettiin. Riittää että ohjelma näkyy esim. Django Adminissa. (Karvinen T. 2021)
+
+  Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
+
+  1. Aloitetin asentamalla virtuaalinen kehitysympäristö `sudo apt-get -y install virtualenv`
+    ![6.001_install_virtualenv]()
+  2. Loin uuden kansion env/ `virtualenv --system-site-packages -p python3 env/`
+    ![6.002_env_folder]()
+  3. Aktivoin luodun ympäristön `source env/bin/activate`, joka tuo promptin alkuun (env) näkyviin
+    ![6.003_activate_env]()
+  4. Varmistin että olemme käyttämässä virtuaalista ympäristöä `which pip`
+    ![6.004_which_pip]()
+  5. Listasin Python-paketti "django" tekstitiedoston `micro requirements.txt` ja näytin kyseisen sisällön ja asensin Django `pip install -r requirements.txt`
+    ![6.005_requirements_txt]()
+  6. Palautteen viimeiseltä riviltä selvisi että asennetuksi tuli Django 5.0.2 versio, ohjeen 4 sijaan. Koitin jatkaa tällä aluksi. Tarvittessa komento `django-admin --version`kertoi saman.
+  7. Loin projektin `django-admin startproject kadico` ja testasin `cd kadico`ja `./manage.py runserver`jonka jälkeen selaimella osoite `127.0.0.1:8000/`
+    ![6.006_raketti_nousee]()
+  8. Päivitin tietokannan
+    ![6.007_database_uppaa]()
+  9. Uutta käyttäjää varten asesnsin salasanageneraattorin ja generoin salasanan`sudo apt-get install pwgen`,`pwgen -s 20 1 # randomize a password`
+     ![6.008_pwgen]()
+  10. Loin superuserin jolle annoin uuden generoidun salasanan. Ei sama kuin kuvakaappauksen esimerkissä.
+    ![6.009_superuser]()
+  11. Testataan ja lopputuloksena:
+    ![6.010_unable_to_connect]
+  12. Testasin myös 127.0.0.1:8000/ joka antoi saman herjan. Koska juuri äsken kaikki toimi. Koska virhe tulo tietikantamigraation ja admin-käyttäjän luonnin jälkeen vika täytyy liittyä niihin. Kyselin ChatGPT:ltä apua lokien paikallistamiseen, ja sain neuvon että kaikki pyynnöt näkyvät kehityspalvelimen terminaalitulosteessa, mikäli kehityspalvelin on käynnissä (ChatGPT 2024). Koska virheellisen palautteen antanut pyyntö ei näkynyt terminaalissa kokeilin aluksi uudelleenkäynnistää palvelimen  `./manage.py runserver`. Tämä ratkaisi ongelman ja tehtävän suoritus jatkui.
+    ![6.011_admin_login]()
+  13. Lisään uuden käyttäjän
+    ![6.012_user_idak]()
+  14. Admin loggauduin ulos ja sisään takaisin juuri luotuna superuserina ja muokkaus onnistuu
+  15. Loin CRM tietokannan `./manage.py startapp crm` ja lisäsin app:n INSTALLED_APPS-osioon settings.py tiedostoon `micro kadico/settings.py`
+    ![6.13_settings_py_crm]()
+  16. Lisäsin mallit `micro crm/models.py`
+    ![6.14_nimimalli]()
+  17. 
+  18. 
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
    
@@ -139,6 +177,8 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 
 #### Lähteet:
 
-Karvinen T. Django 4 Instant Customer Database Tutorial, 2021. Luettavissa https://terokarvinen.com/2022/django-instant-crm-tutorial/. Luettu 27.02.2024.
+Karvinen T. Deploy Django 4 - Production Install, 2021. Luettavissa: https://terokarvinen.com/2022/deploy-django/. Luettu 27.02.2024.
+
+Karvinen T. Django 4 Instant Customer Database Tutorial, 2021. Luettavissa: https://terokarvinen.com/2022/django-instant-crm-tutorial/. Luettu 27.02.2024.
 
 Karvinen T. Linux-Palvelimet Alkukevät 2024. Luettavissa: https://terokarvinen.com/2024/linux-palvelimet-2024-alkukevat/#h5-koko-juttu. Luettu 27.02.2024
