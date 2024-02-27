@@ -49,46 +49,46 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
   Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
 
   1. Aloitetin asentamalla virtuaalinen kehitysympäristö `sudo apt-get -y install virtualenv`
-    ![6.001_install_virtualenv]()
+    ![6.001_install_virtualenv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.001_install_virtualenv.png)
   2. Loin uuden kansion env/ `virtualenv --system-site-packages -p python3 env/`
-    ![6.002_env_folder]()
+    ![6.002_env_folder](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.002_env_folder.png)
   3. Aktivoin luodun ympäristön `source env/bin/activate`, joka tuo promptin alkuun (env) näkyviin
-    ![6.003_activate_env]()
+    ![6.003_activate_env](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.003_activate_env.png)
   4. Varmistin että olemme käyttämässä virtuaalista ympäristöä `which pip`
-    ![6.004_which_pip]()
+    ![6.004_which_pip](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.004_which_pip.png)
   5. Listasin Python-paketti "django" tekstitiedoston `micro requirements.txt` ja näytin kyseisen sisällön ja asensin Django `pip install -r requirements.txt`
-    ![6.005_requirements_txt]()
+    ![6.005_requirements_txt](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.005_requirements_txt.png)
   6. Palautteen viimeiseltä riviltä selvisi että asennetuksi tuli Django 5.0.2 versio, ohjeen 4 sijaan. Koitin jatkaa tällä aluksi. Tarvittessa komento `django-admin --version`kertoi saman.
   7. Loin projektin `django-admin startproject kadico` ja testasin `cd kadico`ja `./manage.py runserver`jonka jälkeen selaimella osoite `127.0.0.1:8000/`
-    ![6.006_raketti_nousee]()
+    ![6.006_raketti_nousee](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.006_raketti_nousee.png)
   8. Päivitin tietokannan
-    ![6.007_database_uppaa]()
+    ![6.007_database_uppaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.007_database_uppaa.png)
   9. Uutta käyttäjää varten asesnsin salasanageneraattorin ja generoin salasanan`sudo apt-get install pwgen`,`pwgen -s 20 1 # randomize a password`
-     ![6.008_pwgen]()
+     ![6.008_pwgen](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.008_pwgen.png)
   10. Loin superuserin jolle annoin uuden generoidun salasanan. Ei sama kuin kuvakaappauksen esimerkissä.
-    ![6.009_superuser]()
+    ![6.009_superuser](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.009_superuser.png)
   11. Testataan ja lopputuloksena:
-    ![6.010_unable_to_connect]
+    ![6.010_unable_to_connect](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.010_unable_to_connect.png)
   12. Testasin myös 127.0.0.1:8000/ joka antoi saman herjan. Koska juuri äsken kaikki toimi. Koska virhe tulo tietikantamigraation ja admin-käyttäjän luonnin jälkeen vika täytyy liittyä niihin. Kyselin ChatGPT:ltä apua lokien paikallistamiseen, ja sain neuvon että kaikki pyynnöt näkyvät kehityspalvelimen terminaalitulosteessa, mikäli kehityspalvelin on käynnissä (ChatGPT 2024). Koska virheellisen palautteen antanut pyyntö ei näkynyt terminaalissa kokeilin aluksi uudelleenkäynnistää palvelimen  `./manage.py runserver`. Tämä ratkaisi ongelman ja tehtävän suoritus jatkui.
-    ![6.011_admin_login]()
+    ![6.011_admin_login](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.011_admin_login.png)
   13. Lisään uuden käyttäjän
-    ![6.012_user_idak]()
+    ![6.012_user_idak](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.012_user_idak.png)
   14. Admin loggauduin ulos ja sisään takaisin juuri luotuna superuserina ja muokkaus onnistuu
   15. Loin CRM tietokannan `./manage.py startapp crm` ja lisäsin app:n INSTALLED_APPS-osioon settings.py tiedostoon `micro kadico/settings.py`
-    ![6.13_settings_py_crm]()
+    ![6.13_settings_py_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.013_settings_py_crm.png)
   16. Lisäsin mallit `micro crm/models.py` ja päivitin tietokannan.
-    ![6.14_nimimalli]() ![6.15_tietokanta_uppii]()
+    ![6.14_nimimalli](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.014_nimimalli.png) ![6.15_tietokanta_uppii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.015_tietokanta_uppii%5D.png)
   17. Yritin loggautua selaimella, mutta taas sama virhe. Olin jälleen unohtanut käynnistää ympäristön `./manage.py runserver` tämä auttoi.
   18. Tietokannan näkeminen vaatii sen rekisteröintiä `micro crm/admin.py`
-    ![6.16_rekisteröi_crm]()
+    ![6.16_rekisteröi_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.016_rekistero%CC%88i_crm.png)
   19. Uudelleen serveri ylös `./manage.py runserver`ja testi selaimella, joka näytti, että CRM on tullut käyttöön
-    ![6.17_CRM_näkyy]()
+    ![6.17_CRM_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.017_CRM_na%CC%88kyy.png)
   20. Lisäys, muokkaus ja poisto onnistuu
-    ![6.018_kadi_lisää]() ![6.019_idak_jatkaa]()
+    ![6.018_kadi_lisää](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.018_kadi_lisa%CC%88a%CC%88.png) ![6.019_idak_jatkaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.019_idak_jatkaa.png)
   22. `models.py` muokkasi lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)`tilalle
-    ![6.020_return_str]()
+    ![6.020_return_str](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.020_return_str.png)
   23.`./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja fakta että ainut muutos oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, jossa olikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
-    ![6.021_crm_nimet_näkyy]()
+    ![6.021_crm_nimet_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.021_crm_nimet_na%CC%88kyy.png)
   24. 
 
 
