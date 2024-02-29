@@ -36,18 +36,21 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 ---
 
   ## z) alkutoimenpiteet
-  1. Virtualboxin ja virtuaalikoneen käynnistäminen
-  2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
-  3. Päivä luennolla aloitimme jo tehtävää. Harjoituksen vuoksi poistin koko asennetun Debiannin ja tein aluksi tehtävässä h5 listatut toimenpiteet.
+  1. Virtualboxin käynnistäminen ja olemassaolevan Debianin poisto.
 
 ---
   ## a) Yksinkertainen esimerkkiohjelma Djangolla
 
-  Tehtävänä oli tehdä esimerkkiohjelma Djangolla. Tehtävän suorittamiseen voi käytää testipalvelinta, oletuksena että se ei näy internettiin. Riittää että ohjelma näkyy esim. Django Adminissa. (Karvinen T. 2021)
+Tehtävänä oli tehdä esimerkkiohjelma Djangolla. Tehtävän suorittamiseen voi käytää testipalvelinta, oletuksena että se ei näy internettiin. Riittää että ohjelma näkyy esim. Django Adminissa. (Karvinen T. 2021)
 
-  Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
+Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
 
-  1. Aloitin asentamalla virtuaalinen kehitysympäristö `sudo apt-get -y install virtualenv`.
+Pohjatyöt:
+-  Uusi debian virtualboxiin
+-  Guest additions-asennukset
+-  Apachen sekä micron asennus
+
+  1. Itse tehtävänloitin asentamalla virtuaalinen kehitysympäristö `sudo apt-get -y install virtualenv`.
     ![6.001_install_virtualenv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.001_install_virtualenv.png)
   2. Loin uuden virtuaaliympäristön `virtualenv --system-site-packages -p python3 env/`.
     ![6.002_env_folder](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.002_env_folder.png)
