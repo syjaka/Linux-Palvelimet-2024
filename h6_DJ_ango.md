@@ -48,48 +48,48 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 
   Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
 
-  1. Aloitin asentamalla virtuaalinen kehitysympäristö `sudo apt-get -y install virtualenv`
+  1. Aloitin asentamalla virtuaalinen kehitysympäristö `sudo apt-get -y install virtualenv`.
     ![6.001_install_virtualenv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.001_install_virtualenv.png)
-  2. Loin uuden virtuaaliympäristön `virtualenv --system-site-packages -p python3 env/`
+  2. Loin uuden virtuaaliympäristön `virtualenv --system-site-packages -p python3 env/`.
     ![6.002_env_folder](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.002_env_folder.png)
-  3. Aktivoin luodun ympäristön `source env/bin/activate`, joka tuo promptin alkuun (env) näkyviin
+  3. Aktivoin luodun ympäristön `source env/bin/activate`, joka tuo promptin alkuun (env) näkyviin.
     ![6.003_activate_env](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.003_activate_env.png)
-  4. Varmistin että olen käyttämässä virtuaalista ympäristöä `which pip`
+  4. Varmistin että olen käyttämässä virtuaalista ympäristöä `which pip`.
     ![6.004_which_pip](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.004_which_pip.png)
-  5. Listasin Python-paketti "django" tekstitiedoston `micro requirements.txt` ja näytin kyseisen sisällön ja asensin Django `pip install -r requirements.txt`
+  5. Listasin Python-paketti "django" tekstitiedoston `micro requirements.txt` ja näytin kyseisen sisällön ja asensin Django `pip install -r requirements.txt`.
     ![6.005_requirements_txt](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.005_requirements_txt.png)
   6. Palautteen viimeiseltä riviltä selvisi että asennetuksi tuli Django 5.0.2 versio, ohjeen 4 sijaan. Koitin jatkaa tällä aluksi. Tarvittessa komento `django-admin --version`kertoisi saman.
   7. Loin uuden Django-projektin kadico `django-admin startproject kadico` ja siirryin `cd kadico`, sekä käynnistin `./manage.py runserver`jonka jälkeen siirryin selaimella osoiteeseen `127.0.0.1:8000/`, jonka oletussivu kertoo projektin luonnin onnistuneen.
     ![6.006_raketti_nousee](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.006_raketti_nousee.png)
-  8. Päivitin tietokannan
+  8. Päivitin tietokannan.
     ![6.007_database_uppaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.007_database_uppaa.png)
-  9. Uutta käyttäjää varten asesnsin salasanageneraattorin ja generoin salasanan`sudo apt-get install pwgen`,`pwgen -s 20 1 # randomize a password`
+  9. Uutta käyttäjää varten asesnsin salasanageneraattorin ja generoin salasanan`sudo apt-get install pwgen`,`pwgen -s 20 1 # randomize a password`.
      ![6.008_pwgen](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.008_pwgen.png)
   10. Loin superuserin jolle annoin uuden generoidun salasanan. Ei sama kuin kuvakaappauksen esimerkissä.
     ![6.009_superuser](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.009_superuser.png)
   11. Testataan ja lopputuloksena:
     ![6.010_unable_to_connect](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.010_unable_to_connect.png)
-  12. Testasin myös 127.0.0.1:8000/ joka antoi saman herjan. Koska virhe tuli tietikantamigraation ja admin-käyttäjän luonnin jälkeen vika täytyy liittyä niihin. Kyselin ChatGPT:ltä apua lokien paikallistamiseen, ja sain neuvon että kaikki pyynnöt näkyvät kehityspalvelimen terminaalitulosteessa, **mikäli kehityspalvelin on käynnissä** (ChatGPT 2024). Koska virheellisen palautteen antanut pyyntö ei näkynyt terminaalissa tajusin aluksi uudelleenkäynnistää palvelimen  `./manage.py runserver`. Tämä ratkaisi ongelman ja tehtävän suoritus jatkui.
+  12. Testasin myös 127.0.0.1:8000/ joka antoi saman herjan. Koska virhe tuli tietokantamigraation ja admin-käyttäjän luonnin jälkeen vika täytyy liittyä niihin. Kyselin ChatGPT:ltä apua lokien paikallistamiseen, ja sain neuvon että kaikki pyynnöt näkyvät kehityspalvelimen terminaalitulosteessa, **mikäli kehityspalvelin on käynnissä** (ChatGPT 2024). Koska virheellisen palautteen antanut pyyntö ei näkynyt terminaalissa tajusin aluksi uudelleenkäynnistää palvelimen  `./manage.py runserver`. Tämä ratkaisi ongelman ja tehtävän suoritus jatkui.
     ![6.011_admin_login](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.011_admin_login.png)
-  13. Lisään uuden käyttäjän
+  13. Lisäsin uuden käyttäjän.
     ![6.012_user_idak](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.012_user_idak.png)
-  14. Admina loggauduin ulos ja sisään takaisin juuri luotuna superuserina ja muokkaus onnistuu
-  15. Loin CRM tietokannan `./manage.py startapp crm` ja lisäsin app:n INSTALLED_APPS-osioon settings.py tiedostoon `micro kadico/settings.py`
+  14. Admina loggauduin ulos ja sisään, takaisin juuri luotuna superuserina ja muokkaus onnistuu.
+  15. Loin CRM tietokannan `./manage.py startapp crm` ja lisäsin app:n INSTALLED_APPS-osioon settings.py tiedostoon `micro kadico/settings.py`.
     ![6.13_settings_py_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.013_settings_py_crm.png)
-  16. Lisäsin mallit luomalla models.py-tiedoston `micro crm/models.py` johon loin asiakas luokan. Luokan nimeksi määrittelin **Customer** ja attribuutiksi **nimi**ja päivitin tietokannan kuten kohdassa 8.
+  16. Lisäsin mallit luomalla models.py-tiedoston `micro crm/models.py` johon loin asiakas luokan. Luokan nimeksi määrittelin **Customer** ja attribuutiksi **nimi**ja päivitin tietokannan.
     ![6.14_nimimalli](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.014_nimimalli.png) ![6.15_tietokanta_uppii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.015_tietokanta_uppii%5D.png)
-  17. Yritin loggautua selaimella, mutta taas sama virhe, kuin kohdassa 11. Olin jälleen unohtanut käynnistää ympäristön `./manage.py runserver` tämä auttoi.
-  18. Tietokannan näkeminen vaati sen rekisteröintiä `micro crm/admin.py`
+  17. Yritin loggautua selaimella, mutta taas sama virhe, kuin kohdassa 11. Olin jälleen unohtanut käynnistää ympäristön `./manage.py runserver` tämä auttoi ja testi onnistui.
+  18. Tietokannan näkeminen vaati sen rekisteröintiä `micro crm/admin.py`.
     ![6.16_rekisteröi_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.016_rekistero%CC%88i_crm.png)
   19. Uudelleen serveri ylös `./manage.py runserver`ja testi selaimella, joka näytti, että CRM on tullut käyttöön.
     ![6.17_CRM_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.017_CRM_na%CC%88kyy.png)
-  20. Lisäys, muokkaus ja poisto onnistuu
+  20. Lisäys, muokkaus ja poisto onnistuu.
     ![6.018_kadi_lisää](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.018_kadi_lisa%CC%88a%CC%88.png) ![6.019_idak_jatkaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.019_idak_jatkaa.png)
-  22. `models.py` muokkasi lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)`tilalle
+  21. Muokkasin `models.py`-mallia lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)`tilalle
     ![6.020_return_str](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.020_return_str.png)
-  23.`./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja fakta että ainut muutos oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, jossa olikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
+  21.`./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja ainut muutos edelliseen testiin oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, josta löytyikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
     ![6.021_crm_nimet_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.021_crm_nimet_na%CC%88kyy.png)
-  24. 
+   
 
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
