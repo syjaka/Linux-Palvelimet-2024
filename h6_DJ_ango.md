@@ -87,7 +87,7 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
     ![6.018_kadi_lisää](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.018_kadi_lisa%CC%88a%CC%88.png) ![6.019_idak_jatkaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.019_idak_jatkaa.png)
   21. Muokkasin `models.py`-mallia lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)`tilalle
     ![6.020_return_str](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.020_return_str.png)
-  21.`./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja ainut muutos edelliseen testiin oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, josta löytyikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
+  22. `./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja ainut muutos edelliseen testiin oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, josta löytyikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
     ![6.021_crm_nimet_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.021_crm_nimet_na%CC%88kyy.png)
    
 
