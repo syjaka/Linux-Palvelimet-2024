@@ -125,7 +125,7 @@ Tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karv
     > ![6.101_virtualHost](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.101_virtualHost.png)
        
 2. Seuraavaksi luodun virtualhostin käyttöönotto
-  - `sudo a2ensite teroco.conf` ottaa käyttöön luodun conf-tiedoston.
+  - `sudo a2ensite kadico.conf` ottaa käyttöön luodun conf-tiedoston.
   - `sudo a2dissite 000-default.conf` poistaa käytöstö default-sivun.
   -  `/sbin/apache2ctl configtest` testaa tehdyt confit ennen käyttöönottoa.
         > ![6.102_ensite](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.102_ensite.png)
