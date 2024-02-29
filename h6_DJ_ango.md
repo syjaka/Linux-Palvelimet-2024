@@ -100,6 +100,23 @@ Pohjatyöt:
 
   ## b) Djangon tuotantotyyppinen asennus
 
+1. Aloitin uudelleen tyhjältä pöydältä eli alkutoimina
+    1. Debianin asennus virtualboxiin
+    2. Päivitysten ja palomuurin asennus
+    3. Guest additions + Micro + Bash completion
+    4. Apachen asennus
+2. Näiden jälkeen pääsin aloittamaan varsinaisen tehtävän. Aluksi virtualhostin ja sisällön luonti.
+    1. `mkdir -p publicwsgi/kadico/static/` luo kansion staattiselle sivulle
+    2. `publicwsgi/kadico/static/index.html` luo index.html, jonne tallennan sisällöksi Djangoooo
+       > ![6.101_virtualHost]()
+3. Seuraavaksi luodun virtualhostin käyttöönotto
+    1. `sudo a2ensite teroco.conf` ottaa käyttöön luodun conf-tiedoston.
+    2. `sudo a2dissite 000-default.conf` poistaa käytöstö default-sivun
+    3. `/sbin/apache2ctl configtest` testaa tehdyt confit ennen käyttöönottoa
+    4. `sudo systemctl restart apache2` uudelleenkäynnistyksellä uudet asetukset tulevat käyttöön
+4. 
+  
+
  - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
 ---
 ---
@@ -135,7 +152,7 @@ Pohjatyöt:
 ### Deploy Django 4 - Production Install
   - Aluksi päivitetään ja asennetaan halutut lisäohjelmat
   - Seuraavaksi asennetaan apache ja luodaan web-sisältö käyttäjäoikeuksin
-      `cd` + `mkdir -p publicwsgi/teroco/static/`+ `echo "Statically see you at TeroKarvinen.com."|tee` +  `publicwsgi/teroco/static/index.html`
+      `cd` + `mkdir -p publicwsgi/teroco/static/`+ `echo "Statically see you at TeroKarvinen.com."|tee` +  `micro publicwsgi/teroco/static/index.html`
   - Ja virtualhost joka ohjaa sisältöön `sudoedit /etc/apache2/sites-available/teroco.conf`
   - Täytä conf-tiedostoon `Alias /static/ /home/tero/publicwsgi/teroco/static/`ja `<Directory /home/tero/publicwsgi/teroco/static/>`
   - Seuraavaksi enabloi luotu conf ja disabloi defaultsivu
