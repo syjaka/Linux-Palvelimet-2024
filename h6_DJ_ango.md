@@ -53,7 +53,7 @@ Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistii
 
 Tehtävänä oli tehdä esimerkkiohjelma Djangolla. Tehtävän suorittamiseen voi käytää testipalvelinta, oletuksena että se ei näy internettiin. Riittää että ohjelma näkyy esim. Django Adminissa. (Karvinen T. 2021)
 
-Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
+Tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Django 4 Instant Customer Database Tutorial. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
 
 #### 1. Virtuaaliympäristön asennus 
   
@@ -117,6 +117,8 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
 ---
 
   ## b) Djangon tuotantotyyppinen asennus
+
+Tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karvisen artikkelia Deploy Django 4 - Production Install. Niiltä osin kun on ollut tarvetta hakea lisää informaatiota netistä, on lähteet merkitty tekstiviitteisiin, sekä lähdeluetteloon.
 
 1. Alkutoimien jälkeen pääsin aloittamaan varsinaisen tehtävän. Aluksi virtualhostin ja sisällön luonti
   - `mkdir -p publicwsgi/kadico/static/` luo hakemiston.
@@ -183,7 +185,7 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
 ## c) Tiivistelmien pohjalla olevat kattavammat muistiinpanot  
 
  ### Django 4 Instant Customer Database Tutorial
-  - Aluksi opastetaan virtuaalisen kihitysympäristön luontia komennoilla `sudo apt-get -y install virtualenv`ja `virtualenv --system-site-packages -p python3 env/`
+  - Aluksi opastetaan virtuaalisen kehitysympäristön luontia komennoilla `sudo apt-get -y install virtualenv`ja `virtualenv --system-site-packages -p python3 env/`
   - `source env/bin/activate`komennolla luotu ympäristä aktivoidaan
   - Kehoitus että ainoastaan virtuaalisissa ympäristöissä kannattaa käyttä pip-komentoja `which pip`(joka tarkastaa mikä pip versio on
   - käytössä/missä se on ja palauttaa `/home/tero/env/bin/pip`
@@ -197,7 +199,7 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
   -`./manage.py makemigrations`ja `./manage.py migrate`  päivittää tietokannat 
   - `./manage.py createsuperuser` lisää ylläpitokäyttäjän Komento `sudo apt-get install pwgen` asentaa salasanageneraattorin ja `pwgen -s 20 1 # randomize a password`generoi 20 merkkiä pitkän salasanan
   - Django tarjoaa hallintaliittymän veloituksetta ja `http://127.0.0.1:8000/admin/`avaa hallintaliittymän kirjautumissivun.
-  - `s./manage.py startapp crm`luo nuuden kansion crm uudelle crm apille. App `crm` lisätään settings.py tiedoston INTALLED_APPS osioon.
+  - `s./manage.py startapp crm`luo uuden kansion crm uudelle crm apille. App `crm` lisätään settings.py tiedoston INTALLED_APPS osioon.
   - `micro crm/models.py` avaa tiedoston jonne lisätään `models.Model`-luokasta periytyvä Customer-luokka. Jolloin Django luo "Name" sarakkeen "Customer" tauluun  tietokannassa.
   - Seuraavaksi taas päivitetään tietokannat: `./manage.py makemigrations`ja `./manage.py migrate`
   - `micro crm/admin.py` tiedostostoon rekisteröidään ´Customer`-malli admimnin kanssa.
@@ -206,55 +208,55 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
   - `micro crm/models.py`avaa customer-luokan "määritelmä"-tiedoston. Tänne lisätään str-metodi joka palauttaa asiakkaan nimen esitettäväksi. (Karvinen, 2021)
 
 ### Deploy Django 4 - Production Install
-  - Aluksi päivitetään ja asennetaan halutut lisäohjelmat
+  - Aluksi päivitetään ja asennetaan halutut lisäohjelmat.
   - Seuraavaksi asennetaan apache ja luodaan web-sisältö käyttäjäoikeuksin
-      `cd` + `mkdir -p publicwsgi/teroco/static/`+ `echo "Statically see you at TeroKarvinen.com."|tee` +  `micro publicwsgi/teroco/static/index.html`
-  - Ja virtualhost joka ohjaa sisältöön `sudoedit /etc/apache2/sites-available/teroco.conf`
-  - Täytä conf-tiedostoon `Alias /static/ /home/tero/publicwsgi/teroco/static/`ja `<Directory /home/tero/publicwsgi/teroco/static/>`
-  - Seuraavaksi enabloi luotu conf ja disabloi defaultsivu
+      `cd` + `mkdir -p publicwsgi/teroco/static/`+ `echo "Statically see you at TeroKarvinen.com."|tee` +  `micro publicwsgi/teroco/static/index.html`.
+  - Ja virtualhost joka ohjaa sisältöön `sudoedit /etc/apache2/sites-available/teroco.conf`.
+  - Täytä conf-tiedostoon `Alias /static/ /home/tero/publicwsgi/teroco/static/`ja `<Directory /home/tero/publicwsgi/teroco/static/>`.
+  - Seuraavaksi enabloi luotu conf ja disabloi defaultsivu.
   - `sudo a2ensite teroco.conf`tarkistaa luodut confit ennen käyttöönottoa.
-  - Apachen uudelleenkäynnistys ja tarkistus että static-tiedostoihin on pääsy `curl http://localhost/static/`
-  - Jos kaikki OK luodaan uusi virtuaaliympäristö ja hakemisto
-      1. Ensin ympäristö `sudo apt-get -y install virtualenv`
-      2. ja hakemisto `cd`+ `cd publicwsgi/`
-      3. System-site-packages sallii Python-pakettien käytön virtuaaliympäristön ulkopuolella ja -p python3 varmistaa että käytössä on moderni python`virtualenv -p python3 --system-site-packages env`
-  - `source env/bin/activate`aktivoi virtuaaliympäristön. Tämän käyttö auttaa pitämään paketit järjestyksessä, mutta ei luo turvaa. Käytön lopetus tapahtuu käänteisesti `deactivate`.
-  - Tarkista että käytössä on eristetty virtuaaliympäristön pip `which pip`jolloin palaute tulisi olla `/home/tero/publicwsgi/env/bin/pip` 
-  - On suositeltavaa listata `micro requirements.txt`asennettavat paketit requirements.txt tiedostoon, tässä tapauksessa sinne siis listataan vain "django"
-  - Jonka jälkeen asennus `pip install -r requirements.txt`
-  - ja version tarkistus `django-admin --version`
-  - `django-admin startproject teroco`luo uuden Django-projektin- Tässä voi myös käyttää aiemmin luotua CRM-projektia.
-  - Seuraavaksi tarvitsee tietää kolme absoluuttista polkua, jotka määrittéllään virtuaalipalvelimen cinf-tiedostoon
+  - Apachen uudelleenkäynnistys ja tarkistus että static-tiedostoihin on pääsy `curl http://localhost/static/`.
+  - Jos kaikki OK luodaan uusi virtuaaliympäristö ja hakemisto.
+      1. Ensin ympäristö `sudo apt-get -y install virtualenv`.
+      2. Sitten hakemisto `cd`+ `cd publicwsgi/`.
+      3. `virtualenv -p python3 --system-site-packages env`-komennolla system-site-packages sallii Python-pakettien käytön virtuaaliympäristön ulkopuolella ja -p python3 varmistaa että käytössä on moderni python.
+  - `source env/bin/activate` aktivoi virtuaaliympäristön. Virtuaaliympäristön käyttö auttaa pitämään paketit järjestyksessä, mutta ei luo turvaa, joten pakettien asennuksessa tulee käyttää harkintaa. Virtuaaliympäristön käytön lopetus tapahtuu käänteisesti `deactivate`.
+  - Tarkista vielä, että käytössä on eristetty virtuaaliympäristön pip `which pip`jolloin palaute tulisi olla `/home/tero/publicwsgi/env/bin/pip`.
+  - On suositeltavaa listata `micro requirements.txt`asennettavat paketit requirements.txt tiedostoon, tässä tapauksessa sinne siis listataan vain "django".
+  - Jonka jälkeen asennus `pip install -r requirements.txt`.
+  - Version tarkistus `django-admin --version`.
+  - `django-admin startproject teroco` luo uuden Django-projektin. Tässä voi myös käyttää aiemmin luotua CRM-projektia.
+  - Seuraavaksi tarvitsee tietää kolme absoluuttista polkua, jotka määritellään virtuaalipalvelimen conf-tiedostoon.
     1. TDIR muuttuja-polun projektin päähakemiston joka sisältää manage.py-tiedoston`/home/tero/publicwsgi/teroco/`
     2. TWSGI muuttuja-plun twsgi.py tiedostoon `/home/tero/publicwsgi/teroco/teroco/wsgi.py`
-    3. TVENV muuttuja-polun virtuaaliympäristön site-packages-hakemistoon`/home/tero/publicwsgi/env/lib/python3.9/site-packages`
-       Parhaiten nämä saa oikein kopioimalla ne rinnakkaisesta terminaali-ikkunasta ´ls´ja bash-completion ominaisuutta hyödyntäen, suoraan luotavaan `/etc/apache2/sites-available/teroco.conf`tiedostoon 
-  -  Koko VirtualHost config-tiedosto on pitkä. Sen vuoksi on suositeltua kopioida se [täältä](https://terokarvinen.com/2022/deploy-django/) ja muokata vain yläosan muuttujat vastaamaan omia tietoja-
-  - `sudo apt-get -y install libapache2-mod-wsgi-py3`asenna Apachen WSGI moduuli ja tarkista syntaksi `/sbin/apache2ctl configtest`
-  - Apachen uudelleenkäynnistys ottaa määritykset käyttöön `sudo systemctl restart apache2`
-  - Testi `curl -s localhost|grep title`jonka onnistunut palaute on `<title>The install worked successfully! Congratulations!</title>`
-  - Tarkista vielä että apache vastaa `curl -sI localhost|grep Server`
-  - Tässä vaiheessa selaimen tulisi näyttää raketti lentää sivu
-  - Seuraavaksi disabloidaan DEBUG `cd``cd publicwsgi/teroco/`ja `micro teroco/settings.py`
-  - Tiedosto on suuri, muokkaa sieltä `DEBUG = False` ja `ALLOWED_HOSTS = ["localhost", "hello.terokarvinen.com"]` Jossa localhost vastaa mikä tahansa näkyy sivustolla.
-  - Tavanomaiset muutokset ladataan `touch teroco/wsgi.py`, mutta esim uudet koodit vaatii sudon `sudo systemctl restart apache2`
-  - Tässä vaiheessa etusivu antaa 404 komennolla `curl -s localhost|grep title` testaa vielä uudelleen lisäämällä perään siansaksaa esim `http://localhost/tero123`
-  - seuraavaksi staattisien tyylitiedostojen määrittely `cd`+ `cd publicwsgi/teroco/`ja `micro teroco/settings.py`
-  - Täällä näemme että `STATIC_URL`on määritelty mutta `STATIC_ROOT` ei. Korjaa kohtaan `import os` `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')`
-  - `/manage.py collectstatic`ja yes tuo CSS tyylit Django admin-sivulle
+    3. TVENV muuttuja-polun virtuaaliympäristön site-packages-hakemistoon`/home/tero/publicwsgi/env/lib/python3.9/site-packages`.
+       Parhaiten nämä saa oikein kopioimalla ne rinnakkaisesta terminaali-ikkunasta ´ls´ja bash-completion ominaisuutta hyödyntäen, suoraan luotavaan `/etc/apache2/sites-available/teroco.conf`tiedostoon.
+  -  Koko VirtualHost config-tiedosto on pitkä. Sen vuoksi on suositeltua kopioida se [täältä](https://terokarvinen.com/2022/deploy-django/) ja muokata vain yläosan muuttujat vastaamaan omia tietoja.
+  - `sudo apt-get -y install libapache2-mod-wsgi-py3` asentaa Apachen WSGI moduuli ja tarkista syntaksi `/sbin/apache2ctl configtest`.
+  - Apachen uudelleenkäynnistys ottaa määritykset käyttöön `sudo systemctl restart apache2`.
+  - Testi `curl -s localhost|grep title`, jonka onnistunut palaute on `<title>The install worked successfully! Congratulations!</title>`.
+  - Tarkista vielä että apache vastaa `curl -sI localhost|grep Server`.
+  - Tässä vaiheessa selaimen tulisi näyttää raketti lentää sivu.
+  - Seuraavaksi disabloidaan DEBUG `cd``cd publicwsgi/teroco/`ja `micro teroco/settings.py`.
+  - Tiedosto on suuri, muokkaa sieltä `DEBUG = False` ja `ALLOWED_HOSTS = ["localhost", "hello.terokarvinen.com"]`.
+  - Tavanomaiset muutokset ladataan `touch teroco/wsgi.py`, mutta esim uudet koodit vaatii sudon `sudo systemctl restart apache2`.
+  - Tässä vaiheessa etusivu antaa 404 komennolla `curl -s localhost|grep title` testaa vielä uudelleen lisäämällä perään siansaksaa esim `http://localhost/tero123`.
+  - seuraavaksi staattisien tyylitiedostojen määrittely `cd`+ `cd publicwsgi/teroco/`ja `micro teroco/settings.py`.
+  - Täällä näemme että `STATIC_URL`on määritelty mutta `STATIC_ROOT` ei. Lisää tiedoston alkuun `import os`, sekä STATIC_URL jälkeen `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')`. 
+  - `/manage.py collectstatic`ja yes tuo CSS tyylit Django admin-sivulle.
 
     Ongelmien sattuessa:
-    Vikakoodit ovat ympäripyöreitä, sillä julkisesti ei voi virheen alkuperää kertoa
-    - `sudo tail -F /var/log/apache/error.log` jonka lopetus `ctrl+C`
+    Vikakoodit ovat ympäripyöreitä, sillä julkisesti ei voi virheen alkuperää kertoa.
+    - `sudo tail -F /var/log/apache/error.log` jonka lopetus `ctrl+C`.
     - jos virhe ei löydy lokista. Yksityisessä koneessa laita DEBUG päälle ja aja jotain `./manage.py`komentoja.
-      1. `./manage.py runserver` käynnistää
-      2. `./manage.py makemigrations` +  `./manage.py migrate` päivittää tietokannan
-      3. `/sbin/apache2ctl configtest`tsekkaa apachen syntaksin
-      4. Salasanan unohtuessa `./manage.py createsuperuser` ja harkitse pwgen-käyttöä `pwgen -s 20 1`
-      5. palaute `Invalid command 'WSGIDaemonProcess` korjaantunee `sudo apt-get -y install libapache2-mod-wsgi-py3`
-      6. palaute `AH01630: Client denied by server configuration`saattaa johtua CHOWN oikeuksien virheestä tai conf tiedoston puutteesta kohdassa `Require all granted` Tarkista kaikki tiedostopolut, paras on aina copy/paste, jolloin typoja ei tule
-      8. palaute `AH00111: Config variable ${TERODIR} is not defined` Tarkista muuttujien polut ja syntaksit
-      9. Disabled DEBUG in Django, now I get 400 error on every page. Lisää palvelinosoite ALLOW_HOSTS esim localhost
+      1. `./manage.py runserver` käynnistää.
+      2. `./manage.py makemigrations` +  `./manage.py migrate` päivittää tietokannan.
+      3. `/sbin/apache2ctl configtest`tsekkaa apachen syntaksin.
+      4. Salasanan unohtuessa `./manage.py createsuperuser` ja harkitse pwgen-käyttöä `pwgen -s 20 1`.
+      5. palaute `Invalid command 'WSGIDaemonProcess` korjaantunee `sudo apt-get -y install libapache2-mod-wsgi-py3`.
+      6. palaute `AH01630: Client denied by server configuration`saattaa johtua CHOWN oikeuksien virheestä tai conf tiedoston puutteesta kohdassa `Require all granted` Tarkista kaikki tiedostopolut, paras on aina copy/paste, jolloin typoja ei tule.
+      8. palaute `AH00111: Config variable ${TERODIR} is not defined` Tarkista muuttujien polut ja syntaksit.
+      9. Disabled DEBUG in Django, now I get 400 error on every page. Lisää palvelinosoite ALLOW_HOSTS esim localhost.
       10. set the STATIC_ROOT setting to a filesystem path. (Karvinen, 2021)
 
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
@@ -263,7 +265,7 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
 
 #### Lähteet:
 
-ChatGPT kyselyt 
+ChatGPT kyselyt 25.02.2024
 
 Karvinen T. Deploy Django 4 - Production Install, 2021. Luettavissa: https://terokarvinen.com/2022/deploy-django/. Luettu 27.02.2024.
 
