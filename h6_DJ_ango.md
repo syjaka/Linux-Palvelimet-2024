@@ -13,19 +13,6 @@ Tiivistelmien jälkeen tuli ohjeiden avulla toteuttaa yksinkertainen esimerkkioh
 - z)[Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#z-alkutoimenpiteet)
 
 ---
-
-  ## y) Työskentely-ympäristö
-  - Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa host OS on Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
-  - Guest OS on Debian GNU/Linux 12 (bookworm) joka pyörii Virtual Boxin 7.0 versiossa.
-    
----
-
-  ## z) alkutoimenpiteet
-  1. Virtualboxin ja virtuaalikoneen käynnistäminen
-  2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
-  3. Päivä luennolla aloitimme jo tehtävää. Harjoituksen vuoksi poistin koko asennetun Debiannin ja tein aluksi tehtävässä h5 listatut toimenpiteet.
-
----
   ## x) tiivistelmät
   
   ### Django 4 Instant Customer Database Tutorial
@@ -40,6 +27,18 @@ Artikkelissa käydään vaihe vaiheelta asia läpi alkaen Apachen2 asennuksesta.
 
 Nämä tiivistelmät ovat yhteenveto kaikista artikkeleista tekemistäni muistiinpanoista jotka koin tarpeelliseksi kirjata ylös, oman oppimiseni vahvistamiseksi. Muistiinpanot kokonaisuudessaan olen jättänyt tämän raportin [loppuun](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#c-tiivistelmien-pohjalla-olevat-kattavammat-muistiinpanot) ennen lähteitä.
 
+---
+
+  ## y) Työskentely-ympäristö
+  - Tehtävä toteutettiin MacBook Retina 12-inch, koneella jossa host OS on Ventura 13.6.1 käyttöjärjestelmä Suomen maa-asetuksilla ja suomen kielellä. Koneessa on 1,3GHz kaksiytiminen Intel Core i5 prosessori ja 8Gt 1867 MHz LPDDR3 muistia. Näytönohjain on Intel HD Graphics 615 jossa VRAM 1536 Mt.
+  - Guest OS on Debian GNU/Linux 12 (bookworm) joka pyörii Virtual Boxin 7.0 versiossa.
+    
+---
+
+  ## z) alkutoimenpiteet
+  1. Virtualboxin ja virtuaalikoneen käynnistäminen
+  2. Terminaalin käynnistys `Applications` -> `Terminal Emulator`
+  3. Päivä luennolla aloitimme jo tehtävää. Harjoituksen vuoksi poistin koko asennetun Debiannin ja tein aluksi tehtävässä h5 listatut toimenpiteet.
 
 ---
   ## a) Yksinkertainen esimerkkiohjelma Djangolla
