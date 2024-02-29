@@ -8,13 +8,16 @@
 >     `sudo apt-get update` + `sudo apt-get -y dist-upgrade`
 >  - Palomuuri
 >     `sudo apt-get -y install ufw` + `sudo ufw enable` ja `sudo systemctl restart ufw`
->    ja aukot `sudo ufw allow 22/tcp` ja `sudo ufw allow 80/tcp`
+>    ja aukot
+>   - `sudo ufw allow 22/tcp` - SSH
+>   - `sudo ufw allow 80/tcp` -http
+>   - `sudo ufw allow/443/tcp` - TSL encrypted
 >  - Guest additions - **devices** + **Insert Guest Additions** + Menen **applications** ja valitse **File manager**ista **Vbox_GAs...CDROM**
->        `cd /media/*/VBox**` + `ls` + `sudo bash VBoxLinuxAdditions.run` jonka jälkeen järjestelmän uudelleenkäynnistys
+>        `cd /media/USER/VBox...` + `ls` + `sudo bash VBoxLinuxAdditions.run` jonka jälkeen järjestelmän uudelleenkäynnistys
 >  - leikepöytä käyttöön : **Devices** + **Shared clipboard** + **Bidirectional**
 
 3. Muiden lisäosien asennus ja käyttöönotto
->    - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `select-editor` ja valitse micro
+>    - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
 >        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
 >        - mukavammat värit `ctrl+E` ja `set colorscheme simple`
 >    - Bash comletion `sudo apt-get -y install bash-completion`
@@ -53,7 +56,10 @@
 >   - luon omalla koneellanio ssh avainparin `ssh-keygen` jatkan kolemlla returnilla
 >   - `ssh-copy-id  kadi@localhost`kopioin julkisen avaimen palvelimelleni
 >   - `sudoedit /etc/ssh/sshd_config` komennolla salasanakirjautuminen pois päältä. Muokataan tiedoston #PasswordAuthentication-kohta `no`
-  
-
-    - 
-7.  
+    
+7.  Django tuotannossa
+>  - `sudo apt-get -y install virtualenv` asentaa virtuaalisen kehitysympäristön
+>  - `cd`ja `mkdir -p publicwsgi` luo hakemiston ympäristölle
+>  - `cd`ja `cd publicwsgi/` siirtyy kyseiseen hakemistoon
+>  - `virtualenv -p python3 --system-site-packages env` luo virtuaaliym
+8.  
