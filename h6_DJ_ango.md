@@ -1,4 +1,3 @@
-# Keskeneräinen
 
 # DJ ango
 
