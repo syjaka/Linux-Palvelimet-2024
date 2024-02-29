@@ -101,20 +101,38 @@ Pohjatyöt:
   ## b) Djangon tuotantotyyppinen asennus
 
 1. Aloitin uudelleen tyhjältä pöydältä eli alkutoimina
-    1. Debianin asennus virtualboxiin
-    2. Päivitysten ja palomuurin asennus
-    3. Guest additions + Micro + Bash completion
-    4. Apachen asennus
+    - Debianin asennus virtualboxiin.
+    - Päivitysten ja palomuurin asennus.
+    - Guest additions + Micro + Bash completion.
+    - Apachen asennus.
+      
 2. Näiden jälkeen pääsin aloittamaan varsinaisen tehtävän. Aluksi virtualhostin ja sisällön luonti.
-    1. `mkdir -p publicwsgi/kadico/static/` luo kansion staattiselle sivulle
-    2. `publicwsgi/kadico/static/index.html` luo index.html, jonne tallennan sisällöksi Djangoooo
+    - `mkdir -p publicwsgi/kadico/static/` luo hakemiston.
+    - `publicwsgi/kadico/static/index.html` luo index.html, jonne tallensin sisällöksi Djangoooo.
        > ![6.101_virtualHost]()
+       
 3. Seuraavaksi luodun virtualhostin käyttöönotto
-    1. `sudo a2ensite teroco.conf` ottaa käyttöön luodun conf-tiedoston.
-    2. `sudo a2dissite 000-default.conf` poistaa käytöstö default-sivun
-    3. `/sbin/apache2ctl configtest` testaa tehdyt confit ennen käyttöönottoa
-    4. `sudo systemctl restart apache2` uudelleenkäynnistyksellä uudet asetukset tulevat käyttöön
-4. 
+    - `sudo a2ensite teroco.conf` ottaa käyttöön luodun conf-tiedoston.
+    -  `sudo a2dissite 000-default.conf` poistaa käytöstö default-sivun
+    -  `/sbin/apache2ctl configtest` testaa tehdyt confit ennen käyttöönottoa.
+         > ![6.102_ensite]()
+    -  `sudo systemctl restart apache2` uudelleenkäynnistyksellä uudet asetukset tulevat käyttöön
+    -  `curl http://localhost/static/`testasin että static-tiedosto vastaa
+        > ![6.103_static_vastaa]() ![6.104_selainstatic_vastaa]()
+5. Uuden virtuaaliympäristön luonti ja Djangon asennus
+    - `sudo apt-get -y install virtualenv` ensin asensin virtuaalisen kehitysympäristön.
+    - Siirryin virtuaaliympäristölle luotuun hakemistoon `cd`ja `cd publicwsgi/`.
+    - Täyä seurasi virtuaaliympäristön luonti `virtualenv -p python3 --system-site-packages env` uuteen **/kadi/publicwsgi/env** hakemistoon.
+        > ![6.105_virtualenv_done]()
+    - `source env/bin/activate` aktivoin ympäristön, (promptiin tuli tämän myötä `(env)`-alku) ja tarkistin `which pip`että olen varmasti asentamassa oikean `env/`-hakemiston `pip`-asentajalla.
+        >![6.106_which_pip]()
+    - `micro requirements.txt` loi requirements tekstitiedoston jonne kirjoitin asennettavan paketin **django**
+    - `pip install -r requirements.txt`asensi Djangon
+        > ![6.107_done_django]()
+    - `django-admin --version`testi palautti vielä asennetun django version 5.0.2
+      
+6. Uudi Django projekti
+     - `django-admin startproject teroco`
   
 
  - [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
