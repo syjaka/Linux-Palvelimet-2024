@@ -58,51 +58,59 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
 #### 1. Virtuaaliympäristön asennus 
   
   - Aloitin asentamalla virtuaalisen kehitysympäristön `sudo apt-get -y install virtualenv`.
-    ![6.001_install_virtualenv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.001_install_virtualenv.png)
+   > ![6.001_install_virtualenv](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.001_install_virtualenv.png)
   - Loin uuden virtuaaliympäristön `virtualenv --system-site-packages -p python3 env/`.
-    ![6.002_env_folder](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.002_env_folder.png)
+   > ![6.002_env_folder](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.002_env_folder.png)
   - Aktivoin luodun ympäristön `source env/bin/activate`, joka tuo promptin alkuun (env) näkyviin.
-    ![6.003_activate_env](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.003_activate_env.png)
+   > ![6.003_activate_env](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.003_activate_env.png)
   -  Varmistin että olen käyttämässä virtuaalista ympäristöä `which pip`.
-    ![6.004_which_pip](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.004_which_pip.png)
+   > ![6.004_which_pip](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.004_which_pip.png)
+
 #### 2. Djangon asennus
 
-  - Listasin Python-paketti "django" tekstitiedoston `micro requirements.txt` ja näytin kyseisen sisällön ja asensin Django `pip install -r requirements.txt`.
-    ![6.005_requirements_txt](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.005_requirements_txt.png)
-  - Palautteen viimeiseltä riviltä selvisi että asennetuksi tuli Django 5.0.2 versio, ohjeen 4 sijaan. Koitin jatkaa tällä aluksi. Tarvittessa komento `django-admin --version`kertoisi saman.
+  - Listasin Python-paketti "django" tekstitiedoston `micro requirements.txt` ja tarkistin kyseisen sisällön `cat requirements.txt` ja asensin Djangon
+     `pip install -r requirements.txt`.
+   > ![6.005_requirements_txt](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.005_requirements_txt.png)
+  - Palautteen viimeiseltä riviltä selvisi että asennetuksi tuli Django 5.0.2 versio, ohjeen 4 sijaan. Koitin jatkaa tällä aluksi. Tarvittessa komento `django-admin --version` kertoisi saman. '
+    
 #### 3. Uusi projekti
-  - Loin uuden Django-projektin kadico `django-admin startproject kadico` ja siirryin `cd kadico`, sekä käynnistin `./manage.py runserver`jonka jälkeen siirryin selaimella osoiteeseen `127.0.0.1:8000/`, jonka oletussivu kertoo projektin luonnin onnistuneen.
-    ![6.006_raketti_nousee](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.006_raketti_nousee.png)
+
+  - Loin uuden Django-projektin kadico `django-admin startproject kadico` ja siirryin `cd kadico`, sekä käynnistin testiympäristön `./manage.py runserver`jonka jälkeen siirryin selaimella osoiteeseen `127.0.0.1:8000/` Pletussivu kertoo projektin luonnin onnistuneen.
+    > ![6.006_raketti_nousee](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.006_raketti_nousee.png)
   - Päivitin tietokannan.
-    ![6.007_database_uppaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.007_database_uppaa.png)
-  - Uutta käyttäjää varten asesnsin salasanageneraattorin ja generoin salasanan`sudo apt-get install pwgen`,`pwgen -s 20 1 # randomize a password`.
-     ![6.008_pwgen](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.008_pwgen.png)
-   - Loin superuserin jolle annoin uuden generoidun salasanan. Ei sama kuin kuvakaappauksen esimerkissä.
-    ![6.009_superuser](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.009_superuser.png)
+    > ![6.007_database_uppaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.007_database_uppaa.png)
+  - Uutta käyttäjää varten asensin salasanageneraattorin ja generoin salasanan`sudo apt-get install pwgen`,
+    `pwgen -s 20 1 # randomize a password`.
+    > ![6.008_pwgen](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.008_pwgen.png)
+   - Loin superuserin jolle annoin uuden generoidun salasanan. En samaa kuin kuvakaappauksen esimerkissä.
+    > ![6.009_superuser](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.009_superuser.png)
   - Testasin ja lopputuloksena:
-    ![6.010_unable_to_connect](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.010_unable_to_connect.png)
+    > ![6.010_unable_to_connect](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.010_unable_to_connect.png)
   - Testasin myös 127.0.0.1:8000/ joka antoi saman herjan. Koska virhe tuli tietokantamigraation ja admin-käyttäjän luonnin jälkeen vika täytyy liittyä niihin. Kyselin ChatGPT:ltä apua lokien paikallistamiseen, ja sain neuvon että kaikki pyynnöt näkyvät kehityspalvelimen terminaalitulosteessa, **mikäli kehityspalvelin on käynnissä** (ChatGPT 2024). Koska virheellisen palautteen antanut pyyntö ei näkynyt terminaalissa tajusin aluksi uudelleenkäynnistää palvelimen  `./manage.py runserver`. Tämä ratkaisi ongelman ja tehtävän suoritus jatkui.
-    ![6.011_admin_login](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.011_admin_login.png)
-  - Lisäsin uuden käyttäjän.
-    ![6.012_user_idak](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.012_user_idak.png)
-   - Admina loggauduin ulos ja sisään, takaisin juuri luotuna superuserina ja muokkaus onnistuu.
+    > ![6.011_admin_login](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.011_admin_login.png)
+  - Kirjauduin superuserina ja lisäsin uuden käyttäjän superuserin ja staffin statuksella.
+    > ![6.012_user_idak](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.012_user_idak.png)
+   - Loggauduin ulos ja takaisin sisään juuri luotuna superuserina ja muokkaus onnistuu.
+     
 #### 4. CRM-asennus
 
-  - Loin CRM tietokannan `./manage.py startapp crm` ja lisäsin app:n INSTALLED_APPS-osioon settings.py tiedostoon `micro kadico/settings.py`.
-    ![6.13_settings_py_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.013_settings_py_crm.png)
-  - Lisäsin mallit luomalla models.py-tiedoston `micro crm/models.py` johon loin asiakas luokan. Luokan nimeksi määrittelin **Customer** ja attribuutiksi **nimi**ja päivitin tietokannan.
-    ![6.14_nimimalli](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.014_nimimalli.png) ![6.15_tietokanta_uppii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.015_tietokanta_uppii%5D.png)
+  - Loin CRM hakemiston `./manage.py startapp crm` ja `micro kadico/settings.py` avasi settings.py tiedoston jonne lisäsin `crm` INSTALLED_APPS-osioon.
+    > ![6.13_settings_py_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.013_settings_py_crm.png)
+  - Lisäsin mallit luomalla models.py-tiedoston `micro crm/models.py` johon loin asiakas luokan. Luokan nimeksi määrittelin **Customer** ja attribuutiksi **nimi** jonka jälkeen päivitin tietokannan.
+    > ![6.14_nimimalli](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.014_nimimalli.png)
+    > ![6.15_tietokanta_uppii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.015_tietokanta_uppii%5D.png)
   - Yritin loggautua selaimella, mutta taas sama virhe, kuin kohdassa 11. Olin jälleen unohtanut käynnistää ympäristön `./manage.py runserver` tämä auttoi ja testi onnistui.
-  - Tietokannan näkeminen vaati sen rekisteröintiä `micro crm/admin.py`.
-    ![6.16_rekisteröi_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.016_rekistero%CC%88i_crm.png)
-  - Uudelleen serveri ylös `./manage.py runserver`ja testi selaimella, joka näytti, että CRM on tullut käyttöön.
-    ![6.17_CRM_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.017_CRM_na%CC%88kyy.png)
-  - Lisäys, muokkaus ja poisto onnistuu.
-    ![6.018_kadi_lisää](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.018_kadi_lisa%CC%88a%CC%88.png) ![6.019_idak_jatkaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.019_idak_jatkaa.png)
-  - Muokkasin `models.py`-mallia lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)`tilalle
-    ![6.020_return_str](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.020_return_str.png)
-  -  `./manage.py runserver`antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja ainut muutos edelliseen testiin oli models.py tiedostoon, antoi syyn epäillä virhettä tiedostossa, josta löytyikin sisennysvirhe. Sen korjattuani, uusi yritys joka onnistui.
-    ![6.021_crm_nimet_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.021_crm_nimet_na%CC%88kyy.png)
+  - Äsken luodun tietokannan näkeminen vaati sen rekisteröintiä `micro crm/admin.py`.
+    > ![6.16_rekisteröi_crm](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.016_rekistero%CC%88i_crm.png)
+  - Uudelleen palvelin ylös `./manage.py runserver`ja testi selaimella, joka näytti, että CRM on tullut käyttöön.
+    > ![6.17_CRM_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.017_CRM_na%CC%88kyy.png)
+  - Lisäys, muokkaus ja poisto onnistuu molemmilla käyttäjillä.
+    > ![6.018_kadi_lisää](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.018_kadi_lisa%CC%88a%CC%88.png)
+    > ![6.019_idak_jatkaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.019_idak_jatkaa.png)
+  - Muokkasin `models.py`-mallia lisäämällä sinne str-metodin joka palauttaa asiakkaan nimen stringinä `Customer object (x)` sijasta.
+    > ![6.020_return_str](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.020_return_str.png)
+  -  `./manage.py runserver` antoi errorin eikä käynnistänyt ympäristöä. Palaute `IndentationError: unexpected indent` ja ainut muutos edelliseen testiin oli models.py tiedostoon. Tämä antoi syyn epäillä sisennysvirhettä tiedostossa, mikä osoittautui oikeaksi. Virheen korjattuani, uusi yritys joka onnistui.
+    > ![6.021_crm_nimet_näkyy](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.021_crm_nimet_na%CC%88kyy.png)
    
 [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
    
@@ -110,65 +118,64 @@ Aiheen ollessa minulle täysin uusi on tehtävän kokonaisvaltaisena ja pääasi
 
   ## b) Djangon tuotantotyyppinen asennus
 
-1. Näiden jälkeen pääsin aloittamaan varsinaisen tehtävän. Aluksi virtualhostin ja sisällön luonti.
+1. Alkutoimien jälkeen pääsin aloittamaan varsinaisen tehtävän. Aluksi virtualhostin ja sisällön luonti
     - `mkdir -p publicwsgi/kadico/static/` luo hakemiston.
     - `publicwsgi/kadico/static/index.html` luo index.html, jonne tallensin sisällöksi Djangoooo.
        > ![6.101_virtualHost](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.101_virtualHost.png)
        
 2. Seuraavaksi luodun virtualhostin käyttöönotto
     - `sudo a2ensite teroco.conf` ottaa käyttöön luodun conf-tiedoston.
-    -  `sudo a2dissite 000-default.conf` poistaa käytöstö default-sivun
+    -  `sudo a2dissite 000-default.conf` poistaa käytöstö default-sivun.
     -  `/sbin/apache2ctl configtest` testaa tehdyt confit ennen käyttöönottoa.
          > ![6.102_ensite](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.102_ensite.png)
-    -  `sudo systemctl restart apache2` uudelleenkäynnistyksellä uudet asetukset tulevat käyttöön
-    -  `curl http://localhost/static/`testasin että static-tiedosto vastaa
+    -  `sudo systemctl restart apache2` uudelleenkäynnistyksellä uudet asetukset tulevat käyttöön.
+    -  `curl http://localhost/static/`testasin että static-tiedosto vastaa.
         > ![6.103_static_vastaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.103_static_vastaa.png) ![6.104_selainstatic_vastaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.104_selainstatic_vastaa.png)
 
-4. Uuden virtuaaliympäristön luonti ja Djangon asennus
+3. Uuden virtuaaliympäristön luonti ja Djangon asennus
     - `sudo apt-get -y install virtualenv` ensin asensin virtuaalisen kehitysympäristön.
     - Siirryin virtuaaliympäristölle luotuun hakemistoon `cd`ja `cd publicwsgi/`.
-    - Täyä seurasi virtuaaliympäristön luonti `virtualenv -p python3 --system-site-packages env` uuteen **/kadi/publicwsgi/env** hakemistoon.
+    - Tätä seurasi virtuaaliympäristön luonti `virtualenv -p python3 --system-site-packages env` uuteen **/kadi/publicwsgi/env** hakemistoon.
         > ![6.105_virtualenv_done](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.105_virtualenv_done.png)
     - `source env/bin/activate` aktivoin ympäristön, (promptiin tuli tämän myötä `(env)`-alku) ja tarkistin `which pip`että olen varmasti asentamassa oikean `env/`-hakemiston `pip`-asentajalla.
         >![6.106_which_pip](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.106_which_pip.png)
-    - `micro requirements.txt` loi requirements tekstitiedoston jonne kirjoitin asennettavan paketin **django**
-    - `pip install -r requirements.txt`asensi Djangon
+    - `micro requirements.txt` loi requirements tekstitiedoston jonne kirjoitin asennettavan paketin **django**.
+    - `pip install -r requirements.txt`asensi Djangon.
         > ![6.107_done_django](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.107_done_django.png)
-    - `django-admin --version`testi palautti vielä asennetun django version 5.0.2
+    - `django-admin --version`testi palautti vielä asennetun django version 5.0.2.
       
-5. Uudi Django projekti
+4. Uudi Django projekti
      - `django-admin startproject kadico` komento uuden projektin aloittamiseksi antoi heti virhekoodin, joka tietenkin johtui luomastani testihakemistosta.
         > ![6.108_kadico_exists](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.108_kadico_exists.png)
-     - Poistin testihakemoston ja uudelleen komento projektin aloittamiseksi
+     - Poistin testihakemoston ja uudelleen komento projektin aloittamiseksi.
         > ![6.109_rm_redo_kadico](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.109_rm_redo_kadico.png)
      - Seuraavaksi loin/editoin virtualhostin config-tiedoston `sudoedit /etc/apache2/sites-available/kadicoco.conf`. Tiedostoa muokatessa tarvitsen kolme absoluuttista polkua, joten avasin rinnakkaisen terminaalin näiden kopioimiseen. navigointiin käytin `cd`, `ls` ja `pwd`-komentoja.
         > ![6.110_kadico_conf](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.110_kadico_conf.png)
-     - `sudo apt-get -y install libapache2-mod-wsgi-py3`komennolla asensin Apachen wsgi-moduulin, jotta apache ymmärtää mitä edellisessä kohdassa luodun conf-tiedoston WSGI-komennot tarkoittavat
-     - Ennen käyttöönottoa tarkistin vielä syntaxin oikeellisuuden
+     - `sudo apt-get -y install libapache2-mod-wsgi-py3`komennolla asensin Apachen wsgi-moduulin, jotta apache ymmärtää mitä edellisessä kohdassa luodun conf-tiedoston WSGI-komennot tarkoittavat.
+     - Ennen käyttöönottoa tarkistin vielä syntaxin oikeellisuuden.
         > ![6.111_syntax_OK](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.111_syntax_OK.png)
-     - `sudo systemctl restart apache2` käyttöönotti juuri tehdyt asetukset ja `curl -sI localhost|grep Server`testi paljasti että palvelimena toimii apache eikä testiserveri sekä selainhaku `localhost` näytti että Djancon asennus oli onnistumut
+     - `sudo systemctl restart apache2` käyttöönotti juuri tehdyt asetukset ja `curl -sI localhost|grep Server`testi paljasti että palvelimena toimii apache eikä testiserveri sekä selainhaku `localhost` näytti että Djancon asennus oli onnistumut.
         > ![6.112_curl_apache](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.112_curl_apache.png)
   
   7. Debug-sivu pois päältä
        - Muokkaan settings.py tiedostoa hakemistossa `publiccwsgi/kadico/kadico` komennolla `micro settings.py`.
          > ![6.113_debug_pois](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.113_debug_pois.png)
-       - Testasin riittääkö touch lataamaan muutokset `touch teroco/wsgi.py` ja se toimi. Eli valmista tuli
+       - Testasin riittääkö touch lataamaan muutokset `touch teroco/wsgi.py` ja se toimi. Eli valmista tuli.
           > ![6.114_localhost_admin](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.114_localhost_admin.png)
        - 
     
   8. Jatkoin vielä lisäämällä CSS-moutoilua
-      - Palasin muotoilemaan kohdan 7. settings.py tiedostoa, jonne lisäsin `import os`ja `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')`omille paikolleen
+      - Palasin muotoilemaan kohdan 7. settings.py tiedostoa, jonne lisäsin `import os`ja `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')`omille paikolleen.
         > ![6.115_import_os](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.115_import_os.png) ![6.116_static_root](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.116_static_root.png)
-      - `./manage.py collectstatic`- kopioi 126 staattista tiedostoa `STATIC ROOT` kohdassa määrittelemääni sijaintiin, eli tässä tapauksessa `/home/kadi/publicwsgi/kadico/static`, jolloin ne tulivat myös localhost/admin-sivun käyttöön
+      - `./manage.py collectstatic`- kopioi 126 staattista tiedostoa `STATIC ROOT` kohdassa määrittelemääni sijaintiin, eli tässä tapauksessa `/home/kadi/publicwsgi/kadico/static`, jolloin ne tulivat myös localhost/admin-sivun käyttöön.
         > ![6.117_Localhost_css](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.117_Localhost_css.png)
         
   9. 
-      - Yrittäessäni kirjautua sivulle saan erroroa. Tämä johtunee siitä että en ole luonut ainuttakaan käyttäjää salasanoineen.
+      - Yrittäessäni kirjautua sivulle saan erroria. Tämä johtunee siitä että en ole luonut ainuttakaan käyttäjää salasanoineen.
       - Päivitin tietokannan ja loin superkäyttäjän kuten a-kohdan vaiheissa 8-10.
       - Luodulla käyttäjällä pääsin sisään.
-          >! [6.118_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.118_toimii.png)
-      - 
-
+          > ![6.118_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.118_toimii.png)
+        
   [ takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h6_DJ_ango.md#dj-ango)
   
 ---
