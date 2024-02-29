@@ -122,6 +122,7 @@ Tehtävän kokonaisvaltaisena ja pääasiallisena lähteenä käytetty Tero Karv
 1. Alkutoimien jälkeen pääsin aloittamaan varsinaisen tehtävän. Aluksi virtualhostin ja sisällön luonti
   - `mkdir -p publicwsgi/kadico/static/` luo hakemiston.
   - `publicwsgi/kadico/static/index.html` luo index.html, jonne tallensin sisällöksi Djangoooo.
+  - `sudoedit /etc/apache2/sites-available/kadico.conf` luo kadio-virtuaalipalvelimen conf-tiedoston.
     > ![6.101_virtualHost](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.101_virtualHost.png)
        
 2. Seuraavaksi luodun virtualhostin käyttöönotto
