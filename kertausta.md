@@ -21,6 +21,9 @@
 >        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
 >        - mukavammat värit `ctrl+E` ja `set colorscheme simple`
 >    - Bash comletion `sudo apt-get -y install bash-completion`
+>
+4. Yleisiä niksejä
+>    - `export PS1="\W\$ "`lyhentää promptin kattamaan vain nykyisen hakemiston   
 >     
 4. Apache ja nimipalvelin
 >    - `sudo apt-get -y install apache2`asentaa apachen ja `echo "Default"|sudo tee /var/www/html/index.html` korvaa defaultin
@@ -58,7 +61,7 @@
 >   - `ssh-copy-id  kadi@localhost`kopioin julkisen avaimen palvelimelleni
 >   - `sudoedit /etc/ssh/sshd_config` komennolla salasanakirjautuminen pois päältä. Muokataan tiedoston #PasswordAuthentication-kohta `no`
     
-7.  Django tuotannossa
+7.  [Django tuotannossa](https://terokarvinen.com/2022/deploy-django/?fromSearch=django)
 >  - `sudo apt-get -y install virtualenv` asentaa virtuaalisen kehitysympäristön
 >  - `cd`ja `mkdir -p publicwsgi` luo hakemiston ympäristölle (tarkista onko tarpeen vai tuleeko autom. ylemmän komennnon seurauksena)
 >  - `cd`ja `cd publicwsgi/` siirtyy kyseiseen hakemistoon
@@ -67,7 +70,9 @@
 >  - `micro requirements.txt` -> `django` määrittää asennettavan paketin testaa toimiiko `django < requirements.txt` suoraan
 >  - `pip install -r requirements.txt`asentaa Djangon, `django-admin --version`tarkistaa asennetun version
 >  - `django-admin startproject kadico` luo uuden Django-projektin
+>  - `sudoedit /etc/apache2/sites-available/kadicoco.conf`editoi virtualhost tiedostoa. [Mallisisältö](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/6.110_kadico_conf.png)
+>  - `sudo apt-get -y install libapache2-mod-wsgi-py3`asentaa Apachen WSGI-moduulin `/sbin/apache2 configtest`testaa syntaksin
 >  - 
->  - 
+>  - >  - 
 
 8.  
