@@ -27,14 +27,15 @@ Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamal
 
 ---
 
-## a) Käännä hei maailma - Tehtävän suoritus 17.05 - ja valmista oli 18.25 UTC+3  
+## a) Käännä hei maailma
+
+Tehtävän suoritus 17.05 - ja valmista oli 18.25 UTC+3. Lähteenä on käytetty Tero Karvisen 05.03.2024 luentomuistiinpanoja, sekä tekstissä erikseen mainittuja lähteitä.
 Päätin koikeilla tehtävää muutamalla tutulla ja yhdellä uudella kielellä
   
   1. Python on yksinkertaisin ja tallennan tämä tiedostoon `pythonmoikkaa.py`
    > - `micro pythonmoikkaa.py` luo .py tiedoston
    > - `python3 pythonmoikkaa.py` kääntää kyseisen tiedoston
-      
-  3. Tallensin lyhyen java-pätkän `mkdir java`-komennolla luomaani java-hakemiston tiedostoon `javamoikkaa.java` (tim 2024)
+  2. Tallensin lyhyen java-pätkän `mkdir java`-komennolla luomaani java-hakemiston tiedostoon `javamoikkaa.java` (tim 2024)
    > ![7.001_java]()
    > Javan kääntämiseen tarvitaan OpenJDK-paketti 
    > `sudo apt-get update` ja `sudo apt install openjdk-21-jdk` asensivat paketin (tim 2024).
@@ -46,7 +47,7 @@ Päätin koikeilla tehtävää muutamalla tutulla ja yhdellä uudella kielellä
    > Komennolla `java JavaMoikkaa` suoritin tiedoston ja lopputulos oli toivottu
    > ![7.004_java_javamoikkaa]()
 
-  6. C++:aa varten tuli asentaa GCC kääntäjä, jos olisin aloittanut tästä olisin huomannut että tämä olisi voinut hoitaa myös Javan käännöksen (linuxwiki 2021)
+  3. C++:aa varten tuli asentaa GCC kääntäjä, jos olisin aloittanut tästä olisin huomannut että tämä olisi voinut hoitaa myös Javan käännöksen (linuxwiki 2021)
   > Ensin loin `mkdir cpp` ja `micro cppmoikkaa.cpp`
   > ![7.006_cpp_moikkaa_file]()
   > 
@@ -58,26 +59,38 @@ Päätin koikeilla tehtävää muutamalla tutulla ja yhdellä uudella kielellä
   > ![7.007_cpp_toimii]()
   > Tämä osio vei selkeästi suurimman osan työskentelyajasta 
 
-[takaisin ylös]()
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
 
 ---
 
-## b) Seuraavaksi asetin luodun koodinpätkän komennoksi - Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3
+## b) Seuraavaksi asetin luodun koodinpätkän komennoksi 
+
+Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suorituksessa on käytetty Tero Karvisen 05.03.2024 luentomuistiinpanojani.
+
   - Alkuun loin komennon
   > `mkdir pythonit` loin hakemiston python ohjelmille
   > `micro hellurei.py` loin hellurei nimisen python tiedoston
   > tallensin tiedostoon python-pätkän
   > ![7.101_hellurei_py]()
   - Sitten asetin luodun komennon kaikkien käyttöön kaikkialla
-  > Lisäsin hellurei.py-tiedostoon #!-polun
+  > Lisäsin hellurei.py-tiedostoon #!-polun joka määrittää että komento ajetaan Bashilla.
   > ![7.102_hash_bang_added]()
   > Annoin kaikille käyttäjille tarvittavat oikeudet komennolla `chmod ugo+rx hellurei.py`
   > Kopioin tiedoston kaikkien saataville `sudo cp hellurei.py /usr/local/bin/`
   > Lopputuloksena muutkin käyytäjät saavat tiedoston ajettua
   > ![7.103_testaaja_testaa]()
 
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
   
 ---
+
+## c) Labratehtävän ratkaisua
+
+- Aloitin tutustumalla vaihtoehtoihin Karvisen [sivulla](https://terokarvinen.com/search/?q=arvioitava)
+- Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava).
+
+
+
 
 Lähteet:
 
