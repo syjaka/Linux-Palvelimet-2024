@@ -16,14 +16,22 @@
 >        `cd /media/USER/VBox...` + `ls` + `sudo bash VBoxLinuxAdditions.run` jonka jälkeen järjestelmän uudelleenkäynnistys
 >  - leikepöytä käyttöön : **Devices** + **Shared clipboard** + **Bidirectional**
 
-3. Muiden lisäosien asennus ja käyttöönotto
->    - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
+3. Muiden lisäosien asennus ja käyttöönotto [peruskomennot]([https://terokarvinen.com/2009/command-line-basics-4/](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited)) [cheatsheet](https://terokarvinen.com/2022/command-palette-cheatsheet-run-and-make-micro/)
+>  - Bash comletion `sudo apt-get -y install bash-completion` 
+>  - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
+>    - plugareita microon
+>       - `plugin install misspell`on luhärön paras kaveri.
+>       -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee
+>       - `git clone https://github.com/terokarvinen/micro-cheat.git` asentaa micron bash-completionia vastaavan Fi avaa uuteen ikkunaan kyseisen kielen
 >        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
 >        - mukavammat värit `ctrl+E` ja `set colorscheme simple`
->    - Bash comletion `sudo apt-get -y install bash-completion`
+
 >
 4. Yleisiä niksejä
->    - `export PS1="\W\$ "`lyhentää promptin kattamaan vain nykyisen hakemiston   
+>    - `export PS1="\W\$ "`lyhentää promptin kattamaan vain nykyisen hakemiston
+>    - sudo `adduser user` luo käyttäjän `su user`vaihtaa käyttäjään
+>    - `sudo apt-get install pwgen` asentaa salasanavelhon ja `pwgen -s 20 1 # randomize a password` generoi niitä
+>    - `sudo apt install xpad` asentaa tarralaput
 >     
 4. Apache ja nimipalvelin
 >    - `sudo apt-get -y install apache2`asentaa apachen ja `echo "Default"|sudo tee /var/www/html/index.html` korvaa defaultin
