@@ -1,6 +1,6 @@
-#Keskeneräinen
+# Keskeneräinen
 
-#Maalisuora
+# Maalisuora
 
 Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamalleni kielelle ja sen jälkeen laittaa linuxiin uusi komento joka ajaa tuon tervehdyksen kaikkien käyttäjien toimesta. Tämän jälkeen tuli ratkaista arvioitava labraharjotus ja viimeiseksi valmistella uusi tyhjä virtuaalikone tietyin sallituin lisäyksin. (Karvinen 2024, a)
 
@@ -9,7 +9,7 @@ Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamal
 - c) [Ratkaise labratehtävä]()
 - d) [Asenna tyhjä virtuaalikone]()
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/new/main#y)
-- z)[Alkutoimenpiteet]()
+- z)[Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#z)
 
 ---
 
