@@ -43,13 +43,14 @@
 >     - `sudoedit /etc/hosts` tiedostoon lisätään domainnimet ja ohjaus localhostiin
 >     - Nyt koira.example.com ja pyora.example.com vastaa selaimella
 
-5. Lisää käyttäjä ja lukitse root ja asenna ssh
+5. Lisää käyttäjä ja lukitse root ja asenna ssh tai vaihda käyttäjää
 
 >    - `sudo adduser syrja` luo käyttäjän ja `sudo adduser syrja sudo`lisää käyttäjän sudo ryhmään
 >    - `sudo apt-get -y install ssh`asentaa ssh:n
 >    - testaan käyttäjää ottamalla ssh yhteyden localhostiin `ssh syrja@localhost`salasanan jälkeen sisällä joten homma ok. pois `exit`
 >    - root lukitaan tarvittaessa `sudo usermod -- lock root`
 >    - `sudoedit /etc/ssh/sshd_config`poistetaan SSH root login käytöstä. komento avaa conf-tiedoston jonka kohdassa `permitRootLogin`muutetetaan `no`
+>    - `su user`
        
 6.  kirjautumisen automatisointi julkisella SSH-avaimella
 >   - tarkastan ssh tilan `systemctl status ssh`
@@ -59,7 +60,14 @@
     
 7.  Django tuotannossa
 >  - `sudo apt-get -y install virtualenv` asentaa virtuaalisen kehitysympäristön
->  - `cd`ja `mkdir -p publicwsgi` luo hakemiston ympäristölle
+>  - `cd`ja `mkdir -p publicwsgi` luo hakemiston ympäristölle (tarkista onko tarpeen vai tuleeko autom. ylemmän komennnon seurauksena)
 >  - `cd`ja `cd publicwsgi/` siirtyy kyseiseen hakemistoon
->  - `virtualenv -p python3 --system-site-packages env` luo virtuaaliym
+>  - `virtualenv -p python3 --system-site-packages env` luo virtuaaliympäristön
+>  - `source env/bin/activate` aktivoi ympäristön `which pip`tsekkaa että ollaan oikeassa miljöössä
+>  - `micro requirements.txt` -> `django` määrittää asennettavan paketin testaa toimiiko `django < requirements.txt` suoraan
+>  - `pip install -r requirements.txt`asentaa Djangon, `django-admin --version`tarkistaa asennetun version
+>  - `django-admin startproject kadico` luo uuden Django-projektin
+>  - 
+>  - 
+
 8.  
