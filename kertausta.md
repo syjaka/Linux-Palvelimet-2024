@@ -63,7 +63,7 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >          </Directory>
 >         </VirtualHost>
 >     - `cat /etc/apache2/sites-available/pyora.example.com.conf`näyttää luodon conffin
->     - `sudo a2ensite pyora.example.com` aktivoi confin
+>     - `sudo a2ensite pyora.example.com` aktivoi confin `sudo a2dissite 000-default.conf `poistaa defaultin saatavilta
 >     - `sudo systemctl restart apache2`uudelleenkäynnistää asetusten käyttöönottoon
 >     - `mkdir -p /home/xubuntu/publicsites/pyora.example.com/` luo hakemiston sivuston sisältötiedostolle
 >     - `echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html` luo em tiedoston ja tallentee sinne sanan pyörä
