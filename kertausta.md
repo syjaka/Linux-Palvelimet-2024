@@ -126,6 +126,11 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 > 2. [Python]()
 >  - Automatisointihakemistossa `mkdir kerroaika.py`
 >  - `micro kello.py`tallennan `#!/usr/bin/bash` rv `from datetime import datetime`rv `nyt = datetime.now()` rv `kellonaika = nyt.strftime("%H:%M:%S")`rv `print(f"Kello on nyt: {kellonaika}")`
+> "
+9. Sekalaisia komentoja
+>  - `ip route`näyttää reititystaulun 
+>  - `ip addr show`oman ip-osoitteen jota voi suodattaa vielä näyttämään vain ip ja ip-6 osoitteet`| grep -e inet -e inet6`
+10. 
 >
 > Lähteet:
 >
