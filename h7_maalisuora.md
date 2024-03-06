@@ -92,6 +92,7 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
 
 - Aloitin tutustumalla vaihtoehtoihin Karvisen [sivulla](https://terokarvinen.com/search/?q=arvioitava)
 - Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava).
+- Teen varsinaisen tehtäväraportin toiseen tiedostoon [Kippo OY]() ja kirjaan tähän vain tehtävässä vaaditut seikat
 
 
 
