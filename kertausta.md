@@ -122,7 +122,7 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >  - `micro bashmoikkaa`jonne tallennetaan ekalle riville shebang (kertoo mitä tulkkia käytetään skriptin suorittamiseen)`#!/usr/bin/bash` ja toiselle riville `echo "Moikka $1!"`
 >  -  `bash bashmoikkaa kadi`tulostaa terminaaliin Hei kadi! 
 >  -  vaihtoehtoisesti `#!/usr/bin/bash` ja `echo "Tervetuloa $USER!"` tulostaa komennolla `bashmoikkaa` `Tervetuloa kadi!`
->  -  jos haluaa päivän ja kellonajan tervehdykseen voi listätä muuttujat `PAIVA=$(date +"%Y-%m-%d")` ja `AIKA=$(date +"%H:%M")`ja rivin `echo "Tänään on $PAIVA ja kello on $AIKA +3UCT."`
+>  -  jos haluaa päivän ja kellonajan tervehdykseen voi listätä muuttujat yksinkertaisesti `date --iso=min`tai monimutkaisemmin `PAIVA=$(date +"%Y-%m-%d")` ja `AIKA=$(date +"%H:%M")`ja rivin `echo "Tänään on $PAIVA ja kello on $AIKA +3UCT."`
 > 2. [Python]()
 >  - Automatisointihakemistossa `mkdir kerroaika.py`
 >  - `micro kello.py`tallennan `#!/usr/bin/bash` rv `from datetime import datetime`rv `nyt = datetime.now()` rv `kellonaika = nyt.strftime("%H:%M:%S")`rv `print(f"Kello on nyt: {kellonaika}")`
