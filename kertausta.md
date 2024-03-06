@@ -1,3 +1,10 @@
+## Work in progress in definately
+
+--- 
+
+### Tämä muistiinpanokimara on muodostunut omien kokeilujeni ja tehtävieni suorituksista. Tarkoiteksena on koota kurssin edetessä kattava cheatsheetti omaan tulevaisuuden harjoitteluun, sekä jäsentää jo opittua. 
+Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähteet on merkitty tekstiin ja loppuun
+
 1. Linuxin asennus VirtualBoxiin
  > - Asenna kone
  > - Testaa toimivuus navigoimalla selaimella
@@ -20,11 +27,11 @@
 >  - Bash comletion `sudo apt-get -y install bash-completion` 
 >  - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
 >    - plugareita microon
->       - `plugin install misspell`on luhärön paras kaveri.
->       -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee
+>       - `plugin install misspell`on luhärön paras kaveri. [lähde](https://github.com/CamilleScholtz/micro-misspell-plugin)
+>       -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee. 
 >       - `git clone https://github.com/terokarvinen/micro-cheat.git` asentaa micron bash-completionia vastaavan Fi avaa uuteen ikkunaan kyseisen kielen
 >        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
->        - mukavammat värit `ctrl+E` ja `set colorscheme simple`
+>        - mukavammat värit `ctrl+E` ja `set colorscheme simple` (Karvinen, 2020)
 >
 
 4. Yleisiä niksejä
@@ -105,4 +112,9 @@
 > 2. [Python]()
 >  - Automatisointihakemistossa `mkdir kerroaika.py`
 >  - `micro kello.py`tallennan `#!/usr/bin/bash` rv `from datetime import datetime`rv `nyt = datetime.now()` rv `kellonaika = nyt.strftime("%H:%M:%S")`rv `print(f"Kello on nyt: {kellonaika}")`
+>
+> Lähteet:
+>
+> Lehto S. 2022, Komentojen automatisointi ja skriptaus. Luettavissa https://susannalehto.fi/2022/komentojen-automatisointi-ja-skriptaus-h6/. Luettu 01.2024
+> Karvinen T. 2020, CommandLineRevisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Luettu 01.2024
 
