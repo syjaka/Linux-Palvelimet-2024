@@ -28,7 +28,7 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >  - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
 >    - plugareita microon
 >       - `micro --plugin install misspell`on luhärön paras kaveri. [lähde](https://github.com/CamilleScholtz/micro-misspell-plugin)
->         `cd $HOME/.config/micro/plug/`
+>       - `micro --plugin install git`ja `cd $HOME/.config/micro/plug/` mahdollistaa ao plugarit
 >       -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee. 
 >       - `git clone https://github.com/terokarvinen/micro-cheat.git` asentaa micron bash-completionia vastaavan Fi avaa uuteen ikkunaan kyseisen kielen
 >        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
