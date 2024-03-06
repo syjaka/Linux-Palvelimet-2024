@@ -130,6 +130,8 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 9. Sekalaisia komentoja
 >  - `ip route`näyttää reititystaulun 
 >  - `ip addr show`oman ip-osoitteen jota voi suodattaa vielä näyttämään vain ip ja ip-6 osoitteet`| grep -e inet -e inet6`
+>  - `mv vanha_nimi uusi_nimi` -n estää päällekirjoituksen
+>  - `rm tiedosto toinen_tiedosto kolmas_tiedosto`poistaa `rm -r hakemisto`poistaa hakemiston
 10. 
 >
 > Lähteet:
