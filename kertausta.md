@@ -51,7 +51,7 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >    -  Jokaisen hakemiston oikeudet on määritelty sen metatiedoissa ja yo komennon `g`kertoo sen ryhmän oikeudet mihin kyseinen halemisto kuuluu
 >    -   `sudo chown :uusiryhma /polku/kansio` muuttaa  kansio hakemiston uusiryhmälle. : rajaa kuitenkin vain oikeuksien muutoksen, omistajuus ei muutu.
 
-5. [Apache ja nimipalvelin](https://httpd.apache.org/docs/2.4/vhosts/name-based.html)
+5. [Apache ja nimipalvelin](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
 >    - `sudo apt-get -y install apache2`asentaa apachen ja `echo "Default"|sudo tee /var/www/html/index.html` korvaa defaultin
 >    - `sudoedit /etc/apache2/sites-available/pyora.example.com.conf`luon conffin jonka sisältö:
 >          <VirtualHost *:80>
