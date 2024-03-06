@@ -4,9 +4,9 @@
 
 Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamalleni kielelle ja sen jälkeen laittaa linuxiin uusi komento joka ajaa tuon tervehdyksen kaikkien käyttäjien toimesta. Tämän jälkeen tuli ratkaista arvioitava labraharjotus ja viimeiseksi valmistella uusi tyhjä virtuaalikone tietyin sallituin lisäyksin. (Karvinen 2024, a)
 
-- a) [Käännä "Hei Maailma"]()
-- b( [Aseta Linuxiin uusi kaikkien käyttäjien suoritettavissa oleva komento joka ajaa a-kohdan]()
-- c) [Ratkaise labratehtävä]()
+- a) [Käännä "Hei Maailma"](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#a-k%C3%A4%C3%A4nn%C3%A4-hei-maailma)
+- b( [ Laita Linuxiin uusi komento niin, että kaikki käyttäjät voivat ajaa sitä.](https://github.com/syjaka/Linux-Palvelimet-2024/edit/main/h7_maalisuora.md#b-seuraavaksi-tein-pienen-uuden-skriptin-ja-asetin-sen-kaikkien-saataville)
+- c) [Ratkaise labratehtävä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#c-labrateht%C3%A4v%C3%A4n-ratkaisua)
 - d) [Asenna tyhjä virtuaalikone]()
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/new/main#y)
 - z)[Alkutoimenpiteet](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#z)
@@ -30,40 +30,44 @@ Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamal
 ## a) Käännä hei maailma
 
 Tehtävän suoritus 17.05 - ja valmista oli 18.25 UTC+3. Lähteenä on käytetty Tero Karvisen 05.03.2024 luentomuistiinpanoja, sekä tekstissä erikseen mainittuja lähteitä.
-Päätin koikeilla tehtävää muutamalla tutulla ja yhdellä uudella kielellä
+Päätin koikeilla tehtävää muutamalla tutulla ja yhdellä minulle vieraamalla kielellä
   
   1. Python on yksinkertaisin ja tallennan tämä tiedostoon `pythonmoikkaa.py`
+     
    > - `micro pythonmoikkaa.py` luo .py tiedoston
    > - `python3 pythonmoikkaa.py` kääntää kyseisen tiedoston
   2. Tallensin lyhyen java-pätkän `mkdir java`-komennolla luomaani java-hakemiston tiedostoon `javamoikkaa.java` (tim 2024)
-   > ![7.001_java]()
+
+   > ![7.001_java](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.001_java.png)
    > Javan kääntämiseen tarvitaan OpenJDK-paketti 
    > `sudo apt-get update` ja `sudo apt install openjdk-21-jdk` asensivat paketin (tim 2024).
    > Tämä kuitenkin tarjosi herjan kuten alla joten päädyin kokeilemaan aiempaa versiota paketista (AskUbuntu 2023).
-   > ![7.001_unable_jdk]()
+   > ![7.002_unable_jdk](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.002_unable_jdk.png)
    > `sudo apt install openjdk-17-jdk` toimi.
+
    >  Asennuksen jälkeen testasin lopputulosta. `java - version` ja `javac -version` paljastivat että asennuus oli onnistunut (tim 2024)
-   > ![7.002_java_version]()
+   > ![7.003_java_version](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.003_java_version.png)
+
    > Komennolla `java JavaMoikkaa` suoritin tiedoston ja lopputulos oli toivottu
-   > ![7.004_java_javamoikkaa]()
+   > ![7.004_java_javamoikkaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.004_java_javamoikkaa.png)
 
   3. C++:aa varten tuli asentaa GCC kääntäjä, jos olisin aloittanut tästä olisin huomannut että tämä olisi voinut hoitaa myös Javan käännöksen (linuxwiki 2021)
   > Ensin loin `mkdir cpp` ja `micro cppmoikkaa.cpp`
-  > ![7.006_cpp_moikkaa_file]()
-  > 
+  > ![7.006_cpp_moikkaa_file](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.006_cpp_moikkaa_file.png)
+  
   > `sudo apt install build-essential` asentaa build-essential paketit jotka sisältävät myös GCC-kääntäjän
   >  `gcc --version` tulostaa juuri asennetun sisällön (geeksforgeeks 2021)
-  > ![ 7.005_GCC_installed]()
+  > ![ 7.005_GCC_installed](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.005_GCC_installed.png)
   > `g++ cppmoikkaa.cpp` kääntää ja linkkaa cppmoikkaa.cpp-tiedoston luodakseen kohdetiedoston a.out nykyiseen hakemistoon
   > `./a.out` suorittaa kyseisen tiedoston joka siis kääntää ja suorittaa luodun C++ scriptin 
-  > ![7.007_cpp_toimii]()
+  > ![7.007_cpp_toimii](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.007_cpp_toimii.png)
   > Tämä osio vei selkeästi suurimman osan työskentelyajasta 
 
 [takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
 
 ---
 
-## b) Seuraavaksi asetin luodun koodinpätkän komennoksi 
+## b) Seuraavaksi tein pienen uuden skriptin ja asetin sen kaikkien saataville
 
 Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suorituksessa on käytetty Tero Karvisen 05.03.2024 luentomuistiinpanojani.
 
@@ -71,14 +75,14 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
   > `mkdir pythonit` loin hakemiston python ohjelmille
   > `micro hellurei.py` loin hellurei nimisen python tiedoston
   > tallensin tiedostoon python-pätkän
-  > ![7.101_hellurei_py]()
+  > ![7.101_hellurei_py](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.008_hellurei_py.png)
   - Sitten asetin luodun komennon kaikkien käyttöön kaikkialla
   > Lisäsin hellurei.py-tiedostoon #!-polun joka määrittää että komento ajetaan Bashilla.
-  > ![7.102_hash_bang_added]()
+  > ![7.102_hash_bang_added](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.102_hash_bang_added.png)
   > Annoin kaikille käyttäjille tarvittavat oikeudet komennolla `chmod ugo+rx hellurei.py`
   > Kopioin tiedoston kaikkien saataville `sudo cp hellurei.py /usr/local/bin/`
   > Lopputuloksena muutkin käyytäjät saavat tiedoston ajettua
-  > ![7.103_testaaja_testaa]()
+  > ![7.103_testaaja_testaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.103_testaaja_testaa.png)
 
 [takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
   
