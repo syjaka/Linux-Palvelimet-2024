@@ -72,7 +72,20 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >     - `sudoedit /etc/hosts` [tiedostoon](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/) lisätään domainnimet ja ohjaus localhostiin 
 >     - Nyt koira.example.com ja pyora.example.com vastaa selaimella
 
-6. Lisää käyttäjä ja lukitse root ja asenna ssh tai vaihda käyttäjää
+6. Asenna SSH
+   Palvelin etäyhteydellä hallintaan
+>  -  `sudo apt update`ja `sudo apt upgrade -y` päivittää ajan tasalle
+>  -  `sudo apt install openssh-server -y`asentaa OpenSSH-palvelimen
+>  -  `sudo systemctl status ssh` tarkistaa palvelimen tilan
+>  -  `sudo systemctl start ssh`tarvittaessa käynnistä
+>  -  `sudo ufw allow ssh` `sudo ufw enable` `sudo ufw status` Sallii SSH-palomuurissa
+>  -  `ssh <käyttäjänimi>@localhost`testaa yhteyden
+  Paikallinen yhteys
+>  - `sudo apt-get -y install ssh`asentaa ssh:n
+> - testaan käyttäjää ottamalla ssh yhteyden localhostiin `ssh syrja@localhost`salasanan jälkeen sisällä joten homma ok. pois `exit`
+
+
+7. Lisää käyttäjä ja lukitse root ja asenna ssh tai vaihda käyttäjää
 
 >    - `sudo adduser syrja` luo käyttäjän ja `sudo adduser syrja sudo`lisää käyttäjän sudo ryhmään
 >    - `sudo apt-get -y install ssh`asentaa ssh:n
