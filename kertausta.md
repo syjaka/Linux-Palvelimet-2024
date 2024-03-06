@@ -16,7 +16,7 @@
 >        `cd /media/USER/VBox...` + `ls` + `sudo bash VBoxLinuxAdditions.run` jonka jälkeen järjestelmän uudelleenkäynnistys
 >  - leikepöytä käyttöön : **Devices** + **Shared clipboard** + **Bidirectional**
 
-3. Muiden lisäosien asennus ja käyttöönotto [peruskomennot](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited)) [cheatsheet](https://terokarvinen.com/2022/command-palette-cheatsheet-run-and-make-micro/)
+3. Muiden lisäosien asennus ja käyttöönotto [peruskomennot](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) [cheatsheet](https://terokarvinen.com/2022/command-palette-cheatsheet-run-and-make-micro/)
 >  - Bash comletion `sudo apt-get -y install bash-completion` 
 >  - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
 >    - plugareita microon
@@ -93,7 +93,7 @@
 >  - 
 >  - 
 
-8.  [Erilaisia skriptejä / komentojen luonti käyttäjille](https://susannalehto.fi/2022/komentojen-automatisointi-ja-skriptaus-h6/)
+8.  Erilaisia skriptejä / [komentojen luonti käyttäjille](https://susannalehto.fi/2022/komentojen-automatisointi-ja-skriptaus-h6/)
    Luo aluksi `mkdir automatisointi`kotihakemistoon HUOM tee nää jonain muuna kuin pääkäyttäjänä
 > 1. [Bash]()
 >  - Automatisointihakemistossa `mkdir tervehdibash` jonne `micro bashmoikkaa`
