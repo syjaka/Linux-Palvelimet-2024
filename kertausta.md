@@ -19,6 +19,7 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >   - `sudo ufw allow 22/tcp` - SSH
 >   - `sudo ufw allow 80/tcp` -http
 >   - `sudo ufw allow/443/tcp` - TSL encrypted
+>   - `ufw status`palauttaa tilan
 >  - Guest additions - **devices** + **Insert Guest Additions** + Menen **applications** ja valitse **File manager**ista **Vbox_GAs...CDROM**
 >        `cd /media/USER/VBox...` + `ls` + `sudo bash VBoxLinuxAdditions.run` jonka jälkeen järjestelmän uudelleenkäynnistys
 >  - leikepöytä käyttöön : **Devices** + **Shared clipboard** + **Bidirectional**
@@ -41,8 +42,8 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 
 5. Käyttäjät, ryhmät ja salasanageneraattori
 >    - `export PS1="\W\$ "`lyhentää promptin kattamaan vain nykyisen hakemiston
->    - sudo `adduser user` luo käyttäjän `su user`vaihtaa käyttäjään
->    - `groupadd kayttajat`luo kayttajat ryhmän
+>    - `sudo adduser user` luo käyttäjän `su user`vaihtaa käyttäjään
+>    - `sudo groupadd kayttajat`luo kayttajat ryhmän
 >    - `sudo usermod -a -G kayttajat tavis` lisää tavis-käyttäjän ryhmään kayttajat (-a append lisää ja -G määrittelee mihin ryhmään)
 >    - `sudo usermod -g uusiryhma tavis` -g optio asettaa taviksen uuteen pääryhmään joka on ollut tavis taviksen luonnista lähtien
 >    - `getent group tavis`tarkastelee tavis-ryhmän jäseniä
@@ -50,27 +51,29 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >    -  `sudo chmod u=rwx,g=rx,o= /polku/kansio` asettaa käyttäjälle `u` kaikki oikeudet, ryhmälle `r` luku oikeudet ja muille `o``ei mitään oikeuksia
 >    -  Jokaisen hakemiston oikeudet on määritelty sen metatiedoissa ja yo komennon `g`kertoo sen ryhmän oikeudet mihin kyseinen halemisto kuuluu
 >    -   `sudo chown :uusiryhma /polku/kansio` muuttaa  kansio hakemiston uusiryhmälle. : rajaa kuitenkin vain oikeuksien muutoksen, omistajuus ei muutu.
+>    -   `sudo chgrp ryhmä /polku/kansio`siirtää omistajuudenkin
 
-5. [Apache ja nimipalvelin](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
+5. [Apache ja nimipalvelin](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/) [oma repo](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md)
 >    - `sudo apt-get -y install apache2`asentaa apachen ja `echo "Default"|sudo tee /var/www/html/index.html` korvaa defaultin
 >    - `sudoedit /etc/apache2/sites-available/pyora.example.com.conf`luon conffin jonka sisältö:
->          <VirtualHost *:80>
->         ServerName pyora.example.com
->         ServerAlias www.pyora.example.com
->          DocumentRoot /home/kadi/publicsites/pyora.example.com
->          <Directory /home/kadi/publicsites/pyora.example.com>
->            Require all granted
->          </Directory>
->         </VirtualHost>
->     - `cat /etc/apache2/sites-available/pyora.example.com.conf`näyttää luodon conffin
->     - `sudo a2ensite pyora.example.com` aktivoi confin `sudo a2dissite 000-default.conf `poistaa defaultin saatavilta
->     - `sudo systemctl restart apache2`uudelleenkäynnistää asetusten käyttöönottoon
->     - `mkdir -p /home/xubuntu/publicsites/pyora.example.com/` luo hakemiston sivuston sisältötiedostolle
->     - `echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html` luo em tiedoston ja tallentee sinne sanan pyörä
->     - `curl -H 'Host: pyora.example.com' localhost`tähän vastaa confitiedoston määrittelemä sisältötiedosto
->     - `curl localhost`  tähän vastaa virtuaalipalvelimen defaultsivu eli aakkosista eka enabled
->     - `sudoedit /etc/hosts` [tiedostoon](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/) lisätään domainnimet ja ohjaus localhostiin 
->     - Nyt koira.example.com ja pyora.example.com vastaa selaimella
+> >         <VirtualHost *:80>
+> >       ServerName pyora.example.com
+> >      ServerAlias www.pyora.example.com
+> >         DocumentRoot /home/kadi/publicsites/pyora.example.com
+> >        <Directory /home/kadi/publicsites/pyora.example.com>
+> >           Require all granted
+> >        </Directory>
+> >        </VirtualHost>
+>    -  `cat /etc/apache2/sites-available/pyora.example.com.conf`näyttää luodon conffin
+>    - `sudo a2ensite pyora.example.com` aktivoi confin `sudo a2dissite 000-default.conf `poistaa defaultin saatavilta
+>    - `sudo systemctl restart apache2`uudelleenkäynnistää asetusten käyttöönottoon
+>    - `mkdir -p /home/xubuntu/publicsites/pyora.example.com/` luo hakemiston sivuston sisältötiedostolle
+>    - `echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html` luo em tiedoston ja tallentee sinne sanan pyörä
+>    - `curl -H 'Host: pyora.example.com' localhost`tähän vastaa confitiedoston määrittelemä sisältötiedosto
+>    - `curl localhost`  tähän vastaa virtuaalipalvelimen defaultsivu eli aakkosista eka enabled
+>    - `sudoedit /etc/hosts` [tiedostoon](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/) lisätään domainnimet ja ohjaus localhostiin 
+>    - Nyt koira.example.com ja pyora.example.com vastaa selaimella
+>    - apachen lokit `sudo tail /var/log/apache2/haluttu loki` esim other_vhosts_access.log
 
 6. Asenna SSH
    Palvelin etäyhteydellä hallintaan
