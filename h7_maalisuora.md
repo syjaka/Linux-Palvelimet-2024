@@ -91,10 +91,52 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
 ## c) Labratehtävän ratkaisua
 
 - Aloitin tutustumalla vaihtoehtoihin Karvisen [sivulla](https://terokarvinen.com/search/?q=arvioitava)
-- Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava).
-- Teen varsinaisen tehtäväraportin toiseen tiedostoon [Kippo OY]() ja kirjaan tähän vain tehtävässä vaaditut seikat
+- Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava). Tehtävässä oli paljon osia joita emme olleet tunnilla käyneet läpi, mutta tunyui kuitenkin jokseenkin tutulta. Se saattoi olla aavistuksen liian kunnianhimoinen tehtävän jäädessä kesken yli 25 h työskentelyn jälkeen. Tässä kuitenkin tulokset kuin tehtävänannossa oli pyydetty tallennettavaksi, Tehtävä on kokonaisuudessaan raportoitu Labraharjoitus vuodelta 2024 [tiedostoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7.1_2021_labra_Kippo_Oy.md)
 
+### 1 .Turvallisesti etänä - SSH etäylläpidon avaus koneelle
+> ![ssh](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_1_ssh_vastaa.png)
 
+### 2. Asiantuntijat
+- Käyttäjät kuten alla Kadi on root ja Kadriye on sudo ryhmään kuuluva tavallinen käyttäjä:
+  > ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/2249fb98-7690-4939-baee-027c1554b087)
+- Salasanat löytyvät listattuna tehtävän raportissa
+
+### 3. Mikä verkko mikä meininki
+- Tee uusi netsee komento joka näyttää ainakin reititystaulun ja oman IP-osoitteen. Voit lisätä halutessasi jonkin ekstratiedon.
+  > Testi tavallisena käyttäjänä.
+  > ![]([https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_2_bash_netsee.png](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_3_arnoldi_testaa.png))
+
+### 4. kippo.example.com
+- Tee meille weppipalvelu osoitteeseen kippo.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
+- Tee sivu siten, että webmasterimme Ossi pääsee muokkaamaan sivuja. Tee Ossille valmiiksi validi HTML5-sivu pohjaksi. Siis siten, että osoitteesta kippo.example.com näkyy validi esimerkkisivu, josta selkeästi näkyy, että on tultu Kipppo-sivulle.
+  > ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/5ec6cfa6-41a4-4c85-8cb0-e5e9328a2dca)
+  > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_7_tulikettu_kippo_vastaa.png)
+  > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_7_tulikettu_kippo_vastaa_www.png)
+  
+### 5. sanko.example.com
+
+Tee meille toinen weppipalvelu samalle koneelle osoitteeseen sanko.example.com samaan tapaan kuin edellinen. Tätä sivua pitäsi päästä muokkaamaan Sanko-tiimimme Einari ja Erkki, joskin tiimin jäsenet voivat tulevaisuudessa vaihtua. Tee myös Sanko-tiimille validi esimerkkisivu.
+- Sanko ryhmä jäsenineen:
+- Sivuston sisältö einavan kotihakemistossa jossa myös oikeudet päivitetty komennolla `sudo chmod u=rwx,g=rx,o=rx /home/einava`:
+  >![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_12_en_enaa_jaksa_en.png)
+  >![](https://github.com/syjaka/Linux-Palvelimet-2024/raw/main/images/7.1_2021_11_en_enaa_jaksa.png)
+- Lopputulos selaimella:
+  > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_16_tulikettu_sanko_vastaa_www.png)
+
+### 6. ampari.example.com
+Ampari on uusi palvelumme, josta käyttäjä saa kiintoisia tietoja. Palvelua voi käyttää millä vain käyttöjärjestelmällä ja selaimella.
+1. Tee meille tuotantotyyppinen asennus weppipalvelusta Flaskilla.
+2. Tee Python Flaskilla palvelu, josta löytyy seuraavat osoitteet( tämän tein Djangolla):
+  - http://ampari.example.com/ "Hei amparien maailma" (literaalisti tämä teksti) - Tämä jäi kesken
+  > Djangolle luodun apin tempalate/index.html vastaa localhostiin. ampari.example.com ei toiminut.
+  > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_19_localhost%20ampari%20vastaa.png)
+  - http://ampari.example.com/today Päivämäärä ja kellonaika - Tämä jäi tekemättä.
+
+### 7. Kurlataan
+Nörttimme kaipaavat teknistä tietoa weppipalveluista. Kerää raporttisi perään 'curl -i http://localhost' tiedot jokaisesta URLsta, jotka olet tehnyt vastauksena tämän tehtävän eri kohtiin.
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_kippo%20kurlaa.png)
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_sanko_kurlaa.png)
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_ampari_kurlaa.png)
 
 
 Lähteet:
