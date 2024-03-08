@@ -1,6 +1,6 @@
 # Keskeneräinen
 
-# Maalisuora
+# h_7 Maalisuora
 
 Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamalleni kielelle ja sen jälkeen laittaa linuxiin uusi komento joka ajaa tuon tervehdyksen kaikkien käyttäjien toimesta. Tämän jälkeen tuli ratkaista arvioitava labraharjotus ja viimeiseksi valmistella uusi tyhjä virtuaalikone tietyin sallituin lisäyksin. (Karvinen 2024, a)
 
@@ -160,6 +160,8 @@ Tehtävän suoritus alkoi 23.05.
 7. Valitsen ´install` ja klo 23.30 asennus alkaa
 
 # h8_Bonus
+- [Asenna Vagrant](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
+  
 
 
 Lähteet:
