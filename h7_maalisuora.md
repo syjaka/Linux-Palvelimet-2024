@@ -90,8 +90,10 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
 
 ## c) Labratehtävän ratkaisua
 
+Tehtävän suoritus oli jokseenkin aikaavievää. Tein sitä oseassa osassa yhteensä reilu 25h. Tarkempi ajankäyttö listattu varsinaisessa tehtäväraportissa.
 - Aloitin tutustumalla vaihtoehtoihin Karvisen [sivulla](https://terokarvinen.com/search/?q=arvioitava)
-- Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava). Tehtävässä oli paljon osia joita emme olleet tunnilla käyneet läpi, mutta tunyui kuitenkin jokseenkin tutulta. Se saattoi olla aavistuksen liian kunnianhimoinen tehtävän jäädessä kesken yli 25 h työskentelyn jälkeen. Tässä kuitenkin tulokset kuin tehtävänannossa oli pyydetty tallennettavaksi, Tehtävä on kokonaisuudessaan raportoitu Labraharjoitus vuodelta 2024 [tiedostoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7.1_2021_labra_Kippo_Oy.md)
+- Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava). Tehtävässä oli paljon osia joita emme olleet tunnilla käyneet läpi, mutta tunyui kuitenkin jokseenkin tutulta. Se saattoi olla aavistuksen liian kunnianhimoinen tehtävän jäädessä kesken yli 25 h työskentelyn jälkeen. Tässä kuitenkin tulokset kuin tehtävänannossa oli pyydetty tallennettavaksi,
+##### Tehtävä on kokonaisuudessaan raportoitu Labraharjoitus vuodelta 2024 [tiedostoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7.1_2021_labra_Kippo_Oy.md)
 
 ### 1 .Turvallisesti etänä - SSH etäylläpidon avaus koneelle
 > ![ssh](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_1_ssh_vastaa.png)
@@ -137,6 +139,27 @@ Nörttimme kaipaavat teknistä tietoa weppipalveluista. Kerää raporttisi perä
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_kippo%20kurlaa.png)
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_sanko_kurlaa.png)
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_ampari_kurlaa.png)
+
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
+
+---
+
+## d) asenna itsellesi tyhjä virtuaalikone.
+
+Tehtävän suoritus alkoi 23.05.
+1. Avaan virtualboxin ja luon sinne uuden virtuaalikoneen nimeltä labra. Alla koneelle antamani specsit.
+   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.201.png)
+   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.202.png)
+   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.203.png)
+   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.204.png)
+2. Valitsen virtualboxixta start ja valitsen avautuvasta ikkunasta linux live asennuksen.
+3. Linuxin auettua testaan syötteet ja netin ja teen googlehaun v'sytt'', netti ja syötteet toimii.
+4. Suljen selaimen ja klikkaan `install debian`ja herjaan `launch anyway`
+5. Tein alue ja maavalinnat ja valitsen kovalevyn alustuskohdassa `tyhjennä levy`
+6. Annan oman nimeni "kadi" ja koneen nimen "labra"
+7. Valitsen ´install` ja klo 23.30 asennus alkaa
+
+# h8_Bonus
 
 
 Lähteet:
