@@ -5,7 +5,7 @@
 Tämän viikon kotitehtävässä tuli ensiksi kääntää "Hei maailma" haluamalleni kielelle ja sen jälkeen laittaa linuxiin uusi komento joka ajaa tuon tervehdyksen kaikkien käyttäjien toimesta. Tämän jälkeen tuli ratkaista arvioitava labraharjotus ja viimeiseksi valmistella uusi tyhjä virtuaalikone tietyin sallituin lisäyksin. (Karvinen 2024, a)
 
 - a) [Käännä "Hei Maailma"](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#a-k%C3%A4%C3%A4nn%C3%A4-hei-maailma)
-- b( [ Laita Linuxiin uusi komento niin, että kaikki käyttäjät voivat ajaa sitä.](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#b-seuraavaksi-tein-uuden-skriptin-ja-asetin-sen-kaikkien-saataville)
+- b) [ Laita Linuxiin uusi komento niin, että kaikki käyttäjät voivat ajaa sitä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#b-seuraavaksi-tein-uuden-skriptin-ja-asetin-sen-kaikkien-saataville)
 - c) [Ratkaise labratehtävä](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#c-labrateht%C3%A4v%C3%A4n-ratkaisua)
 - d) [Asenna tyhjä virtuaalikone]()
 - y)[ Työskentely-ympäristö](https://github.com/syjaka/Linux-Palvelimet-2024/new/main#y)
@@ -93,13 +93,14 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
 ## c) Labratehtävän ratkaisua
 
 Tehtävän suoritus oli minun kohdalla hyvin aikaavievää. Tein tehtävää useassa osassa yhteensä reilu 25h. Tarkempi ajankäyttö listattu varsinaisessa tehtäväraportissa. Merkittävin syy tähän lienee se, että valitsin tehtävän jossa oli paljon elementtejä kurssin sisällön ulkopuolelta. Tämä tietenkin johti siihen, että minun piti opetella ja ymmärtää asiat ennen onnistumista. Vaikka tehtävä jäi kesken, oli se hyvin opettavainen ja koin tekemisen hyödylliseksi.
-- Valitsemani labraharjoitus oli [Kippo Oy:n tietohallintojohtajan nakkikimara](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava).  Tehtävän suorituksesta syntyi aavistuksen pitkä raportti josta olen tähän alle koonnut tulokset, kuin niitä tehtävänannossa oli pyydetty.
-#### Tehtävä on kokonaisuudessaan raportoitu Labraharjoitus vuodelta 2024 [tiedostoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7.1_2021_labra_Kippo_Oy.md).
+- Valitsemani labraharjoitus oli [Kippo Oy:n tietohallintojohtajan nakkikimara](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava).  Tehtävän suorituksesta syntyi pitkähkö raportti, josta olen tähän alle koonnut tulokset, kuin niitä tehtävänannossa oli pyydetty.
+### Tehtävä on kokonaisuudessaan raportoitu Labraharjoitus vuodelta 2024 [tiedostoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7.1_2021_labra_Kippo_Oy.md).
 
 ### 1 .Turvallisesti etänä - SSH etäylläpidon avaus koneelle.
 Aiot kuulemma siirtyä etätöihin Hawajille. Valmistaudu ylläpitämään konetta ssh:lla. (Testaa paikallisesti, että SSH toimii).
 Suojaa kone tulimuurilla.
 > Tehtävän suorituksen lopputuloksena asennettu SSH-palvelin joka sallii käyttäjän kirjautumisen koneelle etänä, vaikka Havajilta.
+> 
 > ![ssh](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_1_ssh_vastaa.png)
 
 ### 2. Asiantuntijat
@@ -114,13 +115,14 @@ Luo yrityksen työntekijöille Kippo-virtuaalikoneen käyttäjätunnukset.
 Tee uusi netsee komento joka näyttää ainakin reititystaulun ja oman IP-osoitteen. Voit lisätä halutessasi jonkin ekstratiedon.
   
   > Ao testi suoritettu tavallisena käyttäjänä - arnosj.
+  > 
   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_3_arnoldi_testaa.png)
 
 ### 4. kippo.example.com
 Tee meille weppipalvelu osoitteeseen kippo.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
 - Tee sivu siten, että webmasterimme Ossi pääsee muokkaamaan sivuja. Tee Ossille valmiiksi validi HTML5-sivu pohjaksi. Siis siten, että osoitteesta kippo.example.com näkyy validi esimerkkisivu, josta selkeästi näkyy, että on tultu Kipppo-sivulle.
   
-  > Sivuston sisältö on tallennettu ossiot-kotihakemistoon jolloin Ossilla on täysi valta sivuston ylläpitoon.
+  > Sivuston sisältö on tallennettu ossiot-kotihakemistoon, jolloin Ossilla on täysi valta sivuston ylläpitoon.
   > 
   > ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/5ec6cfa6-41a4-4c85-8cb0-e5e9328a2dca)
   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_7_tulikettu_kippo_vastaa.png)
@@ -129,16 +131,21 @@ Tee meille weppipalvelu osoitteeseen kippo.example.com. Voit simuloida nimipalve
 ### 5. sanko.example.com
 
 Tee meille toinen weppipalvelu samalle koneelle osoitteeseen sanko.example.com samaan tapaan kuin edellinen. Tätä sivua pitäsi päästä muokkaamaan Sanko-tiimimme Einari ja Erkki, joskin tiimin jäsenet voivat tulevaisuudessa vaihtua. Tee myös Sanko-tiimille validi esimerkkisivu.
-> Sanko ryhmä jäsenineen.
+
+> Sanko-ryhmä jäsenineen.
 > 
 > ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/d5e4055e-3953-47fc-a698-9033a357014b)
 
-> Sivuston sisältö einavan kotihakemistossa jossa myös oikeudet päivitetty komennolla `sudo chmod u=rwx,g=rx,o=rx /home/einava`:
+> Sivustojen conf tiedostot (tässä myös kippo sivusto näkyvissä).
 > 
->![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_12_en_enaa_jaksa_en.png)
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_12_en_enaa_jaksa_en.png)
+>
+> Sivuston sisältö einavan kotihakemistossa jossa myös oikeudet päivitetty komennolla `sudo chmod u=rwx,g=rx,o=rx /home/einava`. (myös tässä näkyy kippo ylimääräisenä)
+> 
 >![](https://github.com/syjaka/Linux-Palvelimet-2024/raw/main/images/7.1_2021_11_en_enaa_jaksa.png)
 
 > Lopputulos selaimella:
+> 
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_16_tulikettu_sanko_vastaa_www.png)
 
 ### 6. ampari.example.com
@@ -146,7 +153,7 @@ Ampari on uusi palvelumme, josta käyttäjä saa kiintoisia tietoja. Palvelua vo
 1. Tee meille tuotantotyyppinen asennus weppipalvelusta Flaskilla. - Suoritin tehtävää Djangolla.
 2. Tee Python Flaskilla palvelu, josta löytyy seuraavat osoitteet:
   - http://ampari.example.com/ "Hei amparien maailma" (literaalisti tämä teksti) - Tämä jäi kesken sillä en saanut sanko.examplecom vastaamaan Djangolla.
-> Loin Djangolle apin jonka sain vastaa localhostiin kohteesta tempalate/index.html.
+> Loin Djangolle, apin jonka sain vastaamaan localhostiin kohteesta tempalate/index.html.
 > 
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_19_localhost%20ampari%20vastaa.png)
 - http://ampari.example.com/today Päivämäärä ja kellonaika - Tämä jäi tekemättä.
@@ -158,7 +165,8 @@ Nörttimme kaipaavat teknistä tietoa weppipalveluista. Kerää raporttisi perä
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_sanko_kurlaa.png)
 > Sanko kurlaa:
 >
-> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_kippo%20kurlaa.png)
+> ![sankosanko](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/sankosanko.png)
+>
 > Ampari kurlaa:
 > 
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_ampari_kurlaa.png)
@@ -175,7 +183,7 @@ Tehtävän suoritus alkoi 23.05. ja päättyi 23.30 UCT+3. Seuraavana päivänä
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.202.png)
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.203.png)
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.204.png)
-2. Valitsen virtualboxista start ja valitsen avautuvasta ikkunasta linux live asennuksen.
+2. Valitsen virtualboxista start ja valitsen avautuvastan ikkunan Boot menusta Debian Bookworm 64 tavallisen (ei fail safe) asennuksen.
 3. Linuxin auettua testaan syötteet ja netin ja teen googlehaun v'sytt'', netti ja syötteet toimii.
 4. Suljen selaimen ja klikkaan `install debian`ja avautuvaan herjaan valitsen `launch anyway`.
 5. Tein alue- ja maavalinnat ja valitsen kovalevyn alustuskohdassa `tyhjennä levy`.
