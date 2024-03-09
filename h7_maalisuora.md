@@ -86,7 +86,7 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
   > Lopputuloksena muutkin kättäjät saavat tiedoston ajettua.   
   > ![7.103_testaaja_testaa](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.103_testaaja_testaa.png)
 
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#h_7-maalisuora)
   
 ---
 
@@ -104,8 +104,10 @@ Suojaa kone tulimuurilla.
 
 ### 2. Asiantuntijat
 Luo yrityksen työntekijöille Kippo-virtuaalikoneen käyttäjätunnukset.
+
 > Tehtävän lopputuloksen oli alla listatut käyttäjät luotuna.Näistä Kadi on root ja Kadriye on sudo-ryhmään kuuluva käyttäjä:
 > ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/2249fb98-7690-4939-baee-027c1554b087)
+>
 > Käyttäjien nimet ja salasanat löytyvät listattuna tehtävän raportissa.
 
 ### 3. Mikä verkko mikä meininki
@@ -115,9 +117,11 @@ Tee uusi netsee komento joka näyttää ainakin reititystaulun ja oman IP-osoitt
   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_3_arnoldi_testaa.png)
 
 ### 4. kippo.example.com
-- Tee meille weppipalvelu osoitteeseen kippo.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
+Tee meille weppipalvelu osoitteeseen kippo.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
 - Tee sivu siten, että webmasterimme Ossi pääsee muokkaamaan sivuja. Tee Ossille valmiiksi validi HTML5-sivu pohjaksi. Siis siten, että osoitteesta kippo.example.com näkyy validi esimerkkisivu, josta selkeästi näkyy, että on tultu Kipppo-sivulle.
+  
   > Sivuston sisältö on tallennettu ossiot-kotihakemistoon jolloin Ossilla on täysi valta sivuston ylläpitoon.
+  > 
   > ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/5ec6cfa6-41a4-4c85-8cb0-e5e9328a2dca)
   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_7_tulikettu_kippo_vastaa.png)
   > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_7_tulikettu_kippo_vastaa_www.png)
@@ -125,30 +129,41 @@ Tee uusi netsee komento joka näyttää ainakin reititystaulun ja oman IP-osoitt
 ### 5. sanko.example.com
 
 Tee meille toinen weppipalvelu samalle koneelle osoitteeseen sanko.example.com samaan tapaan kuin edellinen. Tätä sivua pitäsi päästä muokkaamaan Sanko-tiimimme Einari ja Erkki, joskin tiimin jäsenet voivat tulevaisuudessa vaihtua. Tee myös Sanko-tiimille validi esimerkkisivu.
-> Sanko ryhmä jäsenineen:
-> ![sankolaiset](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_8_weppi_ei_laske.png)
-- Sivuston sisältö einavan kotihakemistossa jossa myös oikeudet päivitetty komennolla `sudo chmod u=rwx,g=rx,o=rx /home/einava`:
-  >![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_12_en_enaa_jaksa_en.png)
-  >![](https://github.com/syjaka/Linux-Palvelimet-2024/raw/main/images/7.1_2021_11_en_enaa_jaksa.png)
-- Lopputulos selaimella:
-  > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_16_tulikettu_sanko_vastaa_www.png)
+> Sanko ryhmä jäsenineen.
+> 
+> ![image](https://github.com/syjaka/Linux-Palvelimet-2024/assets/123550796/d5e4055e-3953-47fc-a698-9033a357014b)
+
+> Sivuston sisältö einavan kotihakemistossa jossa myös oikeudet päivitetty komennolla `sudo chmod u=rwx,g=rx,o=rx /home/einava`:
+> 
+>![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_12_en_enaa_jaksa_en.png)
+>![](https://github.com/syjaka/Linux-Palvelimet-2024/raw/main/images/7.1_2021_11_en_enaa_jaksa.png)
+
+> Lopputulos selaimella:
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_16_tulikettu_sanko_vastaa_www.png)
 
 ### 6. ampari.example.com
 Ampari on uusi palvelumme, josta käyttäjä saa kiintoisia tietoja. Palvelua voi käyttää millä vain käyttöjärjestelmällä ja selaimella.
-1. Tee meille tuotantotyyppinen asennus weppipalvelusta Flaskilla.
-2. Tee Python Flaskilla palvelu, josta löytyy seuraavat osoitteet( tämän tein Djangolla):
-  - http://ampari.example.com/ "Hei amparien maailma" (literaalisti tämä teksti) - Tämä jäi kesken
-  > Djangolle luodun apin tempalate/index.html vastaa localhostiin. ampari.example.com ei toiminut.
-  > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_19_localhost%20ampari%20vastaa.png)
-  - http://ampari.example.com/today Päivämäärä ja kellonaika - Tämä jäi tekemättä.
+1. Tee meille tuotantotyyppinen asennus weppipalvelusta Flaskilla. - Suoritin tehtävää Djangolla.
+2. Tee Python Flaskilla palvelu, josta löytyy seuraavat osoitteet:
+  - http://ampari.example.com/ "Hei amparien maailma" (literaalisti tämä teksti) - Tämä jäi kesken sillä en saanut sanko.examplecom vastaamaan Djangolla.
+> Loin Djangolle apin jonka sain vastaa localhostiin kohteesta tempalate/index.html.
+> 
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_19_localhost%20ampari%20vastaa.png)
+- http://ampari.example.com/today Päivämäärä ja kellonaika - Tämä jäi tekemättä.
 
 ### 7. Kurlataan
 Nörttimme kaipaavat teknistä tietoa weppipalveluista. Kerää raporttisi perään 'curl -i http://localhost' tiedot jokaisesta URLsta, jotka olet tehnyt vastauksena tämän tehtävän eri kohtiin.
-> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_kippo%20kurlaa.png)
+> Kippo kurlaa:
+> 
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_sanko_kurlaa.png)
+> Sanko kurlaa:
+>
+> ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_kippo%20kurlaa.png)
+> Ampari kurlaa:
+> 
 > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.1_2021_25_ampari_kurlaa.png)
 
-[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#maalisuora)
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#h_7-maalisuora)
 
 ---
 
@@ -160,13 +175,13 @@ Tehtävän suoritus alkoi 23.05. ja päättyi 23.30 UCT+3. Seuraavana päivänä
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.202.png)
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.203.png)
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.204.png)
-2. Valitsen virtualboxixta start ja valitsen avautuvasta ikkunasta linux live asennuksen.
+2. Valitsen virtualboxista start ja valitsen avautuvasta ikkunasta linux live asennuksen.
 3. Linuxin auettua testaan syötteet ja netin ja teen googlehaun v'sytt'', netti ja syötteet toimii.
-4. Suljen selaimen ja klikkaan `install debian`ja herjaan `launch anyway`
-5. Tein alue ja maavalinnat ja valitsen kovalevyn alustuskohdassa `tyhjennä levy`
-6. Annan oman nimeni "kadi" ja koneen nimen "labra"
-7. Valitsen ´install` ja klo 23.30 asennus alkaa ja raksutti parikymmentä minuuttia.
-8. Asennuksen valmistuttua kone ilmoitti olevansa valmis uudelleenkäynnistykseen, jonka jälkeen pääsin kirjautumaan uusilla labra-tunnuksilla
+4. Suljen selaimen ja klikkaan `install debian`ja avautuvaan herjaan valitsen `launch anyway`.
+5. Tein alue- ja maavalinnat ja valitsen kovalevyn alustuskohdassa `tyhjennä levy`.
+6. Annan oman nimeni "kadi" ja koneen nimen "labra".
+7. Valitsen ´install`. Klo 23.30 asennus alkaa ja se raksutti parikymmentä minuuttia.
+8. Asennuksen valmistuttua kone ilmoitti olevansa valmis uudelleenkäynnistykseen, jonka jälkeen pääsin kirjautumaan koneelle uusilla labra-tunnuksilla.
 9. Kirjauduttuani avasin terminaalin ja asensin päivitykset ja palomuurin.
 >        sudo apt-get update
 >        udo apt-get dist-upgrade
@@ -178,11 +193,13 @@ Tehtävä tuli valmiiksi 19.30.
 
 # h8_Bonus
 - h3 Hello web server vapaaehtoiset tehtävät
-  > 1. [GitHub education](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#8-hanki-github-education-paketti)
-  > 2. [Nimipohjainen virtuaalipalvelin joka vastaa kahdesta eri osoitteesta](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#9--10-nimipohjainen-virtuaalipalvelin--laita-sama-tietokone-vastaamaan-kahdella-eri-sivulla-kahdesta-eri-nimest%C3%A4)
+> 1. [GitHub education](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#8-hanki-github-education-paketti)
+> 2. [Nimipohjainen virtuaalipalvelin joka vastaa kahdesta eri osoitteesta](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#9--10-nimipohjainen-virtuaalipalvelin--laita-sama-tietokone-vastaamaan-kahdella-eri-sivulla-kahdesta-eri-nimest%C3%A4)
 - h 5 Koko juttu
-  > 1. [Asenna Vagrant](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
+> 1. [Asenna Vagrant](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
   
+[takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#h_7-maalisuora)
+
 
 
 Lähteet:
