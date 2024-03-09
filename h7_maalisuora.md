@@ -67,7 +67,7 @@ Päätin koikeilla tehtävää muutamalla tutulla ja yhdellä minulle vieraamall
 
 ---
 
-## b) Seuraavaksi tein pienen uuden skriptin ja asetin sen kaikkien saataville
+## b) Seuraavaksi tein uuden skriptin ja asetin sen kaikkien saataville
 
 Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suorituksessa on käytetty Tero Karvisen 05.03.2024 luentomuistiinpanojani.
 
@@ -90,9 +90,8 @@ Tehtävän suoritus alkoi 20.45 ja päättyi 21.14 UTC+3. Tehtävän suoritukses
 
 ## c) Labratehtävän ratkaisua
 
-Tehtävän suoritus oli jokseenkin aikaavievää. Tein sitä oseassa osassa yhteensä reilu 25h. Tarkempi ajankäyttö listattu varsinaisessa tehtäväraportissa.
-- Aloitin tutustumalla vaihtoehtoihin Karvisen [sivulla](https://terokarvinen.com/search/?q=arvioitava)
-- Valitsin tehtäväksi [Kippo Oy:n tietohallintojohtajan nakkikimaran](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava). Tehtävässä oli paljon osia joita emme olleet tunnilla käyneet läpi, mutta tunyui kuitenkin jokseenkin tutulta. Se saattoi olla aavistuksen liian kunnianhimoinen tehtävän jäädessä kesken yli 25 h työskentelyn jälkeen. Tässä kuitenkin tulokset kuin tehtävänannossa oli pyydetty tallennettavaksi,
+Tehtävän suoritus oli minun kohdalla hyvin aikaavievää. Tein sitä useassa osassa yhteensä reilu 25h. Tarkempi ajankäyttö listattu varsinaisessa tehtäväraportissa. Merkittävin syy tähän lienee se, että valitsin tehtävän jossa oli paljon elementtejä kurssin sisällön ulkopuolelta. Tämä tietenkin johti siihen, että nämä asiat piti opetella ja ymmärtää ennen onnistumista. Vaikka tehtävä jäi kesken, oli se hyvin opettavainen ja sen vuoksi koin myös hyödylliseksi.
+- Valitsemani labraharjoitus oli [Kippo Oy:n tietohallintojohtajan nakkikimara](https://terokarvinen.com/2021/final-lab-for-linux-server-course-linux-palvelimet-ict4tn021-3016/?fromSearch=arvioitava).  Tehtävän suorituksesta syntyi aavistuksen pitkä raportti josta olen tähän alle koonnut tulokset, kuin tehtävänannossa niitä oli oli pyydetty.
 ##### Tehtävä on kokonaisuudessaan raportoitu Labraharjoitus vuodelta 2024 [tiedostoon](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7.1_2021_labra_Kippo_Oy.md)
 
 ### 1 .Turvallisesti etänä - SSH etäylläpidon avaus koneelle
@@ -146,7 +145,7 @@ Nörttimme kaipaavat teknistä tietoa weppipalveluista. Kerää raporttisi perä
 
 ## d) asenna itsellesi tyhjä virtuaalikone.
 
-Tehtävän suoritus alkoi 23.05.
+Tehtävän suoritus alkoi 23.05. ja päättyi 23.30 UCT+3. Seuraavana päivänä jatkoin klo 19.15-19.30 UCT+3.
 1. Avaan virtualboxin ja luon sinne uuden virtuaalikoneen nimeltä labra. Alla koneelle antamani specsit.
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.201.png)
    > ![](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/images/7.202.png)
@@ -157,10 +156,23 @@ Tehtävän suoritus alkoi 23.05.
 4. Suljen selaimen ja klikkaan `install debian`ja herjaan `launch anyway`
 5. Tein alue ja maavalinnat ja valitsen kovalevyn alustuskohdassa `tyhjennä levy`
 6. Annan oman nimeni "kadi" ja koneen nimen "labra"
-7. Valitsen ´install` ja klo 23.30 asennus alkaa
+7. Valitsen ´install` ja klo 23.30 asennus alkaa ja raksutti parikymmentä minuuttia.
+8. Asennuksen valmistuttua kone ilmoitti olevansa valmis uudelleenkäynnistykseen, jonka jälkeen pääsin kirjautumaan uusilla labra-tunnuksilla
+9. Kirjauduttuani avasin terminaalin ja asensin päivitykset ja palomuurin.
+>        sudo apt-get update
+>        udo apt-get dist-upgrade
+>        sudo apt-get install ufw
+>        sudo ufw enable
+>        sudo systemctl restart ufw
+>        sudo ufw status # tarkisti vielä tilan joka vastasi status active.
+Tehtävä tuli valmiiksi 19.30.
 
 # h8_Bonus
-- [Asenna Vagrant](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
+- h3 Hello web server vapaaehtoiset tehtävät
+  > 1. [GitHub education](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#8-hanki-github-education-paketti)
+  > 2. [Nimipohjainen virtuaalipalvelin joka vastaa kahdesta eri osoitteesta](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#9--10-nimipohjainen-virtuaalipalvelin--laita-sama-tietokone-vastaamaan-kahdella-eri-sivulla-kahdesta-eri-nimest%C3%A4)
+- h 5 Koko juttu
+  > 1. [Asenna Vagrant](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
   
 
 
