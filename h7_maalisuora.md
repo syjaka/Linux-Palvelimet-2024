@@ -198,13 +198,6 @@ Tehtävän suoritus alkoi 23.05. ja päättyi 23.30 UCT+3. Seuraavana päivänä
 >        sudo systemctl restart ufw
 >        sudo ufw status # tarkisti vielä tilan joka vastasi status active.
 Tehtävä tuli valmiiksi 19.30.
-
-# h8_Bonus
-- h3 Hello web server vapaaehtoiset tehtävät
-> 1. [GitHub education](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#8-hanki-github-education-paketti)
-> 2. [Nimipohjainen virtuaalipalvelin joka vastaa kahdesta eri osoitteesta](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h3_HelloWebServer.md#9--10-nimipohjainen-virtuaalipalvelin--laita-sama-tietokone-vastaamaan-kahdella-eri-sivulla-kahdesta-eri-nimest%C3%A4)
-- h 5 Koko juttu
-> 1. [Asenna Vagrant](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h5_Uudestaan.md#m-vagrant)
   
 [takaisin ylös](https://github.com/syjaka/Linux-Palvelimet-2024/blob/main/h7_maalisuora.md#h_7-maalisuora)
 
