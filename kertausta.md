@@ -1,9 +1,9 @@
-c## Work in progress in definately
+## Work in progress in definately
 
 --- 
 
 ### Tämä muistiinpanokimara on muodostunut omien kokeilujeni ja tehtävieni suorituksista. Tarkoiteksena on koota kurssin edetessä kattava cheatsheetti omaan tulevaisuuden harjoitteluun, sekä jäsentää jo opittua. 
-Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähteet on merkitty tekstiin ja loppuun
+Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Selvitystyössä äytetyt lähteet on merkitty loppuun.
 
 1. Linuxin asennus VirtualBoxiin
  > - Asenna kone
@@ -29,13 +29,10 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >  -  `sudo apt install xpad` asentaa tarralaput
 >  - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro`
 >  - plugareita microon
->    > - `ctrl + E` ja `plugin install filemanager`. `tree`micron komentoriviltä avaa sen ja `set filemanager.openonstart on`asettaa sen avautumaan micron kanssa.
+>    > - `ctrl + E` ja `plugin install filemanager`. Käynnistä micro uudelleen, `tree` micron komentoriviltä avaa sen ja `set filemanager.openonstart on` asettaa sen avautumaan micron kanssa. 
 >    > - mukavammat värit `ctrl+E` ja `set colorscheme simple`
 >    > - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
-> >      - `micro --plugin install misspell`on luhärön paras kaveri. [lähde](https://github.com/CamilleScholtz/micro-misspell-plugin)
-> >      - `sudo apt-get -y install  git `ja `cd $HOME/.config/micro/plug/` mahdollistaa ao plugarit
-> >      -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee. 
-> >      - `git clone https://github.com/terokarvinen/micro-cheat.git` asentaa micron bash-completionia vastaavan Fi avaa uuteen ikkunaan kyseisen kielen
+
 
 5. Käyttäjät, ryhmät ja oikeudet
 
@@ -162,20 +159,26 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 > 2. [Python]()
 >  - Automatisointihakemistossa `mkdir kerroaika.py`
 >  - `micro kello.py`tallennan `#!/usr/bin/bash` rv `from datetime import datetime`rv `nyt = datetime.now()` rv `kellonaika = nyt.strftime("%H:%M:%S")`rv `print(f"Kello on nyt: {kellonaika}")`
-> "
+
+
 9. Sekalaisia komentoja
 >  - `ip route`näyttää reititystaulun 
 >  - `ip addr show`oman ip-osoitteen jota voi suodattaa vielä näyttämään vain ip ja ip-6 osoitteet`| grep -e inet -e inet6`
 >  - `mv vanha_nimi uusi_nimi` -n estää päällekirjoituksen
 >  - `rm tiedosto toinen_tiedosto kolmas_tiedosto`poistaa `rm -r hakemisto`poistaa hakemiston
 > - `export PS1="\W\$ "`lyhentää promptin kattamaan vain nykyisen hakemiston
-10. 
->
+>   - `cp -r alkup_hakemisto kopio`
+
+
  Lähteet:
 
 Debian Wiki. 2023. [SSH. Debian Wiki](https://wiki.debian.org/SSH). Luettu: 03.2024.
 
 Hakala J. 2019 [Linux komentoja](https://hakala690012106.wordpress.com/2019/03/07/linux-komentoja/) Luettu 03.2024
+
+Github NiclasHH 2024. [Linux-palvelimet](https://github.com/NicklasHH/Linux-palvelimet)
+
+Github Ilona-Hiltunen 2024. [Linux-course2024](https://github.com/Ilona-Hiltunen/linux-course2024)
 
 Lehto S. 2022, [Komentojen automatisointi ja skriptaus](https://susannalehto.fi/2022/komentojen-automatisointi-ja-skriptaus-h6/) Luettu 01.2024
 
@@ -193,4 +196,6 @@ Karvinen, T. 2023. [Install Debian on Virtualbox - Updated 2023](https://terokar
 Karvinen, T. 10.04.2018. [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/). Luettu: 26.02.2024.
 
 Karvinen, T. 04.12.2007. [Shell Scripting](/https:/terokarvinen.com/2007/shell-scripting-4/#see_also). Luettu: 03.2024.
+
+
 
