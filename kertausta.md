@@ -11,29 +11,29 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
  > - `Install Debian`
    
 2. Terminaalin "alustus"
->  - päivitykset
+- päivitykset
 >     `sudo apt-get update` + `sudo apt-get -y dist-upgrade`
->  - Palomuuri
+- Palomuuri
 >     `sudo apt-get -y install ufw` + `sudo ufw enable` ja `sudo systemctl restart ufw`
 >    ja aukot
 >   - `sudo ufw allow 22/tcp` - SSH
 >   - `sudo ufw allow 80/tcp` -http
->   - `sudo ufw allow/443/tcp` - TSL encrypted
 >   - `ufw status`palauttaa tilan
->  - Guest additions - **devices** + **Insert Guest Additions** + Menen **applications** ja valitse **File manager**ista **Vbox_GAs...CDROM**
+- Guest additions - **devices** + **Insert Guest Additions** + Menen **applications** ja valitse **File manager**ista **Vbox_GAs...CDROM**
 >        `cd /media/USER/VBox...` + `ls` + `sudo bash VBoxLinuxAdditions.run` jonka jälkeen järjestelmän uudelleenkäynnistys
->  - leikepöytä käyttöön : **Devices** + **Shared clipboard** + **Bidirectional**
+- leikepöytä käyttöön : **Devices** + **Shared clipboard** + **Bidirectional**
 
 3. Muiden lisäosien asennus ja käyttöönotto [peruskomennot](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) [cheatsheet](https://terokarvinen.com/2022/command-palette-cheatsheet-run-and-make-micro/)
 >  - Bash comletion `sudo apt-get -y install bash-completion` 
 >  - Micro = `sudo apt-get -y install micro` ja sen asettaminen defaultiksi `export EDITOR=micro` ja valitse micro
->    - plugareita microon
->       - `micro --plugin install misspell`on luhärön paras kaveri. [lähde](https://github.com/CamilleScholtz/micro-misspell-plugin)
->       - `sudo apt-get -y install  git `ja `cd $HOME/.config/micro/plug/` mahdollistaa ao plugarit
->       -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee. 
->       - `git clone https://github.com/terokarvinen/micro-cheat.git` asentaa micron bash-completionia vastaavan Fi avaa uuteen ikkunaan kyseisen kielen
->        - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
->        - mukavammat värit `ctrl+E` ja `set colorscheme simple` (Karvinen, 2020)
+>  - plugareita microon
+> >
+> >      - `micro --plugin install misspell`on luhärön paras kaveri. [lähde](https://github.com/CamilleScholtz/micro-misspell-plugin)
+> >      - `sudo apt-get -y install  git `ja `cd $HOME/.config/micro/plug/` mahdollistaa ao plugarit
+> >      -  `git clone https://github.com/terokarvinen/micro-run.git` luo ajettavan terminaalin suoraan microon F5 suorittaa return sulkee. 
+> >      - `git clone https://github.com/terokarvinen/micro-cheat.git` asentaa micron bash-completionia vastaavan Fi avaa uuteen ikkunaan kyseisen kielen
+> >       - rivien wrap microssa `ctrl+E` ja `set miniwrap on`
+> >       - mukavammat värit `ctrl+E` ja `set colorscheme simple` (Karvinen, 2020)
 >
 
 4. Yleisiä niksejä
@@ -137,8 +137,26 @@ Pääosin materiaali koostuu omasta kokemuksesta ja kokeilusta. Käytetyt lähte
 >  - `rm tiedosto toinen_tiedosto kolmas_tiedosto`poistaa `rm -r hakemisto`poistaa hakemiston
 10. 
 >
-> Lähteet:
->
-> Lehto S. 2022, Komentojen automatisointi ja skriptaus. Luettavissa https://susannalehto.fi/2022/komentojen-automatisointi-ja-skriptaus-h6/. Luettu 01.2024
-> Karvinen T. 2020, CommandLineRevisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Luettu 01.2024
+ Lähteet:
+
+Debian Wiki. 2023. [SSH. Debian Wiki](https://wiki.debian.org/SSH). Luettu: 03.2024.
+
+Hakala J. 2019 [Linux komentoja](https://hakala690012106.wordpress.com/2019/03/07/linux-komentoja/) Luettu 03.2024
+
+Lehto S. 2022, [Komentojen automatisointi ja skriptaus](https://susannalehto.fi/2022/komentojen-automatisointi-ja-skriptaus-h6/) Luettu 01.2024
+
+Karvinen T. 2020, [CommandLineRevisited](https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited) Luettu 01.2024
+Debian Wiki. 09.11.2023. SSH. Debian Wiki. Luettavissa: https://wiki.debian.org/SSH. Luettu: 26.02.2024.
+
+Karvinen, T. 2021. [Deploy Django 4 - Production Install](https://terokarvinen.com/2022/deploy-django/). Luettu: 06.03.2024.
+
+Karvinen, T. 2021. [Django 4 Instant Customer Database Tutorial](https://terokarvinen.com/2022/django-instant-crm-tutorial/). Luettu: 03.2024.
+
+Karvinen, T. 27.09.2018. [Hello World Python3, Bash, C, C++, Go, Lua, Ruby, Java – Programming Languages on Ubuntu](https://terokarvinen.com/2018/hello-python3-bash-c-c-go-lua-ruby-java-programming-languages-on-ubuntu-18-04/?fromSearch=hello%20world) Luettu: 03.2024.
+
+Karvinen, T. 2023. [Install Debian on Virtualbox - Updated 2023](https://terokarvinen.com/2021/install-debian-on-virtualbox/). Luettu: 02.2024
+
+Karvinen, T. 10.04.2018. [Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/). Luettu: 26.02.2024.
+
+Karvinen, T. 04.12.2007. [Shell Scripting](/https:/terokarvinen.com/2007/shell-scripting-4/#see_also). Luettu: 03.2024.
 
